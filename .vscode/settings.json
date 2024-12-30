@@ -1,0 +1,32 @@
+{
+  "dart.flutterSdkPath": ".fvm/versions/3.24.5",
+  "explorer.fileNesting.patterns": {
+    "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml, devtools_options.yaml, flutter_native_splash.yaml, firebase.json, .fvmrc, *.sh, *.log, *.iml",
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "README.md": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md, command.md, info.md",
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart"
+  },
+  "files.exclude": {
+    "**/.git": true, // this is a default value
+    "**/.fvm": true, // this is a default value
+    "**/.dart_tool": true, // this is a default value
+    "**/.idea": true, // this is a default value
+    "lib/locale/generated": true,
+  },
+  "search.exclude": {
+    "lib/locale/generated": true,
+    "**.arb*": true
+  },
+  "editor.formatOnSave": true,
+  "[dart]": {
+    "editor.rulers": [
+      80
+    ],
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.selectionHighlight": true,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "allDocuments"
+  }
+}
