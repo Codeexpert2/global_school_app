@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/core/enums/alert_dialog_type.dart';
+import 'package:global_school/core/enums/alert_dialog_type.dart';
 
 /// A customizable alert dialog that supports different types
 /// such as Error, Warning, Info, and Success.

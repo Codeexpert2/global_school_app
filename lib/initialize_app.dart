@@ -6,11 +6,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
-import 'package:template/services/file_services/file_service.dart';
-import 'package:template/services/local_storage/secure_storage_service.dart';
-import 'package:template/services/local_storage/storage_service.dart';
+import 'package:global_school/services/file_services/file_service.dart';
+import 'package:global_school/services/local_storage/secure_storage_service.dart';
+import 'package:global_school/services/local_storage/storage_service.dart';
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';

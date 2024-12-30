@@ -1,6 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import 'package:template/core/enums/enums.dart';
+import 'package:global_school/core/enums/enums.dart';
 
 /// A utility class to check the current network connectivity status.
 ///
@@ -80,4 +80,3 @@ class NetworkInfo {
     return ConnectivityStatus.notDetermined;
   }
 }
-

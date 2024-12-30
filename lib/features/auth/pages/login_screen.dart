@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/components/submit_button.dart';
-import 'package:template/core/functions/validators.dart';
-import 'package:template/core/router/app_routes.dart';
+import 'package:global_school/components/submit_button.dart';
+import 'package:global_school/core/functions/validators.dart';
+import 'package:global_school/core/router/app_routes.dart';
 
 import '../providers/login_provider.dart';
 

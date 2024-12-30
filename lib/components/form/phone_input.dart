@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-import 'package:template/configs/app_configs.dart';
-import 'package:template/core/functions/validators.dart';
-import 'package:template/core/themes/app_colors.dart';
+import 'package:global_school/configs/app_configs.dart';
+import 'package:global_school/core/functions/validators.dart';
+import 'package:global_school/core/themes/app_colors.dart';
 
 class PhoneInput extends StatelessWidget {
   const PhoneInput({super.key});
@@ -46,7 +46,7 @@ class PhoneInput extends StatelessWidget {
             color: AppColors.borderColor,
           ),
         ),
-        hintText: 'رقم الهاتف',              
+        hintText: 'رقم الهاتف',
         errorMessage: 'رقم الهاتف غير صالح',
         onInputChanged: (value) {
           // setState(() {
@@ -80,7 +80,7 @@ class PhoneInput extends StatelessWidget {
             } else if (!isArabicA && isArabicB) {
               return 1; // b comes first
             } else {
-              // Sort alphabetically by the country name if both are Arabic or 
+              // Sort alphabetically by the country name if both are Arabic or
               // both are non-Arabic
               return a.name!.compareTo(b.name!);
             }

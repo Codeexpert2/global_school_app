@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/features/root/constants/destinations.dart';
-import 'package:template/features/root/providers/root_notifier.dart';
+import 'package:global_school/features/root/constants/destinations.dart';
+import 'package:global_school/features/root/providers/root_notifier.dart';
 
 class RootScreen extends ConsumerWidget {
   const RootScreen({

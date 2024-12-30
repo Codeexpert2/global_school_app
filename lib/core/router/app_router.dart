@@ -2,12 +2,12 @@ import 'package:flutter/foundation.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/core/keys/keys.dart';
-import 'package:template/core/router/routes.dart';
-import 'package:template/features/statics/not_found.dart';
-import 'package:template/initialize_app.dart';
-import 'package:template/providers/auth_provider.dart';
-import 'package:template/services/local_storage/storage_service.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/core/router/routes.dart';
+import 'package:global_school/features/statics/not_found.dart';
+import 'package:global_school/initialize_app.dart';
+import 'package:global_school/providers/auth_provider.dart';
+import 'package:global_school/services/local_storage/storage_service.dart';
 
 import 'app_routes.dart';
 import 'go_router_observer.dart';

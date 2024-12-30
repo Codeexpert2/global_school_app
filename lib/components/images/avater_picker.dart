@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'package:image_picker/image_picker.dart';
 
-import 'package:template/core/constants/images.dart';
-import 'package:template/core/extensions/extensions.dart';
-import 'package:template/core/themes/app_colors.dart';
-import 'package:template/core/utils/bottom_sheets.dart';
+import 'package:global_school/core/constants/images.dart';
+import 'package:global_school/core/extensions/extensions.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/core/utils/bottom_sheets.dart';
 
 import 'cached_image.dart';
 

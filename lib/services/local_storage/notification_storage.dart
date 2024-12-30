@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:template/core/keys/keys.dart';
-import 'package:template/core/notifications/notification_model.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/core/notifications/notification_model.dart';
 
 import 'storage_service.dart';
 

@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
 
-import 'package:template/components/images/cached_image.dart';
-import 'package:template/components/main/app_divider.dart';
-import 'package:template/components/main/main_appbar.dart';
-import 'package:template/core/enums/alert_dialog_type.dart';
-import 'package:template/core/extensions/extensions.dart';
-import 'package:template/core/router/app_routes.dart';
-import 'package:template/core/themes/app_colors.dart';
-import 'package:template/core/utils/confirm_dialog.dart';
-import 'package:template/features/profile/widgets/profile_item.dart';
-import 'package:template/locale/generated/l10n.dart';
-import 'package:template/providers/auth_provider.dart';
+import 'package:global_school/components/images/cached_image.dart';
+import 'package:global_school/components/main/app_divider.dart';
+import 'package:global_school/components/main/main_appbar.dart';
+import 'package:global_school/core/enums/alert_dialog_type.dart';
+import 'package:global_school/core/extensions/extensions.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/core/utils/confirm_dialog.dart';
+import 'package:global_school/features/profile/widgets/profile_item.dart';
+import 'package:global_school/locale/generated/l10n.dart';
+import 'package:global_school/providers/auth_provider.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});

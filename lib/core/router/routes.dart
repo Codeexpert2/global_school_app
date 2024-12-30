@@ -1,26 +1,26 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/components/web/web.dart';
-import 'package:template/core/keys/keys.dart';
-import 'package:template/core/router/app_routes.dart';
-import 'package:template/features/auth/pages/login_screen.dart';
-import 'package:template/features/auth/pages/password_reset_screen.dart';
-import 'package:template/features/auth/pages/register_screen.dart';
-import 'package:template/features/category/category_screen.dart';
-import 'package:template/features/help/pages/help_screen.dart';
-import 'package:template/features/home/home.dart';
-import 'package:template/features/notification/notification_screen.dart';
-import 'package:template/features/onboarding/onboarding_screen.dart';
-import 'package:template/features/profile/pages/change_password_screen.dart';
-import 'package:template/features/profile/pages/profile_screen.dart';
-import 'package:template/features/root/providers/root_notifier.dart';
-import 'package:template/features/root/root_screen.dart';
-import 'package:template/features/search/search_screen.dart';
-import 'package:template/features/settings/pages/settings_screen.dart';
-import 'package:template/features/splash/splash_screen.dart';
-import 'package:template/features/statics/about.dart';
-import 'package:template/features/statics/privacy_policy.dart';
-import 'package:template/features/statics/terms_conditions.dart';
+import 'package:global_school/components/web/web.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/features/auth/pages/login_screen.dart';
+import 'package:global_school/features/auth/pages/password_reset_screen.dart';
+import 'package:global_school/features/auth/pages/register_screen.dart';
+import 'package:global_school/features/category/category_screen.dart';
+import 'package:global_school/features/help/pages/help_screen.dart';
+import 'package:global_school/features/home/home.dart';
+import 'package:global_school/features/notification/notification_screen.dart';
+import 'package:global_school/features/onboarding/onboarding_screen.dart';
+import 'package:global_school/features/profile/pages/change_password_screen.dart';
+import 'package:global_school/features/profile/pages/profile_screen.dart';
+import 'package:global_school/features/root/providers/root_notifier.dart';
+import 'package:global_school/features/root/root_screen.dart';
+import 'package:global_school/features/search/search_screen.dart';
+import 'package:global_school/features/settings/pages/settings_screen.dart';
+import 'package:global_school/features/splash/splash_screen.dart';
+import 'package:global_school/features/statics/about.dart';
+import 'package:global_school/features/statics/privacy_policy.dart';
+import 'package:global_school/features/statics/terms_conditions.dart';
 
 List<RouteBase> routes = <RouteBase>[
   GoRoute(

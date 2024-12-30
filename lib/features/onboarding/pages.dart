@@ -1,4 +1,4 @@
-import 'package:template/features/onboarding/models/onboarding_model.dart';
+import 'package:global_school/features/onboarding/models/onboarding_model.dart';
 
 final List<OnboardingPageData> pages = [
   OnboardingPageData(

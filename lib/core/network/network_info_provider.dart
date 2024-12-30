@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/core/enums/connectivity_status.dart';
+import 'package:global_school/core/enums/connectivity_status.dart';
 
 import 'network_info.dart';
 

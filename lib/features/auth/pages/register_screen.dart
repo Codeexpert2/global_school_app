@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/components/submit_button.dart';
-import 'package:template/configs/app_configs.dart';
-import 'package:template/core/functions/validators.dart';
-import 'package:template/core/router/app_routes.dart';
-import 'package:template/core/themes/app_colors.dart';
-import 'package:template/core/utils/url_luncher.dart';
-import 'package:template/providers/auth_provider.dart';
+import 'package:global_school/components/submit_button.dart';
+import 'package:global_school/configs/app_configs.dart';
+import 'package:global_school/core/functions/validators.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/core/utils/url_luncher.dart';
+import 'package:global_school/providers/auth_provider.dart';
 
 import '../providers/register_provider.dart';
 

@@ -1,4 +1,4 @@
-import 'package:template/core/constants/constants.dart';
+import 'package:global_school/core/constants/constants.dart';
 
 /// Validates a password based on certain criteria.
 ///
@@ -11,7 +11,7 @@ import 'package:template/core/constants/constants.dart';
 /// - It contains at least one number and letter.
 ///
 /// @param val The password to be validated.
-/// @return A [String] message indicating the validation result. 
+/// @return A [String] message indicating the validation result.
 /// If the password is valid, it returns `null`.
 String? passwordValidator(String? val) {
   if (val == null || val.isEmpty) {

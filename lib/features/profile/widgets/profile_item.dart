@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/core/themes/app_colors.dart';
+import 'package:global_school/core/themes/app_colors.dart';
 
 class ProfileItem extends StatelessWidget {
   const ProfileItem({
@@ -17,7 +17,6 @@ class ProfileItem extends StatelessWidget {
   final IconData? icon;
   final Color? color;
   final VoidCallback onTap;
-  
 
   @override
   Widget build(BuildContext context) {

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/components/main/main_drawer.dart';
-import 'package:template/core/client/client.dart';
-import 'package:template/core/router/app_routes.dart';
-import 'package:template/locale/generated/l10n.dart';
-import 'package:template/providers/auth_provider.dart';
+import 'package:global_school/components/main/main_drawer.dart';
+import 'package:global_school/core/client/client.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/locale/generated/l10n.dart';
+import 'package:global_school/providers/auth_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});

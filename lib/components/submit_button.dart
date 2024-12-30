@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/core/themes/app_colors.dart';
+import 'package:global_school/core/themes/app_colors.dart';
 
 import 'loading/loading_widget.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/core/extensions/extensions.dart';
+import 'package:global_school/core/extensions/extensions.dart';
 
 class EmptyWidget extends StatelessWidget {
   const EmptyWidget({super.key});

@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import 'package:template/configs/app_configs.dart';
-import 'package:template/core/constants/network.dart';
+import 'package:global_school/configs/app_configs.dart';
+import 'package:global_school/core/constants/network.dart';
 
 // Provide Dio instance
 final dioProvider = Provider<Dio>((ref) => Dio());

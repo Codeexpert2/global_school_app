@@ -1,4 +1,4 @@
-import 'package:template/configs/app_configs.dart';
+import 'package:global_school/configs/app_configs.dart';
 
 class AppFont {
   static const String fontFamily = AppConfigs.fontFamily;

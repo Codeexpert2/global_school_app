@@ -1,7 +1,7 @@
-import 'package:template/locale/generated/l10n.dart';
+import 'package:global_school/locale/generated/l10n.dart';
 
 class DateHelper {
-  /// Provides a human-readable representation of 
+  /// Provides a human-readable representation of
   /// the time elapsed since a given DateTime.
   static String timeAgo(DateTime date) {
     final lang = S.current;

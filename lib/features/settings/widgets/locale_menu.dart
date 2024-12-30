@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/configs/app_configs.dart';
+import 'package:global_school/configs/app_configs.dart';
 
 import '../providers/locale_provider.dart';
 

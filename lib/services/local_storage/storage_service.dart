@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:get_storage/get_storage.dart';
 
-import 'package:template/core/extensions/extensions.dart';
+import 'package:global_school/core/extensions/extensions.dart';
 
 typedef JsonMap = Map<String, dynamic>;
 typedef JsonList = List<JsonMap>;

@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 
-import 'package:template/core/enums/log_level.dart';
+import 'package:global_school/core/enums/log_level.dart';
 
 /// A utility class for structured and colorful logging in Flutter.
 ///

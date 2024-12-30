@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/core/helpers/image_helper.dart';
+import 'package:global_school/core/helpers/image_helper.dart';
 
 /// ```dart
 /// AvatarWidget(

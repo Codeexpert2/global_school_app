@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 
-import 'package:template/configs/app_configs.dart';
+import 'package:global_school/configs/app_configs.dart';
 
 /// An extension on [GoRouter] to provide additional utility methods.
 extension GoRouterExtension on GoRouter {
@@ -24,10 +24,10 @@ extension GoRouterExtension on GoRouter {
     return location;
   }
 
-  /// Constructs the full URL path by appending the current location to the 
+  /// Constructs the full URL path by appending the current location to the
   /// base domain.
   ///
-  /// Combines [AppConfigs.baseDomin] with the current [location] to create 
+  /// Combines [AppConfigs.baseDomin] with the current [location] to create
   /// the full path.
   ///
   /// Example:

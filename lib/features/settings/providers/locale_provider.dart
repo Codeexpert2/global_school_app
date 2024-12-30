@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/configs/app_configs.dart';
-import 'package:template/core/keys/keys.dart';
-import 'package:template/initialize_app.dart';
-import 'package:template/services/local_storage/storage_service.dart';
+import 'package:global_school/configs/app_configs.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/initialize_app.dart';
+import 'package:global_school/services/local_storage/storage_service.dart';
 
 final storage = locator<StorageService>();
 

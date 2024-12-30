@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 
-import 'package:template/core/log/app_logs.dart';
-import 'package:template/core/themes/app_colors.dart';
+import 'package:global_school/core/log/app_logs.dart';
+import 'package:global_school/core/themes/app_colors.dart';
 
 import 'placeholder_image.dart';
 
@@ -14,7 +14,7 @@ class CachedImage extends StatelessWidget {
     this.height,
     required this.imageUrl,
   });
-  
+
   final double? width;
   final double? height;
   final String imageUrl;

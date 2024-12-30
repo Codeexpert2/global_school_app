@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/components/loading/loading_widget.dart';
-import 'package:template/core/themes/app_colors.dart';
+import 'package:global_school/components/loading/loading_widget.dart';
+import 'package:global_school/core/themes/app_colors.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

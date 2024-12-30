@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/core/client/client.dart';
+import 'package:global_school/core/client/client.dart';
 
 final helpServiceProvider = Provider<HelpService>((ref) {
   final client = ref.watch(networkServiceProvider);

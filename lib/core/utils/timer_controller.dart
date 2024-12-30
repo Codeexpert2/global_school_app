@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:template/configs/app_configs.dart';
+import 'package:global_school/configs/app_configs.dart';
 
 /// A class that manages a timer for an audio player.
 /// It provides functionality to start, pause, resume,
@@ -10,7 +10,8 @@ import 'package:template/configs/app_configs.dart';
 ///
 /// Additionally, it triggers a callback when the
 /// audio has played for at least 5% of its duration.
-class TimerController { // 10 percent
+class TimerController {
+  // 10 percent
 
   /// Constructs a new [TimerController] object.
   /// [audioDuration] is the total duration of the audio.

@@ -1286,13 +1286,13 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "template",
+      "name": "global_school",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-12-27T07:54:00.401493Z",
+  "generated": "2024-12-30T11:46:57.767343Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/essasabbagh/fvm/versions/3.24.5",

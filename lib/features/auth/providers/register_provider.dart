@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/core/utils/snackbars.dart';
-import 'package:template/providers/auth_provider.dart';
+import 'package:global_school/core/utils/snackbars.dart';
+import 'package:global_school/providers/auth_provider.dart';
 
 final registerProvider = ChangeNotifierProvider<RegisterNotifier>(
   RegisterNotifier.new,

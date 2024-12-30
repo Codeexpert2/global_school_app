@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/core/keys/keys.dart';
-import 'package:template/core/router/app_routes.dart';
-import 'package:template/core/themes/app_colors.dart';
-import 'package:template/features/onboarding/pages.dart';
-import 'package:template/features/onboarding/widgets/onboarding_page_widget.dart';
-import 'package:template/initialize_app.dart';
-import 'package:template/services/local_storage/storage_service.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/features/onboarding/pages.dart';
+import 'package:global_school/features/onboarding/widgets/onboarding_page_widget.dart';
+import 'package:global_school/initialize_app.dart';
+import 'package:global_school/services/local_storage/storage_service.dart';
 
 import 'constants/onboarding_constants.dart';
 import 'provider/onboarding_provider.dart';

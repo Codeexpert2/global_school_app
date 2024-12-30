@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/core/keys/keys.dart';
-import 'package:template/core/log/app_logs.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/core/log/app_logs.dart';
 
 // ScaffoldFeatureController<SnackBar, SnackBarClosedReason>?
 void showSnackBar(

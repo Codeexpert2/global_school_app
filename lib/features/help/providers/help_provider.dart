@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/core/utils/snackbars.dart';
+import 'package:global_school/core/utils/snackbars.dart';
 
 import '../services/help_service.dart';
 

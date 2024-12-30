@@ -10,9 +10,10 @@
 // }
 import 'dart:io';
 
-import 'package:template/core/errors/error_type.dart';
+import 'package:global_school/core/errors/error_type.dart';
 
-class Failure { // error, success
+class Failure {
+  // error, success
 
   Failure(this.code, this.message);
 

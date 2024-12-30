@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:template/core/router/app_router.dart';
-import 'package:template/core/router/app_routes.dart';
-import 'package:template/core/router/go_router_extension.dart';
+import 'package:global_school/core/router/app_router.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/router/go_router_extension.dart';
 
 final rootProvider = NotifierProvider<RootNotifier, int>(RootNotifier.new);
 

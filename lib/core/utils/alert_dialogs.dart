@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
 
-// import 'package:template/core/keys/keys.dart';
-// import 'package:template/core/themes/app_colors.dart';
-// import 'package:template/core/themes/app_fonts.dart';
+// import 'package:global_school/core/keys/keys.dart';
+// import 'package:global_school/core/themes/app_colors.dart';
+// import 'package:global_school/core/themes/app_fonts.dart';
 
 // void showAlert(
 //   Widget? title,

@@ -7,11 +7,11 @@
     "*.dart": "$(capture).g.dart, $(capture).freezed.dart"
   },
   "files.exclude": {
-    "**/.git": true, // this is a default value
-    "**/.fvm": true, // this is a default value
-    "**/.dart_tool": true, // this is a default value
-    "**/.idea": true, // this is a default value
-    "lib/locale/generated": true,
+    "**/.git": true,
+    "**/.fvm": true,
+    "**/.dart_tool": true,
+    "**/.idea": true,
+    "lib/locale/generated": true
   },
   "search.exclude": {
     "lib/locale/generated": true,

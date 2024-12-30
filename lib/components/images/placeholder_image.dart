@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:template/core/constants/images.dart';
+import 'package:global_school/core/constants/images.dart';
 
 class PlaceHolderImage extends StatelessWidget {
   const PlaceHolderImage({
