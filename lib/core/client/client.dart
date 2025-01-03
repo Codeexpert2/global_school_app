@@ -7,15 +7,19 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:global_school/configs/app_configs.dart';
 import 'package:global_school/core/constants/network.dart';
 
+import 'interceptors/auth_interceptor.dart';
+
 // Provide Dio instance
 final dioProvider = Provider<Dio>((ref) => Dio());
 
-final networkServiceProvider = Provider<ApiClient>((ref) => ApiClient());
+final clientProvider = Provider<ApiClient>((ref) => ApiClient());
 
 /// Create a singleton class to contain all Dio methods and helper functions
 class ApiClient {
+  CancelToken cancelToken = CancelToken();
+
   BaseOptions options = BaseOptions(
-    baseUrl: AppConfigs.baseUrl,
+    baseUrl: AppConfigs.baseApiUrl,
     receiveTimeout: timeoutDuration,
     connectTimeout: timeoutDuration,
     sendTimeout: timeoutDuration,
@@ -32,7 +36,7 @@ class ApiClient {
   late final Dio _dio = Dio()
     ..options = options
     ..interceptors.addAll({
-      // AuthInterceptor(),
+      AuthInterceptor(),
       // if (kDebugMode) DioCacheInterceptor(options: cacheOptions),
       PrettyDioLogger(
         enabled: kDebugMode,
@@ -46,8 +50,6 @@ class ApiClient {
         maxWidth: 90,
       )
     });
-
-  CancelToken cancelToken = CancelToken();
 
   /// Get Method
   Future<Response> get(

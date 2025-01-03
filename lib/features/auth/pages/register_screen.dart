@@ -9,7 +9,7 @@ import 'package:global_school/core/functions/validators.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/utils/url_luncher.dart';
-import 'package:global_school/providers/auth_provider.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
 
 import '../providers/register_provider.dart';
 
@@ -30,6 +30,8 @@ class RegisterScreen extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const FlutterLogo(size: 100),
+              const SizedBox(height: 64),
               // Email Input
               SizedBox(
                 height: 65,

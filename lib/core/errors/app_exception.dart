@@ -27,7 +27,6 @@ import 'failure.dart';
   }
 */
 class AppException implements Exception {
-
   AppException.handle(dynamic error) {
     if (error is DioException) {
       // dio error so its an error from response of the API or from dio itself
@@ -47,8 +46,6 @@ class AppException implements Exception {
     //   );
     // }
     else {
-      debugPrint(error.toString());
-
       // default error
       failure = ErrorType.other.failure;
       // failure = Failure(

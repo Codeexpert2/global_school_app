@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/initialize_app.dart';
+import 'package:global_school/locale/generated/l10n.dart';
+import 'package:global_school/services/local_storage/secure_storage_service.dart';
+import 'package:global_school/services/local_storage/storage_service.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:global_school/core/utils/snackbars.dart';
-import 'package:global_school/providers/auth_provider.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
+
+import '../data/auth_service.dart';
 
 final loginProvider = ChangeNotifierProvider<LoginNotifier>(
   LoginNotifier.new,
@@ -15,8 +22,12 @@ class LoginNotifier extends ChangeNotifier {
 
   final formKey = GlobalKey<FormState>();
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailController = TextEditingController(
+    text: 'admin@gmail.com',
+  );
+  final passwordController = TextEditingController(
+    text: 'Password2',
+  );
 
   final emailFocusNode = FocusNode();
   final passwordFocusNode = FocusNode();
@@ -44,24 +55,37 @@ class LoginNotifier extends ChangeNotifier {
         emailFocusNode.unfocus();
         passwordFocusNode.unfocus();
         setLoading(true);
+        final res = await ref.read(authServiceProvider).login(
+              emailController.text,
+              passwordController.text,
+            );
 
-        // Simulate API call
-        await Future.delayed(
-          Durations.extralong4,
-          () => Future.error('Login Faild!'),
-        );
+        if (res.status == false) {
+          throw (res.message ?? S.current.loginFailed);
+        }
 
-        ref.read(authNotifierProvider.notifier).login();
+        // Update the token
+        final storageService = locator<StorageService>();
+        final secureStorageService = locator<SecureStorageService>();
+
+        await storageService.saveJson(localUserKey, res.toJson());
+        await secureStorageService.save(tokenKey, res.token ?? '');
+
+        await ref.read(authNotifierProvider.notifier).login();
 
         // Proceed to the next screen
-        showSuccessSnackbar('Login successful!');
-        emailController.text = '';
-        passwordController.text = '';
+        showSuccessSnackbar(S.current.loginSuccessful);
+        reset();
       }
     } catch (e) {
       showErrorSnackbar(e.toString());
     } finally {
       setLoading(false);
     }
+  }
+
+  void reset() {
+    emailController.clear();
+    passwordController.clear();
   }
 }

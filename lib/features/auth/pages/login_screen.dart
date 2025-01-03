@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/locale/generated/l10n.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,7 +18,7 @@ class LoginScreen extends ConsumerWidget {
     final loginNotifier = ref.read(loginProvider.notifier);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: Text(S.of(context).login)),
       body: Form(
         key: loginState.formKey,
         child: Padding(
@@ -25,6 +26,9 @@ class LoginScreen extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const FlutterLogo(size: 100),
+              const SizedBox(height: 64),
+
               // Email Input
               SizedBox(
                 height: 65,
@@ -42,10 +46,10 @@ class LoginScreen extends ConsumerWidget {
                   },
                   onFieldSubmitted: (_) =>
                       loginState.passwordFocusNode.requestFocus(),
-                  decoration: const InputDecoration(
-                    hintText: 'Enter your Email',
+                  decoration: InputDecoration(
+                    hintText: S.of(context).enterYourEmail,
                     // labelText: 'Email',
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: const Icon(Icons.email),
                   ),
                 ),
               ),
@@ -65,7 +69,7 @@ class LoginScreen extends ConsumerWidget {
                   },
                   onFieldSubmitted: (_) => loginNotifier.login(),
                   decoration: InputDecoration(
-                    hintText: 'Enter your Password',
+                    hintText: S.of(context).enterYourPassword,
                     // labelText: 'Password',
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon: IconButton(
@@ -81,15 +85,15 @@ class LoginScreen extends ConsumerWidget {
               Align(
                 alignment: AlignmentDirectional.centerEnd,
                 child: TextButton(
-                  onPressed: () => context.goNamed(
+                  onPressed: () => context.pushNamed(
                     AppRoutes.resetPassword.name,
                   ),
-                  child: const Text('Did Forget your Password ?'),
+                  child: Text(S.of(context).didForgetYourPassword),
                 ),
               ),
               // Submit Button
               SubmitButton(
-                text: 'Login',
+                text: S.of(context).login,
                 onPressed: loginNotifier.login,
                 isLoading: loginNotifier.isLoading,
               ),
@@ -98,14 +102,7 @@ class LoginScreen extends ConsumerWidget {
                 onPressed: () => context.goNamed(
                   AppRoutes.register.name,
                 ),
-                child: const Text('You don\'t have account ?'),
-              ),
-              const SizedBox(height: 24),
-              TextButton(
-                onPressed: () => context.goNamed(
-                  AppRoutes.settings.name,
-                ),
-                child: const Text('Back to Home'),
+                child: Text(S.of(context).youDontHaveAccount),
               ),
             ],
           ),

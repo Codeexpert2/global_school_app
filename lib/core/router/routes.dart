@@ -57,19 +57,18 @@ List<RouteBase> routes = <RouteBase>[
     path: AppRoutes.login.path,
     name: AppRoutes.login.name,
     builder: (_, __) => const LoginScreen(),
-    routes: [
-      GoRoute(
-        path: AppRoutes.resetPassword.path,
-        name: AppRoutes.resetPassword.name,
-        builder: (_, __) => const PasswordResetScreen(),
-      ),
-      // GoRoute(
-      //   path: AppRoutes.resetPasswordDone.path,
-      //   name: AppRoutes.resetPasswordDone.name,
-      //   builder: (_, __) => const PasswordResetDoneScreen(),
-      // ),
-    ],
+    routes: [],
   ),
+  GoRoute(
+    path: AppRoutes.resetPassword.path,
+    name: AppRoutes.resetPassword.name,
+    builder: (_, __) => const PasswordResetScreen(),
+  ),
+  // GoRoute(
+  //   path: AppRoutes.resetPasswordDone.path,
+  //   name: AppRoutes.resetPasswordDone.name,
+  //   builder: (_, __) => const PasswordResetDoneScreen(),
+  // ),
   GoRoute(
     path: AppRoutes.settings.path,
     name: AppRoutes.settings.name,

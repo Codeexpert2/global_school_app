@@ -13,7 +13,7 @@ import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/utils/confirm_dialog.dart';
 import 'package:global_school/features/profile/widgets/profile_item.dart';
 import 'package:global_school/locale/generated/l10n.dart';
-import 'package:global_school/providers/auth_provider.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});

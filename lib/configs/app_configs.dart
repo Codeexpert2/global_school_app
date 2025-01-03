@@ -1,7 +1,10 @@
 class AppConfigs {
+
+  //http://10.0.2.2:8000/api
   static const String appName = 'App Name';
-  static const String baseDomin = 'https://jsonplaceholder.typicode.com';
-  static const String baseUrl = 'https://jsonplaceholder.typicode.com/todos';
+  static const String baseDomin = 'http://10.0.2.2:8000';
+  static const String baseUrl = 'http://10.0.2.2:8000';
+  static const String baseApiUrl = '$baseUrl/api';
   static const String topic = 'general';
   static const Duration period = Duration(seconds: 1);
   static const int perPage = 10;

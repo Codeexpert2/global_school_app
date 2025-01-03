@@ -2290,6 +2290,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter your Password`
+  String get enterYourPassword {
+    return Intl.message(
+      'Enter your Password',
+      name: 'enterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Did Forget your Password ?`
+  String get didForgetYourPassword {
+    return Intl.message(
+      'Did Forget your Password ?',
+      name: 'didForgetYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have account ?`
+  String get youDontHaveAccount {
+    return Intl.message(
+      'You don\'t have account ?',
+      name: 'youDontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to Home`
+  String get backToHome {
+    return Intl.message(
+      'Back to Home',
+      name: 'backToHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login successful!`
+  String get loginSuccessful {
+    return Intl.message(
+      'Login successful!',
+      name: 'loginSuccessful',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

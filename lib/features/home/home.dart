@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/features/auth/data/auth_service.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -6,7 +7,7 @@ import 'package:global_school/components/main/main_drawer.dart';
 import 'package:global_school/core/client/client.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/locale/generated/l10n.dart';
-import 'package:global_school/providers/auth_provider.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -43,9 +44,15 @@ class HomeScreen extends ConsumerWidget {
             ),
             TextButton(
               onPressed: () {
-                ref.watch(networkServiceProvider).get('/');
+                ref.watch(clientProvider).get('/');
               },
               child: Text(S.of(context).test),
+            ),
+            TextButton(
+              onPressed: () async {
+                await ref.read(authServiceProvider).profile();
+              },
+              child: const Text('profile'),
             ),
           ],
         ),

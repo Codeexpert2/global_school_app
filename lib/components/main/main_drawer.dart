@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/providers/auth_provider.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
 
 import 'app_divider.dart';
 

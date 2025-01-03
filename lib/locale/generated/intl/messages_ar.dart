@@ -71,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
         "attachments": MessageLookupByLibrary.simpleMessage("ملفات مرفقة"),
         "audioTrimmer": MessageLookupByLibrary.simpleMessage("محرر الصوت"),
+        "backToHome": MessageLookupByLibrary.simpleMessage("Back to Home"),
         "backToLogin": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "badRequest": MessageLookupByLibrary.simpleMessage("طلب غير صحيح"),
         "bookmarkList":
@@ -122,6 +123,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAccountWarning3": MessageLookupByLibrary.simpleMessage(
             "هذا الإجراء غير قابل للإلغاء"),
         "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+        "didForgetYourPassword":
+            MessageLookupByLibrary.simpleMessage("Did Forget your Password ?"),
         "dirNotExist":
             MessageLookupByLibrary.simpleMessage("الدليل غير موجود."),
         "done": MessageLookupByLibrary.simpleMessage("تم"),
@@ -157,6 +160,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ادخل بريدك الإلكتروني"),
         "enterYourName":
             MessageLookupByLibrary.simpleMessage("ادخل اسمك بالكامل"),
+        "enterYourPassword":
+            MessageLookupByLibrary.simpleMessage("Enter your Password"),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("أدخل رقم هاتفك"),
         "error": MessageLookupByLibrary.simpleMessage("خطأ"),
@@ -193,6 +198,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "loginFailed": MessageLookupByLibrary.simpleMessage(
             "فشلت عملية تسجيل الدخول، حاول مرة أخرى لاحقًا."),
+        "loginSuccessful":
+            MessageLookupByLibrary.simpleMessage("Login successful!"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
         "message": MessageLookupByLibrary.simpleMessage("الرسالة"),
         "messageText": MessageLookupByLibrary.simpleMessage("نص الرسالة"),
@@ -374,6 +381,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Welcome to the Home Screen!"),
         "writeComment": MessageLookupByLibrary.simpleMessage("كتابة تعليق"),
         "wrongUrl": MessageLookupByLibrary.simpleMessage("رابط غير صحيح"),
-        "yearsAgo": m8
+        "yearsAgo": m8,
+        "youDontHaveAccount":
+            MessageLookupByLibrary.simpleMessage("You don\'t have account ?")
       };
 }

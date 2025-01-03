@@ -6,7 +6,7 @@ import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/routes.dart';
 import 'package:global_school/features/statics/not_found.dart';
 import 'package:global_school/initialize_app.dart';
-import 'package:global_school/providers/auth_provider.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
 import 'package:global_school/services/local_storage/storage_service.dart';
 
 import 'app_routes.dart';
@@ -22,10 +22,12 @@ final routerProvider = Provider<GoRouter>((ref) {
     // here, we are just interested in wheter the user's logged in
     ..listen(
       authNotifierProvider.select(
-        (val) => val.whenData((val) => val),
+        (AsyncValue<bool> val) {
+          return val.whenData((val) => val);
+        },
       ),
-      (_, next) {
-        isAuth.value = AsyncValue.data(next.value ?? false);
+      (_, AsyncValue<bool> next) {
+        isAuth.value = next;
       },
     );
 
@@ -33,7 +35,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     routes: routes,
     refreshListenable: isAuth,
     navigatorKey: rootNavigatorKey,
-    debugLogDiagnostics: kDebugMode,
+    debugLogDiagnostics: true, // kDebugMode,
     initialLocation: AppRoutes.splash.path,
     errorBuilder: (context, state) => const NotFoundScreen(),
     observers: [
@@ -61,7 +63,7 @@ final routerProvider = Provider<GoRouter>((ref) {
 
       // Allowed paths for unauthenticated users
       final allowedUnauthPaths = [
-        AppRoutes.splash.path,
+        // AppRoutes.splash.path,
         AppRoutes.onboarding.path,
         AppRoutes.login.path,
         AppRoutes.register.path,
@@ -82,9 +84,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       // 3. Authenticated user logic
       if (isAuth.value.requireValue) {
         //   // Allow authenticated users to access their allowed paths
-        //   if (allowedAuthPaths.contains(currentPath)) {
-        //     return null; // Stay on the requested path
-        //   }
+        // if (allowedAuthPaths.contains(currentPath)) {
+        //   return null; // Stay on the requested path
+        // }
         //   // Redirect to home if accessing an invalid path
         //   return AppRoutes.home.path;
         if (currentPath == AppRoutes.splash.path) {
@@ -103,6 +105,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       }
 
       // 5. Allow navigation to register, reset password, or login if auth false
+      if (isAuth.value.requireValue &&
+          allowedUnauthPaths.contains(currentPath)) {
+        return AppRoutes.home.path;
+      }
+
+      // 6. Allow navigation to register, reset password, or login if auth false
       return null;
     },
   );

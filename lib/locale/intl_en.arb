@@ -1,4 +1,12 @@
 {
   "@@locale": "en",
-  "appName": "App Name"
+  "appName": "App Name",
+  "login": "Login",
+  "enterYourEmail": "Enter your Email",
+  "enterYourPassword": "Enter your Password",
+  "didForgetYourPassword": "Did Forget your Password ?",
+  "youDontHaveAccount": "You don't have account ?",
+  "backToHome": "Back to Home",
+  "loginFailed": "Login failed!",
+  "loginSuccessful": "Login successful!"
 }

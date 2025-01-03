@@ -24,6 +24,8 @@ class PasswordResetScreen extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const FlutterLogo(size: 100),
+              const SizedBox(height: 64),
               // Email Input
               SizedBox(
                 height: 65,

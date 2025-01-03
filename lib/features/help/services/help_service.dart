@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/core/client/client.dart';
 
 final helpServiceProvider = Provider<HelpService>((ref) {
-  final client = ref.watch(networkServiceProvider);
+  final client = ref.watch(clientProvider);
   return HelpService(client);
 });
 

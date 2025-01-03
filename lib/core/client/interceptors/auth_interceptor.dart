@@ -1,39 +1,45 @@
-// import 'package:dio/dio.dart';
-// import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:dio/dio.dart';
+import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
+import 'package:global_school/initialize_app.dart';
+import 'package:global_school/services/local_storage/secure_storage_service.dart';
+import 'package:global_school/services/local_storage/storage_service.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-// import 'package:rifq/core/data/local/secure_storage_service.dart';
-// import 'package:rifq/core/keys/keys.dart';
-// import 'package:rifq/features/auth/presentation/provider/auth_notifier.dart';
+final storageService = locator<StorageService>();
+final secureStorageService = locator<SecureStorageService>();
 
-// class AuthInterceptor extends Interceptor {
-//   AuthInterceptor();
+class AuthInterceptor extends Interceptor {
+  AuthInterceptor();
 
-//   @override
-//   void onRequest(
-//     RequestOptions options,
-//     RequestInterceptorHandler handler,
-//   ) async {
-//     final token = await SecureStorageService().read(tokenKey);
+  @override
+  void onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    final token = await secureStorageService.read(tokenKey);
 
-//     options.headers['Authorization'] = token;
+    if (token != null) {
+      options.headers['Authorization'] = 'Bearer $token';
+    }
 
-//     return handler.next(options);
-//   }
+    return handler.next(options);
+  }
 
-//   @override
-//   void onError(
-//     DioException err,
-//     ErrorInterceptorHandler handler,
-//   ) async {
-//     if (err.response?.statusCode == 403) {
-//       await SecureStorageService().remove(tokenKey);
-//       await SecureStorageService().remove(cachedUserKey);
-//       ProviderScope.containerOf(rootNavigatorKey.currentContext!)
-//           .read(authNotifierProvider.notifier)
-//           .logout();
-//     }
+  @override
+  void onError(
+    DioException err,
+    ErrorInterceptorHandler handler,
+  ) async {
+    if (err.response?.statusCode == 401) {
+      await storageService.remove(localUserKey);
+      await secureStorageService.remove(tokenKey);
+      ProviderScope.containerOf(rootNavigatorKey.currentContext!)
+          .read(authNotifierProvider.notifier)
+          .logout();
+    }
 
-//     // If refreshing the token fails or the error is not 401, forward the error
-//     return handler.next(err);
-//   }
-// }
+    // If refreshing the token fails or the error is not 401, forward the error
+    return handler.next(err);
+  }
+}

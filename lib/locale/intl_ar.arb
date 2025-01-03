@@ -221,5 +221,10 @@
   "refresh": "تحديث",
   "test": "امتحان",
   "homeScreen": "الرئيسية",
-  "welcomeToTheHomeScreen": "Welcome to the Home Screen!"
+  "welcomeToTheHomeScreen": "Welcome to the Home Screen!",
+  "enterYourPassword": "Enter your Password",
+  "didForgetYourPassword": "Did Forget your Password ?",
+  "youDontHaveAccount": "You don't have account ?",
+  "backToHome": "Back to Home",
+  "loginSuccessful": "Login successful!"
 }
