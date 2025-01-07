@@ -23,10 +23,10 @@ class RegisterScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Register')),
-      body: Form(
-        key: registerState.formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(32.0),
+        child: Form(
+          key: registerState.formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

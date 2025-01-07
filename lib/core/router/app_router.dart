@@ -35,7 +35,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     routes: routes,
     refreshListenable: isAuth,
     navigatorKey: rootNavigatorKey,
-    debugLogDiagnostics: true, // kDebugMode,
+    debugLogDiagnostics: false, // kDebugMode,
     initialLocation: AppRoutes.splash.path,
     errorBuilder: (context, state) => const NotFoundScreen(),
     observers: [

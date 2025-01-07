@@ -138,7 +138,7 @@ class ProfileScreen extends ConsumerWidget {
                           type: AlertDialogType.error,
                           onAccept: () {
                             // Handle account deletion logic here
-                            print('Account logout.');
+                            debugPrint('Account logout.');
                             ref.read(authNotifierProvider.notifier).logout();
                           },
                         ),
@@ -163,7 +163,7 @@ class ProfileScreen extends ConsumerWidget {
                           type: AlertDialogType.error, // Type is Error
                           onAccept: () {
                             // Handle account deletion logic here
-                            print('Account deleted.');
+                            debugPrint('Account deleted.');
                           },
                         ),
                       );

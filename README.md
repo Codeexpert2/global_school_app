@@ -789,13 +789,8 @@ The application uses a custom `AppLogs` utility for structured, colorful, and co
 AppLogs.success('Operation completed successfully');
 AppLogs.info('Application started', 'Startup');
 AppLogs.warning('Low disk space', 'Storage');
-<<<<<<< HEAD
 AppLogs.debugLog('Fetching user data');
 AppLogs.errorLog('Failed to load user profile', 'Authentication', 
-=======
-AppLogs.debug('Fetching user data');
-AppLogs.error('Failed to load user profile', 'Authentication', 
->>>>>>> a5a5803 (Update applogs)
     metadata: {'userId': 123});
 
 // Configuring log level

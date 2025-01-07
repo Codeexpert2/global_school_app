@@ -7,19 +7,29 @@
 
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+// import 'package:global_school/configs/app_configs.dart';
+// import 'package:global_school/core/constants/images.dart';
+// import 'package:global_school/core/extensions/extensions.dart';
+// import 'package:global_school/core/keys/keys.dart';
+// import 'package:global_school/core/themes/app_colors.dart';
 // import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+// import 'notification_model.dart';
 
 // const String mySound = 'slow_spring_board';
 
-// /// To verify that your messages are being received, you ought to see a notification appearon your device/emulator via the flutter_local_notifications plugin.
+// /// To verify that your messages are being received, you ought to see a
+// /// notification appearon your device/emulator via the flutter_local_notifications.
 // /// Define a top-level named handler which background/terminated messages will
-// /// call. Be sure to annotate the handler with `@pragma('vm:entry-point')` above the function declaration.
+// /// call. Be sure to annotate the handler with `@pragma('vm:entry-point')`
+// /// above the function declaration.
 // @pragma('vm:entry-point')
-//Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-//await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+// Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+//   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 //   await setupFlutterNotifications();
 //   showFlutterNotification(message);
-//   // If you're going to use other Firebase services in the background, such as Firestore,
+//   // If you're use other Firebase services in background, like Firestore,
 //   // make sure you call `initializeApp` before using other Firebase services.
 //   debugPrint('Handling a background message ${message.messageId}');
 // }
@@ -58,7 +68,7 @@
 
 //   /// Update the iOS foreground notification presentation options to allow
 //   /// heads up notifications.
-//await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+//   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
 //     alert: true,
 //     badge: true,
 //     sound: true,
@@ -103,7 +113,7 @@
 //         // TODO add a proper drawable resource to android, for now using
 //         // one that already exists in example app.
 //         icon: 'logo',
-//         color: AppColor.secondary500,
+//         color: AppColors.secondary500,
 //         showProgress: true,
 //         progress: 10,
 //         maxProgress: 15,

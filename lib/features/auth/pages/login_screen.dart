@@ -18,11 +18,13 @@ class LoginScreen extends ConsumerWidget {
     final loginNotifier = ref.read(loginProvider.notifier);
 
     return Scaffold(
-      appBar: AppBar(title: Text(S.of(context).login)),
-      body: Form(
-        key: loginState.formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
+      appBar: AppBar(
+        title: Text(S.of(context).login),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(32.0),
+        child: Form(
+          key: loginState.formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

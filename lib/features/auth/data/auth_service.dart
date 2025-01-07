@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:global_school/core/errors/app_exception.dart';
+import 'package:global_school/core/errors/error_handler.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:global_school/core/client/client.dart';
@@ -28,8 +28,7 @@ class AuthService {
 
       return AuthModel.fromJson(res.data);
     } catch (e) {
-      // rethrow;
-      throw AppException.handle(e).failure;
+      throw ErrorHandler.handle(e);
     }
   }
 
@@ -52,7 +51,8 @@ class AuthService {
       final res = await client.post('/refreshToken');
       return AuthModel.fromJson(res.data);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      throw ErrorHandler.handle(e);
     }
   }
 
@@ -72,7 +72,8 @@ class AuthService {
       );
       return res.data;
     } catch (e) {
-      rethrow;
+      // rethrow;
+      throw ErrorHandler.handle(e);
     }
   }
 
@@ -81,7 +82,8 @@ class AuthService {
       final res = await client.get('/profile');
       return AuthModel.fromJson(res.data);
     } catch (e) {
-      rethrow;
+      // rethrow;
+      throw ErrorHandler.handle(e);
     }
   }
 }

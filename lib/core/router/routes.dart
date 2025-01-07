@@ -1,5 +1,3 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import 'package:global_school/components/web/web.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
@@ -13,7 +11,6 @@ import 'package:global_school/features/notification/notification_screen.dart';
 import 'package:global_school/features/onboarding/onboarding_screen.dart';
 import 'package:global_school/features/profile/pages/change_password_screen.dart';
 import 'package:global_school/features/profile/pages/profile_screen.dart';
-import 'package:global_school/features/root/providers/root_notifier.dart';
 import 'package:global_school/features/root/root_screen.dart';
 import 'package:global_school/features/search/search_screen.dart';
 import 'package:global_school/features/settings/pages/settings_screen.dart';

@@ -1,11 +1,14 @@
 import 'dart:async';
 
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:global_school/core/log/app_logs.dart';
+import 'package:global_school/core/notifications/firebase_notification.dart';
 
 import 'package:global_school/services/file_services/file_service.dart';
 import 'package:global_school/services/local_storage/secure_storage_service.dart';
@@ -100,6 +103,14 @@ Future<void> initializeApp() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // Initialize any dependency injection
-  // await setupDependencyInjection();
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+
+  try {
+    await NotificationService.instance.initialize();
+  } catch (e) {
+    AppLogs.error('Firebase Messaging initialize faild:');
+    AppLogs.error('$e');
+  }
 }

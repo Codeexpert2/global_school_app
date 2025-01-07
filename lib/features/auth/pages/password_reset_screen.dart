@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/extensions/context_ext.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -17,13 +18,14 @@ class PasswordResetScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Password Reset')),
-      body: Form(
-        key: resetPasswordState.formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(32.0),
+        child: Form(
+          key: resetPasswordState.formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: context.width / 3),
               const FlutterLogo(size: 100),
               const SizedBox(height: 64),
               // Email Input
