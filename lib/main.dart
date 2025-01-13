@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -27,9 +28,13 @@ void main() async {
     },
     (error, stackTrace) {
       // Handle the error gracefully
-      AppLogs.error('$error');
+      AppLog.error('$error');
       // You can log the error or send it to a crash reporting service
-      // FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      FirebaseCrashlytics.instance.recordError(
+        error,
+        stackTrace,
+        fatal: true,
+      );
       // FirebaseCrashlytics.instance.recordError(error, stackTrace);
     },
   );

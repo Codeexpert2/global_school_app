@@ -37,7 +37,7 @@ class CachedImage extends StatelessWidget {
         width: width,
       ),
       errorListener: (value) {
-        AppLogs.error(
+        AppLog.error(
           '$value',
           'Cached Image',
           {
