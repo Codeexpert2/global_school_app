@@ -11,7 +11,7 @@ class RiverpodObserver extends ProviderObserver {
     Object? newValue,
     ProviderContainer container,
   ) {
-    AppLogs.info(
+    AppLog.info(
       'DidUpdate: Provider = ${provider.name ?? provider.runtimeType}, '
           'Previous Value = $previousValue, New Value = $newValue',
       'ProviderObserver',
@@ -20,7 +20,7 @@ class RiverpodObserver extends ProviderObserver {
 
   @override
   void didDisposeProvider(ProviderBase provider, ProviderContainer container) {
-    AppLogs.warning(
+    AppLog.warning(
       'DidDispose: Provider = ${provider.name ?? provider.runtimeType}',
       'ProviderObserver',
     );

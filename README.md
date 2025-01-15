@@ -42,10 +42,10 @@ Before you begin, ensure you have met the following requirements:
 - Simulator/Emulator or physical device for testing
 
 ### Recommended Versions
-- Flutter: [Specify minimum/recommended version]
-- Dart: [Specify minimum/recommended version]
+- Flutter: 3.24.5
+- Dart: 3.5.4
 ```bash
-fvm use [version]
+fvm use 3.24.5
 ```
 
 ### Recommended VsCode Extensions
@@ -62,6 +62,8 @@ fvm use [version]
 
 [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 
+[Flutter Applog](https://marketplace.visualstudio.com/items?itemName=essasabbagh.flutter-applog)
+
 
 ---
 ## Installation
@@ -69,10 +71,22 @@ fvm use [version]
 Provide instructions on how to install your app. Include any prerequisites and step-by-step installation guide.
 
 ### Clone the Repository
-[Github link](https://)
+[Github link](https://github.com/Codeexpert2/global_school_app.git)
 ```bash
-git clone https://github.com/[your-username]/[your-repo-name].git
-cd [your-repo-name]
+git clone https://github.com/Codeexpert2/global_school_app.git
+cd global_school_app
+```
+If you haven't already, install the Firebase CLI.
+```bash
+firebase login
+```
+```bash
+dart pub global activate flutterfire_cli 
+```
+
+### Setup Firebase Configs
+```bash
+flutterfire configure --project=global-school-89be9  
 ```
 
 ### Install Dependencies

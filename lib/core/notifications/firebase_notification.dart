@@ -21,6 +21,8 @@ class NotificationService {
   bool _isFlutterLocalNotificationsInitialized = false;
 
   Future<void> initialize() async {
+    AppLog.debug('Notification Service initialize');
+
     FirebaseMessaging.onBackgroundMessage(
       _firebaseMessagingBackgroundHandler,
     );
@@ -91,6 +93,8 @@ class NotificationService {
   Future<void> showNotification(RemoteMessage message) async {
     RemoteNotification? notification = message.notification;
     AndroidNotification? android = message.notification?.android;
+    AppLog.debug('notification.title: ${notification?.title}');
+
     if (notification != null && android != null) {
       await _localNotifications.show(
         notification.hashCode,
@@ -132,8 +136,8 @@ class NotificationService {
   }
 
   void _handleBackgroundMessage(RemoteMessage message) {
-    AppLogs.debug('message: ${message.notification?.title}');
-    AppLogs.debug('message: ${message.notification?.body}');
+    AppLog.debug('message: ${message.notification?.title}');
+    AppLog.debug('message: ${message.notification?.body}');
     if (message.data['type'] == 'chat') {
       // open chat screen
     }
@@ -143,7 +147,7 @@ class NotificationService {
     try {
       String? token;
       FirebaseMessaging.instance.getToken().then((String? token) {
-        AppLogs.debug('FCM Token: $token');
+        AppLog.debug('FCM Token: $token');
 
         // save the new token to your server
         // final notificationStroage = locator<NotificationStroage>();
@@ -151,7 +155,7 @@ class NotificationService {
       });
 
       FirebaseMessaging.instance.onTokenRefresh.listen((String? token) {
-        AppLogs.debug('onTokenRefresh: $token');
+        AppLog.debug('onTokenRefresh: $token');
 
         // save the new token to your server
         // final notificationStroage = locator<NotificationStroage>();
@@ -177,7 +181,7 @@ class NotificationService {
 
       return token;
     } catch (e) {
-      AppLogs.error('getToken error: $e');
+      AppLog.error('getToken error: $e');
       return null;
     }
   }

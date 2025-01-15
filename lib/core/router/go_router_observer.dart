@@ -7,7 +7,7 @@ import 'package:global_school/core/log/app_logs.dart';
 class GoRouterObserver extends NavigatorObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    AppLogs.info(
+    AppLog.info(
       'DidPush: New Route = ${route.settings.name}, '
           'Arguments = ${route.settings.arguments}, '
           'Previous Route = ${previousRoute?.settings.name ?? 'None'}',
@@ -17,7 +17,7 @@ class GoRouterObserver extends NavigatorObserver {
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    AppLogs.info(
+    AppLog.info(
       'DidPop: Popped Route = ${route.settings.name}, '
           'Arguments = ${route.settings.arguments}, '
           'New Top Route = ${previousRoute?.settings.name ?? 'None'}',
@@ -27,7 +27,7 @@ class GoRouterObserver extends NavigatorObserver {
 
   @override
   void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    AppLogs.warning(
+    AppLog.warning(
       'DidRemove: Removed Route = ${route.settings.name}, '
           'Arguments = ${route.settings.arguments}, '
           'Previous Route = ${previousRoute?.settings.name ?? 'None'}',
@@ -37,7 +37,7 @@ class GoRouterObserver extends NavigatorObserver {
 
   @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
-    AppLogs.info(
+    AppLog.info(
       'DidReplace: Old Route = ${oldRoute?.settings.name ?? 'None'}, '
           'New Route = ${newRoute?.settings.name ?? 'None'}, '
           'Arguments = ${newRoute?.settings.arguments}',

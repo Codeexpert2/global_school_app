@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:global_school/providers/firebase_analytics_provider.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -14,8 +15,8 @@ import 'go_router_observer.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final isAuth = ValueNotifier<AsyncValue<bool>>(const AsyncLoading());
-  //  final firebaseAnalyticsObserver =
-  //       ref.watch(firebaseAnalyticsObserverProvider);
+  final firebaseAnalyticsObserver =
+      ref.watch(firebaseAnalyticsObserverProvider);
   ref
     ..onDispose(isAuth.dispose)
     // update the listenable, when some provider value changes
@@ -41,7 +42,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     observers: [
       // Add your navigator observers
       GoRouterObserver(),
-      // firebaseAnalyticsObserver,
+      firebaseAnalyticsObserver,
     ],
     // onException: (context, state, router) {
     //   AppLogs.error('GoRouter onException: ${state.error}', 'AppRoutes');

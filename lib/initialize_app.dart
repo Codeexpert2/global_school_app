@@ -1,6 +1,9 @@
 import 'dart:async';
 
 // import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,6 +12,7 @@ import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/core/notifications/firebase_notification.dart';
+import 'package:global_school/firebase_options.dart';
 
 import 'package:global_school/services/file_services/file_service.dart';
 import 'package:global_school/services/local_storage/secure_storage_service.dart';
@@ -75,18 +79,6 @@ Future<void> initializeApp() async {
     () => SecureStorageService(secureStorage),
   );
 
-  /// Initialize Firebase
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
-
-  // // Set the background messaging handler early on, as a named top-level function
-  // FirebaseMessaging.onBackgroundMessage(
-  //   firebaseMessagingBackgroundHandler,
-  // );
-
-  // await setupFlutterNotifications();
-
   // Set status bar and navigation bar appearance
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.light.copyWith(
@@ -103,14 +95,27 @@ Future<void> initializeApp() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // Prevent Firebase Crashlytics recording on release mode
+  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
+    kReleaseMode,
+  );
+
+  // Pass all uncaught "fatal" errors from the framework to Crashlytics
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterError(
+      errorDetails,
+      fatal: true,
+    );
+  };
 
   try {
     await NotificationService.instance.initialize();
   } catch (e) {
-    AppLogs.error('Firebase Messaging initialize faild:');
-    AppLogs.error('$e');
+    AppLog.error('Firebase Messaging initialize faild:');
+    AppLog.error('$e');
   }
 }

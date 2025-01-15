@@ -30,7 +30,7 @@ void showSuccessSnackbar(
   String message, {
   SnackBarAction? action,
 }) {
-  AppLogs.success(message);
+  AppLog.success(message);
   showSnackBar(
     message,
     backgroundColor: Colors.green.shade400,
@@ -42,7 +42,7 @@ void showErrorSnackbar(
   String message, {
   SnackBarAction? action,
 }) {
-  AppLogs.error(message);
+  AppLog.error(message);
   showSnackBar(
     message,
     backgroundColor: Colors.red.shade400,
@@ -54,7 +54,7 @@ void showWarningSnackbar(
   String message, {
   SnackBarAction? action,
 }) {
-  AppLogs.warning(message);
+  AppLog.warning(message);
   showSnackBar(
     message,
     backgroundColor: Colors.amber.shade400,
@@ -66,7 +66,7 @@ void showInfoSnackbar(
   String message, {
   SnackBarAction? action,
 }) {
-  AppLogs.info(message);
+  AppLog.info(message);
   showSnackBar(
     message,
     backgroundColor: Colors.blue.shade400,

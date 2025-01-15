@@ -18,9 +18,9 @@ import 'package:global_school/core/enums/log_level.dart';
 /// AppLogs.error('An unexpected error occurred.', 'ErrorTag',
 ///                   metadata: {'userId': 123});
 /// ```
-class AppLogs {
+class AppLog {
   // Private constructor to prevent instantiation
-  AppLogs._();
+  AppLog._();
 
   /// The current log level. Logs below this level will not be shown.
   static LogLevel _currentLogLevel = LogLevel.info;
