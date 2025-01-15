@@ -64,6 +64,18 @@ dependencies:
   firebase_crashlytics: ^4.3.0
   flutter_local_notifications: ^18.0.1
 
+  flutter_cube: ^0.1.1
+  # ar_flutter_plugin: ^0.6.2
+  # ar_flutter_plugin: ^0.7.3
+  # ar_flutter_plugin_flutterflow: ^0.7.55
+  ar_flutter_plugin_updated: ^0.0.1
+  # flutter_archive: ^4.1.1
+  # arcore_flutter_plugin: ^0.0.11
+  # arcore_flutter_plugin: ^0.1.0
+  # arcore_flutter_plugin: ^0.2.0-alpha
+  model_viewer_plus: ^1.9.1
+  arkit_plugin: ^1.1.1
+
   # Tools
   uuid: ^4.5.1
   shimmer: ^3.0.0
