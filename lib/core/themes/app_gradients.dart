@@ -5,21 +5,17 @@ class AppGradient {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF069ACC),
-      Color(0xFF0594C6),
-      Color(0xFF0483B6),
-      Color(0xFF02679B),
-      Color(0xFF004177),
-      Color(0xFF003B71),
+      Color(0xFFB3D564),
+      Color(0xFF5A825D),
     ],
-    stops: [
-      0.1079,
-      0.2481,
-      0.446,
-      0.6603,
-      0.8995,
-      0.9325,
-    ],
+    // stops: [
+    //   0.1079,
+    //   0.2481,
+    //   0.446,
+    //   0.6603,
+    //   0.8995,
+    //   0.9325,
+    // ],
     // Convert degrees to radians
     // transform: GradientRotation(
     //   132.5 * 3.14159265 / 180,

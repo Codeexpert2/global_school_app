@@ -377,6 +377,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "weeksAgo": m7,
         "welcomeBack":
             MessageLookupByLibrary.simpleMessage("أهلاً وسهلاً بعودتكم!"),
+        "welcomeToMadares":
+            MessageLookupByLibrary.simpleMessage("Welcome To MADARES!"),
         "welcomeToTheHomeScreen":
             MessageLookupByLibrary.simpleMessage("Welcome to the Home Screen!"),
         "writeComment": MessageLookupByLibrary.simpleMessage("كتابة تعليق"),

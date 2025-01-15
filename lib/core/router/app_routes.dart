@@ -25,7 +25,10 @@ enum AppRoutes {
   notifications('/notifications', 'notifications'),
   settings('/settings', 'settings'),
   category('/category', 'category'),
-  search('/search', 'search');
+  search('/search', 'search'),
+  studentAttachmentsPage('/studentAttachmentsPage', 'studentAttachmentsPage'),
+  studentCalendarPage('/studentCalendarPage', 'studentCalendarPage'),
+  subjectAttachments('/subjectAttachments', 'subjectAttachments');
 
   final String path;
   final String name;

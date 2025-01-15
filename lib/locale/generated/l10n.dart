@@ -2340,6 +2340,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcome To MADARES!`
+  String get welcomeToMadares {
+    return Intl.message(
+      'Welcome To MADARES!',
+      name: 'welcomeToMadares',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

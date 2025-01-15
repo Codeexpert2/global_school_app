@@ -49,6 +49,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     redirect: (context, state) {
       final storage = locator<StorageService>();
 
+      // final isOnboardingCompleted = false;
       final isOnboardingCompleted = storage.readBool(onboardingKey);
 
       // final isLogin = state.uri.path == AppRoutes.login.path;

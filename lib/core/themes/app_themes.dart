@@ -94,6 +94,7 @@ class AppThemes {
       ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
+      
       contentPadding: EdgeInsets.symmetric(
         horizontal: 14,
       ),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/components/main/main_appbar.dart';
+import 'package:global_school/components/main/main_drawer.dart';
 import 'package:global_school/features/auth/data/auth_service.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:global_school/components/main/main_drawer.dart';
 import 'package:global_school/core/client/client.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/locale/generated/l10n.dart';
-import 'package:global_school/features/auth/providers/auth_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -15,15 +15,21 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).homeScreen),
-        actions: [
-          IconButton(
-            onPressed: ref.read(authNotifierProvider.notifier).logout,
-            icon: const Icon(Icons.logout_rounded),
-          )
-        ],
+      // appBar: AppBar(
+      //   title: Text(S.of(context).homeScreen),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: ref.read(authNotifierProvider.notifier).logout,
+      //       icon: const Icon(Icons.logout_rounded),
+      //     )
+      //   ],
+      // ),
+      appBar: const MainAppBar(
+        
+        greetingText: 'Hello Ahmed',
+        subtitleText: 'Start your educational journey now',
       ),
+
       drawer: const MainDrawer(),
       body: Center(
         child: Column(

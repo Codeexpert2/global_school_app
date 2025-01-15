@@ -1,9 +1,12 @@
 import 'package:global_school/components/web/web.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/features/attachments/view/student_attachments_page.dart';
+import 'package:global_school/features/attachments/view/subject_attachments_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
 import 'package:global_school/features/auth/pages/password_reset_screen.dart';
 import 'package:global_school/features/auth/pages/register_screen.dart';
+import 'package:global_school/features/calendar/view/calender.dart';
 import 'package:global_school/features/category/category_screen.dart';
 import 'package:global_school/features/help/pages/help_screen.dart';
 import 'package:global_school/features/home/home.dart';
@@ -31,6 +34,11 @@ List<RouteBase> routes = <RouteBase>[
     builder: (context, state) => const OnboardingScreen(),
   ),
   GoRoute(
+    path: AppRoutes.studentAttachmentsPage.path,
+    name: AppRoutes.studentAttachmentsPage.name,
+    builder: (context, state) => const StudentAttachmentsPage(),
+  ),
+  GoRoute(
     path: AppRoutes.about.path,
     name: AppRoutes.about.name,
     builder: (_, __) => const AboutScreen(),
@@ -39,6 +47,11 @@ List<RouteBase> routes = <RouteBase>[
     path: AppRoutes.privacyPolicy.path,
     name: AppRoutes.privacyPolicy.name,
     builder: (_, __) => const PrivacyPolicyScreen(),
+  ),
+  GoRoute(
+    path: AppRoutes.studentCalendarPage.path,
+    name: AppRoutes.studentCalendarPage.name,
+    builder: (_, __) => const StudentCalendarPage(),
   ),
   GoRoute(
     path: AppRoutes.termsConditions.path,
@@ -151,6 +164,14 @@ List<RouteBase> routes = <RouteBase>[
           //   builder: (_, __) => const UpdateProfileScreen(),
           // ),
         ],
+      ),
+      GoRoute(
+        name: AppRoutes.subjectAttachments.name,
+        path: AppRoutes.subjectAttachments.path,
+        builder: (context, state) {
+          final subjectName = state.pathParameters['subjectName']!;
+          return SubjectAttachmentsPage(subjectName: subjectName);
+        },
       ),
     ],
   ),

@@ -34,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginFailed": MessageLookupByLibrary.simpleMessage("Login failed!"),
         "loginSuccessful":
             MessageLookupByLibrary.simpleMessage("Login successful!"),
+        "welcomeToMadares":
+            MessageLookupByLibrary.simpleMessage("Welcome To MADARES!"),
         "youDontHaveAccount":
             MessageLookupByLibrary.simpleMessage("You don\'t have account ?")
       };

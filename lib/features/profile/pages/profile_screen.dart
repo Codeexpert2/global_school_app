@@ -12,7 +12,6 @@ import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/utils/confirm_dialog.dart';
 import 'package:global_school/features/profile/widgets/profile_item.dart';
-import 'package:global_school/locale/generated/l10n.dart';
 import 'package:global_school/features/auth/providers/auth_provider.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -21,11 +20,11 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: MainAppBar(
-        title: S.of(context).profile,
-        actions: [
-          //
-        ],
+      appBar: const MainAppBar(
+        // title: S.of(context).profile,
+        // actions: [
+        //   //
+        // ],
       ),
       body: SingleChildScrollView(
         // padding: const EdgeInsets.only(top: kToolbarHeight),

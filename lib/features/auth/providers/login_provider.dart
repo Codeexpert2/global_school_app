@@ -23,10 +23,12 @@ class LoginNotifier extends ChangeNotifier {
   final formKey = GlobalKey<FormState>();
 
   final emailController = TextEditingController(
-    text: 'admin@gmail.com',
+    text: 'student@gmail.com',
+    // text: 'admin@gmail.com',
   );
   final passwordController = TextEditingController(
-    text: 'Password2',
+    text: 'Cx123456789',
+    // text: 'Password2',
   );
 
   final emailFocusNode = FocusNode();

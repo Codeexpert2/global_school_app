@@ -73,4 +73,10 @@ class AppColors {
   static const Color error50 = Color(0xFFFDE7E9);
 
   static const Color shadowColor = Color.fromRGBO(0, 0, 0, .1);
+
+  static const Color backgroundColorTextFild = Color(0xffF4F5F8);
+  static const Color green1 = Color(0xffB3D564);
+  static const Color green2 = Color(0xff5A825D);
+  static const Color transparent = Colors.transparent;
+
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/core/themes/app_gradients.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -23,56 +25,100 @@ class MainDrawer extends ConsumerWidget {
                 context.goNamed(AppRoutes.profile.name);
               },
               child: DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade50,
-                  // border: Border(
-                  //   bottom: BorderSide(
-                  //     color: Colors.red.withOpacity(0.1),
-                  //   ),
-                  // ),
+                decoration: const BoxDecoration(
+                  gradient: AppGradient.linearGradient
                 ),
                 padding: EdgeInsets.zero,
-                child: const Icon(Icons.person),
-                // child: Image(
-                //   image: AssetImage(ImageAssets.mainImage),
-                //   fit: BoxFit.cover,
-                // ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 40,
+                        backgroundImage: NetworkImage(
+                          'https://www.example.com/user_image.png',
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Ahmad Al-Dali',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall
+                                  ?.copyWith(color: AppColors.white),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              'Daliahmad418@example.com',
+                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.white),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-            // const AppDivider(),
             ListTile(
-              leading: const Icon(Icons.home),
+              leading: const Icon(Icons.calendar_today),
               title: const Text(
-                'الصفحة الرئيسية',
+                'Calendar Page',
               ),
               onTap: () {
                 Navigator.pop(context);
-                context.goNamed(AppRoutes.home.name);
+                context.pushNamed(AppRoutes.studentCalendarPage.name);
               },
             ),
             ListTile(
-              leading: const Icon(Icons.category),
-              title: const Text('category'),
+              leading: const Icon(Icons.school),
+              title: const Text('Courses'),
               onTap: () {
-                Navigator.pop(context);
-                context.pushNamed(AppRoutes.category.name);
+                // Navigator.pop(context);
+                // context.pushNamed(AppRoutes.category.name);
               },
             ),
             ListTile(
-              leading: const Icon(Icons.search),
+              leading: const Icon(Icons.add_to_photos_rounded),
               title: const Text(
-                'البحث',
+                'Attachments',
               ),
               onTap: () {
                 Navigator.pop(context);
-                context.pushNamed(AppRoutes.search.name);
+                context.pushNamed(AppRoutes.studentAttachmentsPage.name);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.assignment),
+              title: const Text(
+                'Exams',
+              ),
+              onTap: () {
+                // Navigator.pop(context);
+                // context.pushNamed(AppRoutes.search.name);
               },
             ),
             const AppDivider(),
             ListTile(
-              leading: const Icon(Icons.help_outline),
+              leading: const Icon(Icons.sports_esports),
               title: const Text(
-                'help',
+                'Games',
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                context.pushNamed(AppRoutes.help.name);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.help),
+              title: const Text(
+                'Help',
               ),
               onTap: () {
                 Navigator.pop(context);
@@ -92,7 +138,6 @@ class MainDrawer extends ConsumerWidget {
                 ),
               ),
               onTap: () {
-                // confirm dialog
                 Navigator.pop(context);
                 ref.read(authNotifierProvider.notifier).logout();
               },
