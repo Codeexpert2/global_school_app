@@ -78,6 +78,7 @@ cd global_school_app
 ```
 If you haven't already, install the Firebase CLI.
 ```bash
+npm install -g firebase-tools
 firebase login
 ```
 ```bash

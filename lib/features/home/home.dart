@@ -25,7 +25,6 @@ class HomeScreen extends ConsumerWidget {
       //   ],
       // ),
       appBar: const MainAppBar(
-        
         greetingText: 'Hello Ahmed',
         subtitleText: 'Start your educational journey now',
       ),
@@ -59,6 +58,12 @@ class HomeScreen extends ConsumerWidget {
                 await ref.read(authServiceProvider).profile();
               },
               child: const Text('profile'),
+            ),
+            TextButton(
+              onPressed: () async {
+                context.pushNamed('ar');
+              },
+              child: const Text('Ar'),
             ),
           ],
         ),
