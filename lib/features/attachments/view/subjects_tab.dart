@@ -33,7 +33,7 @@ class SubjectsTab extends StatelessWidget {
                     SubjectAttachmentsPage(subjectName: '${subject['name']}'),
               ),
             );
-            // context.goNamed(
+            // context.pushNamed(
             //   'subjectAttachments', 
             //   pathParameters: {
             //     'subjectName': '${subject['name']}',

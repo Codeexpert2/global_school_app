@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/features/attachments/widgets/audio_player_page.dart';
+import 'package:global_school/features/attachments/widgets/pdf_Vvewer_page.dart';
+import 'package:global_school/features/attachments/widgets/video_player_page.dart';
+import 'package:global_school/features/attachments/widgets/youtube_video_player.dart';
 
 class AttachmentsList extends StatelessWidget {
   const AttachmentsList({
@@ -26,19 +30,72 @@ class AttachmentsList extends StatelessWidget {
           subtitle: attachmentType == 'الفيديو' ? Text(item) : null,
           trailing: IconButton(
             icon: Icon(
-              attachmentType == 'الصوتية' || attachmentType == 'الفيديو'
-                  ? Icons.play_arrow
-                  : Icons.download,
+              _getTrailingIcon(attachmentType),
               color: AppColors.green2,
             ),
             onPressed: () {
-              if (attachmentType == 'الصوتية' || attachmentType == 'الفيديو') {
-              } else {
-              }
+              _navigateBasedOnType(context, attachmentType, item);
             },
           ),
         );
       },
     );
+  }
+  IconData _getTrailingIcon(String type) {
+    switch (type) {
+      case 'الصوتية':
+        return Icons.headphones;
+      case 'الفيديو':
+        return Icons.play_arrow;
+      case 'الملف':
+        return Icons.download_sharp;
+      default:
+        return Icons.file_open_outlined;
+    }
+  }
+
+  void _navigateBasedOnType(BuildContext context, String type, String item) {
+    switch (type) {
+      case 'الفيديو':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => _buildVideoPlayer(item),
+          ),
+        );
+        break;
+
+      case 'الصوتية':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AudioPlayerPage(audioUrl: item),
+          ),
+        );
+        break;
+
+      case 'الملف':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PDFViewerPage(pdfPath: item),
+          ),
+        );
+        break;
+
+      default:
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('نوع المرفق غير مدعوم')),
+        );
+        break;
+    }
+  }
+
+  Widget _buildVideoPlayer(String videoUrl) {
+    if (videoUrl.contains('youtube.com') || videoUrl.contains('youtu.be')) {
+      return YoutubeVideoPlayer(videoUrl: videoUrl);
+    } else {
+      return VideoPlayerPage(videoUrl: videoUrl);
+    }
   }
 }

@@ -15,7 +15,7 @@ class AppConfigs {
   static const String privacyPolicyUrl = 'https://your-privacy-policy-url.com';
 
   // font family
-  static const String fontFamily = 'Poppins';
+  static const String fontFamily = 'Cairo';
   static const defaultLocale = 'ar';
   static final supportedLocales = [
     {'locale': 'ar', 'name': 'عربي', 'icon': '🇵🇸'},

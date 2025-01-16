@@ -73,6 +73,11 @@ dependencies:
   webview_flutter: ^4.10.0
   connectivity_plus: ^6.1.1
   syncfusion_flutter_calendar: ^27.2.5
+  youtube_player_flutter: ^9.1.1
+  just_audio: ^0.9.43
+  video_player: ^2.9.2
+  syncfusion_flutter_pdfviewer: ^27.0.0
+  flutter_pdfview: ^1.4.0
 
 dev_dependencies:
   flutter_test:
@@ -90,11 +95,12 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/pdf/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: assets/fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
   #       - asset: assets/fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
