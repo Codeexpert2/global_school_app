@@ -1,6 +1,8 @@
 import 'package:global_school/components/web/web.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/features/ar/ar_page.dart';
+import 'package:global_school/features/ar/model_viewer_page.dart';
 import 'package:global_school/features/attachments/view/student_attachments_page.dart';
 import 'package:global_school/features/attachments/view/subject_attachments_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
@@ -173,6 +175,22 @@ List<RouteBase> routes = <RouteBase>[
           return SubjectAttachmentsPage(subjectName: subjectName);
         },
       ),
+      GoRoute(
+          name: 'ar',
+          path: '/ar',
+          builder: (context, state) {
+            return const ArPage();
+          },
+          routes: [
+            GoRoute(
+              name: 'assets',
+              path: ':assets',
+              builder: (context, state) {
+                final assets = state.pathParameters['assets']!;
+                return ModelViewerPage(assets: assets);
+              },
+            ),
+          ]),
     ],
   ),
 ];
