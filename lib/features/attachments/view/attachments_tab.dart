@@ -30,9 +30,9 @@ class AttachmentsTab extends StatelessWidget {
                   attachmentType: 'الصورة',
                   icon: Icons.image,
                   data: [
-                    'assets/images/code_expert.png',
-                    'assets/images/code_expert.png',
-                    'assets/images/code_expert.png',
+                    'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg',
+                    'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg',
+                    'https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg',
                   ],
                 ),
                 AttachmentsList(
@@ -48,9 +48,9 @@ class AttachmentsTab extends StatelessWidget {
                   attachmentType: 'الملف',
                   icon: Icons.file_copy,
                   data: [
-                     'assets/pdf/Doc1.pdf',
-                     'assets/pdf/Doc1.pdf',
-                     'assets/pdf/Doc1.pdf',
+                    'assets/pdf/Doc1.pdf',
+                    'assets/pdf/Doc1.pdf',
+                    'assets/pdf/Doc1.pdf',
                   ],
                 ),
                 AttachmentsList(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/features/attachments/widgets/audio_player_page.dart';
+import 'package:global_school/features/attachments/widgets/image_viewer_page.dart';
 import 'package:global_school/features/attachments/widgets/pdf_Vvewer_page.dart';
 import 'package:global_school/features/attachments/widgets/video_player_page.dart';
 import 'package:global_school/features/attachments/widgets/youtube_video_player.dart';
@@ -41,6 +42,7 @@ class AttachmentsList extends StatelessWidget {
       },
     );
   }
+
   IconData _getTrailingIcon(String type) {
     switch (type) {
       case 'الصوتية':
@@ -81,6 +83,17 @@ class AttachmentsList extends StatelessWidget {
             builder: (context) => PDFViewerPage(pdfPath: item),
           ),
         );
+        break;
+      case 'الصورة':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ImageViewerPage(
+              imageUrl: item,
+            ),
+          ),
+        );
+
         break;
 
       default:
