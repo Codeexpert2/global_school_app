@@ -12,7 +12,7 @@ class ArPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MainAppBar(greetingText: 'Ar'),
+      appBar: const MainAppBar(title: 'Ar'),
       body: ListView(
         children: [
           const ArItem(
