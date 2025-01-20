@@ -9,7 +9,9 @@ import 'package:global_school/features/auth/pages/password_reset_screen.dart';
 import 'package:global_school/features/auth/pages/register_screen.dart';
 import 'package:global_school/features/calendar/view/calender.dart';
 import 'package:global_school/features/category/category_screen.dart';
+import 'package:global_school/features/exam/pages/failure_page.dart';
 import 'package:global_school/features/exam/pages/quiz_page.dart';
+import 'package:global_school/features/exam/pages/success_page.dart';
 import 'package:global_school/features/help/pages/help_screen.dart';
 import 'package:global_school/features/home/home.dart';
 import 'package:global_school/features/notification/notification_screen.dart';
@@ -114,6 +116,16 @@ List<RouteBase> routes = <RouteBase>[
     path: AppRoutes.quizPage.path,
     name: AppRoutes.quizPage.name,
     builder: (_, __) => const QuizPage(),
+  ),
+  GoRoute(
+    path: AppRoutes.successquizpage.path,
+    name: AppRoutes.successquizpage.name,
+    builder: (_, __) => const SuccessQuizPage(),
+  ),
+   GoRoute(
+    path: AppRoutes.failurequizpage.path,
+    name: AppRoutes.failurequizpage.name,
+    builder: (_, __) => const FailureQuizPage(),
   ),
   ShellRoute(
     restorationScopeId: 'root',

@@ -66,4 +66,14 @@ class AnswersNotifier extends StateNotifier<Map<int, String?>> {
   String? getAnswer(int questionIndex) {
     return state[questionIndex];
   }
+
+  int calculateCorrectAnswers(List<Question> questions) {
+    int correctCount = 0;
+    for (int i = 0; i < questions.length; i++) {
+      if (state[i] == questions[i].correctAnswer) {
+        correctCount++;
+      }
+    }
+    return correctCount;
+  }
 }

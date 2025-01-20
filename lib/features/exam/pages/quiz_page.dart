@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/components/main/main_drawer.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/features/exam/pages/success_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../provider/quiz_page_provider.dart';
@@ -16,6 +19,17 @@ class QuizPage extends ConsumerWidget {
     void goToNextQuestion() {
       if (currentIndex < totalQuestions - 1) {
         ref.read(currentQuestionIndexProvider.notifier).state++;
+      } else {
+        // عند الوصول للسؤال الأخير، التحقق من النجاح أو الرسوب
+        final correctAnswers = ref
+            .read(answersProvider.notifier)
+            .calculateCorrectAnswers(questions);
+        final passingScore = (totalQuestions * 0.7).ceil(); // النجاح 70%
+        if (correctAnswers >= passingScore) {
+          context.pushNamed(AppRoutes.successquizpage.name);
+        } else {
+          context.pushNamed(AppRoutes.failurequizpage.name);
+        }
       }
     }
 
@@ -76,7 +90,9 @@ class QuizPage extends ConsumerWidget {
                 ),
                 ElevatedButton(
                   onPressed: goToNextQuestion,
-                  child: const Text('السؤال التالي'),
+                  child: currentIndex == totalQuestions - 1
+                      ? const Text('إنهاء الامتحان')
+                      : const Text('السؤال التالي'),
                 ),
               ],
             ),
