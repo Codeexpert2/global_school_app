@@ -1,6 +1,8 @@
 import 'package:global_school/components/web/web.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/features/ar/ar_page.dart';
+import 'package:global_school/features/ar/model_viewer_page.dart';
 import 'package:global_school/features/attachments/view/student_attachments_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
 import 'package:global_school/features/auth/pages/password_reset_screen.dart';
@@ -182,6 +184,7 @@ List<RouteBase> routes = <RouteBase>[
       //   },
       // ),
       GoRoute(
+<<<<<<< HEAD
       name: AppRoutes.lessonsPage.name,
       path: AppRoutes.lessonsPage.path,
       builder: (context, state) {
@@ -190,6 +193,31 @@ List<RouteBase> routes = <RouteBase>[
         return LessonsPage(course: course);
       },
     ),
+=======
+        name: AppRoutes.subjectAttachments.name,
+        path: AppRoutes.subjectAttachments.path,
+        builder: (context, state) {
+          final subjectName = state.pathParameters['subjectName']!;
+          return SubjectAttachmentsPage(subjectName: subjectName);
+        },
+      ),
+      GoRoute(
+          name: 'ar',
+          path: '/ar',
+          builder: (context, state) {
+            return const ArPage();
+          },
+          routes: [
+            GoRoute(
+              name: 'assets',
+              path: ':assets',
+              builder: (context, state) {
+                final assets = state.pathParameters['assets']!;
+                return ModelViewerPage(assets: assets);
+              },
+            ),
+          ]),
+>>>>>>> 254dc4c48a739ad8f7e8b710cc9ef710d5877126
     ],
   ),
 ];
