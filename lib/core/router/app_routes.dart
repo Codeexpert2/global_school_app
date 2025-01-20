@@ -30,6 +30,7 @@ enum AppRoutes {
   studentCalendarPage('/studentCalendarPage', 'studentCalendarPage'),
   coursesPage('/coursesPage', 'coursesPage'),
   lessonsPage('/lessonsPage', 'lessonsPage'),
+  quizPage('/quizPage', 'quizPage'),
   subjectAttachments('/subjectAttachments', 'subjectAttachments');
 
   final String path;

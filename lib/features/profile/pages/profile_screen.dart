@@ -52,16 +52,16 @@ class ProfileScreen extends ConsumerWidget {
               //     fontSize: 16,
               //   ),
               // ),
-              TextButton(
-                onPressed: () => context.pushNamed(
-                  AppRoutes.updateProfile.name,
-                ),
-                child: Text(
-                  'تعديل الملف الشخصي',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-              ),
+              // TextButton(
+              //   onPressed: () => context.pushNamed(
+              //     AppRoutes.updateProfile.name,
+              //   ),
+              //   child: Text(
+              //     'تعديل الملف الشخصي',
+              //     textAlign: TextAlign.center,
+              //     style: Theme.of(context).textTheme.bodyLarge,
+              //   ),
+              // ),
               const SizedBox(height: 12),
               Column(
                 children: [
@@ -144,30 +144,30 @@ class ProfileScreen extends ConsumerWidget {
                       );
                     },
                   ),
-                  ProfileItem(
-                    icon: Icons.person_remove_alt_1_rounded,
-                    title: '',
-                    subtitle: 'Delete Account',
-                    color: AppColors.error600,
-                    onTap: () async {
-                      final bool? confirmed = await showDialog<bool>(
-                        context: context,
-                        useRootNavigator: true,
-                        builder: (ctx) => CustomAlertDialog(
-                          title: 'Confirm Delete Account',
-                          description:
-                              'Are you sure you want to permanently delete your account? This action cannot be undone.',
-                          acceptText: 'Delete',
-                          cancelText: 'Cancel',
-                          type: AlertDialogType.error, // Type is Error
-                          onAccept: () {
-                            // Handle account deletion logic here
-                            debugPrint('Account deleted.');
-                          },
-                        ),
-                      );
-                    },
-                  ),
+                  // ProfileItem(
+                  //   icon: Icons.person_remove_alt_1_rounded,
+                  //   title: '',
+                  //   subtitle: 'Delete Account',
+                  //   color: AppColors.error600,
+                  //   onTap: () async {
+                  //     final bool? confirmed = await showDialog<bool>(
+                  //       context: context,
+                  //       useRootNavigator: true,
+                  //       builder: (ctx) => CustomAlertDialog(
+                  //         title: 'Confirm Delete Account',
+                  //         description:
+                  //             'Are you sure you want to permanently delete your account? This action cannot be undone.',
+                  //         acceptText: 'Delete',
+                  //         cancelText: 'Cancel',
+                  //         type: AlertDialogType.error, // Type is Error
+                  //         onAccept: () {
+                  //           // Handle account deletion logic here
+                  //           debugPrint('Account deleted.');
+                  //         },
+                  //       ),
+                  //     );
+                  //   },
+                  // ),
                 ],
               ),
             ],

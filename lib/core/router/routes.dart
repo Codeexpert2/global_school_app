@@ -9,6 +9,7 @@ import 'package:global_school/features/auth/pages/password_reset_screen.dart';
 import 'package:global_school/features/auth/pages/register_screen.dart';
 import 'package:global_school/features/calendar/view/calender.dart';
 import 'package:global_school/features/category/category_screen.dart';
+import 'package:global_school/features/exam/pages/quiz_page.dart';
 import 'package:global_school/features/help/pages/help_screen.dart';
 import 'package:global_school/features/home/home.dart';
 import 'package:global_school/features/notification/notification_screen.dart';
@@ -108,6 +109,11 @@ List<RouteBase> routes = <RouteBase>[
     path: AppRoutes.web.path,
     name: AppRoutes.web.name,
     builder: (_, __) => const WebViewScreen(),
+  ),
+  GoRoute(
+    path: AppRoutes.quizPage.path,
+    name: AppRoutes.quizPage.name,
+    builder: (_, __) => const QuizPage(),
   ),
   ShellRoute(
     restorationScopeId: 'root',

@@ -100,8 +100,8 @@ class MainDrawer extends ConsumerWidget {
                 'Exams',
               ),
               onTap: () {
-                // Navigator.pop(context);
-                // context.pushNamed(AppRoutes.search.name);
+                Navigator.pop(context);
+                context.pushNamed(AppRoutes.quizPage.name);
               },
             ),
             const AppDivider(),
