@@ -184,14 +184,29 @@ List<RouteBase> routes = <RouteBase>[
       //   },
       // ),
       GoRoute(
-      name: AppRoutes.lessonsPage.name,
-      path: AppRoutes.lessonsPage.path,
-      builder: (context, state) {
-        // تمرير البيانات إلى LessonsPage
-        final course = state.extra as Course;
-        return LessonsPage(course: course);
-      },
-    ),
+        name: AppRoutes.lessonsPage.name,
+        path: AppRoutes.lessonsPage.path,
+        builder: (context, state) {
+          final course = state.extra as Course;
+          return LessonsPage(course: course);
+        },
+      ),
+      GoRoute(
+          name: 'ar',
+          path: '/ar',
+          builder: (context, state) {
+            return const ArPage();
+          },
+          routes: [
+            GoRoute(
+              name: 'assets',
+              path: ':assets',
+              builder: (context, state) {
+                final assets = state.pathParameters['assets']!;
+                return ModelViewerPage(assets: assets);
+              },
+            ),
+          ]),
     ],
   ),
 ];
