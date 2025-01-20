@@ -66,10 +66,9 @@ class _StudentCalendarPageState extends State<StudentCalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(
-
+      appBar: const MainAppBar(
         // showBackButton: false,
-        greetingText: 'Student Calendar Page',
+        title: 'Student Calendar Page',
         // onBackPressed: () {
         //   Navigator.pop(context);
         // },

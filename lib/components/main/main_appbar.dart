@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 
 // class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -66,7 +65,7 @@ import 'package:global_school/core/themes/app_colors.dart';
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({
     super.key,
-    this.greetingText,
+    this.title,
     this.subtitleText,
     this.avatarImage = 'assets/images/madares_icon.png',
     this.onBackPressed,
@@ -74,7 +73,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showAvatar = true,
   });
 
-  final String? greetingText;
+  final String? title;
   final String? subtitleText;
   final String? avatarImage;
   final VoidCallback? onBackPressed;
@@ -98,14 +97,14 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             //     size: 28,
             //   ),
             // ),
-            BackButton(),
+            const BackButton(),
           if (showBackButton) const SizedBox(width: 12),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (greetingText != null)
+              if (title != null)
                 Text(
-                  greetingText!,
+                  title!,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 16,
@@ -115,7 +114,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
               if (subtitleText != null)
                 Column(
                   children: [
-                    if (greetingText != null) const SizedBox(height: 4),
+                    if (title != null) const SizedBox(height: 4),
                     Text(
                       subtitleText!,
                       style: const TextStyle(

@@ -25,8 +25,7 @@ class HomeScreen extends ConsumerWidget {
       //   ],
       // ),
       appBar: const MainAppBar(
-        
-        greetingText: 'Hello Ahmed',
+        title: 'Hello Ahmed',
         subtitleText: 'Start your educational journey now',
       ),
 

@@ -28,6 +28,8 @@ enum AppRoutes {
   search('/search', 'search'),
   studentAttachmentsPage('/studentAttachmentsPage', 'studentAttachmentsPage'),
   studentCalendarPage('/studentCalendarPage', 'studentCalendarPage'),
+  coursesPage('/coursesPage', 'coursesPage'),
+  lessonsPage('/lessonsPage', 'lessonsPage'),
   subjectAttachments('/subjectAttachments', 'subjectAttachments');
 
   final String path;

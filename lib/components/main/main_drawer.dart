@@ -80,8 +80,8 @@ class MainDrawer extends ConsumerWidget {
               leading: const Icon(Icons.school),
               title: const Text('Courses'),
               onTap: () {
-                // Navigator.pop(context);
-                // context.pushNamed(AppRoutes.category.name);
+                Navigator.pop(context);
+                context.pushNamed(AppRoutes.coursesPage.name);
               },
             ),
             ListTile(

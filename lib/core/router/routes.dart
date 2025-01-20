@@ -2,7 +2,6 @@ import 'package:global_school/components/web/web.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/features/attachments/view/student_attachments_page.dart';
-import 'package:global_school/features/attachments/view/subject_attachments_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
 import 'package:global_school/features/auth/pages/password_reset_screen.dart';
 import 'package:global_school/features/auth/pages/register_screen.dart';
@@ -21,6 +20,10 @@ import 'package:global_school/features/splash/splash_screen.dart';
 import 'package:global_school/features/statics/about.dart';
 import 'package:global_school/features/statics/privacy_policy.dart';
 import 'package:global_school/features/statics/terms_conditions.dart';
+
+import '../../features/courses/model/course.dart';
+import '../../features/courses/pages/courses_page.dart';
+import '../../features/courses/pages/lessons_page.dart';
 
 List<RouteBase> routes = <RouteBase>[
   GoRoute(
@@ -95,6 +98,11 @@ List<RouteBase> routes = <RouteBase>[
     builder: (_, __) => const HelpScreen(),
   ),
   GoRoute(
+    path: AppRoutes.coursesPage.path,
+    name: AppRoutes.coursesPage.name,
+    builder: (_, __) => const CoursesPage(),
+  ),
+  GoRoute(
     path: AppRoutes.web.path,
     name: AppRoutes.web.name,
     builder: (_, __) => const WebViewScreen(),
@@ -165,14 +173,23 @@ List<RouteBase> routes = <RouteBase>[
           // ),
         ],
       ),
+      // GoRoute(
+      //   name: AppRoutes.subjectAttachments.name,
+      //   path: AppRoutes.subjectAttachments.path,
+      //   builder: (context, state) {
+      //     final subjectName = state.pathParameters['subjectName']!;
+      //     return SubjectAttachmentsPage(subjectName: subjectName);
+      //   },
+      // ),
       GoRoute(
-        name: AppRoutes.subjectAttachments.name,
-        path: AppRoutes.subjectAttachments.path,
-        builder: (context, state) {
-          final subjectName = state.pathParameters['subjectName']!;
-          return SubjectAttachmentsPage(subjectName: subjectName);
-        },
-      ),
+      name: AppRoutes.lessonsPage.name,
+      path: AppRoutes.lessonsPage.path,
+      builder: (context, state) {
+        // تمرير البيانات إلى LessonsPage
+        final course = state.extra as Course;
+        return LessonsPage(course: course);
+      },
+    ),
     ],
   ),
 ];
