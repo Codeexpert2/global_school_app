@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/main/main_appbar.dart';
-import 'package:global_school/components/main/main_drawer.dart';
-import 'package:global_school/core/router/app_routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../provider/courses_provider.dart';
 import 'lessons_page.dart';

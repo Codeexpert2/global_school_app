@@ -6,8 +6,6 @@ import 'package:global_school/services/local_storage/secure_storage_service.dart
 import 'package:global_school/services/local_storage/storage_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../data/auth_service.dart';
-
 final storageService = locator<StorageService>();
 final secureStorageService = locator<SecureStorageService>();
 
