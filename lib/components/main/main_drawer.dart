@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
+import 'package:global_school/features/exam/pages/home_exam_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -25,9 +26,8 @@ class MainDrawer extends ConsumerWidget {
                 context.goNamed(AppRoutes.profile.name);
               },
               child: DrawerHeader(
-                decoration: const BoxDecoration(
-                  gradient: AppGradient.linearGradient
-                ),
+                decoration:
+                    const BoxDecoration(gradient: AppGradient.linearGradient),
                 padding: EdgeInsets.zero,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -55,7 +55,10 @@ class MainDrawer extends ConsumerWidget {
                             const SizedBox(height: 5),
                             Text(
                               'Daliahmad418@example.com',
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppColors.white),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(color: AppColors.white),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ],
@@ -101,7 +104,13 @@ class MainDrawer extends ConsumerWidget {
               ),
               onTap: () {
                 Navigator.pop(context);
-                context.pushNamed(AppRoutes.quizPage.name);
+                // context.pushNamed(AppRoutes.quizPage.name);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomeExamPage(),
+                  ),
+                );
               },
             ),
             const AppDivider(),
