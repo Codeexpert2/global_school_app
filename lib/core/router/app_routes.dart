@@ -33,6 +33,7 @@ enum AppRoutes {
   quizPage('/quizPage', 'quizPage'),
   successquizpage('/successquizpage', 'successquizpage'),
   failurequizpage('/failurequizpage', 'failurequizpage'),
+  onlineLessonPage('/onlineLessonPage', 'onlineLessonPage'),
   subjectAttachments('/subjectAttachments', 'subjectAttachments');
 
   final String path;

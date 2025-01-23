@@ -25,6 +25,7 @@ import 'package:global_school/features/splash/splash_screen.dart';
 import 'package:global_school/features/statics/about.dart';
 import 'package:global_school/features/statics/privacy_policy.dart';
 import 'package:global_school/features/statics/terms_conditions.dart';
+import 'package:global_school/features/student/onlineLesson/pages/online_lesson_page.dart';
 
 import '../../features/courses/model/course.dart';
 import '../../features/courses/pages/courses_page.dart';
@@ -126,6 +127,11 @@ List<RouteBase> routes = <RouteBase>[
     path: AppRoutes.failurequizpage.path,
     name: AppRoutes.failurequizpage.name,
     builder: (_, __) => const FailureQuizPage(),
+  ),
+   GoRoute(
+    path: AppRoutes.onlineLessonPage.path,
+    name: AppRoutes.onlineLessonPage.name,
+    builder: (_, __) => const OnlineLessonPage(),
   ),
   ShellRoute(
     restorationScopeId: 'root',

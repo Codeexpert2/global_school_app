@@ -26,7 +26,7 @@ class RootNotifier extends Notifier<int> {
         router.goNamed(AppRoutes.home.name);
         break;
       case 1:
-        router.pushNamed(AppRoutes.category.name);
+        router.pushNamed(AppRoutes.onlineLessonPage.name);
         break;
       case 2:
         router.pushNamed(AppRoutes.search.name, queryParameters: {

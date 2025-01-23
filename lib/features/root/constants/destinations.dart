@@ -9,7 +9,7 @@ const List<NavigationDestination> destinations = [
   NavigationDestination(
     icon: Icon(Icons.category_outlined),
     selectedIcon: Icon(Icons.category),
-    label: 'Category',
+    label: 'Online Lesson',
   ),
   NavigationDestination(
     icon: Icon(Icons.search_outlined),
