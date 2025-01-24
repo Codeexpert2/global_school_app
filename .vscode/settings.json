@@ -14,10 +14,10 @@
     "**/.fvm": true,
     "**/.dart_tool": true,
     "**/.idea": true,
-    "lib/locale/generated": true
+    "lib/core/locale/generated": true
   },
   "search.exclude": {
-    "lib/locale/generated": true,
+    "lib/core/locale/generated": true,
     "**.arb*": true
   },
   "editor.formatOnSave": true,

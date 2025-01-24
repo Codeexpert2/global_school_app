@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
-import 'package:global_school/features/exam/pages/home_exam_page.dart';
+import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
 import 'package:global_school/features/student/offlineLesson/pages/offline_lesson_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -77,7 +77,7 @@ class MainDrawer extends ConsumerWidget {
               ),
               onTap: () {
                 Navigator.pop(context);
-                context.pushNamed(AppRoutes.studentCalendarPage.name);
+                context.pushNamed(AppRoutes.studentCalendar.name);
               },
             ),
             ListTile(
@@ -85,7 +85,7 @@ class MainDrawer extends ConsumerWidget {
               title: const Text('Courses'),
               onTap: () {
                 Navigator.pop(context);
-                context.pushNamed(AppRoutes.coursesPage.name);
+                context.pushNamed(AppRoutes.studentCourses.name);
               },
             ),
             ListTile(
@@ -95,7 +95,7 @@ class MainDrawer extends ConsumerWidget {
               ),
               onTap: () {
                 Navigator.pop(context);
-                context.pushNamed(AppRoutes.studentAttachmentsPage.name);
+                context.pushNamed(AppRoutes.studentAttachments.name);
               },
             ),
             ListTile(
@@ -125,7 +125,7 @@ class MainDrawer extends ConsumerWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => OfflineLessonsPage(),
+                    builder: (context) => const OfflineLessonsPage(),
                   ),
                 );
               },

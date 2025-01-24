@@ -162,6 +162,7 @@ class Data {
   dynamic note;
   DateTime? createdAt;
   DateTime? updatedAt;
+  String? role;
   List<Role>? roles;
 
   Map<String, dynamic> toJson() => {
@@ -205,6 +206,7 @@ class Data {
         'note': note,
         'created_at': createdAt?.toIso8601String(),
         'updated_at': updatedAt?.toIso8601String(),
+        'role': role,
         'roles': roles == null
             ? []
             : List<dynamic>.from(roles!.map((x) => x.toJson())),

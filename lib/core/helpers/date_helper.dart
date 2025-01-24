@@ -1,4 +1,4 @@
-import 'package:global_school/locale/generated/l10n.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 
 class DateHelper {
   /// Provides a human-readable representation of

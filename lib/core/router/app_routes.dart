@@ -1,5 +1,3 @@
-// import 'package:go_router/go_router.dart';
-
 export 'package:go_router/go_router.dart';
 
 enum AppRoutes {
@@ -7,34 +5,40 @@ enum AppRoutes {
   onboarding('/onboarding', 'onboarding'),
   login('/login', 'login'),
   resetPassword('/reset-password', 'resetPassword'),
-  resetPasswordDone('/reset-password-done', 'resetPasswordDone'),
   changePassword('change-password', 'changePassword'),
-  updateProfile('update-profile', 'updateProfile'),
-  register('/register', 'register'),
-  root('/root', 'root'),
   profile('/profile', 'profile'),
   help('/help', 'help'),
   about('about', 'about'),
   termsConditions('terms-conditions', 'termsConditions'),
   privacyPolicy('privacy-policy', 'privacyPolicy'),
-  home('/home', 'home'),
   web('/web', 'web'),
-  favorite('/favorite', 'favorite'),
-  posts('/posts', 'posts'),
-  postDetails('post-details', 'postDetails'),
-  notifications('/notifications', 'notifications'),
-  settings('/settings', 'settings'),
-  category('/category', 'category'),
-  search('/search', 'search'),
-  studentAttachmentsPage('/studentAttachmentsPage', 'studentAttachmentsPage'),
-  studentCalendarPage('/studentCalendarPage', 'studentCalendarPage'),
-  coursesPage('/coursesPage', 'coursesPage'),
-  lessonsPage('/lessonsPage', 'lessonsPage'),
-  quizPage('/quizPage', 'quizPage'),
-  successquizpage('/successquizpage', 'successquizpage'),
-  failurequizpage('/failurequizpage', 'failurequizpage'),
-  onlineLessonPage('/onlineLessonPage', 'onlineLessonPage'),
-  subjectAttachments('/subjectAttachments', 'subjectAttachments');
+
+  // student,
+  studentHome('/student/home', 'home'),
+  studentFavorite('/student/favorite', 'favorite'),
+  studentNotifications('/student/notifications', 'notifications'),
+  studentSettings('/student/settings', 'settings'),
+  studentCategory('/student/category', 'category'),
+  studentSearch('/student/search', 'search'),
+  studentAttachments('/student/attachmentsPage', 'studentAttachmentsPage'),
+  studentCalendar('/student/studentCalendarPage', 'studentCalendarPage'),
+  studentCourses('/student/coursesPage', 'coursesPage'),
+  studentLessons('/student/lessonsPage', 'lessonsPage'),
+  studentQuiz('/student/quizPage', 'quizPage'),
+  studentSuccessquiz('/student/successquizpage', 'successquizpage'),
+  studentFailurequiz('/student/failurequizpage', 'failurequizpage'),
+  studentOnlineLesson('/student/onlineLessonPage', 'onlineLessonPage'),
+  studentSubjectAttachments(
+    '/student/subjectAttachments',
+    'subjectAttachments',
+  );
+
+  // superAdmin,
+  // admin,
+  // teacher,
+  // guardian,
+  // librarian,
+  // supervisor
 
   final String path;
   final String name;

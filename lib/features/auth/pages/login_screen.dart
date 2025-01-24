@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/form/components.dart';
 import 'package:global_school/core/themes/app_colors.dart';
-import 'package:global_school/locale/generated/l10n.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -42,10 +42,8 @@ class LoginScreen extends ConsumerWidget {
               ),
               Text(
                 S.of(context).welcomeToMadares,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium
-                    ?.copyWith(color: AppColors.green1,fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    color: AppColors.green1, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 5),

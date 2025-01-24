@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/routes.dart';
-import 'package:global_school/features/statics/not_found.dart';
+import 'package:global_school/features/shared/statics/not_found.dart';
 import 'package:global_school/initialize_app.dart';
 import 'package:global_school/features/auth/providers/auth_provider.dart';
 import 'package:global_school/services/local_storage/storage_service.dart';
@@ -68,9 +68,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         // AppRoutes.splash.path,
         AppRoutes.onboarding.path,
         AppRoutes.login.path,
-        AppRoutes.register.path,
         AppRoutes.resetPassword.path,
-        AppRoutes.resetPasswordDone.path,
       ];
 
       // 1. Show splash screen if auth state is loading or not available
@@ -92,7 +90,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         //   // Redirect to home if accessing an invalid path
         //   return AppRoutes.home.path;
         if (currentPath == AppRoutes.splash.path) {
-          return AppRoutes.home.path;
+          return AppRoutes.studentHome.path;
         }
       }
 
@@ -109,7 +107,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       // 5. Allow navigation to register, reset password, or login if auth false
       if (isAuth.value.requireValue &&
           allowedUnauthPaths.contains(currentPath)) {
-        return AppRoutes.home.path;
+        return AppRoutes.studentHome.path;
       }
 
       // 6. Allow navigation to register, reset password, or login if auth false
