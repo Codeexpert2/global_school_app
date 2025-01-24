@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
 import 'package:global_school/features/exam/pages/home_exam_page.dart';
-import 'package:global_school/features/student/onlineLesson/pages/online_lesson_page.dart';
+import 'package:global_school/features/student/offlineLesson/pages/offline_lesson_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -125,7 +125,7 @@ class MainDrawer extends ConsumerWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => OnlineLessonPage(),
+                    builder: (context) => OfflineLessonsPage(),
                   ),
                 );
               },
