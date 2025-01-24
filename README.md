@@ -1087,6 +1087,123 @@ print(DateHelper.timeAgo(oldDate));       // "1 year ago"
 
 ---
 
+## Paginated List Widget
+
+A Flutter widget that provides a paginated list with built-in loading states, error handling, and infinite scrolling capabilities using Riverpod for state management.
+
+## Features
+
+- Infinite scrolling with customizable scroll threshold
+- Pull-to-refresh functionality
+- Built-in loading, error, and empty states
+- Customizable widgets for all states
+- Support for list separators
+- Automatic pagination handling
+- Built-in error handling and retry mechanisms
+
+## Basic Usage
+
+```dart
+PaginatedListWidget<User>(
+  provider: userListProvider,
+  itemBuilder: (context, user) => UserListItem(user: user),
+)
+```
+
+## Advanced Usage
+
+```dart
+PaginatedListWidget<User>(
+  // Required parameters
+  provider: userListProvider,
+  itemBuilder: (context, user) => UserListItem(user: user),
+  
+  // Optional customization
+  loadTriggerThreshold: 0.8,
+  enablePullToRefresh: true,
+  padding: EdgeInsets.all(16.0),
+  separatorBuilder: (context, index) => Divider(),
+  
+  // Custom state widgets
+  loadingWidget: CustomLoadingSpinner(),
+  errorWidget: CustomErrorWidget(),
+  emptyWidget: CustomEmptyState(),
+  bottomLoadingWidget: CustomBottomLoader(),
+  bottomErrorWidget: CustomBottomError(),
+  noMoreDataWidget: CustomNoMoreDataWidget(),
+  
+  // Optional scroll controller
+  scrollController: myScrollController,
+)
+```
+
+## Setting Up the Provider
+
+Create a state notifier that extends `PaginatedListNotifier`:
+
+```dart
+final userListProvider = AutoDisposeStateNotifierProvider<UserListNotifier, PaginationState<User>>(
+  (ref) => UserListNotifier(),
+);
+
+class UserListNotifier extends PaginatedListNotifier<User> {
+  @override
+  Future<List<User>> fetchPage(int page) async {
+    // Implement your API call here
+    final response = await api.getUsers(page: page, limit: pageSize);
+    return response.users;
+  }
+}
+```
+
+## Customization Options
+
+### Load Trigger Threshold
+
+The `loadTriggerThreshold` parameter (default: 0.8) determines when to load the next page. It represents the scroll position as a percentage of the total scrollable area:
+
+```dart
+PaginatedListWidget<User>(
+  provider: userListProvider,
+  itemBuilder: (context, user) => UserListItem(user: user),
+  loadTriggerThreshold: 0.7, // Load next page at 70% scroll
+)
+```
+
+### Pull-to-Refresh
+
+Enable or disable pull-to-refresh functionality:
+
+```dart
+PaginatedListWidget<User>(
+  provider: userListProvider,
+  itemBuilder: (context, user) => UserListItem(user: user),
+  enablePullToRefresh: true, // Enables pull-to-refresh
+)
+```
+
+### Custom State Widgets
+
+Customize the appearance of various states:
+
+```dart
+PaginatedListWidget<User>(
+  provider: userListProvider,
+  itemBuilder: (context, user) => UserListItem(user: user),
+  loadingWidget: Center(child: CircularProgressIndicator()),
+  errorWidget: CustomErrorWidget(),
+  emptyWidget: Center(child: Text('No users found')),
+  bottomLoadingWidget: CustomBottomLoader(),
+  bottomErrorWidget: CustomBottomError(),
+  noMoreDataWidget: Center(child: Text('No more users')),
+)
+```
+
+## Error Handling
+
+The widget automatically handles errors and provides retry functionality. You can customize the error display using the `errorWidget` and `bottomErrorWidget` parameters.
+
+---
 
 ### Coding Standards
 - Follow Flutter/Dart best practices
