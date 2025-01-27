@@ -45,6 +45,7 @@ class StudentRootNotifier extends Notifier<int> {
 
   int get getIndex {
     final location = ref.watch(routerProvider).location;
+
     if (location.contains(AppRoutes.studentHome.name)) {
       return 0;
     } else if (location.contains(AppRoutes.studentCategory.name)) {

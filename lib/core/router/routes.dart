@@ -36,6 +36,7 @@ import 'package:global_school/features/shared/statics/about.dart';
 import 'package:global_school/features/shared/statics/privacy_policy.dart';
 import 'package:global_school/features/shared/statics/terms_conditions.dart';
 import 'package:global_school/features/student/onlineLesson/pages/online_lesson_page.dart';
+import 'package:global_school/features/teacher/home/home.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../features/student/courses/model/course.dart';
@@ -86,12 +87,21 @@ List<RouteBase> routes = <RouteBase>[
   ),
   // ShellRoute for authenticated users (role-specific screens)
   ShellRoute(
-        restorationScopeId: 'root',
+    restorationScopeId: 'root',
     navigatorKey: shellNavigatorKey,
     builder: (_, __, child) => RootScreen(child: child),
     routes: [
       // Role-specific routes (superAdmin, admin, teacher, etc.)
-
+      GoRoute(
+        name: AppRoutes.teacherHome.name,
+        path: AppRoutes.teacherHome.path,
+        parentNavigatorKey: shellNavigatorKey,
+        pageBuilder: (context, state) {
+          return const NoTransitionPage(
+            child: TeacherHomeScreen(),
+          );
+        },
+      ),
       GoRoute(
         name: AppRoutes.studentHome.name,
         path: AppRoutes.studentHome.path,

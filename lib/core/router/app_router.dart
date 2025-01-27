@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart';
+import 'package:global_school/core/enums/roles.dart';
+import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/providers/firebase_analytics_provider.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,6 +14,17 @@ import 'package:global_school/services/local_storage/storage_service.dart';
 
 import 'app_routes.dart';
 import 'go_router_observer.dart';
+
+String getHomePath() {
+  final role = getCurrentRole();
+  AppLog.debug('role: $role');
+
+  return switch (role) {
+    UserRole.student => AppRoutes.studentHome.path,
+    UserRole.teacher => AppRoutes.teacherHome.path,
+    _ => AppRoutes.studentHome.path
+  };
+}
 
 final routerProvider = Provider<GoRouter>((ref) {
   final isAuth = ValueNotifier<AsyncValue<bool>>(const AsyncLoading());
@@ -36,7 +49,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     routes: routes,
     refreshListenable: isAuth,
     navigatorKey: rootNavigatorKey,
-    debugLogDiagnostics: false, // kDebugMode,
+    debugLogDiagnostics: kDebugMode,
     initialLocation: AppRoutes.splash.path,
     errorBuilder: (context, state) => const NotFoundScreen(),
     observers: [
@@ -90,7 +103,8 @@ final routerProvider = Provider<GoRouter>((ref) {
         //   // Redirect to home if accessing an invalid path
         //   return AppRoutes.home.path;
         if (currentPath == AppRoutes.splash.path) {
-          return AppRoutes.studentHome.path;
+          // return AppRoutes.studentHome.path;
+          return getHomePath();
         }
       }
 
@@ -107,7 +121,8 @@ final routerProvider = Provider<GoRouter>((ref) {
       // 5. Allow navigation to register, reset password, or login if auth false
       if (isAuth.value.requireValue &&
           allowedUnauthPaths.contains(currentPath)) {
-        return AppRoutes.studentHome.path;
+        // return AppRoutes.studentHome.path;
+        return getHomePath();
       }
 
       // 6. Allow navigation to register, reset password, or login if auth false
