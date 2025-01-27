@@ -21,11 +21,11 @@ class ProfileScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: const MainAppBar(
-        // title: S.of(context).profile,
-        // actions: [
-        //   //
-        // ],
-      ),
+          // title: S.of(context).profile,
+          // actions: [
+          //   //
+          // ],
+          ),
       body: SingleChildScrollView(
         // padding: const EdgeInsets.only(top: kToolbarHeight),
         child: Container(

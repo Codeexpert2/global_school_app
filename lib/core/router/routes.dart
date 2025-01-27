@@ -1,47 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:global_school/components/web/web.dart';
-import 'package:global_school/core/enums/roles.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/features/root/providers/student_root_notifier.dart';
-import 'package:global_school/features/root/widgets/admin_bottom_nav_bar.dart';
-import 'package:global_school/features/root/widgets/guardian_bottom_nav_bar.dart';
-import 'package:global_school/features/root/widgets/librarian_bottom_nav_bar.dart';
-import 'package:global_school/features/root/widgets/student_bottom_nav_bar.dart';
-import 'package:global_school/features/root/widgets/super_admin_bottom_nav_bar.dart';
-import 'package:global_school/features/root/widgets/supervisor_bottom_nav_bar.dart';
-import 'package:global_school/features/root/widgets/teacher_bottom_nav_bar.dart';
+
 import 'package:global_school/features/student/ar/ar_page.dart';
 import 'package:global_school/features/student/ar/model_viewer_page.dart';
-import 'package:global_school/features/student/attachments/view/student_attachments_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
 import 'package:global_school/features/auth/pages/password_reset_screen.dart';
-import 'package:global_school/features/auth/pages/register_screen.dart';
-import 'package:global_school/features/student/calendar/view/calender.dart';
-import 'package:global_school/features/student/category/category_screen.dart';
+
 import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
-import 'package:global_school/features/student/exam/pages/questions/failure_page.dart';
-import 'package:global_school/features/student/exam/pages/questions/quiz_page.dart';
-import 'package:global_school/features/student/exam/pages/questions/success_page.dart';
+
 import 'package:global_school/features/student/help/pages/help_screen.dart';
 import 'package:global_school/features/student/home/home.dart';
 import 'package:global_school/features/student/lessons/lesson_home_page.dart';
 import 'package:global_school/features/student/lessons/offlineLesson/pages/offline_lesson_page.dart';
 import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_page.dart';
-import 'package:global_school/features/student/notification/notification_screen.dart';
 import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
-import 'package:global_school/features/student/profile/pages/change_password_screen.dart';
 import 'package:global_school/features/student/profile/pages/profile_screen.dart';
 import 'package:global_school/features/root/root_screen.dart';
-import 'package:global_school/features/student/search/search_screen.dart';
 import 'package:global_school/features/student/settings/pages/settings_screen.dart';
 import 'package:global_school/features/shared/splash/splash_screen.dart';
 import 'package:global_school/features/shared/statics/about.dart';
 import 'package:global_school/features/shared/statics/privacy_policy.dart';
 import 'package:global_school/features/shared/statics/terms_conditions.dart';
-
-import '../../features/student/courses/model/course.dart';
-import '../../features/student/courses/pages/lessons_page.dart';
 import '../../features/student/games/pages/game_page.dart';
 
 List<RouteBase> routes = <RouteBase>[

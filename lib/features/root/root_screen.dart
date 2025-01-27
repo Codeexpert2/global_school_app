@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:global_school/core/enums/roles.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/log/app_logs.dart';
-import 'package:global_school/features/auth/data/models/auth_model.dart';
 import 'package:global_school/initialize_app.dart';
 import 'package:global_school/services/local_storage/storage_service.dart';
 

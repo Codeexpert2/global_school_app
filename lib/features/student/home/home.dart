@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/components/main/main_drawer.dart';
-import 'package:global_school/features/auth/data/auth_service.dart';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import 'package:global_school/core/client/client.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 
