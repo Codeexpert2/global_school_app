@@ -19,11 +19,15 @@ import 'package:global_school/features/auth/pages/password_reset_screen.dart';
 import 'package:global_school/features/auth/pages/register_screen.dart';
 import 'package:global_school/features/student/calendar/view/calender.dart';
 import 'package:global_school/features/student/category/category_screen.dart';
+import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
 import 'package:global_school/features/student/exam/pages/questions/failure_page.dart';
 import 'package:global_school/features/student/exam/pages/questions/quiz_page.dart';
 import 'package:global_school/features/student/exam/pages/questions/success_page.dart';
 import 'package:global_school/features/student/help/pages/help_screen.dart';
 import 'package:global_school/features/student/home/home.dart';
+import 'package:global_school/features/student/lessons/lesson_home_page.dart';
+import 'package:global_school/features/student/lessons/offlineLesson/pages/offline_lesson_page.dart';
+import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_page.dart';
 import 'package:global_school/features/student/notification/notification_screen.dart';
 import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
 import 'package:global_school/features/student/profile/pages/change_password_screen.dart';
@@ -35,14 +39,32 @@ import 'package:global_school/features/shared/splash/splash_screen.dart';
 import 'package:global_school/features/shared/statics/about.dart';
 import 'package:global_school/features/shared/statics/privacy_policy.dart';
 import 'package:global_school/features/shared/statics/terms_conditions.dart';
-import 'package:global_school/features/student/onlineLesson/pages/online_lesson_page.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../features/student/courses/model/course.dart';
-import '../../features/student/courses/pages/courses_page.dart';
 import '../../features/student/courses/pages/lessons_page.dart';
+import '../../features/student/games/pages/game_page.dart';
 
 List<RouteBase> routes = <RouteBase>[
+  GoRoute(
+    path: AppRoutes.studentOnlineLesson.path,
+    name: AppRoutes.studentOnlineLesson.name,
+    builder: (context, state) => const OnlineLessonPage(),
+  ),
+  GoRoute(
+    path: AppRoutes.studentOfflineLessons.path,
+    name: AppRoutes.studentOfflineLessons.name,
+    builder: (context, state) => const OfflineLessonsPage(),
+  ),
+  // GoRoute(
+  //   path: AppRoutes.studentHomeExam.path,
+  //   name: AppRoutes.studentHomeExam.name,
+  //   builder: (context, state) => const HomeExamPage(),
+  // ),
+  // GoRoute(
+  //   path: AppRoutes.studentLessonHomePage.path,
+  //   name: AppRoutes.studentLessonHomePage.name,
+  //   builder: (context, state) => const LessonHomePage(),
+  // ),
   GoRoute(
     path: AppRoutes.splash.path,
     name: AppRoutes.splash.name,
@@ -86,7 +108,7 @@ List<RouteBase> routes = <RouteBase>[
   ),
   // ShellRoute for authenticated users (role-specific screens)
   ShellRoute(
-        restorationScopeId: 'root',
+    restorationScopeId: 'root',
     navigatorKey: shellNavigatorKey,
     builder: (_, __, child) => RootScreen(child: child),
     routes: [
@@ -103,34 +125,54 @@ List<RouteBase> routes = <RouteBase>[
         },
       ),
       GoRoute(
-        name: AppRoutes.studentCategory.name,
-        path: AppRoutes.studentCategory.path,
+        name: AppRoutes.studentLessonHomePage.name,
+        path: AppRoutes.studentLessonHomePage.path,
         parentNavigatorKey: shellNavigatorKey,
         pageBuilder: (context, state) {
           return const NoTransitionPage(
-            child: CategoryScreen(),
+            child: LessonHomePage(),
           );
         },
       ),
       GoRoute(
-        name: AppRoutes.studentSearch.name,
-        path: AppRoutes.studentSearch.path,
+        name: AppRoutes.studentHomeExam.name,
+        path: AppRoutes.studentHomeExam.path,
         parentNavigatorKey: shellNavigatorKey,
         pageBuilder: (context, state) {
-          final query = state.uri.queryParameters['query'];
+          return const NoTransitionPage(
+            child: HomeExamPage(),
+          );
+        },
+      ),
+      // GoRoute(
+      //   name: AppRoutes.studentSearch.name,
+      //   path: AppRoutes.studentSearch.path,
+      //   parentNavigatorKey: shellNavigatorKey,
+      //   pageBuilder: (context, state) {
+      //     final query = state.uri.queryParameters['query'];
 
-          return const NoTransitionPage(
-            child: SearchScreen(),
-          );
-        },
-      ),
+      //     return const NoTransitionPage(
+      //       child: SearchScreen(),
+      //     );
+      //   },
+      // ),
+      // GoRoute(
+      //   name: AppRoutes.studentNotifications.name,
+      //   path: AppRoutes.studentNotifications.path,
+      //   parentNavigatorKey: shellNavigatorKey,
+      //   pageBuilder: (context, state) {
+      //     return const NoTransitionPage(
+      //       child: NotificationScreen(),
+      //     );
+      //   },
+      // ),
       GoRoute(
-        name: AppRoutes.studentNotifications.name,
-        path: AppRoutes.studentNotifications.path,
+        name: AppRoutes.studentGame.name,
+        path: AppRoutes.studentGame.path,
         parentNavigatorKey: shellNavigatorKey,
         pageBuilder: (context, state) {
           return const NoTransitionPage(
-            child: NotificationScreen(),
+            child: GamePage(),
           );
         },
       ),
@@ -159,14 +201,14 @@ List<RouteBase> routes = <RouteBase>[
       //     return SubjectAttachmentsPage(subjectName: subjectName);
       //   },
       // ),
-      GoRoute(
-        name: AppRoutes.studentLessons.name,
-        path: AppRoutes.studentLessons.path,
-        builder: (context, state) {
-          final course = state.extra as Course;
-          return LessonsPage(course: course);
-        },
-      ),
+      // GoRoute(
+      //   name: AppRoutes.studentLessons.name,
+      //   path: AppRoutes.studentLessons.path,
+      //   builder: (context, state) {
+      //     final course = state.extra as Course;
+      //     return LessonsPage(course: course);
+      //   },
+      // ),
       GoRoute(
           name: 'ar',
           path: '/ar',
@@ -289,11 +331,11 @@ List<RouteBase> routes = <RouteBase>[
 //     name: AppRoutes.failurequizpage.name,
 //     builder: (_, __) => const FailureQuizPage(),
 //   ),
-//    GoRoute(
-//     path: AppRoutes.onlineLessonPage.path,
-//     name: AppRoutes.onlineLessonPage.name,
-//     builder: (_, __) => const OnlineLessonPage(),
-//   ),
+  //  GoRoute(
+  //   path = AppRoutes.studentOnlineLesson.path,
+  //   name = AppRoutes.studentOnlineLesson.name,
+  //   builder = (_, __) => const OnlineLessonPage(),
+  // ),
 //   ShellRoute(
 //     restorationScopeId: 'root',
 //     navigatorKey: shellNavigatorKey,

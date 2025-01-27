@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
 import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
-import 'package:global_school/features/student/offlineLesson/pages/offline_lesson_page.dart';
+import 'package:global_school/features/student/subject_results.dart/page/subject_results_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -16,6 +16,7 @@ class MainDrawer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    
     return SafeArea(
       bottom: false,
       child: Drawer(
@@ -98,22 +99,22 @@ class MainDrawer extends ConsumerWidget {
                 context.pushNamed(AppRoutes.studentAttachments.name);
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.assignment),
-              title: const Text(
-                'Exams',
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                // context.pushNamed(AppRoutes.quizPage.name);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomeExamPage(),
-                  ),
-                );
-              },
-            ),
+            // ListTile(
+            //   leading: const Icon(Icons.assignment),
+            //   title: const Text(
+            //     'Exams',
+            //   ),
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //     // context.pushNamed(AppRoutes.quizPage.name);
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const HomeExamPage(),
+            //       ),
+            //     );
+            //   },
+            // ),
             const AppDivider(),
             ListTile(
               leading: const Icon(Icons.sports_esports),
@@ -125,7 +126,7 @@ class MainDrawer extends ConsumerWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const OfflineLessonsPage(),
+                    builder: (context) => const SubjectResultsPage(),
                   ),
                 );
               },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/onlineLesson/provider/online_lesson_provider.dart';
+import 'package:global_school/features/student/lessons/onlineLesson/provider/online_lesson_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OnlineLessonDetailsPage extends ConsumerWidget {

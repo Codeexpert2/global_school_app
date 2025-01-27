@@ -1,5 +1,5 @@
-import 'package:global_school/features/student/offlineLesson/model/offline_lesson_model.dart';
-import 'package:global_school/features/student/offlineLesson/service/offline_lesson_service.dart';
+import 'package:global_school/features/student/lessons/offlineLesson/model/offline_lesson_model.dart';
+import 'package:global_school/features/student/lessons/offlineLesson/service/offline_lesson_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/core/client/client.dart';
 

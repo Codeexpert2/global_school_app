@@ -1,5 +1,5 @@
 import 'package:global_school/core/client/client.dart';
-import 'package:global_school/features/student/offlineLesson/model/offline_lesson_model.dart';
+import 'package:global_school/features/student/lessons/offlineLesson/model/offline_lesson_model.dart';
 
 class OfflineLessonService {
   OfflineLessonService(this._apiClient);

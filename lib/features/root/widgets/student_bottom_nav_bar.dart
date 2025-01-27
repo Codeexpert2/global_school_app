@@ -38,19 +38,19 @@ const List<NavigationDestination> studentBottomNavBarDestinations = [
     label: 'Home',
   ),
   NavigationDestination(
-    icon: Icon(Icons.category_outlined),
-    selectedIcon: Icon(Icons.category),
-    label: 'Online Lesson',
+    icon: Icon(Icons.play_lesson_outlined),
+    selectedIcon: Icon(Icons.play_lesson),
+    label: 'Lessons',
   ),
   NavigationDestination(
-    icon: Icon(Icons.search_outlined),
-    selectedIcon: Icon(Icons.search),
-    label: 'Search',
+    icon: Icon(Icons.assignment_outlined),
+    selectedIcon: Icon(Icons.assignment),
+    label: 'Exams',
   ),
   NavigationDestination(
-    icon: Icon(Icons.notifications_outlined),
-    selectedIcon: Icon(Icons.notifications),
-    label: 'Notifications',
+    icon: Icon(Icons.games_outlined),
+    selectedIcon: Icon(Icons.games),
+    label: 'Games',
   ),
   NavigationDestination(
     icon: Icon(Icons.person_outline),

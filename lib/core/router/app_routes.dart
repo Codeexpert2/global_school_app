@@ -27,7 +27,11 @@ enum AppRoutes {
   studentQuiz('/student/quizPage', 'quizPage'),
   studentSuccessquiz('/student/successquizpage', 'successquizpage'),
   studentFailurequiz('/student/failurequizpage', 'failurequizpage'),
-  studentOnlineLesson('/student/onlineLessonPage', 'onlineLessonPage'),
+  studentOnlineLesson('/student/onlineLesson', 'onlineLesson'),
+  studentOfflineLessons('/student/offlineLesson', 'offlineLesson'),
+  studentLessonHomePage('/student/lessonHomePage', 'lessonHomePage'),
+  studentHomeExam('/student/homeExam', 'homeExam'),
+  studentGame('/student/game', 'game'),
   studentSubjectAttachments(
     '/student/subjectAttachments',
     'subjectAttachments',

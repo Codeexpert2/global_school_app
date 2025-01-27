@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/onlineLesson/pages/online_lesson_details_page.dart';
-import 'package:global_school/features/student/onlineLesson/provider/online_lesson_provider.dart';
+import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_details_page.dart';
+import 'package:global_school/features/student/lessons/onlineLesson/provider/online_lesson_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OnlineLessonPage extends ConsumerWidget {
@@ -18,21 +18,21 @@ class OnlineLessonPage extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) => Center(child: Text('Error: $error')),
         data: (response) {
-          final lessons = response.data?.courses;
+          final lessons = response.data?.courses ?? [];
           return ListView.builder(
-            itemCount: lessons?.length,
+            itemCount: lessons.length,
             itemBuilder: (context, index) {
-              final lesson = lessons![index];
+              final lesson = lessons[index];
               return Card(
                 margin: const EdgeInsets.all(8),
                 child: ListTile(
-                  title: Text(lesson.topic ?? ''),
+                  title: Text(lesson.topic ?? 'No Topic'),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Start Time: ${lesson.startTime}'),
-                      Text('End Time: ${lesson.endTime}'),
-                      Text('Created By: ${lesson.creatingByName}'),
+                      Text('Start Time: ${lesson.startTime ?? 'N/A'}'),
+                      Text('End Time: ${lesson.endTime ?? 'N/A'}'),
+                      Text('Created By: ${lesson.creatingByName ?? 'Unknown'}'),
                     ],
                   ),
                   onTap: () {

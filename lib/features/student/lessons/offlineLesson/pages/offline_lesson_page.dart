@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/offlineLesson/pages/offline_lesson_details_page.dart';
-import 'package:global_school/features/student/offlineLesson/provider/offline_lesson_provider.dart';
+import 'package:global_school/features/student/lessons/offlineLesson/pages/offline_lesson_details_page.dart';
+import 'package:global_school/features/student/lessons/offlineLesson/provider/offline_lesson_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OfflineLessonsPage extends HookConsumerWidget {
@@ -26,16 +26,21 @@ class OfflineLessonsPage extends HookConsumerWidget {
             itemCount: offlineLessons.length,
             itemBuilder: (context, index) {
               final lesson = offlineLessons[index];
+
+              final topic = lesson.topic ?? 'بدون عنوان';
+              final classId = lesson.classId ?? 'غير محدد';
+              final sectionId = lesson.sectionId ?? 'غير محدد';
+              final lessonId = lesson.id ?? 0;
+
               return ListTile(
-                title: Text(lesson.topic ?? 'بدون عنوان'),
-                subtitle: Text(
-                    'الصف: ${lesson.classId} - القسم: ${lesson.sectionId}'),
+                title: Text(topic),
+                subtitle: Text('الصف: $classId - القسم: $sectionId'),
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          OfflineLessonDetailsPage(lessonId: lesson.id!),
+                          OfflineLessonDetailsPage(lessonId: lessonId),
                     ),
                   );
                 },

@@ -27,15 +27,16 @@ class StudentRootNotifier extends Notifier<int> {
         router.goNamed(AppRoutes.studentHome.name);
         break;
       case 1:
-        router.pushNamed(AppRoutes.studentCategory.name);
+        router.pushNamed(AppRoutes.studentLessonHomePage.name);
         break;
       case 2:
-        router.pushNamed(AppRoutes.studentSearch.name, queryParameters: {
-          // 'query': '',
-        });
+        // router.pushNamed(AppRoutes.studentSearch.name, queryParameters: {
+        //   // 'query': '',
+        // });
+        router.pushNamed(AppRoutes.studentHomeExam.name);
         break;
       case 3:
-        router.pushNamed(AppRoutes.studentNotifications.name);
+        router.pushNamed(AppRoutes.studentGame.name);
         break;
       case 4:
         router.pushNamed(AppRoutes.profile.name);
@@ -47,11 +48,12 @@ class StudentRootNotifier extends Notifier<int> {
     final location = ref.watch(routerProvider).location;
     if (location.contains(AppRoutes.studentHome.name)) {
       return 0;
-    } else if (location.contains(AppRoutes.studentCategory.name)) {
+    } else if (location.contains(AppRoutes.studentLessonHomePage.name)) {
       return 1;
-    } else if (location.contains(AppRoutes.studentSearch.name)) {
+    // } else if (location.contains(AppRoutes.studentSearch.name)) {
+    } else if (location.contains(AppRoutes.studentHomeExam.name)) {
       return 2;
-    } else if (location.contains(AppRoutes.studentNotifications.name)) {
+    } else if (location.contains(AppRoutes.studentGame.name)) {
       return 3;
     } else if (location.contains(AppRoutes.profile.name)) {
       return 4;

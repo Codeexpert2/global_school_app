@@ -16,7 +16,7 @@ final authNotifierProvider =
 class AuthNotifier extends AsyncNotifier<bool> {
   @override
   FutureOr<bool> build() async {
-    return true;
+    // return true;
     try {
       final res = await ref.read(authServiceProvider).profile();
       return res.status ?? false;

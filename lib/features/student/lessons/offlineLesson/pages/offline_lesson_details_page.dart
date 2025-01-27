@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/offlineLesson/provider/offline_lesson_provider.dart';
+import 'package:global_school/features/student/lessons/offlineLesson/provider/offline_lesson_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OfflineLessonDetailsPage extends HookConsumerWidget {

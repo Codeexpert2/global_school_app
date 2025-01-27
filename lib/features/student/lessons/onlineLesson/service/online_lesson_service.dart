@@ -1,5 +1,5 @@
 import 'package:global_school/core/client/client.dart';
-import 'package:global_school/features/student/onlineLesson/model/online_lesson_model.dart';
+import 'package:global_school/features/student/lessons/onlineLesson/model/online_lesson_model.dart';
 
 
 class OnlineLessonService {
