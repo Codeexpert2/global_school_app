@@ -35,11 +35,12 @@ enum AppRoutes {
   studentSubjectAttachments(
     '/student/subjectAttachments',
     'subjectAttachments',
-  );
-
+  ),
   // superAdmin,
   // admin,
   // teacher,
+  teacherHome('/teacher/home', 'teacherHome');
+
   // guardian,
   // librarian,
   // supervisor

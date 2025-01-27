@@ -67,6 +67,7 @@ class Data {
     this.note,
     this.createdAt,
     this.updatedAt,
+    this.role,
     this.roles,
   });
 
@@ -112,6 +113,7 @@ class Data {
         motherName: json['mother_name'],
         whatsappGroupNumber: json['whatsapp_group_number'],
         note: json['note'],
+        role: json['role'],
         createdAt: json['created_at'] == null
             ? null
             : DateTime.parse(json['created_at']),
