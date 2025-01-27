@@ -54,14 +54,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  ar_flutter_plugin_updated:
-    dependency: "direct main"
-    description:
-      name: ar_flutter_plugin_updated
-      sha256: "015fa1bfd2383cea7d195dc9f76a49c1ebe079b48fe442ff5219501d03213c53"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.1"
   archive:
     dependency: transitive
     description:
@@ -78,14 +70,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.0"
-  arkit_plugin:
-    dependency: "direct main"
-    description:
-      name: arkit_plugin
-      sha256: ce248e771c5b36c60e1caf0305ef1d6d58089b6f80dee73f25b7ab6544bb69f3
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.1"
   async:
     dependency: transitive
     description:
@@ -648,14 +632,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.2"
-  flutter_pdfview:
-    dependency: "direct main"
-    description:
-      name: flutter_pdfview
-      sha256: "2e3fa359524e9865ec25a64593b65092b4a9974c5871228c1a771300a003d150"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.4.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -754,6 +730,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.15.2"
+  flutter_zoom_videosdk:
+    dependency: "direct main"
+    description:
+      name: flutter_zoom_videosdk
+      sha256: "7e7ab56bed8dc1c5f928f498394a73fcb27b1edc39156cd25781c3dec872d10d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.14.0"
   freezed_annotation:
     dependency: transitive
     description:
@@ -810,54 +794,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.15.3"
-  geolocator:
-    dependency: transitive
-    description:
-      name: geolocator
-      sha256: d2ec66329cab29cb297d51d96c067d457ca519dca8589665fa0b82ebacb7dbe4
-      url: "https://pub.dev"
-    source: hosted
-    version: "13.0.2"
-  geolocator_android:
-    dependency: transitive
-    description:
-      name: geolocator_android
-      sha256: "7aefc530db47d90d0580b552df3242440a10fe60814496a979aa67aa98b1fd47"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.6.1"
-  geolocator_apple:
-    dependency: transitive
-    description:
-      name: geolocator_apple
-      sha256: "6154ea2682563f69fc0125762ed7e91e7ed85d0b9776595653be33918e064807"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.3.8+1"
-  geolocator_platform_interface:
-    dependency: transitive
-    description:
-      name: geolocator_platform_interface
-      sha256: "386ce3d9cce47838355000070b1d0b13efb5bc430f8ecda7e9238c8409ace012"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.2.4"
-  geolocator_web:
-    dependency: transitive
-    description:
-      name: geolocator_web
-      sha256: "2ed69328e05cd94e7eb48bb0535f5fc0c0c44d1c4fa1e9737267484d05c29b5e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.1.1"
-  geolocator_windows:
-    dependency: transitive
-    description:
-      name: geolocator_windows
-      sha256: "53da08937d07c24b0d9952eb57a3b474e29aae2abf9dd717f7e1230995f13f0e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.3"
   get:
     dependency: transitive
     description:
@@ -1856,7 +1792,7 @@ packages:
     source: hosted
     version: "1.1.16"
   vector_math:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: vector_math
       sha256: "80b3257d1492ce4d091729e3a67a60407d227c27241d6927be0130c98e741803"
