@@ -7,9 +7,9 @@ class LessonHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('اختر نوع الدرس'),
-      ),
+      // appBar: const MainAppBar(
+      //   title: 'اختر نوع الدرس',
+      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,7 +25,7 @@ class LessonHomePage extends StatelessWidget {
               ),
               child: const Text('الدروس عبر الإنترنت (Online Lessons)'),
             ),
-            const SizedBox(height: 20), 
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 context.pushNamed(AppRoutes.studentOfflineLessons.name);

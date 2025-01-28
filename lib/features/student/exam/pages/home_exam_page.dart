@@ -9,13 +9,13 @@ class HomeExamPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'الصفحة الرئيسية',
-          style: TextStyle(fontSize: 24),
-        ),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title: const Text(
+      //     'الصفحة الرئيسية',
+      //     style: TextStyle(fontSize: 24),
+      //   ),
+      //   centerTitle: true,
+      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
