@@ -92,7 +92,7 @@ dependencies:
   go_router: ^14.6.3
   share_plus: ^10.1.4
   url_launcher: ^6.3.1
-  flutter_zoom_videosdk: ^1.14.0
+  # flutter_zoom_videosdk: ^1.14.0
   syncfusion_flutter_calendar: ^27.2.5
 
 dev_dependencies:
