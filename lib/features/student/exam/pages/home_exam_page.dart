@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/features/student/exam/pages/exam_page.dart';
 
 import 'marks/grades_report_page.dart';
 
@@ -46,12 +47,12 @@ class HomeExamPage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const SecondPage(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ExamPage(),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,

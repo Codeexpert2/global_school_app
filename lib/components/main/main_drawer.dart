@@ -8,6 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/features/auth/providers/auth_provider.dart';
 
+import '../../features/student/recorded_lesson/page/recorded_lesson_page.dart';
 import 'app_divider.dart';
 
 class MainDrawer extends ConsumerWidget {
@@ -125,6 +126,7 @@ class MainDrawer extends ConsumerWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
+                    // builder: (context) => const RecordedLessonPage(),
                     builder: (context) => const SubjectResultsPage(),
                   ),
                 );
