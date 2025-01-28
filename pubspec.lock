@@ -730,14 +730,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.15.2"
-  flutter_zoom_videosdk:
-    dependency: "direct main"
-    description:
-      name: flutter_zoom_videosdk
-      sha256: "7e7ab56bed8dc1c5f928f498394a73fcb27b1edc39156cd25781c3dec872d10d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.14.0"
   freezed_annotation:
     dependency: transitive
     description:
