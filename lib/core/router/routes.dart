@@ -28,34 +28,6 @@ import 'package:global_school/features/teacher/home/home.dart';
 
 List<RouteBase> routes = <RouteBase>[
   GoRoute(
-    path: AppRoutes.studentOnlineLesson.path,
-    name: AppRoutes.studentOnlineLesson.name,
-    builder: (context, state) => const OnlineLessonPage(),
-  ),
-  GoRoute(
-    path: AppRoutes.studentOnlineLessonDetails.path,
-    name: AppRoutes.studentOnlineLessonDetails.name,
-    builder: (context, state) {
-      final lessonId = state.pathParameters['lessonId'];
-      return OnlineLessonDetailsPage(lessonId: lessonId ?? '');
-    },
-  ),
-  GoRoute(
-    path: AppRoutes.studentOfflineLessons.path,
-    name: AppRoutes.studentOfflineLessons.name,
-    builder: (context, state) => const OfflineLessonsPage(),
-  ),
-  GoRoute(
-    path: AppRoutes.studentOfflineLessonsDetails.path,
-    name: AppRoutes.studentOfflineLessonsDetails.name,
-    builder: (context, state) {
-      final lessonId = state.pathParameters['lessonId'];
-      return OfflineLessonDetailsPage(
-        lessonId: lessonId ?? '',
-      );
-    },
-  ),
-  GoRoute(
     path: AppRoutes.splash.path,
     name: AppRoutes.splash.name,
     builder: (context, state) => const SplashScreen(),
@@ -80,7 +52,6 @@ List<RouteBase> routes = <RouteBase>[
     name: AppRoutes.about.name,
     builder: (context, state) => const AboutScreen(),
   ),
-
   GoRoute(
     path: AppRoutes.help.path,
     name: AppRoutes.help.name,
@@ -96,7 +67,6 @@ List<RouteBase> routes = <RouteBase>[
     name: AppRoutes.resetPassword.name,
     builder: (_, __) => const PasswordResetScreen(),
   ),
-  // ShellRoute for authenticated users (role-specific screens)
   ShellRoute(
     restorationScopeId: 'root',
     navigatorKey: shellNavigatorKey,
@@ -108,7 +78,6 @@ List<RouteBase> routes = <RouteBase>[
       );
     },
     routes: [
-      // Role-specific routes (superAdmin, admin, teacher, etc.)
       GoRoute(
         name: AppRoutes.teacherHome.name,
         path: AppRoutes.teacherHome.path,
@@ -216,6 +185,34 @@ List<RouteBase> routes = <RouteBase>[
         path: AppRoutes.studentSettings.path,
         name: AppRoutes.studentSettings.name,
         builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.studentOnlineLesson.path,
+        name: AppRoutes.studentOnlineLesson.name,
+        builder: (context, state) => const OnlineLessonPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.studentOnlineLessonDetails.path,
+        name: AppRoutes.studentOnlineLessonDetails.name,
+        builder: (context, state) {
+          final lessonId = state.pathParameters['lessonId'];
+          return OnlineLessonDetailsPage(lessonId: lessonId ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.studentOfflineLessons.path,
+        name: AppRoutes.studentOfflineLessons.name,
+        builder: (context, state) => const OfflineLessonsPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.studentOfflineLessonsDetails.path,
+        name: AppRoutes.studentOfflineLessonsDetails.name,
+        builder: (context, state) {
+          final lessonId = state.pathParameters['lessonId'];
+          return OfflineLessonDetailsPage(
+            lessonId: lessonId ?? '',
+          );
+        },
       ),
     ],
   ),

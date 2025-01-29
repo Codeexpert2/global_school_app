@@ -8,9 +8,9 @@ enum AppRoutes {
   changePassword('change-password', 'changePassword'),
   profile('/profile', 'profile'),
   help('/help', 'help'),
-  about('about', 'about'),
-  termsConditions('terms-conditions', 'termsConditions'),
-  privacyPolicy('privacy-policy', 'privacyPolicy'),
+  about('/about', 'about'),
+  termsConditions('/terms-conditions', 'termsConditions'),
+  privacyPolicy('/privacy-policy', 'privacyPolicy'),
   web('/web', 'web'),
 
   // student,
