@@ -18,9 +18,9 @@ class LessonHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
-            onPressed: () {
-              context.pushNamed(AppRoutes.studentOnlineLesson.name);
-            },
+            onPressed: () => context.pushNamed(
+              AppRoutes.studentOnlineLesson.name,
+            ),
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               textStyle: const TextStyle(fontSize: 18),
@@ -29,9 +29,9 @@ class LessonHomePage extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {
-              context.pushNamed(AppRoutes.studentOfflineLessons.name);
-            },
+            onPressed: () => context.pushNamed(
+              AppRoutes.studentOfflineLessons.name,
+            ),
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               textStyle: const TextStyle(fontSize: 18),

@@ -9,7 +9,7 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
     super.key,
     required this.lessonId,
   });
-  final int lessonId;
+  final String lessonId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

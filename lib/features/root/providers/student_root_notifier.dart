@@ -34,7 +34,7 @@ class StudentRootNotifier extends Notifier<int> {
         router.goNamed(AppRoutes.studentHome.name);
         break;
       case 1:
-        router.pushNamed(AppRoutes.studentLessonHomePage.name);
+        router.pushNamed(AppRoutes.studentLessonHome.name);
         break;
       case 2:
         router.pushNamed(AppRoutes.studentHomeExam.name);
@@ -53,7 +53,7 @@ class StudentRootNotifier extends Notifier<int> {
 
     if (location.contains(AppRoutes.studentHome.name)) {
       return 0;
-    } else if (location.contains(AppRoutes.studentLessonHomePage.name)) {
+    } else if (location.contains(AppRoutes.studentLessonHome.name)) {
       return 1;
     } else if (location.contains(AppRoutes.studentHomeExam.name)) {
       return 2;

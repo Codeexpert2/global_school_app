@@ -18,7 +18,7 @@ final onlineLessonProvider = FutureProvider<OnlineLessonModel>((ref) async {
 
 // Provider للحصول على تفاصيل درس معين
 final onlineLessonDetailsProvider =
-    FutureProvider.family<OnlineLesson, int>((ref, id) async {
+    FutureProvider.family<OnlineLesson, String>((ref, id) async {
   final onlineLessonService = ref.watch(onlineLessonServiceProvider);
   return await onlineLessonService.getOnlineLessonById(id);
 });

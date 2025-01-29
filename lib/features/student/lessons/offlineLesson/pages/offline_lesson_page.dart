@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/router/app_routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../provider/offline_lesson_provider.dart';
-import 'offline_lesson_details_page.dart';
 
 class OfflineLessonsPage extends HookConsumerWidget {
   const OfflineLessonsPage({super.key});
@@ -41,14 +41,15 @@ class OfflineLessonsPage extends HookConsumerWidget {
 
               return ListTile(
                 title: Text(topic),
-                subtitle: Text('الصف: $classId - القسم: $sectionId'),
+                subtitle: Text(
+                  'الصف: $classId - القسم: $sectionId',
+                ),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          OfflineLessonDetailsPage(lessonId: lessonId),
-                    ),
+                  context.pushNamed(
+                    AppRoutes.studentOfflineLessonsDetails.name,
+                    pathParameters: {
+                      'lessonId': lessonId.toString(),
+                    },
                   );
                 },
               );

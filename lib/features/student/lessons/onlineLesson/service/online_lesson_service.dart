@@ -17,7 +17,7 @@ class OnlineLessonService {
   }
 
   // دالة للحصول على تفاصيل درس معين بناءً على الـ id
-  Future<OnlineLesson> getOnlineLessonById(int id) async {
+  Future<OnlineLesson> getOnlineLessonById(String id) async {
     try {
       final response = await _apiClient.get('/student/online-lesson/$id');
       return OnlineLesson.fromJson(response.data);

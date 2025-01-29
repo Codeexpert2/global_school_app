@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/router/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../provider/online_lesson_provider.dart';
@@ -37,12 +39,11 @@ class OnlineLessonPage extends ConsumerWidget {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            OnlineLessonDetailsPage(lessonId: lesson.id ?? 0),
-                      ),
+                    context.pushNamed(
+                      AppRoutes.studentOnlineLessonDetails.name,
+                      pathParameters: {
+                        'lessonId': lesson.id?.toString() ?? '',
+                      },
                     );
                   },
                 ),

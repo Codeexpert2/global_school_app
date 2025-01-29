@@ -5,8 +5,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../provider/online_lesson_provider.dart';
 
 class OnlineLessonDetailsPage extends ConsumerWidget {
-  const OnlineLessonDetailsPage({super.key, required this.lessonId});
-  final int lessonId;
+  const OnlineLessonDetailsPage({
+    super.key,
+    required this.lessonId,
+  });
+
+  final String lessonId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

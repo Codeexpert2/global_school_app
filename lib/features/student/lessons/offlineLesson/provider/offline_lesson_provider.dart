@@ -16,7 +16,7 @@ final offlineLessonProvider = FutureProvider<List<OfflineLesson>>((ref) async {
 });
 
 final offlineLessonDetailsProvider =
-    FutureProvider.family<OfflineLesson, int>((ref, id) async {
+    FutureProvider.family<OfflineLesson, String>((ref, id) async {
   final offlineLessonService = ref.watch(offlineLessonServiceProvider);
   return await offlineLessonService.getOfflineLessonById(id);
 });
