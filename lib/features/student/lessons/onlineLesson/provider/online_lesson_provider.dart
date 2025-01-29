@@ -1,3 +1,5 @@
+import 'package:global_school/core/pagination/models/pagination_state.dart';
+import 'package:global_school/core/pagination/notifiers/paginated_list_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/core/client/client.dart';
 
@@ -10,10 +12,23 @@ final onlineLessonServiceProvider = Provider<OnlineLessonService>((ref) {
   return OnlineLessonService(apiClient);
 });
 
-// Provider للحصول على جميع الدروس
-final onlineLessonProvider = FutureProvider<OnlineLessonModel>((ref) async {
+final onlineLessonSearchProvider = StateProvider<String>((ref) => '');
+
+// Create the products provider using PaginatedListNotifier
+final onlineLessonsProvider = StateNotifierProvider.autoDispose<
+    PaginatedListNotifier<OnlineLesson>, PaginationState<OnlineLesson>>((ref) {
   final onlineLessonService = ref.watch(onlineLessonServiceProvider);
-  return await onlineLessonService.getOnlineLessons();
+  final query = ref.watch(onlineLessonSearchProvider);
+
+  return PaginatedListNotifier<OnlineLesson>(
+    fetchData: (int page) async {
+      final res = await onlineLessonService.getOnlineLessons(
+        query: query,
+        page: page,
+      );
+      return res.data ?? [];
+    },
+  );
 });
 
 // Provider للحصول على تفاصيل درس معين

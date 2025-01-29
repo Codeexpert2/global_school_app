@@ -7,7 +7,7 @@ class PaginationParams {
     this.sortDirection = 'asc',
     this.filters,
     this.page = 1,
-    this.limit = 20,
+    this.perPage = 20,
   });
 
   /// Search query string for filtering results
@@ -26,13 +26,13 @@ class PaginationParams {
   final int page;
 
   /// Number of items per page
-  final int limit;
+  final int perPage;
 
   /// Converts the parameters to a JSON map for API requests.
   Map<String, dynamic> toJson() {
     return {
       'page': page,
-      'limit': limit,
+      'per_page': perPage,
       if (query != null && query!.isNotEmpty) 'query': query,
       if (orderBy != null) 'orderBy': orderBy,
       if (sortDirection != null) 'sortDirection': sortDirection,
@@ -47,7 +47,7 @@ class PaginationParams {
     String? sortDirection,
     Map<String, dynamic>? filters,
     int? page,
-    int? limit,
+    int? perPage,
   }) {
     return PaginationParams(
       query: query ?? this.query,
@@ -55,7 +55,7 @@ class PaginationParams {
       sortDirection: sortDirection ?? this.sortDirection,
       filters: filters ?? this.filters,
       page: page ?? this.page,
-      limit: limit ?? this.limit,
+      perPage: perPage ?? this.perPage,
     );
   }
 }

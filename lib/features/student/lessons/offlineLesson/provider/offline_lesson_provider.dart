@@ -1,3 +1,5 @@
+import 'package:global_school/core/pagination/models/pagination_state.dart';
+import 'package:global_school/core/pagination/notifiers/paginated_list_notifier.dart';
 import 'package:global_school/features/student/lessons/offlineLesson/model/offline_lesson_model.dart';
 import 'package:global_school/features/student/lessons/offlineLesson/service/offline_lesson_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,12 +10,28 @@ final offlineLessonServiceProvider = Provider<OfflineLessonService>((ref) {
   return OfflineLessonService(apiClient);
 });
 
-final offlineLessonProvider = FutureProvider<List<OfflineLesson>>((ref) async {
-  final offlineLessonService = ref.watch(offlineLessonServiceProvider);
+final offlineLessonSearchProvider = StateProvider<String>((ref) => '');
 
-  final res = await offlineLessonService.getOfflineLessons();
-  return res.data ?? [];
-});
+// Create the products provider using PaginatedListNotifier
+final offlineLessonsProvider = StateNotifierProvider.autoDispose<
+    PaginatedListNotifier<OfflineLesson>, PaginationState<OfflineLesson>>(
+  (ref) {
+    final offlineLessonService = ref.watch(offlineLessonServiceProvider);
+    final query = ref.watch(offlineLessonSearchProvider);
+
+    return PaginatedListNotifier<OfflineLesson>(
+      fetchData: (int page) async {
+        final res = await offlineLessonService.getOfflineLessons(
+          query: query,
+          page: page,
+          perPage: 10,
+        );
+        return res.data ?? [];
+      },
+      itemsPerPage: 10,
+    );
+  },
+);
 
 final offlineLessonDetailsProvider =
     FutureProvider.family<OfflineLesson, String>((ref, id) async {

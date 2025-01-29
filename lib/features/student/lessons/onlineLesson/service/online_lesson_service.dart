@@ -7,9 +7,20 @@ class OnlineLessonService {
   final ApiClient _apiClient;
 
   // دالة للحصول على جميع الدروس عبر الإنترنت
-  Future<OnlineLessonModel> getOnlineLessons() async {
+  Future<OnlineLessonModel> getOnlineLessons({
+    String query = '',
+    int page = 1,
+    int perPage = 10,
+  }) async {
     try {
-      final response = await _apiClient.get('/student/online-lesson');
+      final response = await _apiClient.get(
+        '/student/online-lesson',
+        queryParameters: {
+          'query': query,
+          'page': page.toString(),
+          'per_page': perPage.toString(),
+        },
+      );
       return OnlineLessonModel.fromJson(response.data);
     } catch (e) {
       throw Exception('Failed to fetch online lessons: $e');

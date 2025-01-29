@@ -6,9 +6,20 @@ class OfflineLessonService {
   OfflineLessonService(this._apiClient);
   final ApiClient _apiClient;
 
-  Future<OfflineLessonModel> getOfflineLessons() async {
+  Future<OfflineLessonModel> getOfflineLessons({
+    String query = '',
+    int page = 1,
+    int perPage = 10,
+  }) async {
     try {
-      final response = await _apiClient.get('/student/offline-lesson');
+      final response = await _apiClient.get(
+        '/student/offline-lesson',
+        queryParameters: {
+          'query': query,
+          'page': page.toString(),
+          'per_page': perPage.toString(),
+        },
+      );
       final data = OfflineLessonModel.fromJson(response.data);
       return data;
     } catch (e) {
