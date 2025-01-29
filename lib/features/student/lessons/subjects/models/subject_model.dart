@@ -1,37 +1,34 @@
 // To parse this JSON data, do
 //
-//     final offlineLessonModel = offlineLessonModelFromJson(jsonString);
+//     final subjectModel = subjectModelFromJson(jsonString);
 
 import 'dart:convert';
 
-OfflineLessonModel offlineLessonModelFromJson(String str) =>
-    OfflineLessonModel.fromJson(json.decode(str));
+SubjectModel subjectModelFromJson(String str) =>
+    SubjectModel.fromJson(json.decode(str));
 
-String offlineLessonModelToJson(OfflineLessonModel data) =>
-    json.encode(data.toJson());
+String subjectModelToJson(SubjectModel data) => json.encode(data.toJson());
 
-class OfflineLessonModel {
-  OfflineLessonModel({
+class SubjectModel {
+  SubjectModel({
     this.success,
     this.message,
     this.meta,
     this.data,
   });
 
-  factory OfflineLessonModel.fromJson(Map<String, dynamic> json) =>
-      OfflineLessonModel(
+  factory SubjectModel.fromJson(Map<String, dynamic> json) => SubjectModel(
         success: json['success'],
         message: json['message'],
         meta: json['meta'] == null ? null : Meta.fromJson(json['meta']),
         data: json['data'] == null
             ? []
-            : List<OfflineLesson>.from(
-                json['data']!.map((x) => OfflineLesson.fromJson(x))),
+            : List<Datum>.from(json['data']!.map((x) => Datum.fromJson(x))),
       );
   bool? success;
   String? message;
   Meta? meta;
-  List<OfflineLesson>? data;
+  List<Datum>? data;
 
   Map<String, dynamic> toJson() => {
         'success': success,
@@ -43,58 +40,50 @@ class OfflineLessonModel {
       };
 }
 
-class OfflineLesson {
-  OfflineLesson({
+class Datum {
+  Datum({
     this.id,
-    this.classId,
-    this.sectionId,
-    this.topic,
+    this.curriculumId,
+    this.name,
+    this.level,
     this.file,
-    this.images,
-    this.videos,
-    this.url,
     this.createdAt,
     this.updatedAt,
+    this.numberSession,
   });
 
-  factory OfflineLesson.fromJson(Map<String, dynamic> json) => OfflineLesson(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json['id'],
-        classId: json['class_id'],
-        sectionId: json['section_id'],
-        topic: json['topic'],
+        curriculumId: json['curriculum_id'],
+        name: json['name'],
+        level: json['level'],
         file: json['file'],
-        images: json['images'],
-        videos: json['videos'],
-        url: json['url'],
         createdAt: json['created_at'] == null
             ? null
             : DateTime.parse(json['created_at']),
         updatedAt: json['updated_at'] == null
             ? null
             : DateTime.parse(json['updated_at']),
+        numberSession: json['number_session'],
       );
   int? id;
-  int? classId;
-  int? sectionId;
-  String? topic;
+  int? curriculumId;
+  String? name;
+  String? level;
   dynamic file;
-  String? images;
-  String? videos;
-  String? url;
   DateTime? createdAt;
   DateTime? updatedAt;
+  int? numberSession;
 
   Map<String, dynamic> toJson() => {
         'id': id,
-        'class_id': classId,
-        'section_id': sectionId,
-        'topic': topic,
+        'curriculum_id': curriculumId,
+        'name': name,
+        'level': level,
         'file': file,
-        'images': images,
-        'videos': videos,
-        'url': url,
         'created_at': createdAt?.toIso8601String(),
         'updated_at': updatedAt?.toIso8601String(),
+        'number_session': numberSession,
       };
 }
 

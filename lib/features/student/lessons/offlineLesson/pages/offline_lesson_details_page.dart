@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/lessons/offlineLesson/provider/offline_lesson_provider.dart';
+import 'package:global_school/core/extensions/extensions.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class OfflineLessonDetailsPage extends HookConsumerWidget {
+import '../provider/offline_lesson_provider.dart';
 
-  const OfflineLessonDetailsPage({super.key, required this.lessonId});
+class OfflineLessonDetailsPage extends HookConsumerWidget {
+  const OfflineLessonDetailsPage({
+    super.key,
+    required this.lessonId,
+  });
   final int lessonId;
 
   @override
@@ -17,16 +21,24 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
         title: const Text('تفاصيل الدرس'),
       ),
       body: lessonDetailsAsync.when(
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
+        error: (error, stack) => Center(
+          child: Text('حدث خطأ: $error'),
+        ),
         data: (lesson) {
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  width: context.width,
+                ),
                 Text(
                   lesson.topic ?? 'بدون عنوان',
-                  style: const TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 const SizedBox(height: 16),
                 Text('الصف: ${lesson.classId}'),
@@ -43,12 +55,6 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
             ),
           );
         },
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
-        error: (error, stack) => Center(
-          child: Text('حدث خطأ: $error'),
-        ),
       ),
     );
   }

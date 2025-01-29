@@ -36,7 +36,7 @@ extension GoRouterExtension on GoRouter {
   /// print('Full path: $fullPath');
   /// ```
   String get fullPath {
-    return '${AppConfigs.baseDomin}$location';
+    return '${AppConfigs.baseUrl}$location';
   }
 
   /// Retrieves the query parameters of current route as a [Map] key-value.

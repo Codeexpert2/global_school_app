@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/lessons/offlineLesson/pages/offline_lesson_details_page.dart';
-import 'package:global_school/features/student/lessons/offlineLesson/provider/offline_lesson_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../provider/offline_lesson_provider.dart';
+import 'offline_lesson_details_page.dart';
 
 class OfflineLessonsPage extends HookConsumerWidget {
   const OfflineLessonsPage({super.key});
@@ -15,6 +16,12 @@ class OfflineLessonsPage extends HookConsumerWidget {
         title: const Text('الدروس الافتراضية'),
       ),
       body: offlineLessonsAsync.when(
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
+        error: (error, stack) => Center(
+          child: Text('حدث خطأ: $error'),
+        ),
         data: (offlineLessons) {
           if (offlineLessons.isEmpty) {
             return const Center(
@@ -48,12 +55,6 @@ class OfflineLessonsPage extends HookConsumerWidget {
             },
           );
         },
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
-        error: (error, stack) => Center(
-          child: Text('حدث خطأ: $error'),
-        ),
       ),
     );
   }

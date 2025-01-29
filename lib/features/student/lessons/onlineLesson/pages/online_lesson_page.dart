@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_details_page.dart';
-import 'package:global_school/features/student/lessons/onlineLesson/provider/online_lesson_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../provider/online_lesson_provider.dart';
+import 'online_lesson_details_page.dart';
 
 class OnlineLessonPage extends ConsumerWidget {
   const OnlineLessonPage({super.key});
@@ -18,7 +19,7 @@ class OnlineLessonPage extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) => Center(child: Text('Error: $error')),
         data: (response) {
-          final lessons = response.data?.courses ?? [];
+          final lessons = response.data ?? [];
           return ListView.builder(
             itemCount: lessons.length,
             itemBuilder: (context, index) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/lessons/onlineLesson/provider/online_lesson_provider.dart';
+import 'package:global_school/core/extensions/extensions.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../provider/online_lesson_provider.dart';
 
 class OnlineLessonDetailsPage extends ConsumerWidget {
   const OnlineLessonDetailsPage({super.key, required this.lessonId});
@@ -18,19 +20,23 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
       body: onlineLessonDetailsAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) => Center(child: Text('Error: $error')),
-        data: (response) {
-          if (response.data == null) {
-            return const Center(child: Text('No lesson details available.'));
-          }
-          final lesson = response.data!; // تأكد من أن data ليس null
+        data: (lesson) {
+          // if (response == null) {
+          //   return const Center(child: Text('No lesson details available.'));
+          // }
+          // final lesson = response; // تأكد من أن data ليس null
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text('Topic: ${lesson.topic}',
-                    style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold)),
+                SizedBox(
+                  width: context.width,
+                ),
+                Text(
+                  'Topic: ${lesson.topic}',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
                 const SizedBox(height: 10),
                 Text('Start Time: ${lesson.startTime}'),
                 Text('End Time: ${lesson.endTime}'),

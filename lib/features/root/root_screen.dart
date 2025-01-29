@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/enums/roles.dart';
-import 'package:global_school/core/keys/keys.dart';
-import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/core/router/app_router.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/router/go_router_extension.dart';
-import 'package:global_school/initialize_app.dart';
-import 'package:global_school/services/local_storage/storage_service.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
