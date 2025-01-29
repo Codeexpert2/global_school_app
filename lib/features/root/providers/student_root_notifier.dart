@@ -1,3 +1,4 @@
+import 'package:global_school/core/log/app_logs.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:global_school/core/router/app_router.dart';
@@ -9,14 +10,20 @@ final studentRootProvider =
 
 class StudentRootNotifier extends Notifier<int> {
   @override
-  build() => 0;
+  build() => getIndex();
 
   // reset
   void reset() {
     state = 0;
   }
 
+  // Add this method to update the index without navigation
+  void updateIndex() {
+    state = getIndex();
+  }
+
   void onTap(int index) {
+    AppLog.info('index: $index');
     if (index == state) return;
 
     final router = ref.watch(routerProvider);
@@ -30,9 +37,6 @@ class StudentRootNotifier extends Notifier<int> {
         router.pushNamed(AppRoutes.studentLessonHomePage.name);
         break;
       case 2:
-        // router.pushNamed(AppRoutes.studentSearch.name, queryParameters: {
-        //   // 'query': '',
-        // });
         router.pushNamed(AppRoutes.studentHomeExam.name);
         break;
       case 3:
@@ -44,14 +48,13 @@ class StudentRootNotifier extends Notifier<int> {
     }
   }
 
-  int get getIndex {
+  int getIndex() {
     final location = ref.watch(routerProvider).location;
 
     if (location.contains(AppRoutes.studentHome.name)) {
       return 0;
     } else if (location.contains(AppRoutes.studentLessonHomePage.name)) {
       return 1;
-    // } else if (location.contains(AppRoutes.studentSearch.name)) {
     } else if (location.contains(AppRoutes.studentHomeExam.name)) {
       return 2;
     } else if (location.contains(AppRoutes.studentGame.name)) {
@@ -62,17 +65,36 @@ class StudentRootNotifier extends Notifier<int> {
       return 0;
     }
   }
+}
 
-  bool isExcludedPage() {
-    final location = ref.watch(routerProvider).location;
+// final isExcludedProvider = StateProvider<bool>((ref) {
+//   final location = ref.watch(routerProvider).location;
+//   AppLog.debug('location: $location');
 
-    final excludedPages = [
-      AppRoutes.profile.name,
-      AppRoutes.studentSearch.name,
-    ];
+//   final excludedPages = [
+//     AppRoutes.profile.name,
+//     AppRoutes.studentSearch.name,
+//   ];
 
-    return excludedPages.any(
-      location.contains,
-    );
-  }
+//   return excludedPages.any(location.contains);
+// });
+
+// bool isExcludedPage(String location) {
+//   AppLog.debug('location: $location');
+
+//   final excludedPages = [
+//     AppRoutes.profile.name,
+//     AppRoutes.studentSearch.name,
+//   ];
+
+//   return excludedPages.any(location.contains);
+// }
+
+bool isExcludedPage(String location) {
+  final excludedPages = [
+    AppRoutes.profile.name,
+    AppRoutes.studentSearch.name,
+  ];
+  // Make sure this logic correctly identifies excluded pages
+  return excludedPages.any((route) => location.contains(route));
 }

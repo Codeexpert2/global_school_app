@@ -90,7 +90,13 @@ List<RouteBase> routes = <RouteBase>[
   ShellRoute(
     restorationScopeId: 'root',
     navigatorKey: shellNavigatorKey,
-    builder: (_, __, child) => RootScreen(child: child),
+    builder: (context, state, child) {
+      // Check if current route requires navbar
+
+      return RootScreen(
+        child: child,
+      );
+    },
     routes: [
       // Role-specific routes (superAdmin, admin, teacher, etc.)
       GoRoute(

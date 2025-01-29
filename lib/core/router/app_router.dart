@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:global_school/core/enums/roles.dart';
-import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/providers/firebase_analytics_provider.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -17,7 +16,6 @@ import 'go_router_observer.dart';
 
 String getHomePath() {
   final role = getCurrentRole();
-  AppLog.debug('role: $role');
 
   return switch (role) {
     UserRole.student => AppRoutes.studentHome.path,

@@ -8,26 +8,20 @@ class StudentBottomNavBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final index = ref.watch(studentRootProvider);
     final state = ref.read(studentRootProvider.notifier);
 
-    return state.isExcludedPage()
-        ? const SizedBox.shrink()
-        : NavigationBar(
-            elevation: 1,
-            animationDuration: Durations.medium1,
-            shadowColor: Theme.of(context).shadowColor,
-            surfaceTintColor: Theme.of(context).shadowColor,
-            indicatorColor: Theme.of(context).primaryColor,
-            backgroundColor: Theme.of(context).canvasColor,
-            // indicatorShape: const OutlineInputBorder(
-            //   borderRadius: BorderRadius.vertical(
-            //     top: Radius.circular(50),
-            //   ),
-            // ),
-            selectedIndex: state.getIndex,
-            destinations: studentBottomNavBarDestinations,
-            onDestinationSelected: state.onTap,
-          );
+    return NavigationBar(
+      elevation: 1,
+      animationDuration: Durations.medium1,
+      shadowColor: Theme.of(context).shadowColor,
+      surfaceTintColor: Theme.of(context).shadowColor,
+      indicatorColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).canvasColor,
+      selectedIndex: index,
+      destinations: studentBottomNavBarDestinations,
+      onDestinationSelected: state.onTap,
+    );
   }
 }
 

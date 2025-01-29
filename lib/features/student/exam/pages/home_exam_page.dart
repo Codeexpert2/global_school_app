@@ -16,6 +16,13 @@ class HomeExamPage extends StatelessWidget {
       //   ),
       //   centerTitle: true,
       // ),
+      appBar: AppBar(
+        title: const Text(
+          'Exam',
+          style: TextStyle(fontSize: 24),
+        ),
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
