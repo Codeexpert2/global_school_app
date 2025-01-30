@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/components/form/debounced_search.dart';
 import 'package:global_school/core/pagination/paginated_list_widget.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,16 +17,13 @@ class OnlineLessonPage extends ConsumerWidget {
         title: const Text('Online Lessons'),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: TextField(
-              onChanged: (value) {
-                // Update search query
-                ref.read(onlineLessonSearchProvider.notifier).state = value;
-                // Refresh the list
-                ref.read(onlineLessonsProvider.notifier).refresh();
-              },
-            ),
+          child: DebouncedSearch(
+            onDebonceChange: (value) {
+              // Update search query
+              ref.read(onlineLessonSearchProvider.notifier).state = value;
+              // Refresh the list
+              ref.read(onlineLessonsProvider.notifier).refresh();
+            },
           ),
         ),
       ),
