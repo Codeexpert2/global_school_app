@@ -1,4 +1,5 @@
 import 'package:global_school/core/client/client.dart';
+import 'package:global_school/core/pagination/notifiers/paginated_list_notifier.dart';
 
 import '../model/offline_lesson_model.dart';
 
@@ -6,7 +7,7 @@ class OfflineLessonService {
   OfflineLessonService(this._apiClient);
   final ApiClient _apiClient;
 
-  Future<OfflineLessonModel> getOfflineLessons({
+  Future<PaginatedResponse<OfflineLesson>> getOfflineLessons({
     String query = '',
     int page = 1,
     int perPage = 10,
@@ -20,8 +21,10 @@ class OfflineLessonService {
           'per_page': perPage.toString(),
         },
       );
-      final data = OfflineLessonModel.fromJson(response.data);
-      return data;
+      return PaginatedResponse.fromJson(
+        response.data,
+        OfflineLesson.fromJson,
+      );
     } catch (e) {
       throw Exception('Failed to fetch offline lessons: $e');
     }

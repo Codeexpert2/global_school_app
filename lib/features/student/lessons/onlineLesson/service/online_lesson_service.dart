@@ -1,4 +1,5 @@
 import 'package:global_school/core/client/client.dart';
+import 'package:global_school/core/pagination/notifiers/paginated_list_notifier.dart';
 
 import '../model/online_lesson_model.dart';
 
@@ -7,7 +8,7 @@ class OnlineLessonService {
   final ApiClient _apiClient;
 
   // دالة للحصول على جميع الدروس عبر الإنترنت
-  Future<OnlineLessonModel> getOnlineLessons({
+  Future<PaginatedResponse<OnlineLesson>> getOnlineLessons({
     String query = '',
     int page = 1,
     int perPage = 10,
@@ -21,7 +22,10 @@ class OnlineLessonService {
           'per_page': perPage.toString(),
         },
       );
-      return OnlineLessonModel.fromJson(response.data);
+      return PaginatedResponse.fromJson(
+        response.data,
+        OnlineLesson.fromJson,
+      );
     } catch (e) {
       throw Exception('Failed to fetch online lessons: $e');
     }

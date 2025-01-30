@@ -26,7 +26,7 @@ final offlineLessonsProvider = StateNotifierProvider.autoDispose<
           page: page,
           perPage: 10,
         );
-        return res.data ?? [];
+        return res;
       },
       itemsPerPage: 10,
     );

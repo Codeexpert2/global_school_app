@@ -26,7 +26,7 @@ final onlineLessonsProvider = StateNotifierProvider.autoDispose<
         query: query,
         page: page,
       );
-      return res.data ?? [];
+      return res;
     },
   );
 });
