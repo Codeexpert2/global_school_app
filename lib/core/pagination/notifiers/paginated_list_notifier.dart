@@ -1,63 +1,9 @@
+import 'package:global_school/configs/app_configs.dart';
+import 'package:global_school/core/pagination/models/paginated_response.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../models/pagination_state.dart';
 import '../models/pagination_status.dart';
-
-class PaginatedResponse<T> {
-  PaginatedResponse({
-    this.success,
-    this.message,
-    this.meta,
-    this.data,
-  });
-
-  factory PaginatedResponse.fromJson(
-    Map<String, dynamic> json,
-    T Function(Map<String, dynamic> json) dataFromJson,
-  ) {
-    final List<T> dataList = [];
-    final jsonDataList = json['data'] as List<dynamic>;
-    for (final item in jsonDataList) {
-      dataList.add(dataFromJson(item));
-    }
-    return PaginatedResponse(
-      success: json['success'],
-      message: json['message'],
-      meta: json['meta'] == null ? null : Meta.fromJson(json['meta']),
-      data: dataList,
-    );
-  }
-  bool? success;
-  String? message;
-  Meta? meta;
-  List<T>? data;
-}
-
-class Meta {
-  Meta({
-    this.currentPage,
-    this.lastPage,
-    this.perPage,
-    this.total,
-    this.hasMore,
-    this.hasPrev,
-  });
-
-  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
-        currentPage: json['current_page'],
-        lastPage: json['last_page'],
-        perPage: json['per_page'],
-        total: json['total'],
-        hasMore: json['has_more'],
-        hasPrev: json['has_prev'],
-      );
-  int? currentPage;
-  int? lastPage;
-  int? perPage;
-  int? total;
-  bool? hasMore;
-  bool? hasPrev;
-}
 
 /// Type definition for the data fetching callback
 typedef FetchDataCallback<T> = Future<PaginatedResponse<T>> Function(int page);
@@ -66,7 +12,7 @@ typedef FetchDataCallback<T> = Future<PaginatedResponse<T>> Function(int page);
 class PaginatedListNotifier<T> extends StateNotifier<PaginationState<T>> {
   PaginatedListNotifier({
     required this.fetchData,
-    this.itemsPerPage = 20,
+    this.itemsPerPage = AppConfigs.perPage,
   }) : super(PaginationState<T>());
   final FetchDataCallback<T> fetchData;
   final int itemsPerPage;
@@ -97,7 +43,7 @@ class PaginatedListNotifier<T> extends StateNotifier<PaginationState<T>> {
         items: updatedItems,
         status: PaginationStatus.success,
         hasMoreData: res.meta?.hasMore ?? false,
-        currentPage: res.meta?.currentPage,
+        currentPage: (res.meta?.currentPage ?? 1) + 1,
       );
     } catch (e) {
       state = state.copyWith(

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:global_school/components/form/debounced_search.dart';
 import 'package:global_school/core/pagination/paginated_list_widget.dart';
@@ -33,13 +31,13 @@ class OfflineLessonsPage extends HookConsumerWidget {
       ),
       body: PaginatedListWidget<OfflineLesson>(
         provider: offlineLessonsProvider,
-        // loadTriggerThreshold: 1,
         itemBuilder: (context, lesson) {
           final topic = lesson.topic ?? 'بدون عنوان';
           final classId = lesson.classId ?? 'غير محدد';
           final sectionId = lesson.sectionId ?? 'غير محدد';
           final lessonId = lesson.id ?? 0;
           return ListTile(
+            leading: Text(lesson.id.toString()),
             title: Text(topic),
             subtitle: Text(
               'الصف: $classId - القسم: $sectionId',

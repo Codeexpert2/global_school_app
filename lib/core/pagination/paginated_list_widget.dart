@@ -26,7 +26,7 @@ class PaginatedListWidget<T> extends ConsumerStatefulWidget {
     this.loadTriggerThreshold = 0.8,
     this.enablePullToRefresh = true,
     this.scrollController,
-    this.padding,
+    this.padding = const EdgeInsets.only(bottom: kBottomNavigationBarHeight),
     this.separatorBuilder,
   });
 

@@ -1,4 +1,5 @@
 import 'package:global_school/core/client/client.dart';
+import 'package:global_school/core/pagination/models/paginated_response.dart';
 import 'package:global_school/core/pagination/notifiers/paginated_list_notifier.dart';
 
 import '../model/online_lesson_model.dart';

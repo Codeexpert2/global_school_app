@@ -21,14 +21,11 @@ final offlineLessonsProvider = StateNotifierProvider.autoDispose<
 
     return PaginatedListNotifier<OfflineLesson>(
       fetchData: (int page) async {
-        final res = await offlineLessonService.getOfflineLessons(
+        return offlineLessonService.getOfflineLessons(
           query: query,
           page: page,
-          perPage: 10,
         );
-        return res;
       },
-      itemsPerPage: 10,
     );
   },
 );
