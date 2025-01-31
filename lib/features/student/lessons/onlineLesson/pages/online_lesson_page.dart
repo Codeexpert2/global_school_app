@@ -18,7 +18,7 @@ class OnlineLessonPage extends ConsumerWidget {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: DebouncedSearch(
-            onDebonceChange: (value) {
+            onDebounceChange: (value) {
               // Update search query
               ref.read(onlineLessonSearchProvider.notifier).state = value;
               // Refresh the list

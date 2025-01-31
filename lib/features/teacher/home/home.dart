@@ -23,46 +23,36 @@ class TeacherHomeScreen extends ConsumerWidget {
           children: [
             Text(S.of(context).welcomeToTheHomeScreen),
             TextButton(
-              onPressed: () async {
-                context.pushNamed('ar');
-              },
+              onPressed: () => context.pushNamed('ar'),
               child: const Text('Ar'),
+            ),
+            TextButton(
+              onPressed: () => context.pushNamed(
+                AppRoutes.teacherCurriculums.name,
+              ),
+              child: const Text('Curriculums'),
+            ),
+            TextButton(
+              onPressed: () => context.pushNamed(
+                AppRoutes.teacherExams.name,
+              ),
+              child: const Text('Exams'),
+            ),
+            TextButton(
+              onPressed: () => context.pushNamed(
+                AppRoutes.teacherSections.name,
+              ),
+              child: const Text('Sections'),
+            ),
+            TextButton(
+              onPressed: () => context.pushNamed(
+                AppRoutes.teacherStudents.name,
+              ),
+              child: const Text('Students'),
             ),
           ],
         ),
       ),
-      // body: ListView.builder(
-      //   itemCount: 5,
-      //   itemBuilder: (context, index) {
-      //     return Padding(
-      //       padding: const EdgeInsets.all(16),
-      //       child: Row(
-      //         children: [
-      //           ShimmerWidget(
-      //             child: Container(
-      //               width: 50,
-      //               height: 50,
-      //               decoration: BoxDecoration(
-      //                 color: Colors.grey[300],
-      //                 borderRadius: BorderRadius.circular(8),
-      //               ),
-      //             ),
-      //           ),
-      //           const SizedBox(width: 16),
-      //           Expanded(
-      //             child: ShimmerWidget(
-      //               child: Container(
-      //                 width: double.infinity,
-      //                 height: 20,
-      //                 color: Colors.grey[300],
-      //               ),
-      //             ),
-      //           ),
-      //         ],
-      //       ),
-      //     );
-      //   },
-      // ),
     );
   }
 }
