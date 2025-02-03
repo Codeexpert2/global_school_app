@@ -1084,7 +1084,6 @@ print(DateHelper.timeAgo(oldDate));       // "1 year ago"
 - Support for more granular time representations
 - Configurable time thresholds
 
-
 ---
 
 ## Paginated List Widget

@@ -20,7 +20,7 @@ class OfflineLessonsPage extends HookConsumerWidget {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: DebouncedSearch(
-            onDebonceChange: (value) {
+            onDebounceChange: (value) {
               // Update search query
               ref.read(offlineLessonSearchProvider.notifier).state = value;
               // Refresh the list

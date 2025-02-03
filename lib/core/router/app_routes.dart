@@ -28,9 +28,11 @@ enum AppRoutes {
   studentSuccessquiz('/student/successquizpage', 'successquizpage'),
   studentFailurequiz('/student/failurequizpage', 'failurequizpage'),
   studentOnlineLesson('/student/onlineLesson', 'onlineLesson'),
-  studentOnlineLessonDetails('/student/onlineLesson/:lessonId', 'onlineLessonDetails'),
+  studentOnlineLessonDetails(
+      '/student/onlineLesson/:lessonId', 'onlineLessonDetails'),
   studentOfflineLessons('/student/offlineLesson', 'offlineLesson'),
-  studentOfflineLessonsDetails('/student/offlineLesson/:lessonId', 'offlineLessonDetails'),
+  studentOfflineLessonsDetails(
+      '/student/offlineLesson/:lessonId', 'offlineLessonDetails'),
   studentLessonHome('/student/lessons', 'studentLesson'),
   studentHomeExam('/student/exam', 'studentExam'),
   studentGame('/student/game', 'game'),
@@ -41,7 +43,30 @@ enum AppRoutes {
   // superAdmin,
   // admin,
   // teacher,
-  teacherHome('/teacher/home', 'teacherHome');
+  teacherHome('/teacher/home', 'teacherHome'),
+
+  teacherSections('/teacher/sections', 'teacherSections'),
+  teacherSection('/teacher/sections/:sectionId', 'teacherSection'),
+  teacherNewSection('/teacher/new-section', 'teacherNewSection'),
+  teacherUpdateSection(
+      '/teacher/sections/:sectionId/update', 'teacherUpdateSection'),
+
+  teacherStudents('/teacher/students', 'teacherStudents'),
+  teacherStudent('/teacher/students/:studentId', 'teacherStudent'),
+  teacherNewStudent('/teacher/new-student', 'teacherNewStudent'),
+  teacherUpdateStudent(
+      '/teacher/students/:studentId/update', 'teacherUpdateStudent'),
+
+  teacherExams('/teacher/exams', 'teacherExams'),
+  teacherExam('/teacher/exams/:examId', 'teacherExam'),
+  teacherNewExam('/teacher/new-exam', 'teacherNewExam'),
+  teacherUpdateExam('/teacher/exams/:examId/update', 'teacherUpdateExam'),
+
+  teacherCurriculums('/teacher/curriculums', 'teacherCurriculums'),
+  teacherCurriculum('/teacher/curriculums/:curriculumId', 'teacherCurriculum'),
+  teacherNewCurriculum('/teacher/new-curriculum', 'teacherNewCurriculum'),
+  teacherUpdateCurriculum(
+      '/teacher/curriculums/:curriculumId/update', 'teacherUpdateCurriculum');
 
   // guardian,
   // librarian,

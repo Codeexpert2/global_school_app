@@ -23,6 +23,20 @@ import 'package:global_school/features/shared/splash/splash_screen.dart';
 import 'package:global_school/features/shared/statics/about.dart';
 import 'package:global_school/features/shared/statics/privacy_policy.dart';
 import 'package:global_school/features/shared/statics/terms_conditions.dart';
+import 'package:global_school/features/teacher/curriculums/pages/curriculum_page.dart';
+import 'package:global_school/features/teacher/curriculums/pages/curriculums_page.dart';
+import 'package:global_school/features/teacher/curriculums/pages/new_curriculum_page.dart';
+import 'package:global_school/features/teacher/curriculums/pages/update_curriculum_page.dart';
+import 'package:global_school/features/teacher/exams/pages/exam_page.dart';
+import 'package:global_school/features/teacher/exams/pages/exams_page.dart';
+import 'package:global_school/features/teacher/exams/pages/new_exam_page.dart';
+import 'package:global_school/features/teacher/exams/pages/update_exam_page.dart';
+import 'package:global_school/features/teacher/sections/pages/section_details_page.dart';
+import 'package:global_school/features/teacher/sections/pages/sections_page.dart';
+import 'package:global_school/features/teacher/students/pages/new_student_page.dart';
+import 'package:global_school/features/teacher/students/pages/student_details_page.dart';
+import 'package:global_school/features/teacher/students/pages/students_page.dart';
+import 'package:global_school/features/teacher/students/pages/update_student_page.dart';
 import '../../features/student/games/pages/game_page.dart';
 import 'package:global_school/features/teacher/home/home.dart';
 
@@ -212,6 +226,103 @@ List<RouteBase> routes = <RouteBase>[
           return OfflineLessonDetailsPage(
             lessonId: lessonId ?? '',
           );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherExams.path,
+        name: AppRoutes.teacherExams.name,
+        builder: (context, state) => const ExamsPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherExam.path,
+        name: AppRoutes.teacherExam.name,
+        builder: (context, state) {
+          final examId = state.pathParameters['examId'];
+
+          return ExamPage(id: examId ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherNewExam.path,
+        name: AppRoutes.teacherNewExam.name,
+        builder: (context, state) => const NewExamPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherUpdateExam.path,
+        name: AppRoutes.teacherUpdateExam.name,
+        builder: (context, state) {
+          final examId = state.pathParameters['examId'];
+
+          return UpdateExamPage(id: examId ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherCurriculums.path,
+        name: AppRoutes.teacherCurriculums.name,
+        builder: (context, state) => const CurriculumsPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherCurriculum.path,
+        name: AppRoutes.teacherCurriculum.name,
+        builder: (context, state) {
+          final curriculumId = state.pathParameters['curriculumId'];
+          return CurriculumPage(
+            curriculumId: curriculumId ?? '',
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherNewCurriculum.path,
+        name: AppRoutes.teacherNewCurriculum.name,
+        builder: (context, state) => const NewCurriculumPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherUpdateCurriculum.path,
+        name: AppRoutes.teacherUpdateCurriculum.name,
+        builder: (context, state) {
+          final curriculumId = state.pathParameters['curriculumId'];
+          return UpdateCurriculumPage(
+            curriculumId: curriculumId ?? '',
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherSections.path,
+        name: AppRoutes.teacherSections.name,
+        builder: (context, state) => const SectionsPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherSection.path,
+        name: AppRoutes.teacherSection.name,
+        builder: (context, state) {
+          final sectionId = state.pathParameters['sectionId'];
+          return SectionDetailsPage(sectionId: sectionId ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherStudents.path,
+        name: AppRoutes.teacherStudents.name,
+        builder: (context, state) => const StudentsPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherNewStudent.path,
+        name: AppRoutes.teacherNewStudent.name,
+        builder: (context, state) => const NewStudentPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.teacherStudent.path,
+        name: AppRoutes.teacherStudent.name,
+        builder: (context, state) {
+          final studentId = state.pathParameters['studentId'];
+          return StudentDetailsPage(studentId: studentId ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.teacherUpdateStudent.path,
+        name: AppRoutes.teacherUpdateStudent.name,
+        builder: (context, state) {
+          final studentId = state.pathParameters['studentId'];
+          return UpdateStudentPage(studentId: studentId ?? '');
         },
       ),
     ],

@@ -6,10 +6,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class DebouncedSearch extends ConsumerStatefulWidget {
   const DebouncedSearch({
     super.key,
-    required this.onDebonceChange,
+    required this.onDebounceChange,
   });
 
-  final void Function(String) onDebonceChange;
+  final void Function(String) onDebounceChange;
 
   @override
   ConsumerState<DebouncedSearch> createState() => _DebouncedSearchState();
@@ -21,7 +21,7 @@ class _DebouncedSearchState extends ConsumerState<DebouncedSearch> {
   void _onSearchChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce!.cancel();
     _debounce = Timer(Durations.long1, () {
-      widget.onDebonceChange(query);
+      widget.onDebounceChange(query);
     });
   }
 
@@ -34,7 +34,8 @@ class _DebouncedSearchState extends ConsumerState<DebouncedSearch> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16) +
+          const EdgeInsets.only(bottom: 8),
       child: TextField(
         decoration: const InputDecoration(
           hintText: 'Search...',
