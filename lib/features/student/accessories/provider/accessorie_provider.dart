@@ -20,12 +20,12 @@ final accessoriesProvider = StateNotifierProvider.autoDispose<
     PaginatedListNotifier<Datum>, PaginationState<Datum>>((ref) {
   final accessoriesService = ref.watch(accessoriesServiceProvider);
   final query = ref.watch(accessoriesSearchProvider);
-  final contentType = ref.watch(contentTypeProvider); // الحصول على نوع المحتوى
+  final contentType = ref.watch(contentTypeProvider); 
 
   return PaginatedListNotifier<Datum>(fetchData: (int page) async {
     final res = await accessoriesService.getAccessories(
       sectionId: 3,
-      contentType: contentType, // استخدام نوع المحتوى
+      contentType: contentType,
       query: query,
       page: page,
       perPage: 10,

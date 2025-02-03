@@ -14,5 +14,5 @@ final wordWallByIdProvider =
 
   return apiResponse.data.isNotEmpty
       ? apiResponse.data[0]
-      : throw Exception('لا يوجد حائط بهذا المعرف');
+      : throw Exception('لا يوجد');
 });

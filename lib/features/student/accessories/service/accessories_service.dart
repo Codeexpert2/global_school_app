@@ -18,7 +18,7 @@ class AccessoriesService {
   }) async {
     final cacheKey = '$sectionId-$contentType-$query-$page-$perPage';
     if (_cache.containsKey(cacheKey)) {
-      return _cache[cacheKey]!; // استرجاع البيانات من الكاش إذا كانت موجودة
+      return _cache[cacheKey]!;
     }
 
     try {
@@ -56,6 +56,5 @@ class AccessoriesService {
     }
   }
 
-  // تخزين الكاش
   final _cache = <String, PaginatedResponse<Datum>>{};
 }

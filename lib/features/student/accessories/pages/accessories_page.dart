@@ -15,12 +15,11 @@ class AccessoriesPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-// في الـ ConsumerWidget أو في المكان الذي يتعامل مع التغيير:
     final contentType = ref.watch(contentTypeProvider);
     ref.listen<ContentType>(contentTypeProvider, (previous, next) {
       if (previous != next) {
         log('ContentType changed from $previous to $next');
-        ref.refresh(accessoriesProvider); // إعادة تحميل البيانات
+        ref.refresh(accessoriesProvider); 
       }
     });
 
@@ -66,7 +65,6 @@ class AccessoriesPage extends HookConsumerWidget {
             title: Text(accessory.topic ?? 'بدون عنوان'),
             subtitle: _buildContent(accessory, contentType),
             onTap: () {
-              // يمكن إضافة التنقل إلى صفحة تفاصيل الإكسسوار هنا
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('تم النقر على: ${accessory.topic}')),
               );

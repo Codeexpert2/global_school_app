@@ -18,7 +18,7 @@ class WordWallService {
       return ApiResponse.fromJson(response.data);
     } on DioException catch (e) {
       throw Exception(
-          'فشل في جلب بيانات الحائط: ${e.response?.data ?? e.message}');
+          'فشل في جلب بيانات : ${e.response?.data ?? e.message}');
     }
   }
 
@@ -28,7 +28,7 @@ class WordWallService {
       return ApiResponse.fromJson(response.data);
     } on DioException catch (e) {
       throw Exception(
-          'فشل في جلب بيانات الحائط رقم $id: ${e.response?.data ?? e.message}');
+          'فشل في جلب بيانات  رقم $id: ${e.response?.data ?? e.message}');
     }
   }
 }
