@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
-import 'package:global_school/features/student/subject_results.dart/page/subject_results_page.dart';
+import 'package:global_school/features/student/accessories/pages/accessories_page.dart';
+import 'package:global_school/features/student/word_wall/page/word_wall_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -116,15 +117,34 @@ class MainDrawer extends ConsumerWidget {
             ListTile(
               leading: const Icon(Icons.sports_esports),
               title: const Text(
-                'Games',
+                'Word Wall',
               ),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    // builder: (context) => const RecordedLessonPage(),
-                    builder: (context) => const SubjectResultsPage(),
+                    builder: (context) => const WordWallPage(),
+                    // builder: (context) => const AccessoriesPage(
+                    //   sectionId: 3,
+                    // ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.sports_esports),
+              title: const Text(
+                'Accessories',
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AccessoriesPage(
+                      sectionId: 3,
+                    ),
                   ),
                 );
               },
