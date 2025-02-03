@@ -26,8 +26,9 @@ class MainDrawer extends ConsumerWidget {
                 context.goNamed(AppRoutes.profile.name);
               },
               child: DrawerHeader(
-                decoration:
-                    const BoxDecoration(gradient: AppGradient.linearGradient),
+                decoration: const BoxDecoration(
+                  gradient: AppGradient.linearGradient,
+                ),
                 padding: EdgeInsets.zero,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -139,14 +140,16 @@ class MainDrawer extends ConsumerWidget {
               ),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AccessoriesPage(
-                      sectionId: 3,
-                    ),
-                  ),
-                );
+                context.pushNamed(AppRoutes.studentAttachments.name);
+
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => const AccessoriesPage(
+                //       sectionId: 3,
+                //     ),
+                //   ),
+                // );
               },
             ),
             ListTile(

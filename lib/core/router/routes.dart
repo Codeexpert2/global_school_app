@@ -1,5 +1,6 @@
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/features/student/accessories/pages/accessories_page.dart';
 
 import 'package:global_school/features/student/ar/ar_page.dart';
 import 'package:global_school/features/student/ar/model_viewer_page.dart';
@@ -227,6 +228,11 @@ List<RouteBase> routes = <RouteBase>[
             lessonId: lessonId ?? '',
           );
         },
+      ),
+      GoRoute(
+        path: AppRoutes.studentAttachments.path,
+        name: AppRoutes.studentAttachments.name,
+        builder: (context, state) => const AccessoriesPage(),
       ),
       GoRoute(
         path: AppRoutes.teacherExams.path,
