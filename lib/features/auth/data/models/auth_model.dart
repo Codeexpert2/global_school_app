@@ -9,12 +9,12 @@ class AuthModel {
   factory AuthModel.fromJson(Map<String, dynamic> json) => AuthModel(
         status: json['status'],
         message: json['message'],
-        data: json['data'] == null ? null : Data.fromJson(json['data']),
+        data: json['data'] == null ? null : UserData.fromJson(json['data']),
         token: json['token'],
       );
   bool? status;
   String? message;
-  Data? data;
+  UserData? data;
   String? token;
 
   Map<String, dynamic> toJson() => {
@@ -25,8 +25,8 @@ class AuthModel {
       };
 }
 
-class Data {
-  Data({
+class UserData {
+  UserData({
     this.id,
     this.name,
     this.email,
@@ -71,7 +71,7 @@ class Data {
     this.roles,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory UserData.fromJson(Map<String, dynamic> json) => UserData(
         id: json['id'],
         name: json['name'],
         email: json['email'],

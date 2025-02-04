@@ -19,7 +19,7 @@ class AuthNotifier extends AsyncNotifier<bool> {
     // return true;
     try {
       final res = await ref.read(authServiceProvider).profile();
-      return res.status ?? false;
+      return res.id != null;
     } catch (e) {
       return false;
     }

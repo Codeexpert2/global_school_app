@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:global_school/core/keys/keys.dart';
+import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/initialize_app.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/services/local_storage/secure_storage_service.dart';
@@ -74,6 +75,7 @@ class LoginNotifier extends ChangeNotifier {
 
         await storageService.saveJson(localUserKey, res.toJson());
         await secureStorageService.save(tokenKey, res.token ?? '');
+        AppLog.info('res.token: ${res.token}');
 
         await ref.read(authNotifierProvider.notifier).login();
 

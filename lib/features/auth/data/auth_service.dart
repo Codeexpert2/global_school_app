@@ -77,10 +77,10 @@ class AuthService {
     }
   }
 
-  Future<AuthModel> profile() async {
+  Future<UserData> profile() async {
     try {
       final res = await client.get('/profile');
-      return AuthModel.fromJson(res.data);
+      return UserData.fromJson(res.data);
     } catch (e) {
       // rethrow;
       throw ErrorHandler.handle(e);
