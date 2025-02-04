@@ -20,6 +20,7 @@ import 'package:global_school/features/student/lessons/offlineLesson/pages/offli
 import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_details_page.dart';
 import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_page.dart';
 import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
+import 'package:global_school/features/student/lessons/subjects/pages/subjects_page.dart';
 import 'package:global_school/features/student/profile/pages/profile_screen.dart';
 import 'package:global_school/features/root/root_screen.dart';
 import 'package:global_school/features/student/settings/pages/settings_screen.dart';
@@ -179,6 +180,11 @@ List<RouteBase> routes = <RouteBase>[
         name: AppRoutes.studentCalendar.name,
         path: AppRoutes.studentCalendar.path,
         builder: (context, state) => const StudentCalendarPage(),
+      ),
+      GoRoute(
+        name: AppRoutes.studentSubjects.name,
+        path: AppRoutes.studentSubjects.path,
+        builder: (context, state) => const SubjectsPage(),
       ),
       GoRoute(
           name: 'ar',

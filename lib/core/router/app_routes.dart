@@ -39,6 +39,7 @@ enum AppRoutes {
   studentHomeExam('/student/exam', 'studentExam'),
   studentGame('/student/game', 'studentGame'),
   studentCertificates('/student/certificates', 'studentCertificates'),
+  studentSubjects('/student/subjects', 'studentSubjects'),
   studentSubjectAttachments(
     '/student/subject-attachments',
     'studentSubjectAttachments',
