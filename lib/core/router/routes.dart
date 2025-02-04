@@ -6,6 +6,7 @@ import 'package:global_school/features/student/ar/ar_page.dart';
 import 'package:global_school/features/student/ar/model_viewer_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
 import 'package:global_school/features/auth/pages/password_reset_screen.dart';
+import 'package:global_school/features/student/calendar/view/calender.dart';
 import 'package:global_school/features/student/certificate/page/certificate_details_page.dart';
 import 'package:global_school/features/student/certificate/page/certificates_page.dart';
 
@@ -174,14 +175,11 @@ List<RouteBase> routes = <RouteBase>[
       //     return SubjectAttachmentsPage(subjectName: subjectName);
       //   },
       // ),
-      // GoRoute(
-      //   name: AppRoutes.studentLessons.name,
-      //   path: AppRoutes.studentLessons.path,
-      //   builder: (context, state) {
-      //     final course = state.extra as Course;
-      //     return LessonsPage(course: course);
-      //   },
-      // ),
+      GoRoute(
+        name: AppRoutes.studentCalendar.name,
+        path: AppRoutes.studentCalendar.path,
+        builder: (context, state) => const StudentCalendarPage(),
+      ),
       GoRoute(
           name: 'ar',
           path: '/ar',
@@ -237,7 +235,7 @@ List<RouteBase> routes = <RouteBase>[
         builder: (context, state) {
           final id = state.pathParameters['id'];
           return CertificateDetailsPage(
-            id: id??'',
+            id: id ?? '',
           );
         },
       ),
