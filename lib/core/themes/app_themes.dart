@@ -94,18 +94,10 @@ class AppThemes {
       ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
-      
       contentPadding: EdgeInsets.symmetric(
         horizontal: 14,
       ),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(inputBorderRadius),
-        ),
-        borderSide: BorderSide(
-          color: AppColors.borderColor,
-        ),
-      ),
+      filled: true,
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(inputBorderRadius),

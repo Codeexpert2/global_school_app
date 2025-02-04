@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/initialize_app.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
@@ -54,6 +55,7 @@ class LoginNotifier extends ChangeNotifier {
   Future<void> login() async {
     try {
       if (formKey.currentState?.validate() ?? false) {
+        TextInput.finishAutofillContext();
         emailFocusNode.unfocus();
         passwordFocusNode.unfocus();
         setLoading(true);
