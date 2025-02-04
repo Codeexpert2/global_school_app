@@ -97,6 +97,16 @@ class MainDrawer extends ConsumerWidget {
                 context.pushNamed(AppRoutes.studentAttachments.name);
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.add_to_photos_rounded),
+              title: const Text(
+                'Certificates',
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                context.pushNamed(AppRoutes.studentCertificates.name);
+              },
+            ),
             // ListTile(
             //   leading: const Icon(Icons.assignment),
             //   title: const Text(

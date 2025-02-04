@@ -5,6 +5,8 @@ import 'package:global_school/features/student/ar/ar_page.dart';
 import 'package:global_school/features/student/ar/model_viewer_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
 import 'package:global_school/features/auth/pages/password_reset_screen.dart';
+import 'package:global_school/features/student/certificate/page/certificate_details_page.dart';
+import 'package:global_school/features/student/certificate/page/certificates_page.dart';
 
 import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
 
@@ -229,10 +231,26 @@ List<RouteBase> routes = <RouteBase>[
         },
       ),
       GoRoute(
+        path: AppRoutes.studentCertificateDetails.path,
+        name: AppRoutes.studentCertificateDetails.name,
+        builder: (context, state) {
+          final id = state.pathParameters['id'];
+          return CertificateDetailsPage(
+            id: id??'',
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.studentCertificates.path,
+        name: AppRoutes.studentCertificates.name,
+        builder: (context, state) => const CertificatesPage(),
+      ),
+      GoRoute(
         path: AppRoutes.teacherExams.path,
         name: AppRoutes.teacherExams.name,
         builder: (context, state) => const ExamsPage(),
       ),
+
       GoRoute(
         path: AppRoutes.teacherExam.path,
         name: AppRoutes.teacherExam.name,

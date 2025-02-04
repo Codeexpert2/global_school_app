@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/features/teacher/curriculums/pages/curriculums_page.dart';
 
 class StudentDetailsPage extends StatelessWidget {
   const StudentDetailsPage({

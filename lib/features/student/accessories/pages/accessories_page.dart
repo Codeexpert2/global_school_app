@@ -29,7 +29,7 @@ class AccessoriesPage extends HookConsumerWidget {
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: DebouncedSearch(
-            onDebonceChange: (value) {
+            onDebounceChange: (value) {
               // تحديث استعلام البحث
               ref.read(accessoriesSearchProvider.notifier).state = value;
               // تحديث البيانات

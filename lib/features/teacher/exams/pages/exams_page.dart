@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/components/form/debounced_search.dart';
 import 'package:global_school/components/main/debounced_search_app_bar.dart';
 import 'package:global_school/core/router/app_routes.dart';
 
