@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/features/student/certificate/page/certificate_details_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/features/student/certificate/provider/certificate_provider.dart';
 
