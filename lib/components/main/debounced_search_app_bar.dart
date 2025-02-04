@@ -7,9 +7,11 @@ class DebouncedSearchAppBar extends StatelessWidget
     super.key,
     required this.title,
     required this.onDebounceChange,
+    this.actions,
   });
 
   final String title;
+  final List<Widget>? actions;
   final void Function(String) onDebounceChange;
 
   @override
@@ -19,6 +21,7 @@ class DebouncedSearchAppBar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title),
+      actions: actions,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: DebouncedSearch(

@@ -1,27 +1,21 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:global_school/components/form/debounced_search.dart';
+import 'package:global_school/components/images/cached_image.dart';
 import 'package:global_school/core/pagination/paginated_list_widget.dart';
+import 'package:global_school/core/utils/snackbars.dart';
+import 'package:global_school/features/student/accessories/widgets/content_type_dropdown_menu.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../model/accessorie_model.dart';
 import '../provider/accessorie_provider.dart';
 import 'package:global_school/core/enums/accessorie_content_type.dart';
 
-class AccessoriesPage extends HookConsumerWidget {
-  const AccessoriesPage({super.key, required this.sectionId});
-  final int sectionId;
+class AccessoriesPage extends ConsumerWidget {
+  const AccessoriesPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final contentType = ref.watch(contentTypeProvider);
-    ref.listen<ContentType>(contentTypeProvider, (previous, next) {
-      if (previous != next) {
-        log('ContentType changed from $previous to $next');
-        ref.refresh(accessoriesProvider); 
-      }
-    });
 
     return Scaffold(
       appBar: AppBar(
@@ -38,44 +32,31 @@ class AccessoriesPage extends HookConsumerWidget {
           ),
         ),
         actions: [
-          DropdownButton<ContentType>(
-            value: contentType,
-            onChanged: (ContentType? newValue) {
-              if (newValue != null) {
-                ref.read(contentTypeProvider.notifier).state = newValue;
-              }
-            },
-            items: ContentType.values.map((ContentType type) {
-              return DropdownMenuItem<ContentType>(
-                value: type,
-                child: Text(type.value),
-              );
-            }).toList(),
-          ),
+          const ContentTypeDropdownMenu(),
         ],
       ),
-      body: PaginatedListWidget<Datum>(
-        key: Key(contentType.value),
+      body: PaginatedListWidget<Accessorie>(
+        key: Key(contentType.name),
         provider: accessoriesProvider,
         itemBuilder: (context, accessory) {
           return ListTile(
-            leading: accessory.images != null
-                ? Image.network(accessory.images!)
-                : const Icon(Icons.accessibility),
+            leading: CachedImage(
+              imageUrl: accessory.images ?? '',
+              width: 32,
+              height: 32,
+            ),
             title: Text(accessory.topic ?? 'بدون عنوان'),
             subtitle: _buildContent(accessory, contentType),
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('تم النقر على: ${accessory.topic}')),
-              );
-            },
+            onTap: () => showInfoSnackbar(
+              'تم النقر على: ${accessory.topic}',
+            ),
           );
         },
       ),
     );
   }
 
-  Widget _buildContent(Datum accessory, ContentType contentType) {
+  Widget _buildContent(Accessorie accessory, ContentType contentType) {
     switch (contentType) {
       case ContentType.files:
         return Text('ملف: ${accessory.file ?? 'لا يوجد ملف'}');

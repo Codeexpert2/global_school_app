@@ -9,7 +9,7 @@ class AccessoriesService {
   AccessoriesService(this._apiClient);
   final ApiClient _apiClient;
 
-  Future<PaginatedResponse<Datum>> getAccessories({
+  Future<PaginatedResponse<Accessorie>> getAccessories({
     required int sectionId,
     required ContentType contentType,
     String query = '',
@@ -45,7 +45,7 @@ class AccessoriesService {
 
       final accessories = PaginatedResponse.fromJson(
         response.data,
-        Datum.fromJson,
+        Accessorie.fromJson,
       );
 
       _cache[cacheKey] = accessories;
@@ -56,5 +56,5 @@ class AccessoriesService {
     }
   }
 
-  final _cache = <String, PaginatedResponse<Datum>>{};
+  final _cache = <String, PaginatedResponse<Accessorie>>{};
 }

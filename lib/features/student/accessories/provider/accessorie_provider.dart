@@ -17,12 +17,12 @@ final accessoriesSearchProvider = StateProvider<String>((ref) => '');
 
 // Create the accessories provider using PaginatedListNotifier
 final accessoriesProvider = StateNotifierProvider.autoDispose<
-    PaginatedListNotifier<Datum>, PaginationState<Datum>>((ref) {
+    PaginatedListNotifier<Accessorie>, PaginationState<Accessorie>>((ref) {
   final accessoriesService = ref.watch(accessoriesServiceProvider);
   final query = ref.watch(accessoriesSearchProvider);
-  final contentType = ref.watch(contentTypeProvider); 
+  final contentType = ref.watch(contentTypeProvider);
 
-  return PaginatedListNotifier<Datum>(fetchData: (int page) async {
+  return PaginatedListNotifier<Accessorie>(fetchData: (int page) async {
     final res = await accessoriesService.getAccessories(
       sectionId: 3,
       contentType: contentType,
