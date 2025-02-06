@@ -32,6 +32,7 @@ enum AppRoutes {
       '/student/online-lesson/:lessonId', 'studentOnlineLessonDetails'),
   studentCertificateDetails(
       '/student/certificate/:id', 'studentCertificateDetails'),
+  studentSubjectDetails('/student/subject/:id', 'studentSubjectDetails'),
   studentOfflineLessons('/student/offline-lesson', 'studentOfflineLesson'),
   studentOfflineLessonsDetails(
       '/student/offline-lesson/:lessonId', 'studentOfflineLessonDetails'),

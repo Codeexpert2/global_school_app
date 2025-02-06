@@ -1,7 +1,7 @@
 import 'package:global_school/core/client/client.dart';
 import 'package:global_school/core/errors/error_handler.dart';
+import 'package:global_school/features/student/lessons/subjects/models/subject_details_model.dart';
 
-import '../../onlineLesson/model/online_lesson_model.dart';
 import '../models/subject_model.dart';
 
 class StudentSubjectsService {
@@ -18,13 +18,12 @@ class StudentSubjectsService {
     }
   }
 
-  // دالة للحصول على تفاصيل درس معين بناءً على الـ id
-  Future<OnlineLessonModel> getSubjectsOnlineCourse(int id) async {
+  Future<SubjectDetails> getSubjectDetails(String id) async {
     try {
       final response = await _apiClient.get('/get-subject-online-course/$id');
-      return OnlineLessonModel.fromJson(response.data);
+      return SubjectDetails.fromJson(response.data);
     } catch (e) {
-      throw Exception('Failed to fetch online lesson details: $e');
+      throw ErrorHandler.handle(e);
     }
   }
 }
