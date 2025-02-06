@@ -90,135 +90,133 @@ class SubjectDetailsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final subjectDetailsAsync = ref.watch(subjectDetailsProvider(id));
     return Scaffold(
-        appBar: const MainAppBar(
-          title: 'الرياضيات',
-        ),
-        body: subjectDetailsAsync.when(
-          data: (sbuject) => SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
-                  children: [
-                    Container(
-                      height: 150,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/code_expert.png'),
-                          fit: BoxFit.cover,
-                        ),
+      appBar: const MainAppBar(
+        title: 'الرياضيات',
+      ),
+      body: subjectDetailsAsync.when(
+        data: (subject) => Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 150,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/code_expert.png'),
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Positioned(
-                      top: 110,
-                      left: MediaQuery.of(context).size.width / 3 - 90,
-                      child: const CircleAvatar(
-                        radius: 35,
-                        backgroundColor: Colors.green,
-                        child: Icon(
-                          Icons.play_arrow,
-                          size: 40,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'منهج الرياضيات الشامل',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconWithText(
-                              icon: Icons.access_time, text: '120 ساعة'),
-                          IconWithText(
-                              icon: Icons.play_circle, text: '50 فيديو'),
-                          IconWithText(
-                              icon: Icons.library_books, text: '12 وحدة'),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      const Card(
-                        color: Color(0xFFEAF4FF),
-                        child: Padding(
-                          padding: EdgeInsets.all(12.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'نبذة عن المادة',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black87,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'تهدف المادة إلى تطوير مهارات الطلاب في مختلف فروع الرياضيات...',
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.black54),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      const Text(
-                        'المدرسين',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      const Card(
-                        child: ListTile(
-                          leading: CachedImage(
-                            imageUrl: '',
-                          ),
-                          title: Text('Mr. John William'),
-                          subtitle: Text('مدرس الجبر'),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      // الأزرار
-                      CustomButton(
-                        height: 60,
-                        text: 'بدء الدرس الآن',
-                        onPressed: () {},
-                      ),
-                      const SizedBox(height: 15),
-                      CustomButton(
-                        height: 60,
-                        text: 'الانضمام إلى الدرس',
-                        backgroundColor1: AppColors.transparent,
-                        backgroundColor2: AppColors.transparent,
-                        borderColor: AppColors.green2,
-                        textColor: AppColors.green2,
-                        onPressed: () {},
-                      ),
-                    ],
                   ),
-                ),
-              ],
+                  const SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'منهج الرياضيات الشامل',
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconWithText(
+                                icon: Icons.access_time,
+                                text: '${subject.duration ?? 0} دقيقة'),
+                            const IconWithText(
+                                icon: Icons.play_circle, text: '50 فيديو'),
+                            const IconWithText(
+                                icon: Icons.library_books, text: '12 وحدة'),
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        Card(
+                          color: const Color(0xFFEAF4FF),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'نبذة عن المادة',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  subject.topic ?? 'غير متوفر',
+                                  style: const TextStyle(
+                                      fontSize: 14, color: Colors.black54),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        const Text(
+                          'المدرسين',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Card(
+                          child: ListTile(
+                            leading: const CachedImage(
+                              imageUrl: '',
+                            ),
+                            title: Text(subject.creatingByName ?? 'غير متوفر'),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        CustomButton(
+                          height: 60,
+                          text: 'بدء الدرس الآن',
+                          onPressed: () {},
+                        ),
+                        const SizedBox(height: 15),
+                        CustomButton(
+                          height: 60,
+                          text: 'الانضمام إلى الدرس',
+                          backgroundColor1: AppColors.transparent,
+                          backgroundColor2: AppColors.transparent,
+                          borderColor: AppColors.green2,
+                          textColor: AppColors.green2,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          error: (error, stack) => Center(child: Text('حدث خطأ: $error')),
-          loading: () => const Center(child: CircularProgressIndicator()),
-        ));
+            Positioned(
+              top: 120,
+              left: MediaQuery.of(context).size.width / 3 - 90,
+              child: const CircleAvatar(
+                radius: 35,
+                backgroundColor: Colors.green,
+                child: Icon(
+                  Icons.play_arrow,
+                  size: 40,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+        error: (error, stack) => Center(child: Text('حدث خطأ: $error')),
+        loading: () => const Center(child: CircularProgressIndicator()),
+      ),
+    );
   }
 }
 

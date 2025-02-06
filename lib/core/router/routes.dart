@@ -208,10 +208,18 @@ List<RouteBase> routes = <RouteBase>[
         name: AppRoutes.studentSettings.name,
         builder: (context, state) => const SettingsScreen(),
       ),
+      // GoRoute(
+      //   path: AppRoutes.studentOnlineLesson.path,
+      //   name: AppRoutes.studentOnlineLesson.name,
+      //   builder: (context, state) => const OnlineLessonPage(),
+      // ),
       GoRoute(
         path: AppRoutes.studentOnlineLesson.path,
         name: AppRoutes.studentOnlineLesson.name,
-        builder: (context, state) => const OnlineLessonPage(),
+        builder: (context, state) {
+          final id = state.pathParameters['subjectId'];
+          return OnlineLessonPage(id: id ?? '');
+        },
       ),
       GoRoute(
         path: AppRoutes.studentOnlineLessonDetails.path,

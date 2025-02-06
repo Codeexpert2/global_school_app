@@ -12,6 +12,7 @@ class OnlineLessonService {
     String query = '',
     int page = 1,
     int perPage = 10,
+    String? subjectId,
   }) async {
     try {
       final response = await _apiClient.get(
@@ -20,6 +21,7 @@ class OnlineLessonService {
           'query': query,
           'page': page.toString(),
           'per_page': perPage.toString(),
+          'subject_id':subjectId.toString(),
         },
       );
       return PaginatedResponse.fromJson(

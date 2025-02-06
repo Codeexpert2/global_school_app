@@ -8,8 +8,8 @@ import '../model/online_lesson_model.dart';
 import '../provider/online_lesson_provider.dart';
 
 class OnlineLessonPage extends ConsumerWidget {
-  const OnlineLessonPage({super.key});
-
+  const OnlineLessonPage({super.key, required this.id});
+  final String id;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -22,13 +22,14 @@ class OnlineLessonPage extends ConsumerWidget {
               // Update search query
               ref.read(onlineLessonSearchProvider.notifier).state = value;
               // Refresh the list
-              ref.read(onlineLessonsProvider.notifier).refresh();
+              // ref.read(onlineLessonsProvider.notifier).refresh();
+              ref.read(onlineLessonsProvider(id).notifier).refresh();
             },
           ),
         ),
       ),
       body: PaginatedListWidget<OnlineLesson>(
-        provider: onlineLessonsProvider,
+        provider: onlineLessonsProvider(id),
         itemBuilder: (context, lesson) {
           return OnlineLessonCard(
             lesson: lesson,

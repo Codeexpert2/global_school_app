@@ -36,8 +36,8 @@ class SubjectsPage extends ConsumerWidget {
                 return SubjectCard(
                   subject: subject,
                   onTap: () {
-                    context.pushNamed(AppRoutes.studentSubjectDetails.name,
-                        pathParameters: {'id': subject.id.toString()});
+                    context.pushNamed(AppRoutes.studentOnlineLesson.name,
+                        pathParameters: {'subjectId': subject.id.toString()});
                   },
                 );
               },
