@@ -1,6 +1,11 @@
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/features/student/accessories/pages/accessories_page.dart';
+import 'package:global_school/features/guardian/child_details/pages/child_details_page.dart';
+import 'package:global_school/features/guardian/online_exam_results/pages/online_exam_results_page.dart';
+import 'package:global_school/features/guardian/subjects_results/pages/subjects_results_page.dart';
+import 'package:global_school/features/guardian/home/pages/home_page.dart';
+import 'package:global_school/features/guardian/monthly_report/pages/child_monthly_report_page.dart';
+import 'package:global_school/features/guardian/weekly_report/pages/child_weekly_report_page.dart';
 
 import 'package:global_school/features/student/ar/ar_page.dart';
 import 'package:global_school/features/student/ar/model_viewer_page.dart';
@@ -137,7 +142,6 @@ List<RouteBase> routes = <RouteBase>[
           );
         },
       ),
-
       // GoRoute(
       //   name: AppRoutes.studentNotifications.name,
       //   path: AppRoutes.studentNotifications.path,
@@ -348,6 +352,58 @@ List<RouteBase> routes = <RouteBase>[
           return UpdateStudentPage(studentId: studentId ?? '');
         },
       ),
+      GoRoute(
+        path: AppRoutes.guardianHome.path,
+        name: AppRoutes.guardianHome.name,
+        builder: (context, state) => const GuardianHomePage(),
+      ),
+      GoRoute(
+          path: AppRoutes.guardianChild.path,
+          name: AppRoutes.guardianChild.name,
+          builder: (context, state) {
+            final childId = state.pathParameters['childId'];
+            return ChildDetailsPage(childId: childId ?? '');
+          },
+          routes: [
+            GoRoute(
+              path: AppRoutes.guardianSubjectsResults.path,
+              name: AppRoutes.guardianSubjectsResults.name,
+              builder: (context, state) {
+                final childId = state.pathParameters['childId'];
+
+                return ChildSubjectsResultsPage(childId: childId ?? '');
+              },
+            ),
+            GoRoute(
+              path: AppRoutes.guardianChildOnlineExamResults.path,
+              name: AppRoutes.guardianChildOnlineExamResults.name,
+              builder: (context, state) {
+                final childId = state.pathParameters['childId'];
+
+                return ChildOnlineExamResultsPage(childId: childId ?? '');
+              },
+            ),
+            GoRoute(
+              path: AppRoutes.guardianWeeklyReport.path,
+              name: AppRoutes.guardianWeeklyReport.name,
+              builder: (context, state) {
+                final childId = state.pathParameters['childId'];
+
+                return ChildWeeklyReportPage(childId: childId ?? '');
+              },
+            ),
+            GoRoute(
+              path: AppRoutes.guardianMonthlyReport.path,
+              name: AppRoutes.guardianMonthlyReport.name,
+              builder: (context, state) {
+                final childId = state.pathParameters['childId'];
+
+                return ChildMonthlyReportPage(
+                  childId: childId ?? '',
+                );
+              },
+            ),
+          ]),
     ],
   ),
 ];

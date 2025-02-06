@@ -20,6 +20,7 @@ String getHomePath() {
   return switch (role) {
     UserRole.student => AppRoutes.studentHome.path,
     UserRole.teacher => AppRoutes.teacherHome.path,
+    UserRole.guardian => AppRoutes.guardianHome.path,
     _ => AppRoutes.studentHome.path
   };
 }

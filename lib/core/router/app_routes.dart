@@ -70,9 +70,18 @@ enum AppRoutes {
   teacherCurriculum('/teacher/curriculums/:curriculumId', 'teacherCurriculum'),
   teacherNewCurriculum('/teacher/new-curriculum', 'teacherNewCurriculum'),
   teacherUpdateCurriculum(
-      '/teacher/curriculums/:curriculumId/update', 'teacherUpdateCurriculum');
+      '/teacher/curriculums/:curriculumId/update', 'teacherUpdateCurriculum'),
 
   // guardian,
+  guardianHome('/guardian/home', 'guardianHome'),
+  guardianChildren('/guardian/children', 'children'),
+  guardianChild('/guardian/children/:childId', 'child'),
+  guardianChildOnlineExamResults(
+      'online-exam-results', 'guardianOnlineExamResults'),
+  guardianSubjectsResults('subjects-results', 'guardianSubjectsResults'),
+  guardianWeeklyReport('weekly-report', 'guardianWeeklyReport'),
+  guardianMonthlyReport('monthly-report', 'guardianMonthlyReport');
+
   // librarian,
   // supervisor
 
