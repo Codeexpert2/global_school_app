@@ -1,101 +1,125 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/components/errors/no_content_indicator.dart';
+import 'package:global_school/components/loading/loading_widget.dart';
+import 'package:global_school/components/main/app_divider.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../data/models/children_model.dart';
+import '../providers/children_provider.dart';
 
 class GuardianHomePage extends StatelessWidget {
   const GuardianHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const MainAppBar(
+    return const Scaffold(
+      appBar: MainAppBar(
         title: 'Home Page',
       ),
-      // body: ChildrenSection(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Welcome Guardian!'),
-          const SizedBox(
-            height: 16,
-            width: double.infinity,
-          ),
-          ElevatedButton(
-            child: const Text('guardian Child'),
-            onPressed: () {
-              context.pushNamed(
-                AppRoutes.guardianChild.name,
-                pathParameters: {
-                  'childId': '123', // Replace with actual child ID.
-                },
-              );
-            },
-          ),
-          ElevatedButton(
-            child: const Text('Child Results'),
-            onPressed: () {
-              context.pushNamed(
-                AppRoutes.guardianSubjectsResults.name,
-                pathParameters: {
-                  'childId': '123', // Replace with actual child ID.
-                },
-              );
-            },
-          ),
-          ElevatedButton(
-            child: const Text('Online Exam Results'),
-            onPressed: () {
-              context.pushNamed(
-                AppRoutes.guardianChildOnlineExamResults.name,
-                pathParameters: {
-                  'childId': '123', // Replace with actual child ID.
-                },
-              );
-            },
-          ),
-          ElevatedButton(
-            child: const Text('Child Weekly Report'),
-            onPressed: () {
-              context.pushNamed(
-                AppRoutes.guardianWeeklyReport.name,
-                pathParameters: {
-                  'childId': '123', // Replace with actual child ID.
-                },
-              );
-            },
-          ),
-          ElevatedButton(
-            child: const Text('Child Monthly Report'),
-            onPressed: () {
-              context.pushNamed(
-                AppRoutes.guardianMonthlyReport.name,
-                pathParameters: {
-                  'childId': '123', // Replace with actual child ID.
-                },
-              );
-            },
-          ),
-        ],
-      ),
+      body: ChildrenSection(),
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     const Text('Welcome Guardian!'),
+      //     const SizedBox(
+      //       height: 16,
+      //       width: double.infinity,
+      //     ),
+      //     ElevatedButton(
+      //       child: const Text('guardian Child'),
+      //       onPressed: () {
+      //         context.pushNamed(
+      //           AppRoutes.guardianChild.name,
+      //           pathParameters: {
+      //             'childId': '123', // Replace with actual child ID.
+      //           },
+      //         );
+      //       },
+      //     ),
+      //     ElevatedButton(
+      //       child: const Text('Child Results'),
+      //       onPressed: () {
+      //         context.pushNamed(
+      //           AppRoutes.guardianSubjectsResults.name,
+      //           pathParameters: {
+      //             'childId': '123', // Replace with actual child ID.
+      //           },
+      //         );
+      //       },
+      //     ),
+      //     ElevatedButton(
+      //       child: const Text('Online Exam Results'),
+      //       onPressed: () {
+      //         context.pushNamed(
+      //           AppRoutes.guardianChildOnlineExamResults.name,
+      //           pathParameters: {
+      //             'childId': '123', // Replace with actual child ID.
+      //           },
+      //         );
+      //       },
+      //     ),
+      //     ElevatedButton(
+      //       child: const Text('Child Weekly Report'),
+      //       onPressed: () {
+      //         context.pushNamed(
+      //           AppRoutes.guardianWeeklyReport.name,
+      //           pathParameters: {
+      //             'childId': '123', // Replace with actual child ID.
+      //           },
+      //         );
+      //       },
+      //     ),
+      //     ElevatedButton(
+      //       child: const Text('Child Monthly Report'),
+      //       onPressed: () {
+      //         context.pushNamed(
+      //           AppRoutes.guardianMonthlyReport.name,
+      //           pathParameters: {
+      //             'childId': '123', // Replace with actual child ID.
+      //           },
+      //         );
+      //       },
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
 
-class ChildrenSection extends StatelessWidget {
+class ChildrenSection extends ConsumerWidget {
   const ChildrenSection({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
-      itemCount: 20, // Replace with actual data count.
-      itemBuilder: (context, index) {
-        return const ChildCard();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final childrenState = ref.watch(childrenProvider);
+
+    return childrenState.when(
+      data: (children) {
+        return GridView.builder(
+          padding: const EdgeInsets.all(16),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+            childAspectRatio: 1.0,
+            crossAxisCount: 2,
+          ),
+          itemCount: children.length, // Replace with actual data count.
+          itemBuilder: (context, index) {
+            final child = children[index]; // Replace with actual data.
+            return ChildCard(
+              childData: child,
+            );
+          },
+        );
       },
+      error: (error, stackTrace) {
+        return NoContentIndicator(message: error.toString());
+      },
+      loading: LoadingWidget.new,
     );
   }
 }
@@ -103,10 +127,64 @@ class ChildrenSection extends StatelessWidget {
 class ChildCard extends StatelessWidget {
   const ChildCard({
     super.key,
+    required this.childData,
   });
+
+  final ChildrenModel childData;
 
   @override
   Widget build(BuildContext context) {
-    return const GridTile(child: Text('Child'));
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(
+          AppRoutes.guardianChild.name,
+          pathParameters: {
+            'childId': '${childData.child?.id}',
+          },
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Colors.grey.shade100),
+          color: Colors.blueGrey.shade50,
+        ),
+        child: GridTile(
+          header: Center(
+            child: Text(
+              childData.child?.name ?? '',
+              textAlign: TextAlign.center,
+            ),
+          ),
+          footer: Center(
+            child: Text(
+              childData.section?.name ?? '',
+              textAlign: TextAlign.center,
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                childData.child?.serialNumber ?? '',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                childData.child?.email ?? '',
+                textAlign: TextAlign.center,
+              ),
+              const AppDivider(),
+              Text(
+                childData.section?.code ?? '',
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -39,7 +39,7 @@ class ApiClient {
       AuthInterceptor(),
       // if (kDebugMode) DioCacheInterceptor(options: cacheOptions),
       PrettyDioLogger(
-        enabled: kDebugMode,
+        enabled: false,
         requestHeader: true,
         requestBody: true,
         responseBody: true,
