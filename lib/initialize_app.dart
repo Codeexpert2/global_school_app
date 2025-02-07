@@ -60,7 +60,7 @@ Future<void> initializeApp() async {
     () => StorageService(storage),
   );
 
-  final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
+  const FlutterSecureStorage secureStorage = FlutterSecureStorage();
 
   /// Initializes the FlutterSecureStorage instance and registers the
   /// SecureStorageService as a lazy singleton in the service locator.
