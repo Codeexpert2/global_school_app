@@ -33,10 +33,12 @@ class RootScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final location = ref.watch(routerProvider).location;
     final showNavBar = !location.toString().contains(AppRoutes.profile.path);
+    // final showNavBar = !location.toString().contains(AppRoutes.profile.path);
 
     return Scaffold(
       body: child,
-      bottomNavigationBar: !showNavBar ? null : _buildBottomNavigationBar(),
+      bottomNavigationBar: _buildBottomNavigationBar(),
+      // bottomNavigationBar: !showNavBar ? null : _buildBottomNavigationBar(),
     );
   }
 }

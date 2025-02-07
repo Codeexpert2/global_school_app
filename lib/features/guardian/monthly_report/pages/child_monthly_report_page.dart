@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/main/main_appbar.dart';
+import 'package:global_school/core/pagination/paginated_list_widget.dart';
+
+import '../data/models/monthly_report_model.dart';
+import '../providers/child_monthly_report_provider.dart';
+import '../widgets/monthly_report_card.dart';
 
 class ChildMonthlyReportPage extends StatelessWidget {
   const ChildMonthlyReportPage({
@@ -15,8 +20,11 @@ class ChildMonthlyReportPage extends StatelessWidget {
       appBar: MainAppBar(
         title: 'Monthly Report $childId',
       ),
-      body: const Center(
-        child: Text('Child Monthly Report Page'),
+      body: PaginatedListWidget<MonthlyReportModel>(
+        provider: monthlyReportsProvider(childId),
+        itemBuilder: (context, report) {
+          return MonthlyReportCard(report: report);
+        },
       ),
     );
   }

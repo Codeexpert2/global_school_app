@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../providers/guardian_root_notifier.dart';
 
 class GuardianBottomNavBar extends ConsumerWidget {
   const GuardianBottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final index = ref.watch(guardianRootProvider);
+    final state = ref.read(guardianRootProvider.notifier);
+
     return NavigationBar(
       elevation: 1,
       animationDuration: Durations.medium1,
@@ -18,22 +24,22 @@ class GuardianBottomNavBar extends ConsumerWidget {
       //     top: Radius.circular(50),
       //   ),
       // ),
+      selectedIndex: index,
+      onDestinationSelected: state.onTap,
       destinations: [
-        const NavigationDestination(
-          selectedIcon: Icon(Icons.home),
-          icon: Icon(Icons.home_outlined),
-          label: 'Home',
+        NavigationDestination(
+          selectedIcon: const Icon(Icons.home),
+          icon: const Icon(Icons.home_outlined),
+          label: S.of(context).home,
         ),
-        const NavigationDestination(
-          icon: Badge(child: Icon(Icons.notifications_sharp)),
-          label: 'Notifications',
+        NavigationDestination(
+          icon: const Badge(child: Icon(Icons.notifications_sharp)),
+          label: S.of(context).notifications,
         ),
-        const NavigationDestination(
-          icon: Badge(
-            label: Text('2'),
-            child: Icon(Icons.messenger_sharp),
-          ),
-          label: 'Messages',
+        NavigationDestination(
+          icon: const Icon(Icons.person_outline),
+          selectedIcon: const Icon(Icons.person),
+          label: S.of(context).profile,
         ),
       ],
     );

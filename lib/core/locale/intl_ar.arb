@@ -227,5 +227,8 @@
   "youDontHaveAccount": "You don't have account ?",
   "backToHome": "Back to Home",
   "loginSuccessful": "Login successful!",
-  "welcomeToMadares": "Welcome To MADARES!"
+  "welcomeToMadares": "Welcome To MADARES!",
+  "lessons": "Lessons",
+  "exams": "Exams",
+  "games": "Games"
 }
