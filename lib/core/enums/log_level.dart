@@ -1,1 +1,7 @@
-enum LogLevel { success, info, warning, debug, error }
+enum LogLevel {
+  success,
+  info,
+  warning,
+  debug,
+  error,
+}

@@ -6,7 +6,7 @@ import 'package:global_school/features/guardian/online_exam_results/pages/online
 import 'package:global_school/features/guardian/profile/pages/profile_page.dart';
 import 'package:global_school/features/guardian/home/pages/home_page.dart';
 import 'package:global_school/features/guardian/monthly_report/pages/child_monthly_report_page.dart';
-import 'package:global_school/features/guardian/subjects_results%20copy/pages/subjects_results_page.dart';
+import 'package:global_school/features/guardian/subjects_results/pages/subjects_results_page.dart';
 import 'package:global_school/features/guardian/weekly_report/pages/child_weekly_report_page.dart';
 
 import 'package:global_school/features/student/ar/ar_page.dart';
