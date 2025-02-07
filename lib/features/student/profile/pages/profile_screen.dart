@@ -126,6 +126,7 @@ class ProfileScreen extends ConsumerWidget {
                     subtitle: 'تسجيل خروج',
                     color: AppColors.error600,
                     onTap: () async {
+                      // ignore: unused_local_variable
                       final bool? confirmed = await showDialog<bool>(
                         context: context,
                         useRootNavigator: true,
