@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/core/extensions/extensions.dart';
+import 'package:global_school/components/images/cached_image.dart';
+import 'package:global_school/components/main/main_appbar.dart';
+import 'package:global_school/core/themes/app_colors.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../provider/offline_lesson_provider.dart';
@@ -9,6 +11,7 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
     super.key,
     required this.lessonId,
   });
+
   final String lessonId;
 
   @override
@@ -17,15 +20,14 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
         ref.watch(offlineLessonDetailsProvider(lessonId));
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('تفاصيل الدرس'),
-      ),
+      appBar: const MainAppBar(title: 'تفاصيل الدرس الافتراضي'),
       body: lessonDetailsAsync.when(
         loading: () => const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(color: Colors.deepOrange),
         ),
         error: (error, stack) => Center(
-          child: Text('حدث خطأ: $error'),
+          child: Text('حدث خطأ: $error',
+              style: const TextStyle(color: Colors.red, fontSize: 16)),
         ),
         data: (lesson) {
           return SingleChildScrollView(
@@ -33,29 +35,154 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: context.width,
-                ),
                 Text(
                   lesson.topic ?? 'بدون عنوان',
-                  style: Theme.of(context).textTheme.headlineLarge,
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.green1,
+                      ),
                 ),
-                const SizedBox(height: 16),
-                Text('الصف: ${lesson.classId}'),
-                Text('القسم: ${lesson.sectionId}'),
-                if (lesson.file != null) Text('الملف: ${lesson.file}'),
-                if (lesson.images != null) Text('الصور: ${lesson.images}'),
-                if (lesson.videos != null) Text('الفيديو: ${lesson.videos}'),
-                if (lesson.url != null) Text('الرابط: ${lesson.url}'),
-                if (lesson.createdAt != null)
-                  Text('تاريخ الإنشاء: ${lesson.createdAt}'),
-                if (lesson.updatedAt != null)
-                  Text('تاريخ التحديث: ${lesson.updatedAt}'),
+                const SizedBox(height: 12),
+                const Divider(thickness: 2),
+                _buildTextRow('الصف', '${lesson.classId}'),
+                _buildTextRow('القسم', '${lesson.sectionId}'),
+                if (lesson.file != null)
+                  _buildFileSection('الملف', lesson.file!),
+                if (lesson.images != null)
+                  _buildImageSection('الصور', lesson.images!),
+                if (lesson.videos != null)
+                  _buildVideoSection('الفيديو', lesson.videos!),
+                if (lesson.url != null)
+                  _buildLinkSection('الرابط', lesson.url!),
+                _buildTextRow('تاريخ الإنشاء', '${lesson.createdAt}'),
+                _buildTextRow('تاريخ التحديث', '${lesson.updatedAt}'),
               ],
             ),
           );
         },
       ),
+    );
+  }
+
+  Widget _buildTextRow(String title, String? value) {
+    if (value == null) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        children: [
+          Text(
+            '$title: ',
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+          Expanded(
+            child: Text(
+              value,
+              style: const TextStyle(fontSize: 16),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFileSection(String title, String fileUrl) {
+    return _buildSection(
+      title: title,
+      icon: Icons.insert_drive_file,
+      actions: [
+        _actionButton(Icons.download, 'تحميل'),
+        _actionButton(Icons.open_in_new, 'فتح'),
+      ],
+    );
+  }
+
+  Widget _buildImageSection(String title, String imageUrl) {
+    return _buildSection(
+      title: title,
+      icon: Icons.image,
+      content: CachedImage(imageUrl: imageUrl),
+      actions: [
+        _actionButton(Icons.fullscreen, 'عرض كامل'),
+      ],
+    );
+  }
+
+  Widget _buildVideoSection(String title, String videoUrl) {
+    return _buildSection(
+      title: title,
+      icon: Icons.video_library,
+      actions: [
+        _actionButton(Icons.play_arrow, 'تشغيل'),
+      ],
+    );
+  }
+
+  Widget _buildLinkSection(String title, String url) {
+    return _buildSection(
+      title: title,
+      icon: Icons.link,
+      actions: [
+        _actionButton(Icons.open_in_browser, 'فتح الرابط'),
+        _actionButton(Icons.copy, 'نسخ الرابط'),
+      ],
+    );
+  }
+
+  Widget _buildSection(
+      {required String title,
+      required IconData icon,
+      Widget? content,
+      List<Widget>? actions}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade300,
+            blurRadius: 6,
+            spreadRadius: 2,
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: AppColors.green2),
+              const SizedBox(width: 8),
+              Text(
+                title,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ],
+          ),
+          if (content != null) ...[
+            const SizedBox(height: 8),
+            content,
+          ],
+          if (actions != null) ...[
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 10,
+              children: actions,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _actionButton(IconData icon, String label) {
+    return TextButton.icon(
+      onPressed: () {},
+      icon: Icon(icon, color: AppColors.green2),
+      label: Text(label, style: const TextStyle(color: AppColors.green1)),
     );
   }
 }

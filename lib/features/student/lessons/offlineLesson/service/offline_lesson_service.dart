@@ -34,7 +34,7 @@ class OfflineLessonService {
   Future<OfflineLesson> getOfflineLessonById(String id) async {
     try {
       final response = await _apiClient.get('/student/offline-lesson/$id');
-      return OfflineLesson.fromJson(response.data['data']);
+      return OfflineLesson.fromJson(response.data);
     } catch (e) {
       throw Exception('Failed to fetch offline lesson details: $e');
     }
