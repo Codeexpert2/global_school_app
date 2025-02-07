@@ -75,6 +75,8 @@ enum AppRoutes {
   // guardian,
   guardianHome('/guardian/home', 'guardianHome'),
   guardianChildren('/guardian/children', 'children'),
+  guardianNotifications('/guardian/notifications', 'guardianNotifications'),
+  guardianProfile('/guardian/profile', 'guardianProfile'),
   guardianChild('/guardian/children/:childId', 'child'),
   guardianChildOnlineExamResults(
       'online-exam-results', 'guardianOnlineExamResults'),
