@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:global_school/components/form/debounced_search.dart';
 import 'package:global_school/core/pagination/paginated_list_widget.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/core/themes/app_gradients.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../model/online_lesson_model.dart';
@@ -13,7 +15,6 @@ class OnlineLessonPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    int indexCounter = 0;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Online Lessons'),
@@ -32,10 +33,8 @@ class OnlineLessonPage extends ConsumerWidget {
       body: PaginatedListWidget<OnlineLesson>(
         provider: onlineLessonsProvider(id),
         itemBuilder: (context, lesson) {
-          indexCounter++;
           return OnlineLessonCard(
             lesson: lesson,
-            index: indexCounter,
           );
         },
       ),
@@ -47,11 +46,9 @@ class OnlineLessonCard extends StatelessWidget {
   const OnlineLessonCard({
     super.key,
     required this.lesson,
-    required this.index,
   });
 
   final OnlineLesson lesson;
-  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -65,15 +62,18 @@ class OnlineLessonCard extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         child: Row(
           children: [
-            CircleAvatar(
-              radius: 20,
-              backgroundColor: Colors.blue.shade100,
-              child: Text(
-                '$index',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue.shade800,
+            Container(
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: AppGradient.linearGradient,
+              ),
+              child: Center(
+                child: Text(
+                  lesson.id.toString(),
+                  style: const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -104,19 +104,8 @@ class OnlineLessonCard extends StatelessWidget {
                   },
                 );
               },
-              icon: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Colors.blue.shade100,
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.play_arrow,
-                  size: 24,
-                  color: Colors.blue.shade800,
-                ),
-              ),
+              icon:
+                  const Icon(Icons.arrow_forward_ios, color: AppColors.green1),
             ),
           ],
         ),

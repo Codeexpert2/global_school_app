@@ -99,11 +99,27 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                         ),
                         const SizedBox(height: 8),
                         Card(
-                          child: ListTile(
-                            leading: const CachedImage(
-                              imageUrl: '',
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                const SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CachedImage(
+                                    imageUrl: '',
+                                  ),
+                                ),
+                                const SizedBox(
+                                    width: 16), 
+                                Text(
+                                  subject.creatingByName ?? 'غير متوفر',
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
                             ),
-                            title: Text(subject.creatingByName ?? 'غير متوفر'),
                           ),
                         ),
                         const SizedBox(height: 16),
