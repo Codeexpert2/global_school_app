@@ -1,6 +1,5 @@
 import 'package:global_school/core/client/client.dart';
 import 'package:global_school/core/errors/error_handler.dart';
-import 'package:global_school/core/log/app_logs.dart';
 
 import 'models/children_model.dart';
 

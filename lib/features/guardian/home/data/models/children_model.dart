@@ -1,5 +1,7 @@
-List<ChildrenModel> childrenModelFromJson(List<dynamic> lst) =>
-    List<ChildrenModel>.from(lst.map((x) => ChildrenModel.fromJson(x)));
+import 'package:global_school/core/extensions/safe_map.dart';
+
+List<ChildrenModel> childrenModelFromJson(List<dynamic> jsons) =>
+    jsons.safeMap((x) => ChildrenModel.fromJson(x)).toList();
 
 class ChildrenModel {
   ChildrenModel({
