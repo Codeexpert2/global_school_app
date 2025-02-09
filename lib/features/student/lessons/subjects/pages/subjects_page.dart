@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/features/student/lessons/lesson_selection_page.dart';
 import 'package:global_school/features/student/lessons/subjects/provider/subject_provider.dart';
 import 'package:global_school/features/student/lessons/subjects/widget/subject_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -36,8 +37,15 @@ class SubjectsPage extends ConsumerWidget {
                 return SubjectCard(
                   subject: subject,
                   onTap: () {
-                    context.pushNamed(AppRoutes.studentOnlineLesson.name,
-                        pathParameters: {'subjectId': subject.id.toString()});
+                    // context.pushNamed(AppRoutes.studentOnlineLesson.name,
+                    //     pathParameters: {'subjectId': subject.id.toString()});
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LessonSelectionPage(
+                            subjectId: subject.id.toString()),
+                      ),
+                    );
                   },
                 );
               },

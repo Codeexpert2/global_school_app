@@ -4,21 +4,20 @@
 
 import 'dart:convert';
 
-RecordedLessonModel recordedLessonModelFromJson(String str) =>
-    RecordedLessonModel.fromJson(json.decode(str));
+RecordedLesson recordedLessonModelFromJson(String str) =>
+    RecordedLesson.fromJson(json.decode(str));
 
-String recordedLessonModelToJson(RecordedLessonModel data) =>
+String recordedLessonModelToJson(RecordedLesson data) =>
     json.encode(data.toJson());
 
-class RecordedLessonModel {
-  RecordedLessonModel({
+class RecordedLesson {
+  RecordedLesson({
     this.success,
     this.message,
     this.data,
   });
 
-  factory RecordedLessonModel.fromJson(Map<String, dynamic> json) =>
-      RecordedLessonModel(
+  factory RecordedLesson.fromJson(Map<String, dynamic> json) => RecordedLesson(
         success: json['success'],
         message: json['message'],
         data: json['data'] == null

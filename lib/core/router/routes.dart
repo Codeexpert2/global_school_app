@@ -22,6 +22,7 @@ import 'package:global_school/features/student/lessons/subjects/pages/subject_de
 import 'package:global_school/features/student/lessons/subjects/pages/subjects_page.dart';
 import 'package:global_school/features/student/profile/pages/profile_screen.dart';
 import 'package:global_school/features/root/root_screen.dart';
+import 'package:global_school/features/student/lessons/recorded_lesson/page/recorded_lesson_page.dart';
 import 'package:global_school/features/student/settings/pages/settings_screen.dart';
 import 'package:global_school/features/shared/splash/splash_screen.dart';
 import 'package:global_school/features/shared/statics/about.dart';
@@ -217,6 +218,14 @@ List<RouteBase> routes = <RouteBase>[
         builder: (context, state) {
           final id = state.pathParameters['subjectId'];
           return OnlineLessonPage(id: id ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.studentRecordedLesson.path,
+        name: AppRoutes.studentRecordedLesson.name,
+        builder: (context, state) {
+          final id = state.pathParameters['subjectId'];
+          return RecordedLessonPage(subjectId: id ?? '');
         },
       ),
       GoRoute(
