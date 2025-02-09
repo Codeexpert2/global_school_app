@@ -46,8 +46,11 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const SizedBox(
+                          height: 20,
+                        ),
                         Text(
-                          'منهج الرياضيات الشامل',
+                          'Comprehensive Math Curriculum',
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         const SizedBox(height: 15),
@@ -56,11 +59,11 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                           children: [
                             IconWithText(
                                 icon: Icons.access_time,
-                                text: '${subject.duration ?? 0} دقيقة'),
+                                text: '${subject.duration ?? 0} minutes'),
                             const IconWithText(
-                                icon: Icons.play_circle, text: '50 فيديو'),
+                                icon: Icons.play_circle, text: '50 videos'),
                             const IconWithText(
-                                icon: Icons.library_books, text: '12 وحدة'),
+                                icon: Icons.library_books, text: '12 units'),
                           ],
                         ),
                         const SizedBox(height: 16),
@@ -72,7 +75,7 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  'نبذة عن المادة',
+                                  'About the Subject',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -81,7 +84,7 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
-                                  subject.topic ?? 'غير متوفر',
+                                  subject.topic ?? 'Not available',
                                   style: const TextStyle(
                                       fontSize: 14, color: Colors.black54),
                                 ),
@@ -91,7 +94,7 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          'المدرسين',
+                          'Teachers',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -110,10 +113,9 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                                     imageUrl: '',
                                   ),
                                 ),
-                                const SizedBox(
-                                    width: 16), 
+                                const SizedBox(width: 16),
                                 Text(
-                                  subject.creatingByName ?? 'غير متوفر',
+                                  subject.creatingByName ?? 'Not available',
                                   style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -125,13 +127,13 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                         const SizedBox(height: 16),
                         CustomButton(
                           height: 60,
-                          text: 'بدء الدرس الآن',
+                          text: 'Start Lesson Now',
                           onPressed: () {},
                         ),
                         const SizedBox(height: 15),
                         CustomButton(
                           height: 60,
-                          text: 'الانضمام إلى الدرس',
+                          text: 'Join Lesson',
                           backgroundColor1: AppColors.transparent,
                           backgroundColor2: AppColors.transparent,
                           borderColor: AppColors.green2,
@@ -146,7 +148,7 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
             ),
             Positioned(
               top: 120,
-              left: MediaQuery.of(context).size.width / 3 - 90,
+              left: MediaQuery.of(context).size.width / 1.5,
               child: const CircleAvatar(
                 radius: 35,
                 backgroundColor: Colors.green,
@@ -159,7 +161,8 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
             ),
           ],
         ),
-        error: (error, stack) => Center(child: Text('حدث خطأ: $error')),
+        error: (error, stack) =>
+            Center(child: Text('An error occurred: $error')),
         loading: () => const Center(child: CircularProgressIndicator()),
       ),
     );

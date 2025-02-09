@@ -114,16 +114,6 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final subjects = ref.watch(studentSubjectsProvider);
-    // final subjects = [
-    //   'الجغرافيا',
-    //   'الرياضيات',
-    //   'العلوم',
-    //   'الكيمياء',
-    //   'الفيزياء',
-    //   'الأحياء',
-    //   'التاريخ',
-    //   'اللغة العربية'
-    // ];
 
     return Scaffold(
         appBar: const MainAppBar(
@@ -145,14 +135,14 @@ class HomeScreen extends ConsumerWidget {
                     children: [
                       _buildCircularProgressCard(
                         context,
-                        title: 'الرسوم',
+                        title: 'Fees',
                         progress: 0.75,
                         color: Colors.blue.shade100,
                       ),
                       const SizedBox(width: 16.0),
                       _buildCircularProgressCard(
                         context,
-                        title: 'نسبة الحضور',
+                        title: 'Attendance Rate',
                         progress: 0.4,
                         color: Colors.red.shade100,
                       ),
@@ -160,8 +150,8 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16.0),
                   CustomSectionHeader(
-                    title: 'موادي',
-                    actionText: 'عرض الكل',
+                    title: 'My Subjects',
+                    actionText: 'View All',
                     onActionTap: () {
                       context.pushNamed(AppRoutes.studentSubjects.name);
                     },
@@ -182,7 +172,7 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16.0),
                   Text(
-                    'تقدمك اليوم',
+                    'Your Progress Today',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 8.0),
@@ -211,14 +201,14 @@ class HomeScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'كن فضولياً، استكشف،',
+                  'Be Curious, Explore,',
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'تعلم، واصنع مستقبلك!',
+                  'Learn, and Shape Your Future!',
                   style: TextStyle(
                     fontSize: 16.0,
                     color: Colors.black54,
@@ -253,13 +243,13 @@ class HomeScreen extends ConsumerWidget {
           ),
         ),
         title: const Text(
-          'الرياضيات',
+          'Mathematics',
           style: TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.bold,
           ),
         ),
-        subtitle: const Text('20/24 فيديو'),
+        subtitle: const Text('20/24 Videos'),
         trailing: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -271,7 +261,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             Text(
-              'كورس مكتمل',
+              'Course Completed',
               style: TextStyle(fontSize: 12.0),
             ),
           ],

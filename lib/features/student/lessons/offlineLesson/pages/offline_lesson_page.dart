@@ -16,7 +16,7 @@ class OfflineLessonsPage extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'الدروس الافتراضية',
+          'Offline Lessons',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         bottom: PreferredSize(
@@ -67,11 +67,11 @@ class OfflineLessonsPage extends HookConsumerWidget {
           ),
         ),
         title: Text(
-          lesson.topic ?? 'بدون عنوان',
+          lesson.topic ?? 'No Title',
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          'الصف: ${lesson.classId ?? 'غير محدد'} - القسم: ${lesson.sectionId ?? 'غير محدد'}',
+          'Class: ${lesson.classId ?? 'Not Specified'} - Section: ${lesson.sectionId ?? 'Not Specified'}',
           style: TextStyle(color: Colors.grey[700]),
         ),
         trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.green1),

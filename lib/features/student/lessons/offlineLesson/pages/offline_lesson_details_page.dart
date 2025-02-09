@@ -20,13 +20,13 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
         ref.watch(offlineLessonDetailsProvider(lessonId));
 
     return Scaffold(
-      appBar: const MainAppBar(title: 'تفاصيل الدرس الافتراضي'),
+      appBar: const MainAppBar(title: 'Offline Lesson Details'),
       body: lessonDetailsAsync.when(
         loading: () => const Center(
           child: CircularProgressIndicator(color: Colors.deepOrange),
         ),
         error: (error, stack) => Center(
-          child: Text('حدث خطأ: $error',
+          child: Text('An error occurred: $error',
               style: const TextStyle(color: Colors.red, fontSize: 16)),
         ),
         data: (lesson) {
@@ -36,7 +36,7 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  lesson.topic ?? 'بدون عنوان',
+                  lesson.topic ?? 'No Title',
                   style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: AppColors.green1,
@@ -44,18 +44,17 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
                 ),
                 const SizedBox(height: 12),
                 const Divider(thickness: 2),
-                _buildTextRow('الصف', '${lesson.classId}'),
-                _buildTextRow('القسم', '${lesson.sectionId}'),
+                _buildTextRow('Class', '${lesson.classId}'),
+                _buildTextRow('Section', '${lesson.sectionId}'),
                 if (lesson.file != null)
-                  _buildFileSection('الملف', lesson.file!),
+                  _buildFileSection('File', lesson.file!),
                 if (lesson.images != null)
-                  _buildImageSection('الصور', lesson.images!),
+                  _buildImageSection('Images', lesson.images!),
                 if (lesson.videos != null)
-                  _buildVideoSection('الفيديو', lesson.videos!),
-                if (lesson.url != null)
-                  _buildLinkSection('الرابط', lesson.url!),
-                _buildTextRow('تاريخ الإنشاء', '${lesson.createdAt}'),
-                _buildTextRow('تاريخ التحديث', '${lesson.updatedAt}'),
+                  _buildVideoSection('Video', lesson.videos!),
+                if (lesson.url != null) _buildLinkSection('Link', lesson.url!),
+                _buildTextRow('Created At', '${lesson.createdAt}'),
+                _buildTextRow('Updated At', '${lesson.updatedAt}'),
               ],
             ),
           );
@@ -91,8 +90,8 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
       title: title,
       icon: Icons.insert_drive_file,
       actions: [
-        _actionButton(Icons.download, 'تحميل'),
-        _actionButton(Icons.open_in_new, 'فتح'),
+        _actionButton(Icons.download, 'Download'),
+        _actionButton(Icons.open_in_new, 'Open'),
       ],
     );
   }
@@ -103,7 +102,7 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
       icon: Icons.image,
       content: CachedImage(imageUrl: imageUrl),
       actions: [
-        _actionButton(Icons.fullscreen, 'عرض كامل'),
+        _actionButton(Icons.fullscreen, 'Fullscreen'),
       ],
     );
   }
@@ -113,7 +112,7 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
       title: title,
       icon: Icons.video_library,
       actions: [
-        _actionButton(Icons.play_arrow, 'تشغيل'),
+        _actionButton(Icons.play_arrow, 'Play'),
       ],
     );
   }
@@ -123,8 +122,8 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
       title: title,
       icon: Icons.link,
       actions: [
-        _actionButton(Icons.open_in_browser, 'فتح الرابط'),
-        _actionButton(Icons.copy, 'نسخ الرابط'),
+        _actionButton(Icons.open_in_browser, 'Open Link'),
+        _actionButton(Icons.copy, 'Copy Link'),
       ],
     );
   }

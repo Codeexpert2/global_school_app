@@ -13,8 +13,8 @@ class SubjectsPage extends ConsumerWidget {
     final subjects = ref.watch(studentSubjectsProvider);
     return Scaffold(
       appBar: const MainAppBar(
-        title: 'أهلاً وسهلاً',
-        subtitleText: 'ابدأ رحلتك التعليمية الآن',
+        title: 'Hello',
+        subtitleText: 'Start your educational journey now',
       ),
       body: subjects.when(
         loading: () => const Center(child: CircularProgressIndicator()),
