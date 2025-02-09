@@ -13,6 +13,7 @@ import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
 import 'package:global_school/features/student/help/pages/help_screen.dart';
 import 'package:global_school/features/student/home/home.dart';
 import 'package:global_school/features/student/lessons/lesson_home_page.dart';
+import 'package:global_school/features/student/lessons/lesson_selection_page.dart';
 import 'package:global_school/features/student/lessons/offlineLesson/pages/offline_lesson_details_page.dart';
 import 'package:global_school/features/student/lessons/offlineLesson/pages/offline_lesson_page.dart';
 import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_details_page.dart';
@@ -256,6 +257,16 @@ List<RouteBase> routes = <RouteBase>[
           final lessonId = state.pathParameters['lessonId'];
           return OfflineLessonDetailsPage(
             lessonId: lessonId ?? '',
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.studentLessonSelection.path,
+        name: AppRoutes.studentLessonSelection.name,
+        builder: (context, state) {
+          final lessonId = state.pathParameters['lessonId'];
+          return LessonSelectionPage(
+            subjectId: lessonId ?? '',
           );
         },
       ),

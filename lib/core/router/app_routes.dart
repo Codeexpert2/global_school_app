@@ -29,6 +29,7 @@ enum AppRoutes {
   studentFailurequiz('/student/failure-quiz', 'studentFailureQuiz'),
   studentOnlineLesson('/student/online-lesson/subject/:subjectId', 'studentOnlineLesson'),
   studentRecordedLesson('/student/recorded-lesson/subject/:subjectId', 'studentRecordedLesson'),
+  studentLessonSelection('/student/selection-lesson/:subjectId', 'studentLessonSelection'),
   studentOnlineLessonDetails(
       '/student/online-lesson/:lessonId', 'studentOnlineLessonDetails'),
   studentCertificateDetails(
