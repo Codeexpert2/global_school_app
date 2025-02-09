@@ -31,7 +31,9 @@ class LessonSelectionPage extends StatelessWidget {
               icon: Icons.location_on,
               text: 'Offline Lesson',
               color: Colors.green,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(AppRoutes.studentOfflineLessons.name);
+              },
             ),
             const SizedBox(height: 20),
             _buildLessonButton(

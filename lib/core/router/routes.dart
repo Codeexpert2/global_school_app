@@ -264,9 +264,9 @@ List<RouteBase> routes = <RouteBase>[
         path: AppRoutes.studentLessonSelection.path,
         name: AppRoutes.studentLessonSelection.name,
         builder: (context, state) {
-          final lessonId = state.pathParameters['lessonId'];
+          final subjectId = state.pathParameters['subjectId'];
           return LessonSelectionPage(
-            subjectId: lessonId ?? '',
+            subjectId: subjectId ?? '',
           );
         },
       ),
