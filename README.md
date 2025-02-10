@@ -1,10 +1,9 @@
-# Code Expert Flutter Template
+# Global School
 
-
-![Logo](./assets/images/logo_full.png)
+![Logo](./assets/images/madares_icon.png)
 
 ## Description
-A brief overview of your Flutter application, its purpose, and key features. Explain what makes this app template unique or valuable.
+A brief overview of your Global School application, its purpose, and key features.
 
 ## Table of Contents
 
@@ -137,7 +136,7 @@ static const String appName = 'App Name';
 ```bash
 dart run flutter_native_splash:create
 ```
-note: to edit configs go to: flutter_native_splash.yaml
+note: to edit configs go to: **flutter_native_splash.yaml**
 
 ## Build Project
 
