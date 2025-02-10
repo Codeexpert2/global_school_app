@@ -10,10 +10,7 @@ class ExamsPage extends StatelessWidget {
     return Scaffold(
       appBar: DebouncedSearchAppBar(
         title: 'Exams',
-        onDebounceChange: (query) {
-          // Update your search logic here
-          // print('Search query: $query');
-        },
+        onDebounceChange: (query) {},
       ),
       body: const Center(
         child: Column(
@@ -52,7 +49,7 @@ class ExamCard extends StatelessWidget {
       onTap: () => context.pushNamed(
         AppRoutes.teacherExam.name,
         pathParameters: {
-          'examId': '1', // Replace with actual exam ID
+          'examId': '1',
         },
       ),
       trailing: const Icon(Icons.edit),

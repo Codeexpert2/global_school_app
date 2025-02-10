@@ -20,12 +20,12 @@ class ExamModel {
         message: json['message'],
         data: json['data'] == null
             ? []
-            : List<Datum>.from(json['data']!.map((x) => Datum.fromJson(x))),
+            : List<Exam>.from(json['data']!.map((x) => Exam.fromJson(x))),
       );
   final bool? success;
   final String? message;
 
-  final List<Datum>? data;
+  final List<Exam>? data;
 
   Map<String, dynamic> toJson() => {
         'success': success,
@@ -36,8 +36,8 @@ class ExamModel {
       };
 }
 
-class Datum {
-  Datum({
+class Exam {
+  Exam({
     this.id,
     this.topic,
     this.date,
@@ -51,7 +51,7 @@ class Datum {
     this.pivot,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Exam.fromJson(Map<String, dynamic> json) => Exam(
         id: json['id'],
         topic: json['topic'],
         date: json['date'] == null ? null : DateTime.parse(json['date']),
@@ -118,4 +118,3 @@ class Pivot {
         'login_exam': loginExam,
       };
 }
-

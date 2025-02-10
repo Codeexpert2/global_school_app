@@ -21,4 +21,10 @@ class RecordedLessonService {
     });
     return RecordedLesson.fromJson(response.data);
   }
+
+  // Future<RecordedLesson> getRecordedLessonsById(String lessonId) async {
+  //   final response =
+  //       await apiClient.get('/student/recorded-lesson/$lessonId',);
+  //   return RecordedLesson.fromJson(response.data);
+  // }
 }

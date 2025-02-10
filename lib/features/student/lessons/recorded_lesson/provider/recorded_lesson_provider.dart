@@ -21,3 +21,8 @@ final recordedLessonProvider =
   final service = ref.read(recordedLessonServiceProvider);
   return service.getRecordedLessons(subjectId);
 });
+// final recordedLessonByIdProvider =
+//     FutureProvider.family<RecordedLesson, String>((ref, lessonId) async {
+//   final service = ref.read(recordedLessonServiceProvider);
+//   return service.getRecordedLessons(lessonId);
+// });
