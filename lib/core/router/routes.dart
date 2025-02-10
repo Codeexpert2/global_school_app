@@ -1,9 +1,8 @@
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/features/guardian/child_details/pages/child_details_page.dart';
-import 'package:global_school/features/guardian/notification/notification_page.dart';
+import 'package:global_school/features/shared/notification/notification_page.dart';
 import 'package:global_school/features/guardian/online_exam_results/pages/online_exam_results_page.dart';
-import 'package:global_school/features/guardian/profile/pages/profile_page.dart';
 import 'package:global_school/features/guardian/home/pages/home_page.dart';
 import 'package:global_school/features/guardian/monthly_report/pages/child_monthly_report_page.dart';
 import 'package:global_school/features/guardian/subjects_results/pages/subjects_results_page.dart';
@@ -29,7 +28,7 @@ import 'package:global_school/features/student/lessons/onlineLesson/pages/online
 import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
 import 'package:global_school/features/student/lessons/subjects/pages/subject_details_page.dart';
 import 'package:global_school/features/student/lessons/subjects/pages/subjects_page.dart';
-import 'package:global_school/features/student/profile/pages/profile_screen.dart';
+import 'package:global_school/features/shared/profile/pages/profile_screen.dart';
 import 'package:global_school/features/root/root_screen.dart';
 import 'package:global_school/features/student/settings/pages/settings_screen.dart';
 import 'package:global_school/features/shared/splash/splash_screen.dart';
@@ -106,15 +105,31 @@ List<RouteBase> routes = <RouteBase>[
     },
     routes: [
       GoRoute(
-        name: AppRoutes.teacherHome.name,
-        path: AppRoutes.teacherHome.path,
+        name: AppRoutes.profile.name,
+        path: AppRoutes.profile.path,
         parentNavigatorKey: shellNavigatorKey,
-        pageBuilder: (context, state) {
+        pageBuilder: (_, __) {
           return const NoTransitionPage(
-            child: TeacherHomeScreen(),
+            child: ProfileScreen(),
           );
         },
       ),
+      GoRoute(
+        path: AppRoutes.notifications.path,
+        name: AppRoutes.notifications.name,
+        parentNavigatorKey: shellNavigatorKey,
+        pageBuilder: (_, __) {
+          return const NoTransitionPage(
+            child: NotificationPage(),
+          );
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.settings.path,
+        name: AppRoutes.settings.name,
+        builder: (_, __) => const SettingsScreen(),
+      ),
+      // base student
       GoRoute(
         name: AppRoutes.studentHome.name,
         path: AppRoutes.studentHome.path,
@@ -145,16 +160,6 @@ List<RouteBase> routes = <RouteBase>[
           );
         },
       ),
-      // GoRoute(
-      //   name: AppRoutes.studentNotifications.name,
-      //   path: AppRoutes.studentNotifications.path,
-      //   parentNavigatorKey: shellNavigatorKey,
-      //   pageBuilder: (context, state) {
-      //     return const NoTransitionPage(
-      //       child: NotificationScreen(),
-      //     );
-      //   },
-      // ),
       GoRoute(
         name: AppRoutes.studentGame.name,
         path: AppRoutes.studentGame.path,
@@ -165,13 +170,14 @@ List<RouteBase> routes = <RouteBase>[
           );
         },
       ),
+      // base teacher
       GoRoute(
-        name: AppRoutes.profile.name,
-        path: AppRoutes.profile.path,
+        name: AppRoutes.teacherHome.name,
+        path: AppRoutes.teacherHome.path,
         parentNavigatorKey: shellNavigatorKey,
         pageBuilder: (context, state) {
           return const NoTransitionPage(
-            child: ProfileScreen(),
+            child: TeacherHomeScreen(),
           );
         },
       ),
@@ -209,11 +215,7 @@ List<RouteBase> routes = <RouteBase>[
               },
             ),
           ]),
-      GoRoute(
-        path: AppRoutes.studentSettings.path,
-        name: AppRoutes.studentSettings.name,
-        builder: (context, state) => const SettingsScreen(),
-      ),
+
       // GoRoute(
       //   path: AppRoutes.studentOnlineLesson.path,
       //   name: AppRoutes.studentOnlineLesson.name,
@@ -379,26 +381,6 @@ List<RouteBase> routes = <RouteBase>[
         pageBuilder: (context, state) {
           return const NoTransitionPage(
             child: GuardianHomePage(),
-          );
-        },
-      ),
-      GoRoute(
-        path: AppRoutes.guardianNotifications.path,
-        name: AppRoutes.guardianNotifications.name,
-        parentNavigatorKey: shellNavigatorKey,
-        pageBuilder: (context, state) {
-          return const NoTransitionPage(
-            child: GuardianNotificationPage(),
-          );
-        },
-      ),
-      GoRoute(
-        path: AppRoutes.guardianProfile.path,
-        name: AppRoutes.guardianProfile.name,
-        parentNavigatorKey: shellNavigatorKey,
-        pageBuilder: (context, state) {
-          return const NoTransitionPage(
-            child: GuardianProfilePage(),
           );
         },
       ),

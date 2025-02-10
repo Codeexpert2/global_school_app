@@ -12,12 +12,13 @@ enum AppRoutes {
   termsConditions('/terms-conditions', 'termsConditions'),
   privacyPolicy('/privacy-policy', 'privacyPolicy'),
   web('/web', 'web'),
+  notifications('/notifications', 'notifications'),
+  settings('/settings', 'settings'),
+
 
   // student,
   studentHome('/student/home', 'studentHome'),
   studentFavorite('/student/favorite', 'studentFavorite'),
-  studentNotifications('/student/notifications', 'studentNotifications'),
-  studentSettings('/student/settings', 'studentSettings'),
   studentCategory('/student/category', 'studentCategory'),
   studentSearch('/student/search', 'studentSearch'),
   studentAttachments('/student/attachments', 'studentAttachments'),
@@ -49,7 +50,6 @@ enum AppRoutes {
   // admin,
   // teacher,
   teacherHome('/teacher/home', 'teacherHome'),
-
   teacherSections('/teacher/sections', 'teacherSections'),
   teacherSection('/teacher/sections/:sectionId', 'teacherSection'),
   teacherNewSection('/teacher/new-section', 'teacherNewSection'),
@@ -66,18 +66,15 @@ enum AppRoutes {
   teacherExam('/teacher/exams/:examId', 'teacherExam'),
   teacherNewExam('/teacher/new-exam', 'teacherNewExam'),
   teacherUpdateExam('/teacher/exams/:examId/update', 'teacherUpdateExam'),
-
   teacherCurriculums('/teacher/curriculums', 'teacherCurriculums'),
   teacherCurriculum('/teacher/curriculums/:curriculumId', 'teacherCurriculum'),
   teacherNewCurriculum('/teacher/new-curriculum', 'teacherNewCurriculum'),
   teacherUpdateCurriculum(
       '/teacher/curriculums/:curriculumId/update', 'teacherUpdateCurriculum'),
 
-  // guardian,
+  // Guardian,
   guardianHome('/guardian/home', 'guardianHome'),
   guardianChildren('/guardian/children', 'children'),
-  guardianNotifications('/guardian/notifications', 'guardianNotifications'),
-  guardianProfile('/guardian/profile', 'guardianProfile'),
   guardianChild('/guardian/children/:childId', 'child'),
   guardianChildOnlineExamResults(
       'online-exam-results', 'guardianOnlineExamResults'),

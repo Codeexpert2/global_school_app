@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:share_plus/share_plus.dart';
@@ -11,7 +12,7 @@ import 'package:global_school/core/extensions/extensions.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/utils/confirm_dialog.dart';
-import 'package:global_school/features/student/profile/widgets/profile_item.dart';
+import 'package:global_school/features/shared/profile/widgets/profile_item.dart';
 import 'package:global_school/features/auth/providers/auth_provider.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -20,12 +21,12 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: const MainAppBar(
-          // title: S.of(context).profile,
-          // actions: [
-          //   //
-          // ],
-          ),
+      appBar: MainAppBar(
+        title: S.of(context).profile,
+        // actions: [
+        //   //
+        // ],
+      ),
       body: SingleChildScrollView(
         // padding: const EdgeInsets.only(top: kToolbarHeight),
         child: Container(

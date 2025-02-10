@@ -37,6 +37,11 @@ class GuardianBottomNavBar extends ConsumerWidget {
           label: S.of(context).notifications,
         ),
         NavigationDestination(
+          selectedIcon: const Icon(Icons.settings_rounded),
+          icon: const Icon(Icons.settings_outlined),
+          label: S.of(context).settings,
+        ),
+        NavigationDestination(
           icon: const Icon(Icons.person_outline),
           selectedIcon: const Icon(Icons.person),
           label: S.of(context).profile,

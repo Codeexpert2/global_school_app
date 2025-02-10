@@ -34,10 +34,13 @@ class GuardianRootNotifier extends Notifier<int> {
         router.goNamed(AppRoutes.guardianHome.name);
         break;
       case 1:
-        router.pushNamed(AppRoutes.guardianNotifications.name);
+        router.pushNamed(AppRoutes.notifications.name);
         break;
       case 2:
-        router.pushNamed(AppRoutes.guardianProfile.name);
+        router.pushNamed(AppRoutes.settings.name);
+        break;
+      case 3:
+        router.pushNamed(AppRoutes.profile.name);
         break;
     }
   }
@@ -47,10 +50,12 @@ class GuardianRootNotifier extends Notifier<int> {
 
     if (location.contains(AppRoutes.guardianHome.name)) {
       return 0;
-    } else if (location.contains(AppRoutes.guardianNotifications.name)) {
+    } else if (location.contains(AppRoutes.notifications.name)) {
       return 1;
-    } else if (location.contains(AppRoutes.guardianProfile.name)) {
+    } else if (location.contains(AppRoutes.settings.name)) {
       return 2;
+    } else if (location.contains(AppRoutes.profile.name)) {
+      return 3;
     } else {
       return 0;
     }
