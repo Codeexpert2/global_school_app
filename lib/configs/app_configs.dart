@@ -2,8 +2,8 @@ class AppConfigs {
 
   //http://10.0.2.2:8000/api
   static const String appName = 'المدرسة العالمية';
-  static const String baseUrl = 'http://10.0.2.2:8000';
-  // static const String baseUrl = 'https://masplatform.online';
+  // static const String baseUrl = 'http://10.0.2.2:8000';
+  static const String baseUrl = 'https://masplatform.online';
   static const String baseApiUrl = '$baseUrl/api';
   static const String topic = 'general';
   static const Duration period = Duration(seconds: 1);

@@ -30,27 +30,11 @@ class SubjectResultsPage extends ConsumerWidget {
         provider: subjectResultsProvider(subjectId),
         itemBuilder: (context, result) {
           return ListTile(
-                title: Text(result.subject?.name ?? 'No Subject Name'),
-                subtitle: Text('Exam Grade: ${result.examGrade}'),
-              );
+            title: Text(result.semester ?? 'No Subject Name'),
+            subtitle: Text('Exam Grade: ${result.examGrade}'),
+          );
         },
       ),
-      // body: subjectResultsAsync.when(
-      //   loading: () => const Center(child: CircularProgressIndicator()),
-      //   error: (error, stack) => Center(child: Text('Error: $error')),
-      //   data: (subjectResults) {
-      //     return ListView.builder(
-      //       itemCount: subjectResults.data?.length ?? 0,
-      //       itemBuilder: (context, index) {
-      //         final result = subjectResults.data![index];
-      //         return ListTile(
-      //           title: Text(result.subject?.name ?? 'No Subject Name'),
-      //           subtitle: Text('Exam Grade: ${result.examGrade}'),
-      //         );
-      //       },
-      //     );
-      //   },
-      // ),
     );
   }
 }

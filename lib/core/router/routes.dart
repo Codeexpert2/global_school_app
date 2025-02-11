@@ -7,6 +7,7 @@ import 'package:global_school/features/guardian/home/pages/home_page.dart';
 import 'package:global_school/features/guardian/monthly_report/pages/child_monthly_report_page.dart';
 import 'package:global_school/features/guardian/subjects_results/pages/subjects_results_page.dart';
 import 'package:global_school/features/guardian/weekly_report/pages/child_weekly_report_page.dart';
+import 'package:global_school/features/student/accessories/pages/accessories_page.dart';
 
 import 'package:global_school/features/student/ar/ar_page.dart';
 import 'package:global_school/features/student/ar/model_viewer_page.dart';
@@ -16,9 +17,6 @@ import 'package:global_school/features/student/calendar/view/calender.dart';
 import 'package:global_school/features/student/certificate/page/certificate_details_page.dart';
 import 'package:global_school/features/student/certificate/page/certificates_page.dart';
 import 'package:global_school/features/student/exam/pages/exam_page.dart';
-
-import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
-
 import 'package:global_school/features/student/help/pages/help_screen.dart';
 import 'package:global_school/features/student/home/home.dart';
 import 'package:global_school/features/student/lessons/lesson_home_page.dart';
@@ -218,6 +216,11 @@ List<RouteBase> routes = <RouteBase>[
         path: AppRoutes.studentOfflineLessons.path,
         name: AppRoutes.studentOfflineLessons.name,
         builder: (context, state) => const OfflineLessonsPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.studentAttachments.path,
+        name: AppRoutes.studentAttachments.name,
+        builder: (context, state) => const AccessoriesPage(),
       ),
       GoRoute(
         path: AppRoutes.studentOfflineLessonsDetails.path,

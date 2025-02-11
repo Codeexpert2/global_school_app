@@ -272,5 +272,6 @@
   "selectLessonType": "اختر نوع الدرس",
   "onlineLesson": "درس متصل بالإنترنت",
   "date": "Date",
-  "subjectResults": "Subject Results"
+  "subjectResults": "Subject Results",
+  "help": "Help"
 }

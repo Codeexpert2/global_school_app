@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
 import 'package:global_school/features/student/settings/pages/settings_screen.dart';
@@ -80,24 +81,14 @@ class MainDrawer extends ConsumerWidget {
                 context.pushNamed(AppRoutes.studentCalendar.name);
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.school),
-              title: const Text('Courses'),
-              onTap: () {
-                Navigator.pop(context);
-                context.pushNamed(AppRoutes.studentCourses.name);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.add_to_photos_rounded),
-              title: const Text(
-                'Attachments',
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                context.pushNamed(AppRoutes.studentAttachments.name);
-              },
-            ),
+            // ListTile(
+            //   leading: const Icon(Icons.school),
+            //   title: const Text('Courses'),
+            //   onTap: () {
+            //     Navigator.pop(context);
+            //     context.pushNamed(AppRoutes.studentCourses.name);
+            //   },
+            // ),
             ListTile(
               leading: const Icon(Icons.add_to_photos_rounded),
               title: const Text(
@@ -125,7 +116,6 @@ class MainDrawer extends ConsumerWidget {
               ),
               onTap: () {
                 Navigator.pop(context);
-                // context.pushNamed(AppRoutes.quizPage.name);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -155,27 +145,18 @@ class MainDrawer extends ConsumerWidget {
             ),
             ListTile(
               leading: const Icon(Icons.sports_esports),
-              title: const Text(
-                'Accessories',
+              title: Text(
+                S.of(context).attachments,
               ),
               onTap: () {
                 Navigator.pop(context);
                 context.pushNamed(AppRoutes.studentAttachments.name);
-
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const AccessoriesPage(
-                //       sectionId: 3,
-                //     ),
-                //   ),
-                // );
               },
             ),
             ListTile(
               leading: const Icon(Icons.help),
-              title: const Text(
-                'Help',
+              title:  Text(
+                S.of(context).help,
               ),
               onTap: () {
                 Navigator.pop(context);

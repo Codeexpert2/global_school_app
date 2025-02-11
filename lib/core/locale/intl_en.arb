@@ -56,5 +56,6 @@
   "selectLessonType": "Select Lesson Type",
   "onlineLesson": "Online Lesson",
   "date": "Date",
-  "subjectResults": "Subject Results"
+  "subjectResults": "Subject Results",
+  "help": "Help"
 }
