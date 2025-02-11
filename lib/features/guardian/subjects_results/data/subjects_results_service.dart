@@ -28,4 +28,17 @@ class SubjectsResultsService {
       throw ErrorHandler.handle(e);
     }
   }
+
+  Future<List<SubjectResultModel>> getSubjects(String childId) async {
+    try {
+      final res = await client.get(
+        '/guardian/children/$childId/subjects',
+      );
+
+      return listSubjectResultModelFromJson(res.data);
+    } catch (e) {
+      // rethrow;
+      throw ErrorHandler.handle(e);
+    }
+  }
 }
