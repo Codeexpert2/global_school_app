@@ -3,7 +3,7 @@ import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
-import 'package:global_school/features/student/lessons/onlineLesson/model/online_lesson_model.dart';
+import 'package:global_school/features/student/onlineLesson/model/online_lesson_model.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OnlineLessonCard extends ConsumerWidget {

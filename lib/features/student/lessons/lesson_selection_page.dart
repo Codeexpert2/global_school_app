@@ -10,7 +10,7 @@ class LessonSelectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(S.of(context).selectLessonType),
+        title: Text(S.of(context).selectLessonType),
         centerTitle: true,
       ),
       body: Padding(
@@ -27,15 +27,15 @@ class LessonSelectionPage extends StatelessWidget {
                     pathParameters: {'subjectId': subjectId});
               },
             ),
-            const SizedBox(height: 20),
-            _buildLessonButton(
-              icon: Icons.location_on,
-              text: S.of(context).offlineLessons,
-              color: Colors.green,
-              onTap: () {
-                context.pushNamed(AppRoutes.studentOfflineLessons.name);
-              },
-            ),
+            // const SizedBox(height: 20),
+            // _buildLessonButton(
+            //   icon: Icons.location_on,
+            //   text: S.of(context).offlineLessons,
+            //   color: Colors.green,
+            //   onTap: () {
+            //     context.pushNamed(AppRoutes.studentOfflineLessons.name);
+            //   },
+            // ),
             const SizedBox(height: 20),
             _buildLessonButton(
                 icon: Icons.play_circle_fill,

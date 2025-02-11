@@ -3,7 +3,7 @@ import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'subjects/provider/subject_provider.dart';
+import '../subjects/provider/subject_provider.dart';
 
 class LessonHomePage extends StatelessWidget {
   const LessonHomePage({super.key});

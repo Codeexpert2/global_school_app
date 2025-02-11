@@ -8,7 +8,7 @@
 //   }
 // }
 import 'package:global_school/core/client/client.dart';
-import 'package:global_school/features/student/lessons/recorded_lesson/model/recorded_lesson_model.dart';
+import 'package:global_school/features/student/recorded_lesson/model/recorded_lesson_model.dart';
 
 class RecordedLessonService {
   RecordedLessonService(this.apiClient);

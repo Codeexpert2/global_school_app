@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
-import 'package:global_school/features/student/lessons/recorded_lesson/widget/recorded_lesson_card.dart';
+import 'package:global_school/features/student/recorded_lesson/widget/recorded_lesson_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:global_school/features/student/lessons/recorded_lesson/provider/recorded_lesson_provider.dart';
+import 'package:global_school/features/student/recorded_lesson/provider/recorded_lesson_provider.dart';
 
 class RecordedLessonPage extends HookConsumerWidget {
   const RecordedLessonPage({super.key, required this.subjectId});

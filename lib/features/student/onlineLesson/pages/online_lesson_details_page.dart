@@ -4,7 +4,7 @@ import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../../components/form/components.dart';
+import '../../../../components/form/components.dart';
 import '../provider/online_lesson_provider.dart';
 
 class OnlineLessonDetailsPage extends ConsumerWidget {

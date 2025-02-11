@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
-import 'package:global_school/features/student/lessons/recorded_lesson/model/recorded_lesson_model.dart';
+import 'package:global_school/features/student/recorded_lesson/model/recorded_lesson_model.dart';
 
 class RecordedLessonCard extends StatelessWidget {
   const RecordedLessonCard({super.key, required this.lesson});

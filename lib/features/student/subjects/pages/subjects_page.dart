@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/features/student/lessons/subjects/provider/subject_provider.dart';
-import 'package:global_school/features/student/lessons/subjects/widget/subject_card.dart';
+import 'package:global_school/features/student/subjects/provider/subject_provider.dart';
+import 'package:global_school/features/student/subjects/widget/subject_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SubjectsPage extends ConsumerWidget {

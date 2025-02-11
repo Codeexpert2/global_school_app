@@ -1,6 +1,6 @@
 import 'package:global_school/core/client/client.dart';
 import 'package:global_school/core/errors/error_handler.dart';
-import 'package:global_school/features/student/lessons/subjects/models/subject_details_model.dart';
+import 'package:global_school/features/student/subjects/models/subject_details_model.dart';
 
 import '../models/subject_model.dart';
 

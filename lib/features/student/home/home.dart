@@ -106,7 +106,7 @@ import 'package:global_school/components/main/main_drawer.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/features/student/home/widget/subject_card.dart';
-import 'package:global_school/features/student/lessons/subjects/provider/subject_provider.dart';
+import 'package:global_school/features/student/subjects/provider/subject_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends ConsumerWidget {
