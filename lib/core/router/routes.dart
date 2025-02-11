@@ -27,7 +27,6 @@ import 'package:global_school/features/student/lessons/offlineLesson/pages/offli
 import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_details_page.dart';
 import 'package:global_school/features/student/lessons/onlineLesson/pages/online_lesson_page.dart';
 import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
-import 'package:global_school/features/student/lessons/subjects/pages/subject_details_page.dart';
 import 'package:global_school/features/student/lessons/subjects/pages/subjects_page.dart';
 import 'package:global_school/features/shared/profile/pages/profile_screen.dart';
 import 'package:global_school/features/root/root_screen.dart';
