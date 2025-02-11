@@ -1,5 +1,5 @@
 import 'package:global_school/core/client/client.dart';
-import 'package:global_school/features/student/subject_results.dart/model/subject_results_model.dart';
+import 'package:global_school/features/student/subject_results/model/subject_results_model.dart';
 
 class SubjectResultsService {
   SubjectResultsService(this.apiClient);

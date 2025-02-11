@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/features/student/subject_results.dart/provider/subject_results_provider.dart';
+import 'package:global_school/features/student/subject_results/provider/subject_results_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SubjectResultsPage extends ConsumerWidget {
