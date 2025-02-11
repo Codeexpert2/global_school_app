@@ -54,5 +54,6 @@
   "noTitle": "No Title",
   "noDescription": "No Description",
   "selectLessonType": "Select Lesson Type",
-  "onlineLesson": "Online Lesson"
+  "onlineLesson": "Online Lesson",
+  "date": "Date"
 }

@@ -14,23 +14,7 @@ final onlineLessonServiceProvider = Provider<OnlineLessonService>((ref) {
 
 final onlineLessonSearchProvider = StateProvider<String>((ref) => '');
 
-// Create the products provider using PaginatedListNotifier
-// final onlineLessonsProvider = StateNotifierProvider.autoDispose<
-//     PaginatedListNotifier<OnlineLesson>, PaginationState<OnlineLesson>,String>((ref,id) {
-//   final onlineLessonService = ref.watch(onlineLessonServiceProvider);
-//   final query = ref.watch(onlineLessonSearchProvider);
 
-//   return PaginatedListNotifier<OnlineLesson>(
-//     fetchData: (int page) async {
-//       final res = await onlineLessonService.getOnlineLessons(
-//         query: query,
-//         page: page,
-//         subjectId: id
-//       );
-//       return res;
-//     },
-//   );
-// });
 final onlineLessonsProvider = StateNotifierProvider.autoDispose.family<
     PaginatedListNotifier<OnlineLesson>, PaginationState<OnlineLesson>, String>(
   (ref, id) {

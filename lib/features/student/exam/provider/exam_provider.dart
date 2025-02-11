@@ -8,37 +8,17 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 //   final examService = ref.read(examServiceProvider);
 //   return examService.fetchExams();
 // });
-final examProvider = StateNotifierProvider.autoDispose.family<
-    PaginatedListNotifier<Exam>,
-    PaginationState<Exam>,
-    String>((ref, id) {
+
+final examSearchProvider = StateProvider<String>((ref) => '');
+final examProvider = StateNotifierProvider.autoDispose<
+    PaginatedListNotifier<Exam>, PaginationState<Exam>>((ref) {
   final examService = ref.watch(examServiceProvider);
+  final query = ref.watch(examSearchProvider);
+
   return PaginatedListNotifier<Exam>(
     fetchData: (int page) async {
-      final res = await examService.fetchExams(page: page);
+      final res = await examService.fetchExams(query: query, page: page);
       return res;
     },
   );
 });
-
-
-
-
-// final onlineLessonsProvider = StateNotifierProvider.autoDispose.family<
-//     PaginatedListNotifier<OnlineLesson>, PaginationState<OnlineLesson>, String>(
-//   (ref, id) {
-//     final onlineLessonService = ref.watch(onlineLessonServiceProvider);
-//     final query = ref.watch(onlineLessonSearchProvider);
-
-//     return PaginatedListNotifier<OnlineLesson>(
-//       fetchData: (int page) async {
-//         final res = await onlineLessonService.getOnlineLessons(
-//           query: query,
-//           page: page,
-//           subjectId: id, 
-//         );
-//         return res;
-//       },
-//     );
-//   },
-// );
