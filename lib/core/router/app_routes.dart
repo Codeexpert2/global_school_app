@@ -18,6 +18,7 @@ enum AppRoutes {
 
   // student,
   studentHome('/student/home', 'studentHome'),
+  studentExam('/student/exam', 'studentExam'),
   studentFavorite('/student/favorite', 'studentFavorite'),
   studentCategory('/student/category', 'studentCategory'),
   studentSearch('/student/search', 'studentSearch'),
@@ -28,6 +29,7 @@ enum AppRoutes {
   studentQuiz('/student/quiz', 'studentQuiz'),
   studentSuccessquiz('/student/success-quiz', 'studentSuccessQuiz'),
   studentFailurequiz('/student/failure-quiz', 'studentFailureQuiz'),
+  studentSubjectResults('/student/subject-results/subject/:subjectId', 'studentSubjectResults'),
   studentOnlineLesson('/student/online-lesson/subject/:subjectId', 'studentOnlineLesson'),
   studentRecordedLesson('/student/recorded-lesson/subject/:subjectId', 'studentRecordedLesson'),
   studentLessonSelection('/student/selection-lesson/:subjectId', 'studentLessonSelection'),
@@ -40,7 +42,7 @@ enum AppRoutes {
   studentOfflineLessonsDetails(
       '/student/offline-lesson/:lessonId', 'studentOfflineLessonDetails'),
   studentLessonHome('/student/lessons', 'studentStudentLesson'),
-  studentHomeExam('/student/exam', 'studentExam'),
+  // studentHomeExam('/student/exam', 'studentExam'),
   studentGame('/student/game', 'studentGame'),
   studentCertificates('/student/certificates', 'studentCertificates'),
   studentSubjects('/student/subjects', 'studentSubjects'),

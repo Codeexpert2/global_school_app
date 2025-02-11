@@ -55,5 +55,6 @@
   "noDescription": "No Description",
   "selectLessonType": "Select Lesson Type",
   "onlineLesson": "Online Lesson",
-  "date": "Date"
+  "date": "Date",
+  "subjectResults": "Subject Results"
 }

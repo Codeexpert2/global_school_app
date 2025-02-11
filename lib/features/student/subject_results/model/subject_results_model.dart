@@ -22,12 +22,12 @@ class SubjectresultsModel {
         meta: json['meta'] == null ? null : Meta.fromJson(json['meta']),
         data: json['data'] == null
             ? []
-            : List<Datum>.from(json['data']!.map((x) => Datum.fromJson(x))),
+            : List<Subjectresults>.from(json['data']!.map((x) => Subjectresults.fromJson(x))),
       );
   final bool? success;
   final String? message;
   final Meta? meta;
-  final List<Datum>? data;
+  final List<Subjectresults>? data;
 
   Map<String, dynamic> toJson() => {
         'success': success,
@@ -39,8 +39,8 @@ class SubjectresultsModel {
       };
 }
 
-class Datum {
-  Datum({
+class Subjectresults {
+  Subjectresults({
     this.id,
     this.userId,
     this.subjectId,
@@ -56,7 +56,7 @@ class Datum {
     this.subject,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Subjectresults.fromJson(Map<String, dynamic> json) => Subjectresults(
         id: json['id'],
         userId: json['user_id'],
         subjectId: json['subject_id'],

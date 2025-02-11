@@ -271,5 +271,6 @@
   "noDescription": "لا يوجد وصف",
   "selectLessonType": "اختر نوع الدرس",
   "onlineLesson": "درس متصل بالإنترنت",
-  "date": "Date"
+  "date": "Date",
+  "subjectResults": "Subject Results"
 }

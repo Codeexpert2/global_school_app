@@ -15,6 +15,7 @@ import 'package:global_school/features/auth/pages/password_reset_screen.dart';
 import 'package:global_school/features/student/calendar/view/calender.dart';
 import 'package:global_school/features/student/certificate/page/certificate_details_page.dart';
 import 'package:global_school/features/student/certificate/page/certificates_page.dart';
+import 'package:global_school/features/student/exam/pages/exam_page.dart';
 
 import 'package:global_school/features/student/exam/pages/home_exam_page.dart';
 
@@ -27,6 +28,7 @@ import 'package:global_school/features/student/offlineLesson/pages/offline_lesso
 import 'package:global_school/features/student/onlineLesson/pages/online_lesson_details_page.dart';
 import 'package:global_school/features/student/onlineLesson/pages/online_lesson_page.dart';
 import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
+import 'package:global_school/features/student/subject_results/page/subject_results_page.dart';
 import 'package:global_school/features/student/subjects/pages/subjects_page.dart';
 import 'package:global_school/features/shared/profile/pages/profile_screen.dart';
 import 'package:global_school/features/root/root_screen.dart';
@@ -142,6 +144,15 @@ List<RouteBase> routes = <RouteBase>[
         },
       ),
       GoRoute(
+        name: AppRoutes.studentSubjectResults.name,
+        path: AppRoutes.studentSubjectResults.path,
+        parentNavigatorKey: shellNavigatorKey,
+        builder: (context, state) {
+          final subjectId = state.pathParameters['subjectId'];
+          return SubjectResultsPage(subjectId: subjectId ?? '');
+        },
+      ),
+      GoRoute(
         name: AppRoutes.studentLessonHome.name,
         path: AppRoutes.studentLessonHome.path,
         parentNavigatorKey: shellNavigatorKey,
@@ -152,12 +163,12 @@ List<RouteBase> routes = <RouteBase>[
         },
       ),
       GoRoute(
-        name: AppRoutes.studentHomeExam.name,
-        path: AppRoutes.studentHomeExam.path,
+        name: AppRoutes.studentExam.name,
+        path: AppRoutes.studentExam.path,
         parentNavigatorKey: shellNavigatorKey,
         pageBuilder: (context, state) {
           return const NoTransitionPage(
-            child: HomeExamPage(),
+            child: ExamStudentPage(),
           );
         },
       ),
@@ -171,57 +182,6 @@ List<RouteBase> routes = <RouteBase>[
           );
         },
       ),
-      // base teacher
-      GoRoute(
-        name: AppRoutes.teacherHome.name,
-        path: AppRoutes.teacherHome.path,
-        parentNavigatorKey: shellNavigatorKey,
-        pageBuilder: (context, state) {
-          return const NoTransitionPage(
-            child: TeacherHomeScreen(),
-          );
-        },
-      ),
-      // GoRoute(
-      //   name: AppRoutes.subjectAttachments.name,
-      //   path: AppRoutes.subjectAttachments.path,
-      //   builder: (context, state) {
-      //     final subjectName = state.pathParameters['subjectName']!;
-      //     return SubjectAttachmentsPage(subjectName: subjectName);
-      //   },
-      // ),
-      GoRoute(
-        name: AppRoutes.studentCalendar.name,
-        path: AppRoutes.studentCalendar.path,
-        builder: (context, state) => const StudentCalendarPage(),
-      ),
-      GoRoute(
-        name: AppRoutes.studentSubjects.name,
-        path: AppRoutes.studentSubjects.path,
-        builder: (context, state) => const SubjectsPage(),
-      ),
-      GoRoute(
-          name: 'ar',
-          path: '/ar',
-          builder: (context, state) {
-            return const ArPage();
-          },
-          routes: [
-            GoRoute(
-              name: 'assets',
-              path: ':assets',
-              builder: (context, state) {
-                final assets = state.pathParameters['assets']!;
-                return ModelViewerPage(assets: assets);
-              },
-            ),
-          ]),
-
-      // GoRoute(
-      //   path: AppRoutes.studentOnlineLesson.path,
-      //   name: AppRoutes.studentOnlineLesson.name,
-      //   builder: (context, state) => const OnlineLessonPage(),
-      // ),
       GoRoute(
         path: AppRoutes.studentOnlineLesson.path,
         name: AppRoutes.studentOnlineLesson.name,
@@ -294,6 +254,59 @@ List<RouteBase> routes = <RouteBase>[
         name: AppRoutes.studentCertificates.name,
         builder: (context, state) => const CertificatesPage(),
       ),
+      // GoRoute(
+      //   name: AppRoutes.subjectAttachments.name,
+      //   path: AppRoutes.subjectAttachments.path,
+      //   builder: (context, state) {
+      //     final subjectName = state.pathParameters['subjectName']!;
+      //     return SubjectAttachmentsPage(subjectName: subjectName);
+      //   },
+      // ),
+      GoRoute(
+        name: AppRoutes.studentCalendar.name,
+        path: AppRoutes.studentCalendar.path,
+        builder: (context, state) => const StudentCalendarPage(),
+      ),
+      GoRoute(
+        name: AppRoutes.studentSubjects.name,
+        path: AppRoutes.studentSubjects.path,
+        builder: (context, state) => const SubjectsPage(),
+      ),
+      // GoRoute(
+      //   path: AppRoutes.studentOnlineLesson.path,
+      //   name: AppRoutes.studentOnlineLesson.name,
+      //   builder: (context, state) => const OnlineLessonPage(),
+      // ),
+
+      // base teacher
+      GoRoute(
+        name: AppRoutes.teacherHome.name,
+        path: AppRoutes.teacherHome.path,
+        parentNavigatorKey: shellNavigatorKey,
+        pageBuilder: (context, state) {
+          return const NoTransitionPage(
+            child: TeacherHomeScreen(),
+          );
+        },
+      ),
+
+      GoRoute(
+          name: 'ar',
+          path: '/ar',
+          builder: (context, state) {
+            return const ArPage();
+          },
+          routes: [
+            GoRoute(
+              name: 'assets',
+              path: ':assets',
+              builder: (context, state) {
+                final assets = state.pathParameters['assets']!;
+                return ModelViewerPage(assets: assets);
+              },
+            ),
+          ]),
+
       GoRoute(
         path: AppRoutes.teacherExams.path,
         name: AppRoutes.teacherExams.name,

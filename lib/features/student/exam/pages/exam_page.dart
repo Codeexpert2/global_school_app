@@ -8,13 +8,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:global_school/features/student/exam/provider/exam_provider.dart';
 
-class ExamPage extends ConsumerWidget {
-  const ExamPage({super.key});
+class ExamStudentPage extends ConsumerWidget {
+  const ExamStudentPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(S.of(context).exams),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -23,7 +24,7 @@ class ExamPage extends ConsumerWidget {
               // Update search query
               ref.read(examSearchProvider.notifier).state = value;
               // Refresh the list
-               ref.read(examProvider.notifier).refresh();
+              ref.read(examProvider.notifier).refresh();
             },
           ),
         ),
