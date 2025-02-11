@@ -22,11 +22,12 @@ class RecordedLesson {
         message: json['message'],
         data: json['data'] == null
             ? []
-            : List<Datum>.from(json['data']!.map((x) => Datum.fromJson(x))),
+            : List<RecordedLessonModel>.from(
+                json['data']!.map((x) => RecordedLessonModel.fromJson(x))),
       );
   final bool? success;
   final String? message;
-  final List<Datum>? data;
+  final List<RecordedLessonModel>? data;
 
   Map<String, dynamic> toJson() => {
         'success': success,
@@ -37,8 +38,8 @@ class RecordedLesson {
       };
 }
 
-class Datum {
-  Datum({
+class RecordedLessonModel {
+  RecordedLessonModel({
     this.id,
     this.subjectId,
     this.title,
@@ -48,7 +49,8 @@ class Datum {
     this.updatedAt,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory RecordedLessonModel.fromJson(Map<String, dynamic> json) =>
+      RecordedLessonModel(
         id: json['id'],
         subjectId: json['subject_id'],
         title: json['title'],

@@ -7,7 +7,7 @@ import 'package:global_school/features/student/recorded_lesson/model/recorded_le
 class RecordedLessonCard extends StatelessWidget {
   const RecordedLessonCard({super.key, required this.lesson});
 
-  final Datum lesson;
+  final RecordedLessonModel lesson;
 
   @override
   Widget build(BuildContext context) {
