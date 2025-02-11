@@ -247,14 +247,14 @@ List<RouteBase> routes = <RouteBase>[
           return OnlineLessonDetailsPage(lessonId: lessonId ?? '');
         },
       ),
-      GoRoute(
-        path: AppRoutes.studentSubjectDetails.path,
-        name: AppRoutes.studentSubjectDetails.name,
-        builder: (context, state) {
-          final id = state.pathParameters['id'];
-          return SubjectDetailsPage(id: id ?? '');
-        },
-      ),
+      // GoRoute(
+      //   path: AppRoutes.studentSubjectDetails.path,
+      //   name: AppRoutes.studentSubjectDetails.name,
+      //   builder: (context, state) {
+      //     final id = state.pathParameters['id'];
+      //     return SubjectDetailsPage(id: id ?? '');
+      //   },
+      // ),
       GoRoute(
         path: AppRoutes.studentOfflineLessons.path,
         name: AppRoutes.studentOfflineLessons.name,

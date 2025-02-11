@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/form/debounced_search.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/pagination/paginated_list_widget.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
@@ -15,9 +16,9 @@ class OfflineLessonsPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Offline Lessons',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          S.of(context).offlineLessons,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -71,7 +72,7 @@ class OfflineLessonsPage extends HookConsumerWidget {
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(
-          'Class: ${lesson.classId ?? 'Not Specified'} - Section: ${lesson.sectionId ?? 'Not Specified'}',
+          '${S.of(context).className}: ${lesson.classId ?? 'Not Specified'} - ${S.of(context).section}: ${lesson.sectionId ?? 'Not Specified'}',
           style: TextStyle(color: Colors.grey[700]),
         ),
         trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.green1),

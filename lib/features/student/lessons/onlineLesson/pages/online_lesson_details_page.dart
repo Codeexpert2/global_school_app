@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/images/cached_image.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -21,7 +22,7 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lesson Details'),
+        title: Text(S.of(context).lessonDetails),
       ),
       body: onlineLessonDetailsAsync.when(
         data: (subject) => Stack(
@@ -50,7 +51,7 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                           height: 20,
                         ),
                         Text(
-                          'Comprehensive Math Curriculum',
+                          S.of(context).comprehensiveMathCurriculum,
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         const SizedBox(height: 15),
@@ -74,9 +75,9 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  'About the Subject',
-                                  style: TextStyle(
+                                Text(
+                                  S.of(context).aboutTheSubject,
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black87,
@@ -84,7 +85,7 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
-                                  subject.topic ?? 'Not available',
+                                  subject.topic ?? S.of(context).notAvailable,
                                   style: const TextStyle(
                                       fontSize: 14, color: Colors.black54),
                                 ),
@@ -93,9 +94,9 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                           ),
                         ),
                         const SizedBox(height: 16),
-                        const Text(
-                          'Teachers',
-                          style: TextStyle(
+                        Text(
+                          S.of(context).teachers,
+                          style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -115,7 +116,8 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                                 ),
                                 const SizedBox(width: 16),
                                 Text(
-                                  subject.creatingByName ?? 'Not available',
+                                  subject.creatingByName ??
+                                      S.of(context).notAvailable,
                                   style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
@@ -127,13 +129,13 @@ class OnlineLessonDetailsPage extends ConsumerWidget {
                         const SizedBox(height: 16),
                         CustomButton(
                           height: 60,
-                          text: 'Start Lesson Now',
+                          text: S.of(context).startLessonNow,
                           onPressed: () {},
                         ),
                         const SizedBox(height: 15),
                         CustomButton(
                           height: 60,
-                          text: 'Join Lesson',
+                          text: S.of(context).joinLesson,
                           backgroundColor1: AppColors.transparent,
                           backgroundColor2: AppColors.transparent,
                           borderColor: AppColors.green2,

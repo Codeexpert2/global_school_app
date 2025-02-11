@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
@@ -46,14 +47,15 @@ class OnlineLessonCard extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    lesson.topic ?? 'No Topic',
+                    lesson.topic ?? S.of(context).noTopic,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 4),
-                  Text('Created By: ${lesson.creatingByName ?? 'Unknown'}'),
+                  Text(
+                      '${S.of(context).createdBy}: ${lesson.creatingByName ?? 'Unknown'}'),
                 ],
               ),
             ),

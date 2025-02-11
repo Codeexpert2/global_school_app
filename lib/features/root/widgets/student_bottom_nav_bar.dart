@@ -29,20 +29,17 @@ class StudentBottomNavBar extends ConsumerWidget {
         NavigationDestination(
           icon: const Icon(Icons.play_lesson_outlined),
           selectedIcon: const Icon(Icons.play_lesson),
-          label: S.of(context).about,
-          // label: S.of(context).lessons,
+          label: S.of(context).lessons,
         ),
         NavigationDestination(
           icon: const Icon(Icons.assignment_outlined),
           selectedIcon: const Icon(Icons.assignment),
-          label: S.of(context).aboutApp,
-          // label: S.of(context).exams,
+          label: S.of(context).exams,
         ),
         NavigationDestination(
           icon: const Icon(Icons.games_outlined),
           selectedIcon: const Icon(Icons.games),
-          label: S.of(context).accessDenied,
-          // label: S.of(context).games,
+          label: S.of(context).games,
         ),
         NavigationDestination(
           icon: const Icon(Icons.person_outline),

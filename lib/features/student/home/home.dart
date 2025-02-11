@@ -103,6 +103,7 @@ import 'package:flutter/material.dart';
 import 'package:global_school/components/main/custom_section_header.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/components/main/main_drawer.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/features/student/home/widget/subject_card.dart';
 import 'package:global_school/features/student/lessons/subjects/provider/subject_provider.dart';
@@ -129,20 +130,20 @@ class HomeScreen extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildWelcomeCard(),
+                  _buildWelcomeCard(context),
                   const SizedBox(height: 16.0),
                   Row(
                     children: [
                       _buildCircularProgressCard(
                         context,
-                        title: 'Fees',
+                        title: S.of(context).fees,
                         progress: 0.75,
                         color: Colors.blue.shade100,
                       ),
                       const SizedBox(width: 16.0),
                       _buildCircularProgressCard(
                         context,
-                        title: 'Attendance Rate',
+                        title: S.of(context).attendanceRate,
                         progress: 0.4,
                         color: Colors.red.shade100,
                       ),
@@ -150,8 +151,8 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16.0),
                   CustomSectionHeader(
-                    title: 'My Subjects',
-                    actionText: 'View All',
+                    title: S.of(context).mySubjects,
+                    actionText: S.of(context).viewAll,
                     onActionTap: () {
                       context.pushNamed(AppRoutes.studentSubjects.name);
                     },
@@ -172,11 +173,11 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16.0),
                   Text(
-                    'Your Progress Today',
+                    S.of(context).yourProgressToday,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 8.0),
-                  _buildProgressCard(),
+                  _buildProgressCard(context),
                 ],
               ),
             );
@@ -186,7 +187,7 @@ class HomeScreen extends ConsumerWidget {
         ));
   }
 
-  Widget _buildWelcomeCard() {
+  Widget _buildWelcomeCard(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16.0),
@@ -194,22 +195,22 @@ class HomeScreen extends ConsumerWidget {
         color: Colors.green.shade100,
         borderRadius: BorderRadius.circular(12.0),
       ),
-      child: const Row(
+      child: Row(
         children: [
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Be Curious, Explore,',
-                  style: TextStyle(
+                  S.of(context).beCuriousExplore,
+                  style: const TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'Learn, and Shape Your Future!',
-                  style: TextStyle(
+                  S.of(context).learnAndShapeYourFuture,
+                  style: const TextStyle(
                     fontSize: 16.0,
                     color: Colors.black54,
                   ),
@@ -217,7 +218,7 @@ class HomeScreen extends ConsumerWidget {
               ],
             ),
           ),
-          Icon(
+          const Icon(
             Icons.computer,
             size: 48.0,
             color: Colors.green,
@@ -227,7 +228,7 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildProgressCard() {
+  Widget _buildProgressCard(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.0),
@@ -242,18 +243,18 @@ class HomeScreen extends ConsumerWidget {
             color: Colors.green,
           ),
         ),
-        title: const Text(
-          'Mathematics',
-          style: TextStyle(
+        title: Text(
+          S.of(context).mathematics,
+          style: const TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.bold,
           ),
         ),
         subtitle: const Text('20/24 Videos'),
-        trailing: const Column(
+        trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               '90%',
               style: TextStyle(
                 color: Colors.green,
@@ -261,8 +262,8 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             Text(
-              'Course Completed',
-              style: TextStyle(fontSize: 12.0),
+              S.of(context).courseCompleted,
+              style: const TextStyle(fontSize: 12.0),
             ),
           ],
         ),

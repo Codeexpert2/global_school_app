@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/images/cached_image.dart';
 import 'package:global_school/components/main/main_appbar.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -20,7 +21,7 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
         ref.watch(offlineLessonDetailsProvider(lessonId));
 
     return Scaffold(
-      appBar: const MainAppBar(title: 'Offline Lesson Details'),
+      appBar: MainAppBar(title: S.of(context).offlineLessonDetails),
       body: lessonDetailsAsync.when(
         loading: () => const Center(
           child: CircularProgressIndicator(color: Colors.deepOrange),
@@ -44,17 +45,21 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
                 ),
                 const SizedBox(height: 12),
                 const Divider(thickness: 2),
-                _buildTextRow('Class', '${lesson.classId}'),
-                _buildTextRow('Section', '${lesson.sectionId}'),
+                _buildTextRow(S.of(context).className, '${lesson.classId}'),
+                _buildTextRow(S.of(context).section, '${lesson.sectionId}'),
                 if (lesson.file != null)
-                  _buildFileSection('File', lesson.file!),
+                  _buildFileSection(context, S.of(context).file, lesson.file!),
                 if (lesson.images != null)
-                  _buildImageSection('Images', lesson.images!),
+                  _buildImageSection(
+                      context, S.of(context).images, lesson.images!),
                 if (lesson.videos != null)
-                  _buildVideoSection('Video', lesson.videos!),
-                if (lesson.url != null) _buildLinkSection('Link', lesson.url!),
-                _buildTextRow('Created At', '${lesson.createdAt}'),
-                _buildTextRow('Updated At', '${lesson.updatedAt}'),
+                  _buildVideoSection(
+                      context, S.of(context).video, '${lesson.videos}'),
+                if (lesson.url != null)
+                  _buildLinkSection(
+                      context, S.of(context).link, '${lesson.url}'),
+                _buildTextRow(S.of(context).createdAt, '${lesson.createdAt}'),
+                _buildTextRow(S.of(context).updatedAt, '${lesson.updatedAt}'),
               ],
             ),
           );
@@ -85,45 +90,47 @@ class OfflineLessonDetailsPage extends HookConsumerWidget {
     );
   }
 
-  Widget _buildFileSection(String title, String fileUrl) {
+  Widget _buildFileSection(BuildContext context, String title, String fileUrl) {
     return _buildSection(
       title: title,
       icon: Icons.insert_drive_file,
       actions: [
-        _actionButton(Icons.download, 'Download'),
-        _actionButton(Icons.open_in_new, 'Open'),
+        _actionButton(Icons.download, S.of(context).download),
+        _actionButton(Icons.open_in_new, S.of(context).open),
       ],
     );
   }
 
-  Widget _buildImageSection(String title, String imageUrl) {
+  Widget _buildImageSection(
+      BuildContext context, String title, String imageUrl) {
     return _buildSection(
       title: title,
       icon: Icons.image,
       content: CachedImage(imageUrl: imageUrl),
       actions: [
-        _actionButton(Icons.fullscreen, 'Fullscreen'),
+        _actionButton(Icons.fullscreen, S.of(context).fullscreen),
       ],
     );
   }
 
-  Widget _buildVideoSection(String title, String videoUrl) {
+  Widget _buildVideoSection(
+      BuildContext context, String title, String videoUrl) {
     return _buildSection(
       title: title,
       icon: Icons.video_library,
       actions: [
-        _actionButton(Icons.play_arrow, 'Play'),
+        _actionButton(Icons.play_arrow, S.of(context).play),
       ],
     );
   }
 
-  Widget _buildLinkSection(String title, String url) {
+  Widget _buildLinkSection(BuildContext context, String title, String url) {
     return _buildSection(
       title: title,
       icon: Icons.link,
       actions: [
-        _actionButton(Icons.open_in_browser, 'Open Link'),
-        _actionButton(Icons.copy, 'Copy Link'),
+        _actionButton(Icons.open_in_browser, S.of(context).openLink),
+        _actionButton(Icons.copy, S.of(context).copyLink),
       ],
     );
   }

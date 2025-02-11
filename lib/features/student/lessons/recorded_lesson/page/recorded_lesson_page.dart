@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/main/main_appbar.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/features/student/lessons/recorded_lesson/widget/recorded_lesson_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/features/student/lessons/recorded_lesson/provider/recorded_lesson_provider.dart';
@@ -14,11 +15,12 @@ class RecordedLessonPage extends HookConsumerWidget {
         ref.watch(recordedLessonProvider(subjectId));
 
     return Scaffold(
-      appBar: const MainAppBar(title: 'Recorded Lessons'),
+      appBar: MainAppBar(title: S.of(context).recordedLessons),
       body: recordedLessonAsyncValue.when(
         data: (recordedLesson) {
           if (recordedLesson.data == null || recordedLesson.data!.isEmpty) {
-            return const Center(child: Text('No recorded lessons available.'));
+            return Center(
+                child: Text(S.of(context).noRecordedLessonsAvailable));
           }
           return ListView.builder(
             itemCount: recordedLesson.data!.length,

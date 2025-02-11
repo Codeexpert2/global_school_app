@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
 
 class LessonSelectionPage extends StatelessWidget {
@@ -9,7 +10,7 @@ class LessonSelectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Lesson Type'),
+        title:  Text(S.of(context).selectLessonType),
         centerTitle: true,
       ),
       body: Padding(
@@ -19,7 +20,7 @@ class LessonSelectionPage extends StatelessWidget {
           children: [
             _buildLessonButton(
               icon: Icons.videocam,
-              text: 'Online Lesson',
+              text: S.of(context).onlineLessons,
               color: Colors.blue,
               onTap: () {
                 context.pushNamed(AppRoutes.studentOnlineLesson.name,
@@ -29,7 +30,7 @@ class LessonSelectionPage extends StatelessWidget {
             const SizedBox(height: 20),
             _buildLessonButton(
               icon: Icons.location_on,
-              text: 'Offline Lesson',
+              text: S.of(context).offlineLessons,
               color: Colors.green,
               onTap: () {
                 context.pushNamed(AppRoutes.studentOfflineLessons.name);
@@ -38,7 +39,7 @@ class LessonSelectionPage extends StatelessWidget {
             const SizedBox(height: 20),
             _buildLessonButton(
                 icon: Icons.play_circle_fill,
-                text: 'Recorded Lesson',
+                text: S.of(context).recordedLessons,
                 color: Colors.orange,
                 onTap: () {
                   context.pushNamed(AppRoutes.studentRecordedLesson.name,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
 import 'package:global_school/features/student/lessons/recorded_lesson/model/recorded_lesson_model.dart';
@@ -43,7 +44,7 @@ class RecordedLessonCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    lesson.title ?? 'No Title',
+                    lesson.title ?? S.of(context).noTitle,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -51,7 +52,7 @@ class RecordedLessonCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    lesson.description ?? 'No Description',
+                    lesson.description ?? S.of(context).noDescription,
                     style: TextStyle(color: Colors.grey[600]),
                   ),
                 ],
