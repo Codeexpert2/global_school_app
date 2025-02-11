@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
+import 'package:global_school/features/student/settings/pages/settings_screen.dart';
 import 'package:global_school/features/student/word_wall/page/word_wall_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -107,22 +108,32 @@ class MainDrawer extends ConsumerWidget {
                 context.pushNamed(AppRoutes.studentCertificates.name);
               },
             ),
-            // ListTile(
-            //   leading: const Icon(Icons.assignment),
-            //   title: const Text(
-            //     'Exams',
-            //   ),
-            //   onTap: () {
-            //     Navigator.pop(context);
-            //     // context.pushNamed(AppRoutes.quizPage.name);
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (context) => const HomeExamPage(),
-            //       ),
-            //     );
-            //   },
-            // ),
+            ListTile(
+              leading: const Icon(Icons.add_to_photos_rounded),
+              title: const Text(
+                'Notification',
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                context.pushNamed(AppRoutes.notifications.name);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.assignment),
+              title: const Text(
+                'Settings',
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                // context.pushNamed(AppRoutes.quizPage.name);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                );
+              },
+            ),
             const AppDivider(),
             ListTile(
               leading: const Icon(Icons.sports_esports),
