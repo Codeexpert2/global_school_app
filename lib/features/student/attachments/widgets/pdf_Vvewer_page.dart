@@ -1,16 +1,17 @@
-import 'package:flutter/material.dart';
 import 'dart:developer';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'dart:io';
+
+import 'package:flutter/material.dart';
+
 import 'package:path_provider/path_provider.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PDFViewerPage extends StatefulWidget {
-  final String pdfPath; // لاستقبال مسار ملف PDF
-
   const PDFViewerPage({
     super.key,
     required this.pdfPath,
   });
+  final String pdfPath;
 
   @override
   State<PDFViewerPage> createState() => _PDFViewerPageState();

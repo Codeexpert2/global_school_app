@@ -2,12 +2,10 @@ import 'dart:async';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import 'package:global_school/app.dart';
 import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/initialize_app.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'providers/observers.dart';
 

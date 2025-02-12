@@ -64,7 +64,7 @@ class _AudioPlayerPageState extends State<AudioPlayerPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton.icon(
-              onPressed: () => togglePlayPause(),
+              onPressed: togglePlayPause,
               icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
               label: Text(isPlaying ? 'إيقاف مؤقت' : 'تشغيل'),
             ),
