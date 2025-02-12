@@ -1,8 +1,10 @@
-import 'package:global_school/core/enums/semester.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 import 'package:global_school/core/client/client.dart';
+import 'package:global_school/core/enums/semester.dart';
 
 import '../data/models/subject_result_model.dart';
+import '../data/models/subjects_model.dart';
 import '../data/subjects_results_service.dart';
 
 final subjectsResultsServiceProvider = Provider<SubjectsResultsService>((ref) {
@@ -10,9 +12,13 @@ final subjectsResultsServiceProvider = Provider<SubjectsResultsService>((ref) {
   return SubjectsResultsService(apiClient);
 });
 
-final selectedSemesterProvider =
-    StateProvider<Semester>((ref) => Semester.first);
-final selectedSubjectIdProvider = StateProvider<String>((ref) => '1');
+final selectedSemesterProvider = StateProvider<Semester?>(
+  (ref) => null,
+);
+
+final selectedSubjectIdProvider = StateProvider<String?>(
+  (ref) => null,
+);
 
 final subjectsResultsProvider =
     FutureProvider.family<List<SubjectResultModel>, String>(
@@ -24,7 +30,15 @@ final subjectsResultsProvider =
     return subjectsResultsService.getSubjectResult(
       childId: childId,
       subjectId: subjectId,
-      semester: semester.name,
+      semester: semester?.name,
     );
+  },
+);
+
+final subjectsProvider = FutureProvider.family<Subjects, String>(
+  (ref, childId) async {
+    final subjectsResultsService = ref.watch(subjectsResultsServiceProvider);
+
+    return subjectsResultsService.getSubjects(childId);
   },
 );
