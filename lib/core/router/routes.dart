@@ -16,6 +16,7 @@ import 'package:global_school/features/auth/pages/password_reset_screen.dart';
 import 'package:global_school/features/student/calendar/view/calender.dart';
 import 'package:global_school/features/student/certificate/page/certificate_details_page.dart';
 import 'package:global_school/features/student/certificate/page/certificates_page.dart';
+import 'package:global_school/features/student/exam/pages/exam_details_page.dart';
 import 'package:global_school/features/student/exam/pages/exam_page.dart';
 import 'package:global_school/features/student/help/pages/help_screen.dart';
 import 'package:global_school/features/student/home/home.dart';
@@ -221,6 +222,16 @@ List<RouteBase> routes = <RouteBase>[
         path: AppRoutes.studentAttachments.path,
         name: AppRoutes.studentAttachments.name,
         builder: (context, state) => const AccessoriesPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.studentExamDetails.path,
+        name: AppRoutes.studentExamDetails.name,
+        builder: (context, state) {
+          final examId = state.pathParameters['examId'];
+          return ExamDetailsPage(
+            examId: examId ?? '',
+          );
+        },
       ),
       GoRoute(
         path: AppRoutes.studentOfflineLessonsDetails.path,

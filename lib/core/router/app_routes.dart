@@ -19,6 +19,7 @@ enum AppRoutes {
   // student,
   studentHome('/student/home', 'studentHome'),
   studentExam('/student/exam', 'studentExam'),
+  studentExamDetails('/student/exam/:examId', 'studentExamDetails'),
   studentFavorite('/student/favorite', 'studentFavorite'),
   studentCategory('/student/category', 'studentCategory'),
   studentSearch('/student/search', 'studentSearch'),

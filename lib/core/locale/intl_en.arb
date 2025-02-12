@@ -61,5 +61,6 @@
   "certificateDetails": "Certificate Details",
   "certificates": "Certificates",
   "wordWalls": "Word Walls",
-  "wordWallDetails": "Word Wall Details"
+  "wordWallDetails": "Word Wall Details",
+  "examDetails": "Exam Details"
 }

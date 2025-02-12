@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global_school/components/form/debounced_search.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/pagination/paginated_list_widget.dart';
+import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/features/student/exam/model/exam_model.dart';
 import 'package:global_school/features/student/exam/widget/exam_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -37,7 +38,14 @@ class ExamStudentPage extends ConsumerWidget {
               : 'No Date';
 
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(
+                AppRoutes.studentExamDetails.name,
+                pathParameters: {
+                  'examId': exam.id?.toString() ?? '',
+                },
+              );
+            },
             child: ExamCard(
               exam: exam,
               date: formattedDate,

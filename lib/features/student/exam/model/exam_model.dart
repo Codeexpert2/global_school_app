@@ -59,14 +59,14 @@ class Exam {
         endTime: json['end_time'],
         mark: json['mark'],
         video: json['video'],
+        semester: json['semester'],
+        pivot: json['pivot'] == null ? null : Pivot.fromJson(json['pivot']),
         createdAt: json['created_at'] == null
             ? null
             : DateTime.parse(json['created_at']),
         updatedAt: json['updated_at'] == null
             ? null
             : DateTime.parse(json['updated_at']),
-        semester: json['semester'],
-        pivot: json['pivot'] == null ? null : Pivot.fromJson(json['pivot']),
       );
   final int? id;
   final String? topic;
@@ -75,10 +75,10 @@ class Exam {
   final String? endTime;
   final int? mark;
   final dynamic video;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
   final String? semester;
   final Pivot? pivot;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   Map<String, dynamic> toJson() => {
         'id': id,

@@ -25,4 +25,10 @@ class ExamService {
       Exam.fromJson,
     );
   }
+  Future<Exam> fetchExamById(String id) async {
+    final apiClient = ref.read(clientProvider);
+    final response = await apiClient.get('/student/exams/$id');
+    return Exam.fromJson(response.data);
+  }
+
 }
