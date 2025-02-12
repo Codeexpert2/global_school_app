@@ -92,11 +92,21 @@
     "lib/core/locale/generated", // Exclude generated files from analysis
     "build" // Exclude build folder from analysis
   ],
-  "emmet.includeLanguages": {
-    "dart": "html" // Enable Emmet for Dart (useful for widget templates)
-  },
   "files.autoSave": "afterDelay", // Auto-save files after a short delay
   "files.autoSaveDelay": 1000, // Set auto-save delay to 1 second
   "workbench.startOnWelcomePage": false, // Skip welcome page on startup
-  "workbench.editor.enablePreview": false // Disable preview mode for editors
+  "workbench.editor.enablePreview": false, // Disable preview mode for editors
+  // Git Integration Settings
+  "git.enableSmartCommit": true, // Automatically stage all changes when committing
+  "git.confirmSync": false, // Skip confirmation when syncing (pull/push)
+  "git.autofetch": true, // Automatically fetch changes from the remote repository
+  "git.ignoreMissingGitWarning": true, // Suppress warnings if the project is not a Git repository
+  "git.openRepositoryInParentFolders": "always", // Always look for Git repositories in parent folders
+  "git.decorations.enabled": true, // Show Git status decorations in the file explorer
+  "git.suggestSmartCommit": true, // Suggest committing all changes when appropriate
+  "git.autoRepositoryDetection": true, // Automatically detect Git repositories in the workspace
+  "git.autoStash": true, // Automatically stash changes before pulling
+  "git.showPushSuccessNotification": true, // Show a notification when push is successful
+  "git.postCommitCommand": "sync", // Sync (pull/push) after committing
+  "git.pruneOnFetch": true // Prune stale branches when fetching
 }
