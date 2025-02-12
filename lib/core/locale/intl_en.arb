@@ -57,5 +57,7 @@
   "onlineLesson": "Online Lesson",
   "date": "Date",
   "subjectResults": "Subject Results",
-  "help": "Help"
+  "help": "Help",
+  "certificateDetails": "Certificate Details",
+  "certificates": "Certificates"
 }

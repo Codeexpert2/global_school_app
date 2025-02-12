@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/features/student/certificate/provider/certificate_provider.dart';
 
@@ -12,7 +13,7 @@ class CertificateDetailsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('تفاصيل الشهادة'),
+        title:  Text(S.of(context).certificateDetails),
       ),
       body: certificateData.when(
         data: (certificate) {
