@@ -97,5 +97,16 @@
   "ok": "OK",
   "bad": "Bad",
   "veryBad": "Very Bad",
-  "accepted": "Accepted"
+  "accepted": "Accepted",
+  "onlineExamResults": "Online Exam Results",
+  "contactInformation": "Contact Information",
+  "phone": "Phone",
+  "email": "Email",
+  "address": "Address",
+  "sectionDetails": "Section Details",
+  "sectionCode": "Section Code",
+  "description": "Description",
+  "sectionName": "Section Name",
+  "childResults": "Child Results",
+  "childDetails": "Child Details"
 }

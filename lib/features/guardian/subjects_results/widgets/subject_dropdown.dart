@@ -27,10 +27,13 @@ class SubjectDropdown extends ConsumerWidget {
           elevation: 2,
           underline: const SizedBox(),
           borderRadius: BorderRadius.circular(8),
-          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 12),
+          padding: const EdgeInsets.symmetric(
+            vertical: 2,
+            horizontal: 12,
+          ),
           value: selectedSubjectIdState,
           items: [
-            DropdownMenuItem<String>(
+            DropdownMenuItem<String?>(
               value: null,
               child: Text(S.of(context).all),
             ),

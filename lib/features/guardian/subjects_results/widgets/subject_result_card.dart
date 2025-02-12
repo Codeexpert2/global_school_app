@@ -32,11 +32,9 @@ class SubjectResultCard extends StatelessWidget {
           ),
         ),
         boxShadow: [
-          const BoxShadow(
-            color: Colors.black26,
-            spreadRadius: 2.0,
-            blurRadius: 4.0,
-            offset: Offset(0.0, 4.0),
+          BoxShadow(
+            color: Colors.black.withOpacity(.1),
+            blurRadius: 8.0,
           )
         ],
       ),
