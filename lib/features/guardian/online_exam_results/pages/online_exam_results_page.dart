@@ -17,7 +17,8 @@ class ChildOnlineExamResultsPage extends StatelessWidget {
         title: Text(S.of(context).onlineExamResults),
       ),
       body: Center(
-        child: Text('Child ID: $childId'),
+        // child: Text('Child ID: $childId'),
+        child: Text(S.of(context).onlineExamResults),
       ),
     );
   }

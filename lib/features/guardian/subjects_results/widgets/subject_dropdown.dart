@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:global_school/components/loading/loading_widget.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
-import 'package:global_school/core/themes/app_colors.dart';
 
 import '../data/models/subjects_model.dart';
 import '../providers/subjects_results_provider.dart';

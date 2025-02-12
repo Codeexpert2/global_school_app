@@ -23,22 +23,45 @@
     "**/build": true // Exclude build folder from search results
   },
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    // "source.organizeImports": "always"
+  },
+  /// https://dartcode.org/docs/recommended-settings/
+  // By default, VS Code will only switch to the Debug Console when you start
+  // debugging the first time in a session. This setting tells VS Code to always
+  // switch to the Debug Console when starting a session, so you can see the
+  // programs output.
+  "debug.internalConsoleOptions": "openOnSessionStart",
   "[dart]": {
-    "editor.rulers": [
-      80
-    ], // Enforce 80-character line length
+    // Automatically format code on save and during typing of certain characters
+    // (like `;` and `}`).
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.selectionHighlight": true,
-    "editor.suggestSelection": "first",
+    // Draw a guide line at 80 characters, where Dart's formatting will wrap code.
+    "editor.rulers": [
+      80
+    ],
+    // Disables built-in highlighting of words that match your selection. Without
+    // this, all instances of the selected text will be highlighted, interfering
+    // with Dart's ability to highlight only exact references to the selected variable.
+    "editor.selectionHighlight": false,
+    // Allows pressing <TAB> to complete snippets such as `for` even when the
+    // completion list is not visible.
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "allDocuments",
+    // By default, VS Code will populate code completion with words found in the
+    // matching documents when a language service does not provide its own completions.
+    // This results in code completion suggesting words when editing comments and
+    // strings. This setting will prevent that.
+    "editor.wordBasedSuggestions": "off",
+    "editor.suggestSelection": "first",
+    "editor.insertSpaces": true, // Use spaces instead of tabs
+    "editor.tabSize": 2, // Set tab size to 2 spaces (common for Dart/Flutter)
     "editor.codeActionsOnSave": {
       "source.fixAll": "always", // Automatically fix lint issues on save
       // "source.organizeImports": "always" // Organize imports on save
     },
-    "editor.insertSpaces": true, // Use spaces instead of tabs
-    "editor.tabSize": 2 // Set tab size to 2 spaces (common for Dart/Flutter)
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
   },
   "dartimportsorter.sortOnSave": true,
   "dartimportsorter.leaveEmptyLinesBetweenGroups": true,
@@ -86,7 +109,8 @@
   ],
   "dart.debugExternalPackageLibraries": false, // Improve debugging performance
   "dart.debugSdkLibraries": false, // Improve debugging performance
-  "dart.previewFlutterUiGuides": true, // Enable Flutter UI guides for better widget visualization
+  // "dart.previewFlutterUiGuides": true, // Enable Flutter UI guides for better widget visualization
+  // "dart.previewFlutterUiGuidesCustomTracking": true,
   "dart.lineLength": 80, // Enforce 80-character line length for Dart files
   "dart.analysisExcludedFolders": [
     "lib/core/locale/generated", // Exclude generated files from analysis
@@ -94,19 +118,19 @@
   ],
   "files.autoSave": "afterDelay", // Auto-save files after a short delay
   "files.autoSaveDelay": 1000, // Set auto-save delay to 1 second
-  "workbench.startOnWelcomePage": false, // Skip welcome page on startup
+  "workbench.startupEditor": "none", // Skip welcome page on startup
   "workbench.editor.enablePreview": false, // Disable preview mode for editors
   // Git Integration Settings
   "git.enableSmartCommit": true, // Automatically stage all changes when committing
   "git.confirmSync": false, // Skip confirmation when syncing (pull/push)
   "git.autofetch": true, // Automatically fetch changes from the remote repository
-  "git.ignoreMissingGitWarning": true, // Suppress warnings if the project is not a Git repository
-  "git.openRepositoryInParentFolders": "always", // Always look for Git repositories in parent folders
-  "git.decorations.enabled": true, // Show Git status decorations in the file explorer
-  "git.suggestSmartCommit": true, // Suggest committing all changes when appropriate
-  "git.autoRepositoryDetection": true, // Automatically detect Git repositories in the workspace
-  "git.autoStash": true, // Automatically stash changes before pulling
-  "git.showPushSuccessNotification": true, // Show a notification when push is successful
-  "git.postCommitCommand": "sync", // Sync (pull/push) after committing
-  "git.pruneOnFetch": true // Prune stale branches when fetching
+  // "git.ignoreMissingGitWarning": true, // Suppress warnings if the project is not a Git repository
+  // "git.openRepositoryInParentFolders": "always", // Always look for Git repositories in parent folders
+  // "git.decorations.enabled": true, // Show Git status decorations in the file explorer
+  // "git.suggestSmartCommit": true, // Suggest committing all changes when appropriate
+  // "git.autoRepositoryDetection": true, // Automatically detect Git repositories in the workspace
+  // "git.autoStash": true, // Automatically stash changes before pulling
+  // "git.showPushSuccessNotification": true, // Show a notification when push is successful
+  // "git.postCommitCommand": "sync", // Sync (pull/push) after committing
+  // "git.pruneOnFetch": true // Prune stale branches when fetching
 }
