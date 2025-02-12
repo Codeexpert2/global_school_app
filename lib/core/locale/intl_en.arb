@@ -57,5 +57,9 @@
   "onlineLesson": "Online Lesson",
   "date": "Date",
   "subjectResults": "Subject Results",
-  "help": "Help"
+  "help": "Help",
+  "all": "All",
+  "firstSemester": "First Semester",
+  "secondSemester": "Second Semester",
+  "noSubjectResultsFound": "No Subject Results found"
 }

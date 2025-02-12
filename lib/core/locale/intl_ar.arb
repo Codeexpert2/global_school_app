@@ -271,7 +271,10 @@
   "noDescription": "لا يوجد وصف",
   "selectLessonType": "اختر نوع الدرس",
   "onlineLesson": "درس متصل بالإنترنت",
-  "date": "Date",
-  "subjectResults": "Subject Results",
-  "help": "Help"
+  "date": "التاريخ",
+  "subjectResults": "نتائج المواد",
+  "help": "مساعدة",
+  "firstSemester": "الفصل الأول",
+  "secondSemester": "الفصل الثاني",
+  "noSubjectResultsFound": "لم يتم العثور على نتائج للمواد"
 }
