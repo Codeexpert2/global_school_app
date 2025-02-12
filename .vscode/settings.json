@@ -1,5 +1,6 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.24.5",
+  "dart.flutterSdkPath": ".fvm/versions/3.24.5", // Good practice for FVM usage
+  "explorer.compactFolders": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
@@ -8,31 +9,94 @@
     "README.md": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md, command.md, info.md",
     "*.dart": "$(capture).g.dart, $(capture).freezed.dart"
   },
-  "explorer.compactFolders": false,
   "files.exclude": {
     "**/.git": true,
     "**/.fvm": true,
     "**/.dart_tool": true,
     "**/.idea": true,
+    "**/build": true, // Exclude build folder to reduce clutter
     "lib/core/locale/generated": true
   },
   "search.exclude": {
     "lib/core/locale/generated": true,
-    "**.arb*": true
+    "**.arb*": true,
+    "**/build": true // Exclude build folder from search results
   },
   "editor.formatOnSave": true,
   "[dart]": {
     "editor.rulers": [
       80
-    ],
+    ], // Enforce 80-character line length
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.selectionHighlight": true,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "allDocuments"
+    "editor.wordBasedSuggestions": "allDocuments",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "always", // Automatically fix lint issues on save
+      // "source.organizeImports": "always" // Organize imports on save
+    },
+    "editor.insertSpaces": true, // Use spaces instead of tabs
+    "editor.tabSize": 2 // Set tab size to 2 spaces (common for Dart/Flutter)
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "always"
+  "dartimportsorter.sortOnSave": true,
+  "dartimportsorter.leaveEmptyLinesBetweenGroups": true,
+  "dartimportsorter.matchingRules": [
+    {
+      "label": "Dart",
+      "regex": "^dart:.*$",
+      "order": 1,
+      "regexFlags": [
+        "m"
+      ]
+    },
+    {
+      "label": "Flutter",
+      "regex": "^package:flutter/.*$",
+      "order": 10,
+      "regexFlags": [
+        "m"
+      ]
+    },
+    {
+      "label": "Package imports that are NOT your app (automatically detected)",
+      "regex": "^package:(?!<app_name>).*$",
+      "order": 100,
+      "regexFlags": [
+        "m"
+      ]
+    },
+    {
+      "label": "Package imports that ARE your app (automatically detected)",
+      "regex": "^package:<app_name>.*$",
+      "order": 101,
+      "regexFlags": [
+        "m"
+      ]
+    },
+    {
+      "label": "Relative",
+      "regex": "^\\..*$",
+      "order": 1000,
+      "regexFlags": [
+        "m"
+      ]
+    }
+  ],
+  "dart.debugExternalPackageLibraries": false, // Improve debugging performance
+  "dart.debugSdkLibraries": false, // Improve debugging performance
+  "dart.previewFlutterUiGuides": true, // Enable Flutter UI guides for better widget visualization
+  "dart.lineLength": 80, // Enforce 80-character line length for Dart files
+  "dart.analysisExcludedFolders": [
+    "lib/core/locale/generated", // Exclude generated files from analysis
+    "build" // Exclude build folder from analysis
+  ],
+  "emmet.includeLanguages": {
+    "dart": "html" // Enable Emmet for Dart (useful for widget templates)
   },
+  "files.autoSave": "afterDelay", // Auto-save files after a short delay
+  "files.autoSaveDelay": 1000, // Set auto-save delay to 1 second
+  "workbench.startOnWelcomePage": false, // Skip welcome page on startup
+  "workbench.editor.enablePreview": false // Disable preview mode for editors
 }
