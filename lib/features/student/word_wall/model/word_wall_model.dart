@@ -1,12 +1,12 @@
-class ApiResponse {
-  ApiResponse({
+class WordWallModel {
+  WordWallModel({
     required this.success,
     required this.message,
     required this.data,
   });
 
-  factory ApiResponse.fromJson(Map<String, dynamic> json) {
-    return ApiResponse(
+  factory WordWallModel.fromJson(Map<String, dynamic> json) {
+    return WordWallModel(
       success: json['success'],
       message: json['message'] ?? '',
       data: json['data'] != null
@@ -15,13 +15,13 @@ class ApiResponse {
                   .map((item) => WordWall.fromJson(item))
                   .toList()
               : [WordWall.fromJson(json['data'])]
-          : [], 
+          : [],
     );
   }
 
   final bool success;
   final String message;
-  final List<WordWall> data; 
+  final List<WordWall> data;
 }
 
 class WordWall {
@@ -42,10 +42,10 @@ class WordWall {
       classId: json['class_id'],
       sectionId: json['section_id'],
       topic: json['topic'] ?? '',
-      url: json['url'] ?? '', 
+      url: json['url'] ?? '',
       file: json['file'],
       createdAt: json['created_at'],
-      updatedAt: json['updated_at'], 
+      updatedAt: json['updated_at'],
     );
   }
 

@@ -14,7 +14,6 @@ final onlineLessonServiceProvider = Provider<OnlineLessonService>((ref) {
 
 final onlineLessonSearchProvider = StateProvider<String>((ref) => '');
 
-
 final onlineLessonsProvider = StateNotifierProvider.autoDispose.family<
     PaginatedListNotifier<OnlineLesson>, PaginationState<OnlineLesson>, String>(
   (ref, id) {
@@ -26,7 +25,7 @@ final onlineLessonsProvider = StateNotifierProvider.autoDispose.family<
         final res = await onlineLessonService.getOnlineLessons(
           query: query,
           page: page,
-          subjectId: id, 
+          subjectId: id,
         );
         return res;
       },

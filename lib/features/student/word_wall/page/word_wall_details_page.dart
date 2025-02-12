@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/features/student/word_wall/provider/word_wall_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,7 +12,7 @@ class WordWallDetailsPage extends ConsumerWidget {
     final wordWallAsyncValue = ref.watch(wordWallByIdProvider(wordWallId));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('تفاصيل ')),
+      appBar: AppBar(title: Text(S.of(context).wordWallDetails)),
       body: wordWallAsyncValue.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, _) => Center(child: Text('خطأ: ${error.toString()}')),

@@ -275,5 +275,7 @@
   "subjectResults": "Subject Results",
   "help": "Help",
   "certificateDetails": "Certificate Details",
-  "certificates": "Certificates"
+  "certificates": "Certificates",
+  "wordWalls": "Word Walls",
+  "wordWallDetails": "Word Wall Details"
 }
