@@ -224,6 +224,8 @@ class AppThemes {
         border: OutlineInputBorder(),
       ),
     ),
+
+    
     inputDecorationTheme: const InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(
         horizontal: 14,
