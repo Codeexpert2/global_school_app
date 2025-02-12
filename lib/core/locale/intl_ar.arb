@@ -278,10 +278,7 @@
   "certificates": "Certificates",
   "wordWalls": "Word Walls",
   "wordWallDetails": "Word Wall Details",
-  "examDetails": "Exam Details"
-  "date": "التاريخ",
-  "subjectResults": "نتائج المواد",
-  "help": "مساعدة",
+  "examDetails": "Exam Details",
   "firstSemester": "الفصل الأول",
   "secondSemester": "الفصل الثاني",
   "noSubjectResultsFound": "لم يتم العثور على نتائج للمواد",
