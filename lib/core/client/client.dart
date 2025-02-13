@@ -61,7 +61,8 @@ class ApiClient {
   }) async {
     final Response response = await _dio.get(
       path,
-      queryParameters: queryParameters,
+      queryParameters: queryParameters
+        ?..removeWhere((key, value) => value == null),
       options: options,
       cancelToken: cancelToken,
       onReceiveProgress: onReceiveProgress,

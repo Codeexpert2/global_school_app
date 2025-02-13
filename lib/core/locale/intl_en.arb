@@ -114,5 +114,6 @@
   "sectionName": "Section Name",
   "childResults": "Child Results",
   "childDetails": "Child Details",
-  "subjects": "Subjects"
+  "subjects": "Subjects",
+  "notifications": "Notifications"
 }

@@ -1,190 +1,77 @@
-// subjectresults_model.dart
-import 'dart:convert';
-
-SubjectresultsModel subjectresultsModelFromJson(String str) =>
-    SubjectresultsModel.fromJson(json.decode(str));
-
-String subjectresultsModelToJson(SubjectresultsModel data) =>
-    json.encode(data.toJson());
-
-class SubjectresultsModel {
-  SubjectresultsModel({
-    this.success,
-    this.message,
-    this.meta,
-    this.data,
+class SubjectResultsModel {
+  SubjectResultsModel({
+    this.subjectResults,
   });
 
-  factory SubjectresultsModel.fromJson(Map<String, dynamic> json) =>
-      SubjectresultsModel(
-        success: json['success'],
-        message: json['message'],
-        meta: json['meta'] == null ? null : Meta.fromJson(json['meta']),
-        data: json['data'] == null
+  factory SubjectResultsModel.fromJson(Map<String, dynamic> json) =>
+      SubjectResultsModel(
+        subjectResults: json['SubjectResults'] == null
             ? []
-            : List<Subjectresults>.from(json['data']!.map((x) => Subjectresults.fromJson(x))),
+            : List<SubjectResult>.from(
+                json['SubjectResults']!.map((x) => SubjectResult.fromJson(x))),
       );
-  final bool? success;
-  final String? message;
-  final Meta? meta;
-  final List<Subjectresults>? data;
+  List<SubjectResult>? subjectResults;
 
   Map<String, dynamic> toJson() => {
-        'success': success,
-        'message': message,
-        'meta': meta?.toJson(),
-        'data': data == null
+        'SubjectResults': subjectResults == null
             ? []
-            : List<dynamic>.from(data!.map((x) => x.toJson())),
+            : List<dynamic>.from(subjectResults!.map((x) => x.toJson())),
       };
 }
 
-class Subjectresults {
-  Subjectresults({
-    this.id,
-    this.userId,
+class SubjectResult {
+  SubjectResult({
     this.subjectId,
+    this.subjectName,
     this.semester,
     this.exam,
-    this.examGrade,
-    this.studyGrade,
+    this.worksheets,
     this.study,
     this.noteBook,
-    this.worksheets,
+    this.examGrade,
+    this.studyGrade,
+    this.note,
     this.createdAt,
-    this.updatedAt,
-    this.subject,
   });
 
-  factory Subjectresults.fromJson(Map<String, dynamic> json) => Subjectresults(
-        id: json['id'],
-        userId: json['user_id'],
+  factory SubjectResult.fromJson(Map<String, dynamic> json) => SubjectResult(
         subjectId: json['subject_id'],
+        subjectName: json['subject_name'],
         semester: json['semester'],
         exam: json['exam'],
-        examGrade: json['exam_grade'],
-        studyGrade: json['study_grade'],
+        worksheets: json['worksheets'],
         study: json['study'],
         noteBook: json['noteBook'],
-        worksheets: json['worksheets'],
+        examGrade: json['exam_grade'],
+        studyGrade: json['study_grade'],
+        note: json['note'],
         createdAt: json['created_at'] == null
             ? null
             : DateTime.parse(json['created_at']),
-        updatedAt: json['updated_at'] == null
-            ? null
-            : DateTime.parse(json['updated_at']),
-        subject:
-            json['subject'] == null ? null : Subject.fromJson(json['subject']),
       );
-  final int? id;
-  final int? userId;
-  final int? subjectId;
-  final String? semester;
-  final int? exam;
-  final dynamic examGrade;
-  final dynamic studyGrade;
-  final int? study;
-  final int? noteBook;
-  final int? worksheets;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-  final Subject? subject;
+  int? subjectId;
+  String? subjectName;
+  String? semester;
+  int? exam;
+  int? worksheets;
+  int? study;
+  int? noteBook;
+  String? examGrade;
+  String? studyGrade;
+  String? note;
+  DateTime? createdAt;
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'user_id': userId,
         'subject_id': subjectId,
+        'subject_name': subjectName,
         'semester': semester,
         'exam': exam,
-        'exam_grade': examGrade,
-        'study_grade': studyGrade,
+        'worksheets': worksheets,
         'study': study,
         'noteBook': noteBook,
-        'worksheets': worksheets,
+        'exam_grade': examGrade,
+        'study_grade': studyGrade,
+        'note': note,
         'created_at': createdAt?.toIso8601String(),
-        'updated_at': updatedAt?.toIso8601String(),
-        'subject': subject?.toJson(),
-      };
-}
-
-class Subject {
-  Subject({
-    this.id,
-    this.curriculumId,
-    this.name,
-    this.level,
-    this.file,
-    this.createdAt,
-    this.updatedAt,
-    this.numberSession,
-  });
-
-  factory Subject.fromJson(Map<String, dynamic> json) => Subject(
-        id: json['id'],
-        curriculumId: json['curriculum_id'],
-        name: json['name'],
-        level: json['level'],
-        file: json['file'],
-        createdAt: json['created_at'] == null
-            ? null
-            : DateTime.parse(json['created_at']),
-        updatedAt: json['updated_at'] == null
-            ? null
-            : DateTime.parse(json['updated_at']),
-        numberSession: json['number_session'],
-      );
-  final int? id;
-  final int? curriculumId;
-  final String? name;
-  final String? level;
-  final dynamic file;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-  final int? numberSession;
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'curriculum_id': curriculumId,
-        'name': name,
-        'level': level,
-        'file': file,
-        'created_at': createdAt?.toIso8601String(),
-        'updated_at': updatedAt?.toIso8601String(),
-        'number_session': numberSession,
-      };
-}
-
-class Meta {
-  Meta({
-    this.currentPage,
-    this.lastPage,
-    this.perPage,
-    this.total,
-    this.hasMore,
-    this.hasPrev,
-  });
-
-  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
-        currentPage: json['current_page'],
-        lastPage: json['last_page'],
-        perPage: json['per_page'],
-        total: json['total'],
-        hasMore: json['has_more'],
-        hasPrev: json['has_prev'],
-      );
-  final int? currentPage;
-  final int? lastPage;
-  final int? perPage;
-  final int? total;
-  final bool? hasMore;
-  final bool? hasPrev;
-
-  Map<String, dynamic> toJson() => {
-        'current_page': currentPage,
-        'last_page': lastPage,
-        'per_page': perPage,
-        'total': total,
-        'has_more': hasMore,
-        'has_prev': hasPrev,
       };
 }

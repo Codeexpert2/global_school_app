@@ -1,23 +1,16 @@
-import 'package:global_school/core/client/client.dart';
-import 'package:global_school/features/student/subjects/models/subject_details_model.dart';
-import 'package:global_school/features/student/subjects/service/subjects_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:global_school/core/client/client.dart';
+
 import '../models/subject_model.dart';
+import '../service/subjects_service.dart';
 
 final studentSubjectsServiceProvider = Provider<StudentSubjectsService>((ref) {
   final apiClient = ref.watch(clientProvider);
   return StudentSubjectsService(apiClient);
 });
 
-// Provider للحصول على جميع الدروس
-final studentSubjectsProvider = FutureProvider<SubjectModel>((ref) async {
+final studentSubjectsProvider = FutureProvider<List<Subject>>((ref) async {
   final studentSubjectsService = ref.watch(studentSubjectsServiceProvider);
-  return await studentSubjectsService.getSubjects();
-});
-
-final subjectDetailsProvider =
-    FutureProvider.autoDispose.family<SubjectDetails, String>((ref, id) async {
-  final studentSubjectsService = ref.watch(studentSubjectsServiceProvider);
-  return await studentSubjectsService.getSubjectDetails(id);
+  return studentSubjectsService.getSubjects();
 });

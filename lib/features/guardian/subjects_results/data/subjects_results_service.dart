@@ -20,7 +20,7 @@ class SubjectsResultsService {
         queryParameters: {
           'subject_id': subjectId,
           'semester': semester,
-        }..removeWhere((key, value) => value == null), // Remove null values
+        }, // Remove null values
       );
 
       return listSubjectResultModelFromJson(res.data);

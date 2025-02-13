@@ -7,7 +7,6 @@ import 'package:global_school/components/loading/loading_widget.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 
-import '../models/subject_model.dart';
 import '../provider/subject_provider.dart';
 import '../widget/subject_card.dart';
 
@@ -26,8 +25,7 @@ class SubjectsPage extends ConsumerWidget {
         error: (error, stack) => NoContentIndicator(
           message: error.toString(),
         ),
-        data: (SubjectModel res) {
-          final subjects = res.data ?? [];
+        data: (subjects) {
           return Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,

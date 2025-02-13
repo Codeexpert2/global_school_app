@@ -12,7 +12,7 @@ class SubjectCard extends StatelessWidget {
     required this.subject,
   });
 
-  final Datum subject;
+  final Subject subject;
 
   @override
   Widget build(BuildContext context) {
