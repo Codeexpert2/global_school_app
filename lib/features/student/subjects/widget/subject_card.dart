@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:global_school/core/extensions/extensions.dart';
 import 'package:global_school/core/functions/generate_color_by_string.dart';
 import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
@@ -50,11 +51,12 @@ class SubjectCard extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Align(
-              alignment: AlignmentDirectional.bottomStart,
+            PositionedDirectional(
+              start: -16,
+              bottom: -16,
               child: Icon(
-                Icons.book,
-                size: 100,
+                Icons.book_rounded,
+                size: context.width / 3,
                 color: AppColors.gray50.withOpacity(.1),
               ),
             ),
