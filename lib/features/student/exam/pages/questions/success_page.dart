@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:lottie/lottie.dart';
+
+import 'package:global_school/core/constants/images.dart';
 
 class SuccessQuizPage extends StatelessWidget {
   const SuccessQuizPage({super.key});
@@ -14,7 +17,8 @@ class SuccessQuizPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Lottie.asset(
-                  'assets/animation/Animation - 1737409561651.json',
+                  // 'assets/animation/Animation - 1737409561651.json',
+                  AppImages.animationAnimation,
                   width: 250,
                   height: 250,
                   fit: BoxFit.cover,

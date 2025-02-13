@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:global_school/components/loading/loading_widget.dart';
 import 'package:global_school/components/main/custom_section_header.dart';
+import 'package:global_school/components/main/logo.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/components/main/main_drawer.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/themes/app_colors.dart';
 
 import '../subjects/provider/subject_provider.dart';
 
@@ -20,79 +23,107 @@ class HomeScreen extends ConsumerWidget {
     final subjects = ref.watch(studentSubjectsProvider);
 
     return Scaffold(
-        appBar: const MainAppBar(
-          title: 'Hello Ahmed',
+      appBar: MainAppBar(
+        title: const Logo(
+          height: kToolbarHeight,
         ),
-        drawer: const MainDrawer(),
-        body: subjects.when(
-          data: (response) {
-            final subjects = response.data ?? [];
-            return SingleChildScrollView(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildWelcomeCard(context),
-                  const SizedBox(height: 16.0),
-                  Row(
-                    children: [
-                      _buildCircularProgressCard(
-                        context,
-                        title: S.of(context).fees,
-                        progress: 0.75,
-                        color: Colors.blue.shade100,
-                      ),
-                      const SizedBox(width: 16.0),
-                      _buildCircularProgressCard(
-                        context,
-                        title: S.of(context).attendanceRate,
-                        progress: 0.4,
-                        color: Colors.red.shade100,
-                      ),
-                    ],
+        actions: [
+          IconButton(
+            icon: Badge(
+              offset: const Offset(-8, -8),
+              label: Container(
+                color: AppColors.error400,
+                child: const Text(
+                  '9',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                    fontSize: 12,
                   ),
-                  const SizedBox(height: 16.0),
-                  CustomSectionHeader(
-                    title: S.of(context).mySubjects,
-                    actionText: S.of(context).viewAll,
-                    onActionTap: () => context.pushNamed(
-                      AppRoutes.studentSubjects.name,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    height: 90,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: subjects.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: SubjectCard(subject: subjects[index]),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 16.0),
-                  Text(
-                    S.of(context).yourProgressToday,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  const SizedBox(height: 8.0),
-                  _buildProgressCard(context),
-                ],
+                ),
               ),
-            );
-          },
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stack) => Center(child: Text('Error: $error')),
-        ));
+              child: const Icon(Icons.notifications),
+            ),
+            onPressed: () => context.pushNamed(
+              AppRoutes.notifications.name,
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () => context.pushNamed(
+              AppRoutes.settings.name,
+            ),
+          ),
+        ],
+      ),
+      drawer: const MainDrawer(),
+      body: subjects.when(
+        data: (response) {
+          final subjects = response.data ?? [];
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildWelcomeCard(context),
+                const SizedBox(height: 16.0),
+                Row(
+                  children: [
+                    _buildCircularProgressCard(
+                      context,
+                      title: S.of(context).fees,
+                      progress: 0.75,
+                      color: Colors.blue.shade100,
+                    ),
+                    const SizedBox(width: 16.0),
+                    _buildCircularProgressCard(
+                      context,
+                      title: S.of(context).attendanceRate,
+                      progress: 0.4,
+                      color: Colors.red.shade100,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16.0),
+                CustomSectionHeader(
+                  title: S.of(context).mySubjects,
+                  actionText: S.of(context).viewAll,
+                  onActionTap: () => context.pushNamed(
+                    AppRoutes.studentSubjects.name,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  height: 124,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: subjects.length,
+                    itemBuilder: (context, index) {
+                      return SubjectCard(
+                        subject: subjects[index],
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Text(
+                  S.of(context).yourProgressToday,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                _buildProgressCard(context),
+              ],
+            ),
+          );
+        },
+        loading: LoadingWidget.new,
+        error: (error, stack) => Center(child: Text('Error: $error')),
+      ),
+    );
   }
 
   Widget _buildWelcomeCard(BuildContext context) {
     return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(24.0),
       decoration: BoxDecoration(
         color: Colors.green.shade100,
         borderRadius: BorderRadius.circular(12.0),
@@ -110,6 +141,7 @@ class HomeScreen extends ConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 8.0),
                 Text(
                   S.of(context).learnAndShapeYourFuture,
                   style: const TextStyle(
@@ -205,7 +237,9 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 Text(
                   '${(progress * 100).toInt()}%',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),

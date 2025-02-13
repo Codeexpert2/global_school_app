@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 
+import 'package:global_school/core/constants/images.dart';
+
 class Logo extends StatelessWidget {
-  const Logo({super.key, this.width});
+  const Logo({
+    super.key,
+    this.width,
+    this.height,
+  });
 
   final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'logo',
+      AppImages.imagesMadaresIcon,
       width: width,
+      height: height,
+      fit: BoxFit.contain,
     );
   }
 }

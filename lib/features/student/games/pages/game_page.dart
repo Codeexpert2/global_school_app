@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:global_school/components/main/main_appbar.dart';
 
 class GamePage extends StatelessWidget {

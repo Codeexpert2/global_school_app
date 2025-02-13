@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
-import 'package:global_school/core/enums/roles.dart';
-import 'package:global_school/providers/firebase_analytics_provider.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:global_school/core/enums/roles.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/routes.dart';
+import 'package:global_school/features/auth/providers/auth_provider.dart';
 import 'package:global_school/features/shared/statics/not_found.dart';
 import 'package:global_school/initialize_app.dart';
-import 'package:global_school/features/auth/providers/auth_provider.dart';
+import 'package:global_school/providers/firebase_analytics_provider.dart';
 import 'package:global_school/services/local_storage/storage_service.dart';
 
 import 'app_routes.dart';

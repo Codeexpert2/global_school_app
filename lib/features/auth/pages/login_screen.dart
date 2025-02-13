@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/core/extensions/extensions.dart';
-import 'package:global_school/core/themes/app_colors.dart';
-import 'package:global_school/core/locale/generated/l10n.dart';
-import 'package:global_school/features/shared/settings/widgets/locale_buttom.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:global_school/components/submit_button.dart';
+import 'package:global_school/core/constants/images.dart';
+import 'package:global_school/core/extensions/extensions.dart';
 import 'package:global_school/core/functions/validators.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/features/shared/settings/widgets/locale_buttom.dart';
 
 import '../providers/login_provider.dart';
 
@@ -44,7 +45,7 @@ class LoginScreen extends ConsumerWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(0),
                     child: Image.asset(
-                      'assets/images/madares_icon.png',
+                      AppImages.imagesMadaresIcon,
                       fit: BoxFit.cover,
                     ),
                   ),

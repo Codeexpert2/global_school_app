@@ -18,7 +18,7 @@ import 'package:global_school/features/student/certificate/page/certificate_deta
 import 'package:global_school/features/student/certificate/page/certificates_page.dart';
 import 'package:global_school/features/student/exam/pages/exam_details_page.dart';
 import 'package:global_school/features/student/exam/pages/exam_page.dart';
-import 'package:global_school/features/student/help/pages/help_screen.dart';
+import 'package:global_school/features/shared/help/pages/help_screen.dart';
 import 'package:global_school/features/student/home/home.dart';
 import 'package:global_school/features/student/lessons/lesson_home_page.dart';
 import 'package:global_school/features/student/lessons/lesson_selection_page.dart';

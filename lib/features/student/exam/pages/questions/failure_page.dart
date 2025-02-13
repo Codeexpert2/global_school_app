@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:lottie/lottie.dart';
+
+import 'package:global_school/core/constants/images.dart';
 
 class FailureQuizPage extends StatelessWidget {
   const FailureQuizPage({super.key});
@@ -12,7 +15,10 @@ class FailureQuizPage extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFFB24592), Color(0xFF8E44AD)],
+                colors: [
+                  Color(0xFFB24592),
+                  Color(0xFF8E44AD),
+                ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -23,9 +29,7 @@ class FailureQuizPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Lottie.asset(
-                  'assets/animation/failure.json',
-                  // width: 100,
-                  // height: 100,
+                  AppImages.animationFailure,
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 20),
