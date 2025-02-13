@@ -27,6 +27,8 @@ class AppThemes {
     primaryColor: AppColors.primaryColor,
     secondaryHeaderColor: AppColors.secondaryColor,
     scaffoldBackgroundColor: AppColors.white,
+    shadowColor: AppColors.shadowColor,
+    canvasColor: AppColors.surfaceColor,
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(dialogBorderRadius),
@@ -224,8 +226,6 @@ class AppThemes {
         border: OutlineInputBorder(),
       ),
     ),
-
-    
     inputDecorationTheme: const InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(
         horizontal: 14,

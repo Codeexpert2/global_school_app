@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:global_school/core/themes/app_colors.dart';
 
 class CustomSectionHeader extends StatelessWidget {
@@ -10,6 +11,7 @@ class CustomSectionHeader extends StatelessWidget {
     this.titleStyle,
     this.actionStyle,
   });
+
   final String title;
   final String actionText;
   final VoidCallback? onActionTap;

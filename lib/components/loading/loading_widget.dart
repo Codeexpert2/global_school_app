@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 
-import 'package:global_school/core/themes/app_colors.dart';
-
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
     super.key,
-    this.color = AppColors.primary200,
+    this.color,
+    this.size,
   });
 
-  final Color color;
+  final Color? color;
+  final double? size;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: CircularProgressIndicator.adaptive(
-        strokeWidth: 2,
-        strokeCap: StrokeCap.round,
-        valueColor: AlwaysStoppedAnimation<Color>(color),
+    return SizedBox(
+      width: size,
+      height: size,
+      child: Center(
+        child: CircularProgressIndicator.adaptive(
+          strokeWidth: 2,
+          strokeCap: StrokeCap.round,
+          valueColor: AlwaysStoppedAnimation<Color>(
+            color ?? Theme.of(context).primaryColor,
+          ),
+        ),
       ),
     );
   }

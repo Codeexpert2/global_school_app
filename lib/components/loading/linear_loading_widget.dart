@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:global_school/core/themes/app_colors.dart';
-
 class LinearLoadingWidget extends StatelessWidget {
   const LinearLoadingWidget({
     super.key,
@@ -12,7 +10,7 @@ class LinearLoadingWidget extends StatelessWidget {
     return LinearProgressIndicator(
       color: Theme.of(context).scaffoldBackgroundColor,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      valueColor: const AlwaysStoppedAnimation(AppColors.primary500),
+      valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
     );
   }
 }
