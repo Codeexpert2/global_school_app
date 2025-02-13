@@ -12,6 +12,7 @@ import 'package:global_school/core/router/app_routes.dart';
 
 import '../subjects/provider/subject_provider.dart';
 
+import 'widget/student_service_card.dart';
 import 'widget/subject_card.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -99,47 +100,66 @@ class HomeScreen extends ConsumerWidget {
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.trending_up_rounded),
-                      const SizedBox(width: 8.0),
-                      Text(
-                        S.of(context).yourProgressToday,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  ),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(
+                //     horizontal: 16.0,
+                //   ),
+                //   child: Row(
+                //     children: [
+                //       const Icon(Icons.trending_up_rounded),
+                //       const SizedBox(width: 8.0),
+                //       Text(
+                //         S.of(context).yourProgressToday,
+                //         style: Theme.of(context).textTheme.titleLarge,
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // _buildProgressCard(context),
+
+                StudentServiceCard(
+                  title: 'Recorded Lessons',
+                  subtitle: 'Watch pre-recorded lessons anytime',
+                  icon: Icons.play_circle_fill,
+                  color: Colors.blueAccent,
+                  routeName: AppRoutes.studentRecordedLesson.name,
                 ),
-                _buildProgressCard(context),
-                const SizedBox(height: 16.0),
-                HomeSectionHeader(
-                  title: S.of(context).onlineLessons,
-                  actionText: S.of(context).viewAll,
-                  onActionTap: () => context.pushNamed(
-                    AppRoutes.studentLessonHome.name,
-                  ),
+                StudentServiceCard(
+                  title: 'Online Lessons',
+                  subtitle: 'Join live online classes',
+                  icon: Icons.videocam_rounded,
+                  color: Colors.green,
+                  routeName: AppRoutes.studentLessonHome.name,
                 ),
-                HomeSectionHeader(
-                  title: S.of(context).recordedLessons,
-                  actionText: S.of(context).viewAll,
-                  onActionTap: () => context.pushNamed(
-                    AppRoutes.studentSubjects.name,
-                  ),
+                StudentServiceCard(
+                  title: 'Subject Results',
+                  subtitle: 'Subject Results',
+                  icon: Icons.edit_document,
+                  color: Colors.blue,
+                  routeName: AppRoutes.studentSubjectResults.name,
                 ),
-                HomeSectionHeader(
-                  title: S.of(context).subjectResults,
-                  actionText: S.of(context).viewAll,
-                  onActionTap: () => context.pushNamed(
-                    AppRoutes.studentSubjectResults.name,
-                    pathParameters: {
-                      // 'subjectId': subjectId,
-                    },
-                  ),
+                StudentServiceCard(
+                  title: 'Attachments',
+                  subtitle: 'Download study materials and files',
+                  icon: Icons.attach_file,
+                  color: Colors.orange,
+                  routeName: AppRoutes.studentAttachments.name,
                 ),
+                StudentServiceCard(
+                  title: 'Exams',
+                  subtitle: 'View upcoming and past exams',
+                  icon: Icons.assignment,
+                  color: Colors.redAccent,
+                  routeName: AppRoutes.studentExam.name,
+                ),
+                StudentServiceCard(
+                  title: 'Exam Results',
+                  subtitle: 'Check your latest exam scores',
+                  icon: Icons.bar_chart_rounded,
+                  color: Colors.purple,
+                  routeName: AppRoutes.studentExam.name,
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           );
@@ -192,53 +212,53 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildProgressCard(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16.0,
-      ),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        child: ListTile(
-          contentPadding: const EdgeInsets.all(16.0),
-          leading: CircleAvatar(
-            radius: 24.0,
-            backgroundColor: Colors.green.shade100,
-            child: const Icon(
-              Icons.school,
-              color: Colors.green,
-            ),
-          ),
-          title: Text(
-            S.of(context).mathematics,
-            style: const TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          subtitle: const Text('20/24 Videos'),
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                '90%',
-                style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                S.of(context).courseCompleted,
-                style: const TextStyle(fontSize: 12.0),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _buildProgressCard(BuildContext context) {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(
+  //       horizontal: 16.0,
+  //     ),
+  //     child: Card(
+  //       shape: RoundedRectangleBorder(
+  //         borderRadius: BorderRadius.circular(12.0),
+  //       ),
+  //       child: ListTile(
+  //         contentPadding: const EdgeInsets.all(16.0),
+  //         leading: CircleAvatar(
+  //           radius: 24.0,
+  //           backgroundColor: Colors.green.shade100,
+  //           child: const Icon(
+  //             Icons.school,
+  //             color: Colors.green,
+  //           ),
+  //         ),
+  //         title: Text(
+  //           S.of(context).mathematics,
+  //           style: const TextStyle(
+  //             fontSize: 16.0,
+  //             fontWeight: FontWeight.bold,
+  //           ),
+  //         ),
+  //         subtitle: const Text('20/24 Videos'),
+  //         trailing: Column(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: [
+  //             const Text(
+  //               '90%',
+  //               style: TextStyle(
+  //                 color: Colors.green,
+  //                 fontWeight: FontWeight.bold,
+  //               ),
+  //             ),
+  //             Text(
+  //               S.of(context).courseCompleted,
+  //               style: const TextStyle(fontSize: 12.0),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _buildCircularProgressCard(
     BuildContext context, {

@@ -36,39 +36,18 @@ class LessonSelectionPage extends StatelessWidget {
                 );
               },
             ),
-            // const SizedBox(height: 20),
-            // _buildLessonButton(
-            //   icon: Icons.location_on,
-            //   text: S.of(context).offlineLessons,
-            //   color: Colors.green,
-            //   onTap: () {
-            //     context.pushNamed(AppRoutes.studentOfflineLessons.name);
-            //   },
-            // ),
             const SizedBox(height: 20),
             _buildLessonButton(
-                icon: Icons.play_circle_fill,
-                text: S.of(context).recordedLessons,
-                color: Colors.orange,
-                onTap: () {
-                  context.pushNamed(
-                    AppRoutes.studentRecordedLesson.name,
-                    pathParameters: {'subjectId': subjectId},
-                  );
-                }),
-            const SizedBox(height: 20),
-            _buildLessonButton(
-                icon: Icons.play_circle_fill,
-                text: S.of(context).subjectResults,
-                color: Colors.orange,
-                onTap: () {
-                  context.pushNamed(
-                    AppRoutes.studentSubjectResults.name,
-                    pathParameters: {
-                      'subjectId': subjectId,
-                    },
-                  );
-                }),
+              icon: Icons.play_circle_fill,
+              text: S.of(context).recordedLessons,
+              color: Colors.orange,
+              onTap: () {
+                context.pushNamed(
+                  AppRoutes.studentRecordedLesson.name,
+                  pathParameters: {'subjectId': subjectId},
+                );
+              },
+            ),
           ],
         ),
       ),

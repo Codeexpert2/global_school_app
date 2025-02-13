@@ -15,10 +15,7 @@ import '../widgets/subject_result_card.dart';
 class SubjectResultsPage extends ConsumerWidget {
   const SubjectResultsPage({
     super.key,
-    required this.subjectId,
   });
-
-  final String subjectId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,13 +23,13 @@ class SubjectResultsPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).subjectResults),
-       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SubjectDropdown(subjectId: subjectId),
-              const SemesterDropdown(),
+              SubjectDropdown(),
+              SemesterDropdown(),
             ],
           ),
         ),

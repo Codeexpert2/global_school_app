@@ -30,7 +30,7 @@ enum AppRoutes {
   studentQuiz('/student/quiz', 'studentQuiz'),
   studentSuccessquiz('/student/success-quiz', 'studentSuccessQuiz'),
   studentFailurequiz('/student/failure-quiz', 'studentFailureQuiz'),
-  studentSubjectResults('/student/subject-results/subject/:subjectId', 'studentSubjectResults'),
+  studentSubjectResults('/student/subject-results', 'studentSubjectResults'),
   studentOnlineLesson('/student/online-lesson/subject/:subjectId', 'studentOnlineLesson'),
   studentRecordedLesson('/student/recorded-lesson/subject/:subjectId', 'studentRecordedLesson'),
   studentLessonSelection('/student/selection-lesson/:subjectId', 'studentLessonSelection'),

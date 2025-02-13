@@ -1,24 +1,31 @@
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/features/guardian/child_details/pages/child_details_page.dart';
-import 'package:global_school/features/shared/notification/notification_page.dart';
-import 'package:global_school/features/guardian/online_exam_results/pages/online_exam_results_page.dart';
-import 'package:global_school/features/guardian/home/pages/home_page.dart';
-import 'package:global_school/features/guardian/monthly_report/pages/child_monthly_report_page.dart';
-import 'package:global_school/features/guardian/subjects_results/pages/subjects_results_page.dart';
-import 'package:global_school/features/guardian/weekly_report/pages/child_weekly_report_page.dart';
-import 'package:global_school/features/student/accessories/pages/accessories_page.dart';
-
-import 'package:global_school/features/student/ar/ar_page.dart';
-import 'package:global_school/features/student/ar/model_viewer_page.dart';
 import 'package:global_school/features/auth/pages/login_screen.dart';
 import 'package:global_school/features/auth/pages/password_reset_screen.dart';
+import 'package:global_school/features/guardian/child_details/pages/child_details_page.dart';
+import 'package:global_school/features/guardian/home/pages/home_page.dart';
+import 'package:global_school/features/guardian/monthly_report/pages/child_monthly_report_page.dart';
+import 'package:global_school/features/guardian/online_exam_results/pages/online_exam_results_page.dart';
+import 'package:global_school/features/guardian/subjects_results/pages/subjects_results_page.dart';
+import 'package:global_school/features/guardian/weekly_report/pages/child_weekly_report_page.dart';
+import 'package:global_school/features/root/root_screen.dart';
+import 'package:global_school/features/shared/help/pages/help_screen.dart';
+import 'package:global_school/features/shared/notification/notification_page.dart';
+import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
+import 'package:global_school/features/shared/profile/pages/profile_screen.dart';
+import 'package:global_school/features/shared/settings/pages/settings_screen.dart';
+import 'package:global_school/features/shared/splash/splash_screen.dart';
+import 'package:global_school/features/shared/statics/about.dart';
+import 'package:global_school/features/shared/statics/privacy_policy.dart';
+import 'package:global_school/features/shared/statics/terms_conditions.dart';
+import 'package:global_school/features/student/accessories/pages/accessories_page.dart';
+import 'package:global_school/features/student/ar/ar_page.dart';
+import 'package:global_school/features/student/ar/model_viewer_page.dart';
 import 'package:global_school/features/student/calendar/view/calender.dart';
 import 'package:global_school/features/student/certificate/page/certificate_details_page.dart';
 import 'package:global_school/features/student/certificate/page/certificates_page.dart';
 import 'package:global_school/features/student/exam/pages/exam_details_page.dart';
 import 'package:global_school/features/student/exam/pages/exam_page.dart';
-import 'package:global_school/features/shared/help/pages/help_screen.dart';
 import 'package:global_school/features/student/home/home.dart';
 import 'package:global_school/features/student/lessons/lesson_home_page.dart';
 import 'package:global_school/features/student/lessons/lesson_selection_page.dart';
@@ -26,17 +33,9 @@ import 'package:global_school/features/student/offlineLesson/pages/offline_lesso
 import 'package:global_school/features/student/offlineLesson/pages/offline_lesson_page.dart';
 import 'package:global_school/features/student/onlineLesson/pages/online_lesson_details_page.dart';
 import 'package:global_school/features/student/onlineLesson/pages/online_lesson_page.dart';
-import 'package:global_school/features/shared/onboarding/onboarding_screen.dart';
+import 'package:global_school/features/student/recorded_lesson/page/recorded_lesson_page.dart';
 import 'package:global_school/features/student/subject_results/page/subject_results_page.dart';
 import 'package:global_school/features/student/subjects/pages/subjects_page.dart';
-import 'package:global_school/features/shared/profile/pages/profile_screen.dart';
-import 'package:global_school/features/root/root_screen.dart';
-import 'package:global_school/features/student/recorded_lesson/page/recorded_lesson_page.dart';
-import 'package:global_school/features/shared/settings/pages/settings_screen.dart';
-import 'package:global_school/features/shared/splash/splash_screen.dart';
-import 'package:global_school/features/shared/statics/about.dart';
-import 'package:global_school/features/shared/statics/privacy_policy.dart';
-import 'package:global_school/features/shared/statics/terms_conditions.dart';
 import 'package:global_school/features/teacher/curriculums/pages/curriculum_page.dart';
 import 'package:global_school/features/teacher/curriculums/pages/curriculums_page.dart';
 import 'package:global_school/features/teacher/curriculums/pages/new_curriculum_page.dart';
@@ -45,14 +44,15 @@ import 'package:global_school/features/teacher/exams/pages/exam_page.dart';
 import 'package:global_school/features/teacher/exams/pages/exams_page.dart';
 import 'package:global_school/features/teacher/exams/pages/new_exam_page.dart';
 import 'package:global_school/features/teacher/exams/pages/update_exam_page.dart';
+import 'package:global_school/features/teacher/home/home.dart';
 import 'package:global_school/features/teacher/sections/pages/section_details_page.dart';
 import 'package:global_school/features/teacher/sections/pages/sections_page.dart';
 import 'package:global_school/features/teacher/students/pages/new_student_page.dart';
 import 'package:global_school/features/teacher/students/pages/student_details_page.dart';
 import 'package:global_school/features/teacher/students/pages/students_page.dart';
 import 'package:global_school/features/teacher/students/pages/update_student_page.dart';
+
 import '../../features/student/games/pages/game_page.dart';
-import 'package:global_school/features/teacher/home/home.dart';
 
 List<RouteBase> routes = <RouteBase>[
   GoRoute(
@@ -146,10 +146,7 @@ List<RouteBase> routes = <RouteBase>[
         name: AppRoutes.studentSubjectResults.name,
         path: AppRoutes.studentSubjectResults.path,
         parentNavigatorKey: shellNavigatorKey,
-        builder: (context, state) {
-          final subjectId = state.pathParameters['subjectId'];
-          return SubjectResultsPage(subjectId: subjectId ?? '');
-        },
+        builder: (context, state) => const SubjectResultsPage(),
       ),
       GoRoute(
         name: AppRoutes.studentLessonHome.name,

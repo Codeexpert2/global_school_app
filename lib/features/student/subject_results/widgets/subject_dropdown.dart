@@ -11,9 +11,7 @@ import '../provider/subject_results_provider.dart';
 class SubjectDropdown extends ConsumerWidget {
   const SubjectDropdown({
     super.key,
-    required this.subjectId,
   });
-  final String subjectId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
