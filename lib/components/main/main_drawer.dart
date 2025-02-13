@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
-import 'package:global_school/features/student/settings/pages/settings_screen.dart';
+import 'package:global_school/features/shared/settings/pages/settings_screen.dart';
 import 'package:global_school/features/student/word_wall/page/word_wall_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';

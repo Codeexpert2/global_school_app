@@ -1,14 +1,3 @@
-// To parse this JSON data, do
-//
-//     final subjectModel = subjectModelFromJson(jsonString);
-
-import 'dart:convert';
-
-SubjectModel subjectModelFromJson(String str) =>
-    SubjectModel.fromJson(json.decode(str));
-
-String subjectModelToJson(SubjectModel data) => json.encode(data.toJson());
-
 class SubjectModel {
   SubjectModel({
     this.success,

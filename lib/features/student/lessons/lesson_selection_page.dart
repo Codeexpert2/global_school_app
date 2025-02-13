@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
 
 class LessonSelectionPage extends StatelessWidget {
-  const LessonSelectionPage({super.key, required this.subjectId});
+  const LessonSelectionPage({
+    super.key,
+    required this.subjectId,
+  });
+
   final String subjectId;
 
   @override
@@ -23,8 +28,12 @@ class LessonSelectionPage extends StatelessWidget {
               text: S.of(context).onlineLessons,
               color: Colors.blue,
               onTap: () {
-                context.pushNamed(AppRoutes.studentOnlineLesson.name,
-                    pathParameters: {'subjectId': subjectId});
+                context.pushNamed(
+                  AppRoutes.studentOnlineLesson.name,
+                  pathParameters: {
+                    'subjectId': subjectId,
+                  },
+                );
               },
             ),
             // const SizedBox(height: 20),
@@ -42,8 +51,10 @@ class LessonSelectionPage extends StatelessWidget {
                 text: S.of(context).recordedLessons,
                 color: Colors.orange,
                 onTap: () {
-                  context.pushNamed(AppRoutes.studentRecordedLesson.name,
-                      pathParameters: {'subjectId': subjectId});
+                  context.pushNamed(
+                    AppRoutes.studentRecordedLesson.name,
+                    pathParameters: {'subjectId': subjectId},
+                  );
                 }),
             const SizedBox(height: 20),
             _buildLessonButton(
@@ -51,8 +62,12 @@ class LessonSelectionPage extends StatelessWidget {
                 text: S.of(context).subjectResults,
                 color: Colors.orange,
                 onTap: () {
-                  context.pushNamed(AppRoutes.studentSubjectResults.name,
-                      pathParameters: {'subjectId': subjectId});
+                  context.pushNamed(
+                    AppRoutes.studentSubjectResults.name,
+                    pathParameters: {
+                      'subjectId': subjectId,
+                    },
+                  );
                 }),
           ],
         ),

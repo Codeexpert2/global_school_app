@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
 
+import 'package:global_school/core/router/app_routes.dart';
+
+import '../models/subject_model.dart';
+
 class SubjectCard extends StatelessWidget {
   const SubjectCard({
     super.key,
     required this.subject,
-    required this.onTap,
   });
-  final dynamic subject;
-  final VoidCallback onTap;
+
+  final Datum subject;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        context.pushNamed(
+          AppRoutes.studentLessonSelection.name,
+          pathParameters: {
+            'subjectId': subject.id.toString(),
+          },
+        );
+      },
       child: Container(
         decoration: BoxDecoration(
           color: Colors.red,

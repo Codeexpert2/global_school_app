@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/components/form/components.dart';
-import 'package:global_school/features/student/settings/widgets/locale_buttom.dart';
+import 'package:global_school/features/shared/settings/widgets/locale_buttom.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/router/app_routes.dart';

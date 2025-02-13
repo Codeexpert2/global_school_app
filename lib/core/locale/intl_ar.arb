@@ -323,5 +323,6 @@
   "sectionDetails": "تفاصيل القسم",
   "sectionCode": "رمز القسم",
   "sectionName": "اسم القسم",
-  "childDetails": "تفاصيل الطفل"
+  "childDetails": "تفاصيل الطفل",
+  "subjects": "Subjects"
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:global_school/features/student/settings/providers/theme_notifier.dart';
+import 'package:global_school/features/shared/settings/providers/theme_notifier.dart';
 
 class ThemeDropdown extends ConsumerWidget {
   const ThemeDropdown({super.key});

@@ -9,8 +9,8 @@ import 'package:global_school/core/keys/keys.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_router.dart';
 import 'package:global_school/core/themes/app_themes.dart';
-import 'package:global_school/features/student/settings/providers/locale_provider.dart';
-import 'package:global_school/features/student/settings/providers/theme_notifier.dart';
+import 'package:global_school/features/shared/settings/providers/locale_provider.dart';
+import 'package:global_school/features/shared/settings/providers/theme_notifier.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});

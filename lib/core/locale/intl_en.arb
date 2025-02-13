@@ -113,5 +113,6 @@
   "description": "Description",
   "sectionName": "Section Name",
   "childResults": "Child Results",
-  "childDetails": "Child Details"
+  "childDetails": "Child Details",
+  "subjects": "Subjects"
 }

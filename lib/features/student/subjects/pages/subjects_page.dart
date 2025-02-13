@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:global_school/components/errors/no_content_indicator.dart';
+import 'package:global_school/components/loading/loading_widget.dart';
 import 'package:global_school/components/main/main_appbar.dart';
-import 'package:global_school/core/router/app_routes.dart';
-import 'package:global_school/features/student/subjects/provider/subject_provider.dart';
-import 'package:global_school/features/student/subjects/widget/subject_card.dart';
+import 'package:global_school/core/locale/generated/l10n.dart';
+
+import '../models/subject_model.dart';
+import '../provider/subject_provider.dart';
+import '../widget/subject_card.dart';
 
 class SubjectsPage extends ConsumerWidget {
   const SubjectsPage({super.key});
@@ -14,17 +18,21 @@ class SubjectsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final subjects = ref.watch(studentSubjectsProvider);
     return Scaffold(
-      appBar: const MainAppBar(
-        title: 'Hello',
+      appBar: MainAppBar(
+        title: S.of(context).subjects,
       ),
       body: subjects.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(child: Text('Error: $error')),
-        data: (response) {
-          final subjects = response.data ?? [];
+        loading: LoadingWidget.new,
+        error: (error, stack) => NoContentIndicator(
+          message: error.toString(),
+        ),
+        data: (SubjectModel res) {
+          final subjects = res.data ?? [];
           return Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
             child: GridView.builder(
               itemCount: subjects.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -36,10 +44,6 @@ class SubjectsPage extends ConsumerWidget {
                 final subject = subjects[index];
                 return SubjectCard(
                   subject: subject,
-                  onTap: () {
-                    context.pushNamed(AppRoutes.studentLessonSelection.name,
-                        pathParameters: {'subjectId': subject.id.toString()});
-                  },
                 );
               },
             ),

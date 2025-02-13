@@ -32,7 +32,7 @@ import 'package:global_school/features/student/subjects/pages/subjects_page.dart
 import 'package:global_school/features/shared/profile/pages/profile_screen.dart';
 import 'package:global_school/features/root/root_screen.dart';
 import 'package:global_school/features/student/recorded_lesson/page/recorded_lesson_page.dart';
-import 'package:global_school/features/student/settings/pages/settings_screen.dart';
+import 'package:global_school/features/shared/settings/pages/settings_screen.dart';
 import 'package:global_school/features/shared/splash/splash_screen.dart';
 import 'package:global_school/features/shared/statics/about.dart';
 import 'package:global_school/features/shared/statics/privacy_policy.dart';
