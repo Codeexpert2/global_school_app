@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/core/utils/snackbars.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:global_school/core/enums/accessorie_content_type.dart';
-import 'package:global_school/features/student/accessories/model/accessorie_model.dart';
 
-/// بناء محتوى البطاقة بناءً على نوع المحتوى
+import 'package:url_launcher/url_launcher.dart';
+
+import 'package:global_school/core/enums/accessorie_content_type.dart';
+import 'package:global_school/core/utils/snackbars.dart';
+import 'package:global_school/features/student/accessories/model/accessorie_model.dart';
+import 'package:global_school/features/student/accessories/widgets/video_player_page.dart';
+import 'package:global_school/features/student/accessories/widgets/youtube_video_player.dart';
+
 Widget buildContent(Accessorie accessory, ContentType contentType) {
   Widget content;
   switch (contentType) {
@@ -42,8 +45,8 @@ Widget buildContent(Accessorie accessory, ContentType contentType) {
   );
 }
 
-/// بناء زر الإجراء بناءً على نوع المحتوى
-Widget buildActionButton(Accessorie accessory, ContentType contentType) {
+Widget buildActionButton(
+    BuildContext context, Accessorie accessory, ContentType contentType) {
   IconData icon;
   VoidCallback? onPressed;
 
@@ -71,8 +74,25 @@ Widget buildActionButton(Accessorie accessory, ContentType contentType) {
     case ContentType.videos:
       icon = Icons.play_circle_filled;
       onPressed = () {
-        // TODO: تشغيل الفيديو
         showInfoSnackbar('تشغيل الفيديو: ${accessory.videos}');
+        if (accessory.videos != null &&
+            (accessory.videos!.contains('youtube.com') ||
+                accessory.videos!.contains('youtu.be'))) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  YoutubeVideoPlayer(videoUrl: accessory.videos),
+            ),
+          );
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => VideoPlayerPage(videoUrl: accessory.videos),
+            ),
+          );
+        }
       };
       break;
     case ContentType.images:
@@ -93,7 +113,6 @@ Widget buildActionButton(Accessorie accessory, ContentType contentType) {
   );
 }
 
-/// الحصول على الأيقونة المناسبة لنوع المحتوى
 IconData getContentIcon(ContentType contentType) {
   switch (contentType) {
     case ContentType.files:

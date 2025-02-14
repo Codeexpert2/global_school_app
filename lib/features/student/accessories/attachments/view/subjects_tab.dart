@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
-import 'package:global_school/features/student/attachments/view/subject_attachments_page.dart';
+import 'package:global_school/features/student/accessories/attachments/view/subject_attachments_page.dart';
 
 
 class SubjectsTab extends StatelessWidget {

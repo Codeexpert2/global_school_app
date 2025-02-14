@@ -1,11 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerPage extends StatefulWidget {
   const VideoPlayerPage({super.key, required this.videoUrl});
-  final String videoUrl;
+  final String? videoUrl;
 
   @override
   State<VideoPlayerPage> createState() => _VideoPlayerPageState();
@@ -18,7 +19,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl)
+    _controller = VideoPlayerController.network(widget.videoUrl ?? '')
       ..initialize().then((_) {
         setState(() {
           _isLoading = false;
