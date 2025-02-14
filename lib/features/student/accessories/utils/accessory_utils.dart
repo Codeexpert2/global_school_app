@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:global_school/core/enums/accessorie_content_type.dart';
 import 'package:global_school/core/utils/snackbars.dart';
 import 'package:global_school/features/student/accessories/model/accessorie_model.dart';
+import 'package:global_school/features/student/accessories/widgets/image_viewer_page.dart';
 import 'package:global_school/features/student/accessories/widgets/pdf_viewer_page.dart';
 import 'package:global_school/features/student/accessories/widgets/video_player_page.dart';
 import 'package:global_school/features/student/accessories/widgets/youtube_video_player.dart';
@@ -102,8 +103,12 @@ Widget buildActionButton(
     case ContentType.images:
       icon = Icons.zoom_in;
       onPressed = () {
-        // TODO: عرض الصورة بشكل كامل
-        showInfoSnackbar('عرض الصورة: ${accessory.images}');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ImageViewerPage(imageUrl: accessory.images),
+          ),
+        );
       };
       break;
     default:
