@@ -7,10 +7,8 @@ import '../model/subject_model.dart';
 import '../model/subject_results_model.dart';
 import '../service/subject_results_service.dart';
 
-final apiClientProvider = Provider<ApiClient>((ref) => ApiClient());
-
 final subjectResultsServiceProvider = Provider<SubjectResultsService>((ref) {
-  final apiClient = ref.read(apiClientProvider);
+  final apiClient = ref.read(clientProvider);
   return SubjectResultsService(apiClient);
 });
 

@@ -12,6 +12,7 @@ class StudentSubjectsService {
     try {
       final response = await _apiClient.get(
         '/student/my-subjects',
+        isCached: true,
       );
 
       final data = SubjectsModel.fromJson(response.data);
