@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/components/loading/loading_widget.dart';
-import 'package:global_school/features/student/home/widget/subject_card.dart';
-import 'package:global_school/features/student/subjects/provider/subject_provider.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:global_school/components/loading/loading_widget.dart';
+
+import '../../subjects/provider/subject_provider.dart';
+
+import 'subject_card.dart';
 
 class HomeSubjectsSection extends ConsumerWidget {
   const HomeSubjectsSection({

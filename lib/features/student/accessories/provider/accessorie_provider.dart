@@ -1,10 +1,11 @@
-import 'package:global_school/core/client/client.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:global_school/core/client/client.dart';
+import 'package:global_school/core/enums/accessorie_content_type.dart';
 import 'package:global_school/core/pagination/models/pagination_state.dart';
 import 'package:global_school/core/pagination/notifiers/paginated_list_notifier.dart';
-import 'package:global_school/features/student/accessories/service/accessories_service.dart';
 import 'package:global_school/features/student/accessories/model/accessorie_model.dart';
-import 'package:global_school/core/enums/accessorie_content_type.dart';
+import 'package:global_school/features/student/accessories/service/accessories_service.dart';
 
 // Provider للـ Service
 final accessoriesServiceProvider = Provider<AccessoriesService>((ref) {

@@ -9,7 +9,7 @@ import 'package:global_school/core/locale/generated/l10n.dart';
 import '../model/subject_results_model.dart';
 import '../provider/subject_results_provider.dart';
 import '../widgets/semester_dropdown.dart';
-import '../widgets/subject_dropdown.dart';
+import '../../subjects/widget/subject_dropdown.dart';
 import '../widgets/subject_result_card.dart';
 
 class SubjectResultsPage extends ConsumerWidget {
@@ -19,17 +19,24 @@ class SubjectResultsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedSubjectId = ref.watch(selectedSubjectIdProvider);
     final subjectResultsState = ref.watch(subjectResultsProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).subjectResults),
-        bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SubjectDropdown(),
-              SemesterDropdown(),
+              SubjectDropdown(
+                selectedSubjectId: selectedSubjectId,
+                onChanged: (String? value) {
+                  ref.read(selectedSubjectIdProvider.notifier).state = value;
+                },
+              ),
+              const SemesterDropdown(),
             ],
           ),
         ),
@@ -39,6 +46,7 @@ class SubjectResultsPage extends ConsumerWidget {
           if (subjectResults.isEmpty) {
             return const SizedBox.shrink();
           }
+
           return ListView.builder(
             itemCount: subjectResults.length,
             itemBuilder: (context, index) {

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/core/enums/accessorie_content_type.dart';
-import 'package:global_school/core/themes/app_colors.dart';
-import 'package:global_school/features/student/accessories/provider/accessorie_provider.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:global_school/core/enums/accessorie_content_type.dart';
+
+import '../provider/accessorie_provider.dart';
 
 class ContentTypeDropdownMenu extends ConsumerWidget {
   const ContentTypeDropdownMenu({super.key});
@@ -13,17 +15,10 @@ class ContentTypeDropdownMenu extends ConsumerWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.deepPurple.shade100,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.deepPurple.withOpacity(0.3),
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
+        color: Colors.blueGrey.shade50,
+        borderRadius: BorderRadius.circular(8),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: DropdownButton<ContentType>(
         value: contentType,
         onChanged: (ContentType? newValue) {
@@ -37,7 +32,7 @@ class ContentTypeDropdownMenu extends ConsumerWidget {
             child: Text(
               type.value,
               style: const TextStyle(
-                color: AppColors.green2,
+                // color: AppColors.green2,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -45,12 +40,12 @@ class ContentTypeDropdownMenu extends ConsumerWidget {
         }).toList(),
         icon: const Icon(
           Icons.arrow_drop_down,
-          color: Colors.white,
+          color: Colors.black54,
         ),
         underline: const SizedBox(),
         dropdownColor: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        elevation: 5,
+        borderRadius: BorderRadius.circular(8),
+        // elevation: 5,
       ),
     );
   }

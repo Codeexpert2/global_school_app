@@ -1,22 +1,25 @@
-// content_type.dart
+import 'package:global_school/core/locale/generated/l10n.dart';
+
 enum ContentType {
   files,
   urls,
   videos,
   images,
+  audios,
+  documents,
+  ar,
 }
 
 extension ContentTypeExtension on ContentType {
   String get value {
-    switch (this) {
-      case ContentType.files:
-        return 'files';
-      case ContentType.urls:
-        return 'urls';
-      case ContentType.videos:
-        return 'videos';
-      case ContentType.images:
-        return 'images';
-    }
+    return switch (this) {
+      ContentType.files => S.current.files,
+      ContentType.urls => S.current.urls,
+      ContentType.videos => S.current.videos,
+      ContentType.images => S.current.images,
+      ContentType.audios => S.current.audios,
+      ContentType.documents => S.current.documents,
+      ContentType.ar => S.current.ar,
+    };
   }
 }

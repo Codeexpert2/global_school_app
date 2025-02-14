@@ -5,22 +5,28 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:global_school/components/loading/loading_widget.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
 
-import '../model/subject_model.dart';
-import '../provider/subject_results_provider.dart';
+import '../models/subject_model.dart';
+import '../provider/subject_provider.dart';
 
 class SubjectDropdown extends ConsumerWidget {
   const SubjectDropdown({
     super.key,
+    required this.selectedSubjectId,
+    required this.onChanged,
   });
+
+  final String? selectedSubjectId;
+  final void Function(String?)? onChanged;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final subjectIdState = ref.watch(subjectIdProvider);
-    final subjectsState = ref.watch(subjectsProvider);
+    final subjectsState = ref.watch(studentSubjectsProvider);
 
     return subjectsState.when(
       data: (List<Subject> subjects) {
         return DropdownButton<String?>(
+          onChanged: onChanged,
+          value: selectedSubjectId,
           elevation: 2,
           underline: const SizedBox(),
           borderRadius: BorderRadius.circular(8),
@@ -28,7 +34,6 @@ class SubjectDropdown extends ConsumerWidget {
             vertical: 2,
             horizontal: 12,
           ),
-          value: subjectIdState,
           items: [
             DropdownMenuItem<String?>(
               value: null,
@@ -41,9 +46,6 @@ class SubjectDropdown extends ConsumerWidget {
               ),
             )
           ],
-          onChanged: (String? value) {
-            ref.read(subjectIdProvider.notifier).state = value;
-          },
         );
       },
       error: (error, stackTrace) => const SizedBox(),

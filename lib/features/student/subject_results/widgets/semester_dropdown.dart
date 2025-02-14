@@ -13,7 +13,7 @@ class SemesterDropdown extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedSemesterState = ref.watch(semesterProvider);
+    final selectedSemesterState = ref.watch(selectedSemesterProvider);
 
     return DropdownButton<Semester?>(
       elevation: 2,
@@ -36,7 +36,7 @@ class SemesterDropdown extends ConsumerWidget {
         ),
       ],
       onChanged: (Semester? value) {
-        ref.read(semesterProvider.notifier).state = value;
+        ref.read(selectedSemesterProvider.notifier).state = value;
       },
     );
   }

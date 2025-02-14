@@ -115,5 +115,11 @@
   "childResults": "Child Results",
   "childDetails": "Child Details",
   "subjects": "Subjects",
-  "notifications": "Notifications"
+  "notifications": "Notifications",
+  "files": "Files",
+  "urls": "Urls",
+  "videos": "Videos",
+  "audios": "Audios",
+  "documents": "Documents",
+  "ar": "Ar"
 }

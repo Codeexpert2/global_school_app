@@ -44,7 +44,7 @@ class ApiClient {
         enabled: kDebugMode,
         requestHeader: true,
         requestBody: true,
-        responseBody: false,
+        responseBody: true,
         responseHeader: false,
         request: true,
         error: true,
