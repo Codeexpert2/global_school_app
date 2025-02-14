@@ -7,7 +7,9 @@ import 'package:global_school/components/main/custom_section_header.dart';
 import 'package:global_school/components/main/logo.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/components/main/main_drawer.dart';
+import 'package:global_school/core/functions/generate_gradient.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
+import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/core/router/app_routes.dart';
 
 import '../subjects/provider/subject_provider.dart';
@@ -69,14 +71,14 @@ class HomeScreen extends ConsumerWidget {
                         context,
                         title: S.of(context).fees,
                         progress: 0.75,
-                        color: Colors.blue.shade100,
+                        color: Colors.blue.shade400,
                       ),
                       const SizedBox(width: 16.0),
                       _buildCircularProgressCard(
                         context,
                         title: S.of(context).attendanceRate,
                         progress: 0.4,
-                        color: Colors.red.shade100,
+                        color: Colors.red.shade400,
                       ),
                     ],
                   ),
@@ -175,7 +177,7 @@ class HomeScreen extends ConsumerWidget {
       margin: const EdgeInsets.all(16.0),
       padding: const EdgeInsets.all(24.0),
       decoration: BoxDecoration(
-        color: Colors.green.shade100,
+        gradient: generateGradient(Colors.green.shade300),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Row(
@@ -270,16 +272,20 @@ class HomeScreen extends ConsumerWidget {
       child: Container(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: color,
+          // color: color,
+          gradient: generateGradient(color),
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Column(
           children: [
             Text(
               title,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    // color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 16.0),
             Stack(
               alignment: Alignment.center,
               children: [
