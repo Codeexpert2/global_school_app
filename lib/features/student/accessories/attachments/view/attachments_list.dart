@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/features/student/accessories/attachments/widgets/audio_player_page.dart';
 import 'package:global_school/features/student/accessories/attachments/widgets/image_viewer_page.dart';
-import 'package:global_school/features/student/accessories/attachments/widgets/pdf_Vvewer_page.dart';
+import 'package:global_school/features/student/accessories/widgets/pdf_viewer_page.dart';
 import 'package:global_school/features/student/accessories/widgets/video_player_page.dart';
 import 'package:global_school/features/student/accessories/widgets/youtube_video_player.dart';
 

@@ -11,7 +11,7 @@ class PDFViewerPage extends StatefulWidget {
     super.key,
     required this.pdfPath,
   });
-  final String pdfPath;
+  final String? pdfPath;
 
   @override
   State<PDFViewerPage> createState() => _PDFViewerPageState();
@@ -24,7 +24,7 @@ class _PDFViewerPageState extends State<PDFViewerPage> {
       final downloadsDirectory = await getExternalStorageDirectory();
       if (downloadsDirectory != null) {
         final destinationPath = '${downloadsDirectory.path}/SavedDoc2.pdf';
-        final file = File(sourcePath);
+        final file = File(sourcePath ?? '');
 
         if (await file.exists()) {
           await file.copy(destinationPath);
@@ -52,7 +52,7 @@ class _PDFViewerPageState extends State<PDFViewerPage> {
           //   File(widget.pdfPath),
           // ),
           SfPdfViewer.asset(
-            widget.pdfPath,
+            widget.pdfPath ?? '',
           ),
           Positioned(
             bottom: 20,

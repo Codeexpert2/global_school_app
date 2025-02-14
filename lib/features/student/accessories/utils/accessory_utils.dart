@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:global_school/core/enums/accessorie_content_type.dart';
 import 'package:global_school/core/utils/snackbars.dart';
 import 'package:global_school/features/student/accessories/model/accessorie_model.dart';
+import 'package:global_school/features/student/accessories/widgets/pdf_viewer_page.dart';
 import 'package:global_school/features/student/accessories/widgets/video_player_page.dart';
 import 'package:global_school/features/student/accessories/widgets/youtube_video_player.dart';
 
@@ -54,8 +55,12 @@ Widget buildActionButton(
     case ContentType.files:
       icon = Icons.file_open;
       onPressed = () {
-        // TODO: فتح الملف
-        showInfoSnackbar('فتح الملف: ${accessory.file}');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PDFViewerPage(pdfPath: accessory.file),
+          ),
+        );
       };
       break;
     case ContentType.urls:
@@ -74,7 +79,6 @@ Widget buildActionButton(
     case ContentType.videos:
       icon = Icons.play_circle_filled;
       onPressed = () {
-        showInfoSnackbar('تشغيل الفيديو: ${accessory.videos}');
         if (accessory.videos != null &&
             (accessory.videos!.contains('youtube.com') ||
                 accessory.videos!.contains('youtu.be'))) {
