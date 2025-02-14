@@ -1,0 +1,76 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run inc.sh",
+            "type": "flutter",
+            "command": "sh",
+            "args": [
+                "inc.sh"
+            ],
+            "detail": "Executes a setup script."
+        },
+        {
+            "label": "Dart Fix and Apply",
+            "type": "flutter",
+            "command": "dart",
+            "args": [
+                "fix",
+                "--apply"
+            ],
+            "detail": "Fixes Dart issues automatically."
+        },
+        {
+            "label": "Flutter Templete: flutter build appbundle",
+            "type": "flutter",
+            "group": "build",
+            "detail": "Creates an Android App Bundle (AAB).",
+            "command": "flutter",
+            "args": [
+                "build",
+                "appbundle"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Dart Fix and Apply",
+                "Flutter Clean",
+                "Run inc.sh"
+            ]
+        },
+        {
+            "label": "Flutter Templete: flutter build apk",
+            "type": "flutter",
+            "group": "build",
+            "detail": "Generates split APKs for Android.",
+            "command": "flutter",
+            "args": [
+                "build",
+                "apk",
+                "--split-per-abi"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Dart Fix and Apply",
+                "Flutter Clean",
+                "Run inc.sh"
+            ]
+        },
+        {
+            "label": "Flutter Templete: flutter build ipa",
+            "type": "flutter",
+            "group": "build",
+            "detail": "Builds an iOS app archive (IPA).",
+            "command": "flutter",
+            "args": [
+                "build",
+                "ipa"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Dart Fix and Apply",
+                "Flutter Clean",
+                "Run inc.sh"
+            ]
+        }
+    ]
+}
