@@ -8,6 +8,7 @@ class AppConfigs {
   static const String topic = 'general';
   static const Duration period = Duration(seconds: 1);
   static const int perPage = 10;
+  static const int cacheDays = 7;
   // Terms of Service link
   static const String termsOfServiceUrl =
       'https://your-terms-of-service-url.com';
