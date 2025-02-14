@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:global_school/core/router/app_routes.dart';
 
 class StudentServiceCard extends StatelessWidget {
@@ -19,49 +20,77 @@ class StudentServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 4,
+      ),
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 4,
       ),
-      child: Card(
-        elevation: 8,
-        color: Theme.of(context).highlightColor,
-        shadowColor: Theme.of(context).shadowColor,
-        shape: RoundedRectangleBorder(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              color.withOpacity(.7),
+              color.withOpacity(.6),
+              color.withOpacity(.5),
+              color.withOpacity(.4),
+            ],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
           borderRadius: BorderRadius.circular(12),
-        ),
-        child: ListTile(
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 12,
-          ),
-          leading: CircleAvatar(
-            radius: 24,
-            backgroundColor: color.withOpacity(0.2),
-            child: Icon(icon, size: 28, color: color),
-          ),
-          title: Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-          ),
-          subtitle: Text(
-            subtitle,
-            style: TextStyle(
-              color: Colors.grey.shade600,
-              fontSize: 14,
+          boxShadow: [
+            BoxShadow(
+              color: color.withOpacity(.1),
+              blurRadius: 8,
+            ),
+          ]),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 16,
+            left: 32,
+            child: Icon(
+              icon,
+              size: 64,
+              color: Colors.white.withOpacity(.25),
             ),
           ),
-          trailing: const Icon(
-            Icons.arrow_forward_ios_rounded,
-            size: 18,
-            color: Colors.grey,
+          ListTile(
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 12,
+            ),
+            leading: CircleAvatar(
+              radius: 24,
+              backgroundColor: Colors.white.withOpacity(0.5),
+              child: Icon(icon, size: 28, color: color),
+            ),
+            title: Text(
+              title,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    // color: Colors.white,
+                  ),
+            ),
+            subtitle: Text(
+              subtitle,
+              style: const TextStyle(
+                // color: Colors.grey.shade600,
+                fontSize: 14,
+              ),
+            ),
+            trailing: const Icon(
+              Icons.arrow_forward_ios_rounded,
+              size: 18,
+              // color: Colors.grey,
+            ),
+            onTap: () => context.pushNamed(routeName),
           ),
-          onTap: () => context.pushNamed(routeName),
-        ),
+        ],
       ),
     );
   }

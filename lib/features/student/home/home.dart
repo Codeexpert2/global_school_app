@@ -2,28 +2,22 @@ import 'package:flutter/material.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:global_school/components/loading/loading_widget.dart';
 import 'package:global_school/components/main/custom_section_header.dart';
 import 'package:global_school/components/main/logo.dart';
 import 'package:global_school/components/main/main_appbar.dart';
 import 'package:global_school/components/main/main_drawer.dart';
 import 'package:global_school/core/functions/generate_gradient.dart';
 import 'package:global_school/core/locale/generated/l10n.dart';
-import 'package:global_school/core/log/app_logs.dart';
 import 'package:global_school/core/router/app_routes.dart';
 
-import '../subjects/provider/subject_provider.dart';
-
+import 'widget/home_subjects_section.dart';
 import 'widget/student_service_card.dart';
-import 'widget/subject_card.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final subjects = ref.watch(studentSubjectsProvider);
-
     return Scaffold(
       appBar: MainAppBar(
         title: const Logo(
@@ -56,118 +50,101 @@ class HomeScreen extends ConsumerWidget {
         ],
       ),
       drawer: const MainDrawer(),
-      body: subjects.when(
-        data: (subjects) {
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildWelcomeCard(context),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    children: [
-                      _buildCircularProgressCard(
-                        context,
-                        title: S.of(context).fees,
-                        progress: 0.75,
-                        color: Colors.blue.shade400,
-                      ),
-                      const SizedBox(width: 16.0),
-                      _buildCircularProgressCard(
-                        context,
-                        title: S.of(context).attendanceRate,
-                        progress: 0.4,
-                        color: Colors.red.shade400,
-                      ),
-                    ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildWelcomeCard(context),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  _buildCircularProgressCard(
+                    context,
+                    title: S.of(context).fees,
+                    progress: 0.75,
+                    color: Colors.blue.shade400,
                   ),
-                ),
-                HomeSectionHeader(
-                  title: S.of(context).mySubjects,
-                  actionText: S.of(context).viewAll,
-                  onActionTap: () => context.pushNamed(
-                    AppRoutes.studentSubjects.name,
+                  const SizedBox(width: 16.0),
+                  _buildCircularProgressCard(
+                    context,
+                    title: S.of(context).attendanceRate,
+                    progress: 0.4,
+                    color: Colors.red.shade400,
                   ),
-                ),
-                SizedBox(
-                  height: 124,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: subjects.length,
-                    itemBuilder: (context, index) {
-                      return SubjectCard(
-                        subject: subjects[index],
-                      );
-                    },
-                  ),
-                ),
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(
-                //     horizontal: 16.0,
-                //   ),
-                //   child: Row(
-                //     children: [
-                //       const Icon(Icons.trending_up_rounded),
-                //       const SizedBox(width: 8.0),
-                //       Text(
-                //         S.of(context).yourProgressToday,
-                //         style: Theme.of(context).textTheme.titleLarge,
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                // _buildProgressCard(context),
-
-                StudentServiceCard(
-                  title: 'Recorded Lessons',
-                  subtitle: 'Watch pre-recorded lessons anytime',
-                  icon: Icons.play_circle_fill,
-                  color: Colors.blueAccent,
-                  routeName: AppRoutes.studentRecordedLesson.name,
-                ),
-                StudentServiceCard(
-                  title: 'Online Lessons',
-                  subtitle: 'Join live online classes',
-                  icon: Icons.videocam_rounded,
-                  color: Colors.green,
-                  routeName: AppRoutes.studentLessonHome.name,
-                ),
-                StudentServiceCard(
-                  title: 'Subject Results',
-                  subtitle: 'Subject Results',
-                  icon: Icons.edit_document,
-                  color: Colors.blue,
-                  routeName: AppRoutes.studentSubjectResults.name,
-                ),
-                StudentServiceCard(
-                  title: 'Attachments',
-                  subtitle: 'Download study materials and files',
-                  icon: Icons.attach_file,
-                  color: Colors.orange,
-                  routeName: AppRoutes.studentAttachments.name,
-                ),
-                StudentServiceCard(
-                  title: 'Exams',
-                  subtitle: 'View upcoming and past exams',
-                  icon: Icons.assignment,
-                  color: Colors.redAccent,
-                  routeName: AppRoutes.studentExam.name,
-                ),
-                StudentServiceCard(
-                  title: 'Exam Results',
-                  subtitle: 'Check your latest exam scores',
-                  icon: Icons.bar_chart_rounded,
-                  color: Colors.purple,
-                  routeName: AppRoutes.studentExam.name,
-                ),
-                const SizedBox(height: 16),
-              ],
+                ],
+              ),
             ),
-          );
-        },
-        loading: LoadingWidget.new,
-        error: (error, stack) => Center(child: Text('Error: $error')),
+            HomeSectionHeader(
+              title: S.of(context).mySubjects,
+              actionText: S.of(context).viewAll,
+              onActionTap: () => context.pushNamed(
+                AppRoutes.studentSubjects.name,
+              ),
+            ),
+            const HomeSubjectsSection(),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(
+            //     horizontal: 16.0,
+            //   ),
+            //   child: Row(
+            //     children: [
+            //       const Icon(Icons.trending_up_rounded),
+            //       const SizedBox(width: 8.0),
+            //       Text(
+            //         S.of(context).yourProgressToday,
+            //         style: Theme.of(context).textTheme.titleLarge,
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // _buildProgressCard(context),
+
+            StudentServiceCard(
+              title: 'Recorded Lessons',
+              subtitle: 'Watch pre-recorded lessons anytime',
+              icon: Icons.play_circle_fill,
+              color: Colors.blueAccent,
+              routeName: AppRoutes.studentRecordedLesson.name,
+            ),
+            StudentServiceCard(
+              title: 'Online Lessons',
+              subtitle: 'Join live online classes',
+              icon: Icons.videocam_rounded,
+              color: Colors.green,
+              routeName: AppRoutes.studentLessonHome.name,
+            ),
+            StudentServiceCard(
+              title: 'Subject Results',
+              subtitle: 'Subject Results',
+              icon: Icons.edit_document,
+              color: Colors.blue,
+              routeName: AppRoutes.studentSubjectResults.name,
+            ),
+            StudentServiceCard(
+              title: 'Attachments',
+              subtitle: 'Download study materials and files',
+              icon: Icons.attach_file,
+              color: Colors.orange,
+              routeName: AppRoutes.studentAttachments.name,
+            ),
+            StudentServiceCard(
+              title: 'Exams',
+              subtitle: 'View upcoming and past exams',
+              icon: Icons.assignment,
+              color: Colors.redAccent,
+              routeName: AppRoutes.studentExam.name,
+            ),
+            StudentServiceCard(
+              title: 'Exam Results',
+              subtitle: 'Check your latest exam scores',
+              icon: Icons.bar_chart_rounded,
+              color: Colors.purple,
+              routeName: AppRoutes.studentExam.name,
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
       ),
     );
   }
