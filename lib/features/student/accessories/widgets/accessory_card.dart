@@ -25,7 +25,7 @@ class AccessoryCard extends StatelessWidget {
       shadowColor: Colors.deepPurple.withOpacity(0.2),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
-        onTap: () => showInfoSnackbar('تم النقر على: ${accessory.topic}'),
+        onTap: () => {},
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -53,7 +53,7 @@ class AccessoryCard extends StatelessWidget {
                   ],
                 ),
               ),
-              buildActionButton(context,accessory, contentType),
+              buildActionButton(context, accessory, contentType),
             ],
           ),
         ),

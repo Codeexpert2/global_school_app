@@ -15,6 +15,11 @@ enum AppRoutes {
   notifications('/notifications', 'notifications'),
   settings('/settings', 'settings'),
 
+  // global,
+  pdfViewer('/pdf-viewer/:pdfPath', 'pdfViewer'),
+  videoPlayer('/video-player/:videoUrl', 'videoPlayer'),
+  youtubeVideoPlayer('/youtube-video-player/:videoUrl', 'youtubeVideoPlayer'), 
+  imageViewer('/image-viewet/:imageUrl', 'imageViewer'), 
 
   // student,
   studentHome('/student/home', 'studentHome'),
@@ -31,9 +36,12 @@ enum AppRoutes {
   studentSuccessquiz('/student/success-quiz', 'studentSuccessQuiz'),
   studentFailurequiz('/student/failure-quiz', 'studentFailureQuiz'),
   studentSubjectResults('/student/subject-results', 'studentSubjectResults'),
-  studentOnlineLesson('/student/online-lesson/subject/:subjectId', 'studentOnlineLesson'),
-  studentRecordedLesson('/student/recorded-lesson/subject/:subjectId', 'studentRecordedLesson'),
-  studentLessonSelection('/student/selection-lesson/:subjectId', 'studentLessonSelection'),
+  studentOnlineLesson(
+      '/student/online-lesson/subject/:subjectId', 'studentOnlineLesson'),
+  studentRecordedLesson(
+      '/student/recorded-lesson/subject/:subjectId', 'studentRecordedLesson'),
+  studentLessonSelection(
+      '/student/selection-lesson/:subjectId', 'studentLessonSelection'),
   studentOnlineLessonDetails(
       '/student/online-lesson/:lessonId', 'studentOnlineLessonDetails'),
   studentCertificateDetails(

@@ -7,7 +7,6 @@ import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/themes/app_colors.dart';
 import 'package:global_school/core/themes/app_gradients.dart';
 import 'package:global_school/features/auth/providers/auth_provider.dart';
-import 'package:global_school/features/shared/settings/pages/settings_screen.dart';
 import 'package:global_school/features/student/word_wall/page/word_wall_page.dart';
 
 import 'app_divider.dart';

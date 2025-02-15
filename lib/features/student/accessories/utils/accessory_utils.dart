@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:global_school/core/enums/accessorie_content_type.dart';
+import 'package:global_school/core/router/app_routes.dart';
 import 'package:global_school/core/utils/snackbars.dart';
 import 'package:global_school/features/student/accessories/model/accessorie_model.dart';
-import 'package:global_school/features/student/accessories/widgets/image_viewer_page.dart';
-import 'package:global_school/features/student/accessories/widgets/pdf_viewer_page.dart';
-import 'package:global_school/features/student/accessories/widgets/video_player_page.dart';
-import 'package:global_school/features/student/accessories/widgets/youtube_video_player.dart';
 
 Widget buildContent(Accessorie accessory, ContentType contentType) {
   Widget content;
@@ -56,12 +53,9 @@ Widget buildActionButton(
     case ContentType.files:
       icon = Icons.file_open;
       onPressed = () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => PDFViewerPage(pdfPath: accessory.file),
-          ),
-        );
+        context.pushNamed(AppRoutes.pdfViewer.name, pathParameters: {
+          'pdfPath': accessory.file ?? '',
+        });
       };
       break;
     case ContentType.urls:
@@ -83,32 +77,22 @@ Widget buildActionButton(
         if (accessory.videos != null &&
             (accessory.videos!.contains('youtube.com') ||
                 accessory.videos!.contains('youtu.be'))) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>
-                  YoutubeVideoPlayer(videoUrl: accessory.videos),
-            ),
-          );
+          context.pushNamed(AppRoutes.youtubeVideoPlayer.name, pathParameters: {
+            'videoUrl': accessory.videos ?? '',
+          });
         } else {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => VideoPlayerPage(videoUrl: accessory.videos),
-            ),
-          );
+          context.pushNamed(AppRoutes.videoPlayer.name, pathParameters: {
+            'videoUrl': accessory.videos ?? '',
+          });
         }
       };
       break;
     case ContentType.images:
       icon = Icons.zoom_in;
       onPressed = () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ImageViewerPage(imageUrl: accessory.images),
-          ),
-        );
+        context.pushNamed(AppRoutes.imageViewer.name, pathParameters: {
+            'imageUrl': accessory.images ?? '',
+          });
       };
       break;
     default:

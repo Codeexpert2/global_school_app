@@ -19,6 +19,10 @@ import 'package:global_school/features/shared/statics/about.dart';
 import 'package:global_school/features/shared/statics/privacy_policy.dart';
 import 'package:global_school/features/shared/statics/terms_conditions.dart';
 import 'package:global_school/features/student/accessories/pages/accessories_page.dart';
+import 'package:global_school/features/student/accessories/widgets/image_viewer_page.dart';
+import 'package:global_school/features/student/accessories/widgets/pdf_viewer_page.dart';
+import 'package:global_school/features/student/accessories/widgets/video_player_page.dart';
+import 'package:global_school/features/student/accessories/widgets/youtube_video_player.dart';
 import 'package:global_school/features/student/ar/ar_page.dart';
 import 'package:global_school/features/student/ar/model_viewer_page.dart';
 import 'package:global_school/features/student/calendar/view/calender.dart';
@@ -131,6 +135,39 @@ List<RouteBase> routes = <RouteBase>[
         name: AppRoutes.settings.name,
         builder: (_, __) => const SettingsScreen(),
       ),
+      GoRoute(
+        path: AppRoutes.pdfViewer.path,
+        name: AppRoutes.pdfViewer.name,
+        builder: (context, state) {
+          final pdfPath = state.pathParameters['pdfPath'];
+          return PDFViewerPage(pdfPath: pdfPath ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.youtubeVideoPlayer.path,
+        name: AppRoutes.youtubeVideoPlayer.name,
+        builder: (context, state) {
+          final videoUrl = state.pathParameters['videoUrl'];
+          return YoutubeVideoPlayer(videoUrl: videoUrl ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.videoPlayer.path,
+        name: AppRoutes.videoPlayer.name,
+        builder: (context, state) {
+          final videoUrl = state.pathParameters['videoUrl'];
+          return VideoPlayerPage(videoUrl: videoUrl ?? '');
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.imageViewer.path,
+        name: AppRoutes.imageViewer.name,
+        builder: (context, state) {
+          final imageUrl = state.pathParameters['imageUrl'];
+          return ImageViewerPage(imageUrl: imageUrl ?? '');
+        },
+      ),
+
       // base student
       GoRoute(
         name: AppRoutes.studentHome.name,
