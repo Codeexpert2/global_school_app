@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:global_school/core/locale/generated/l10n.dart';
-import 'package:global_school/core/themes/app_colors.dart';
-import 'package:global_school/core/themes/app_gradients.dart';
-import 'package:global_school/features/shared/settings/pages/settings_screen.dart';
-import 'package:global_school/features/student/word_wall/page/word_wall_page.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:global_school/core/locale/generated/l10n.dart';
 import 'package:global_school/core/router/app_routes.dart';
+import 'package:global_school/core/themes/app_colors.dart';
+import 'package:global_school/core/themes/app_gradients.dart';
 import 'package:global_school/features/auth/providers/auth_provider.dart';
+import 'package:global_school/features/shared/settings/pages/settings_screen.dart';
+import 'package:global_school/features/student/word_wall/page/word_wall_page.dart';
+
 import 'app_divider.dart';
 
 class MainDrawer extends ConsumerWidget {
@@ -99,31 +100,6 @@ class MainDrawer extends ConsumerWidget {
                 context.pushNamed(AppRoutes.studentCertificates.name);
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.add_to_photos_rounded),
-              title: const Text(
-                'Notification',
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                context.pushNamed(AppRoutes.notifications.name);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.assignment),
-              title: const Text(
-                'Settings',
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ),
-                );
-              },
-            ),
             const AppDivider(),
             ListTile(
               leading: const Icon(Icons.sports_esports),
@@ -141,16 +117,6 @@ class MainDrawer extends ConsumerWidget {
                     // ),
                   ),
                 );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.sports_esports),
-              title: Text(
-                S.of(context).attachments,
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                context.pushNamed(AppRoutes.studentAttachments.name);
               },
             ),
             ListTile(
