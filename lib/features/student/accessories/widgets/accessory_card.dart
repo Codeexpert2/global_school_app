@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:global_school/components/images/cached_image.dart';
 import 'package:global_school/core/enums/accessorie_content_type.dart';
-import 'package:global_school/core/utils/snackbars.dart';
 import 'package:global_school/features/student/accessories/utils/accessory_utils.dart';
 
 import '../model/accessorie_model.dart';
